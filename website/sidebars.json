@@ -1,0 +1,30 @@
+{
+  "docs": {
+    "Introduction": [
+      "doc-index",
+      "doc-init",
+      "doc-locales",
+      "doc-math"
+    ],
+    "API": [
+      "api-buddhistdate",
+      "api-calendardate",
+      "api-cldr",
+      "api-cldr-calendars",
+      "api-cldr-numbers",
+      "api-currencyformatoptions",
+      "api-currencyformatstyletype",
+      "api-currencytype",
+      "api-datetimepatternfieldtype",
+      "api-decimal",
+      "api-decimalformatoptions",
+      "api-decimalformatstyletype",
+      "api-gregoriandate",
+      "api-iso8601date",
+      "api-japanesedate",
+      "api-persiandate",
+      "api-roundingmodetype",
+      "api-unixepochtime"
+    ]
+  }
+}

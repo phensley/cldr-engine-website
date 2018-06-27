@@ -1,0 +1,5 @@
+/build
+/static/liveapi.*
+/static/packs
+
+yarn.lock
