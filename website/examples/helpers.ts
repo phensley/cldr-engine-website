@@ -10,4 +10,3 @@ const loader = (language: string): any => {
 };
 
 export const framework = new CLDRFramework({ loader });
-

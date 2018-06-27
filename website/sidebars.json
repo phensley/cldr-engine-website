@@ -7,11 +7,17 @@
       "doc-math"
     ],
     "API": [
-      "api-buddhistdate",
-      "api-calendardate",
       "api-cldr",
       "api-cldr-calendars",
+      "api-cldr-general",
+      "api-cldr-locales",
       "api-cldr-numbers",
+      "api-cldr-units"
+    ],
+    "Types": [
+      "api-availablelocales",
+      "api-buddhistdate",
+      "api-calendardate",
       "api-currencyformatoptions",
       "api-currencyformatstyletype",
       "api-currencytype",
@@ -22,7 +28,11 @@
       "api-gregoriandate",
       "api-iso8601date",
       "api-japanesedate",
+      "api-locale",
+      "api-localematcher",
+      "api-parselocale",
       "api-persiandate",
+      "api-quantity",
       "api-roundingmodetype",
       "api-unixepochtime"
     ]
