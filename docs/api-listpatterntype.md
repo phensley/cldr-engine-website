@@ -6,7 +6,8 @@ title: ListPatternType
 ### Syntax
 
 <pre class="syntax">
-'and' | 'and-short' | 'or' | 'unit-long' | 'unit-narrow' | 'unit-short'
+'and' | 'and-short' | 'or' | 'unit-long' |
+'unit-narrow' | 'unit-short'
 </pre>
 
 ### Example

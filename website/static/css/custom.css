@@ -92,12 +92,11 @@ code.def span {
   color: green;
 }
 
-li {
+ul li {
   list-style-type: none;
-  /* border-left: 1px solid red; */
 }
 
-li.list {
+ul li.list {
   list-style-type: unset;
 }
 

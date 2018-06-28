@@ -24,7 +24,7 @@ object {
     - Format the date only, using the format of the given width.
   - <code>time?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
     - Format the time only, using the format of the given width.
-  - <code>skeleton?: <span>string ([date skeleton](api-dateskeleton.html)))</span></code>
+  - <code>skeleton?: <span>string ([date skeleton](api-date-time-skeleton.html)))</span></code>
     - Format using a flexible skeleton that defines which fields should appear in the date.
   - <code>wrap?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
     - Override the wrapper used to format date + time.

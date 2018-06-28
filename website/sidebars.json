@@ -16,35 +16,45 @@
       "api-cldr-numbers",
       "api-cldr-units"
     ],
-    "Types": [
-      "api-availablelocales",
+    "Calendars": [
       "api-buddhistdate",
       "api-calendardate",
       "api-calendartype",
-      "api-currencyformatoptions",
-      "api-currencyformatstyletype",
-      "api-currencytype",
       "api-dateformatoptions",
-      "api-dateskeleton",
+      "api-dateintervalformatoptions",
+      "api-date-time-skeleton",
       "api-datetimepatternfieldtype",
-      "api-decimal",
-      "api-decimalformatoptions",
-      "api-decimalformatstyletype",
       "api-gregoriandate",
       "api-iso8601date",
       "api-japanesedate",
-      "api-listpatterntype",
+      "api-persiandate",
+      "api-relativetimeformatoptions",
+      "api-unixepochtime"
+    ],
+    "General": [
+      "api-listpatterntype"
+    ],
+    "Locales": [
+      "api-availablelocales",
+      "api-bundle",
       "api-locale",
       "api-localematcher",
+      "api-parselocale"
+    ],
+    "Numbers": [
+      "api-currencyformatoptions",
+      "api-currencyformatstyletype",
+      "api-currencytype",
+      "api-decimal",
+      "api-decimalformatoptions",
+      "api-decimalformatstyletype",
       "api-numbersystemtype",
-      "api-parselocale",
-      "api-persiandate",
+      "api-roundingmodetype"
+    ],
+    "Units": [
       "api-quantity",
-      "api-relativetimeformatoptions",
-      "api-roundingmodetype",
       "api-unitformatoptions",
-      "api-unitlength",
-      "api-unixepochtime"
+      "api-unitlength"
     ]
   }
 }
