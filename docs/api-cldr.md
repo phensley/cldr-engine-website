@@ -20,8 +20,6 @@ several namespaces.
 In order to make use of any localized functionality you need to obtain a `CLDR` instance from the
 framework.
 
-The examples below assume a local value <code class="def">cldr</code> has been constructed using the framework.
-
 Synchronous:
 ```typescript
 const cldr: CLDR = framework.get('en');

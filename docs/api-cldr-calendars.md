@@ -36,14 +36,14 @@ fieldOfGreatestDifference(a, b): DateTimePatternFieldType
 
 ```typescript
 // June 27, 2018 4:23:00 AM
-const base = 1530087780000;
+const epoch = 1530087780000;
 const zone = 'America/New_York';
-const d1 = cldr.Calendars.newGregorianDate(base, zone);
+const d1 = cldr.Calendars.newGregorianDate(epoch, zone);
 
 const factors = [0.0002, 0.005, 0.25, .75, 3, 50, 425, 1000];
 factors.forEach(f => {
   const days = f * 86400 * 1000;
-  const d2 = cldr.Calendars.newGregorianDate(base + days, zone);
+  const d2 = cldr.Calendars.newGregorianDate(epoch + days, zone);
   const field = cldr.Calendars.fieldOfGreatestDifference(d1, d2);
   console.log(`${field} ->  ${d2.toString()}`);
 });
@@ -62,6 +62,35 @@ y ->  Gregorian 2021-03-23 04:23:00.000 America/New_York
 
 
 ## formatDate
+
+Format a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepochtime.html) instance to a string.
+
+#### Syntax
+
+<pre class="syntax">
+formatDate(date [, options]): string
+</pre>
+
+
+#### Parameters
+
+  - <code>date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+    - Date or timestamp to format
+  - <code>options?: <span>[DateFormatOptions](api-dateformatoptions.html)</span></code>
+    - Options to control formatting
+
+
+#### Example
+
+```typescript
+const epoch = 1530087780000;
+const zoneId = 'America/New_York';
+cldr.Calendars.formatDate({ epoch, zoneId }, { datetime: 'full' });
+```
+
+<pre class="output">
+Wednesday, June 27, 2018 at 4:23:00 AM Eastern Daylight Time
+</pre>
 
 ## formatDateToParts
 

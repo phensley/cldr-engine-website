@@ -5,7 +5,9 @@
       "doc-init",
       "doc-locales",
       "doc-math"
-    ],
+    ]
+  },
+  "reference": {
     "API": [
       "api-cldr",
       "api-cldr-calendars",
@@ -18,9 +20,12 @@
       "api-availablelocales",
       "api-buddhistdate",
       "api-calendardate",
+      "api-calendartype",
       "api-currencyformatoptions",
       "api-currencyformatstyletype",
       "api-currencytype",
+      "api-dateformatoptions",
+      "api-dateskeleton",
       "api-datetimepatternfieldtype",
       "api-decimal",
       "api-decimalformatoptions",
@@ -30,6 +35,7 @@
       "api-japanesedate",
       "api-locale",
       "api-localematcher",
+      "api-numbersystemtype",
       "api-parselocale",
       "api-persiandate",
       "api-quantity",

@@ -19,7 +19,8 @@
   },
   "include": [
     "./*.js",
-    "liveapi/**/*"
+    "liveapi/**/*",
+    "examples/*"
   ],
   "exclude": [
     "node_modules"

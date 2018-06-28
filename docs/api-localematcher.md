@@ -37,10 +37,14 @@ console.log(`${locale.id} distance ${distance}`);
 
 ({ distance, locale } = localeMatcher.match('en-ZA'));
 console.log(`${locale.id} distance ${distance}`);
+
+({ distance, locale } = localeMatcher.match('en-ZA, es'));
+console.log(`${locale.id} distance ${distance}`);
 ```
 
 <pre class="output">
 pt-BR distance 0
 es-419 distance 4
 en-GB distance 3
+es distance 0
 </pre>

@@ -16,3 +16,6 @@ console.log(`${locale.id} distance ${distance}`);
 
 ({ distance, locale } = localeMatcher.match('en-ZA'));
 console.log(`${locale.id} distance ${distance}`);
+
+({ distance, locale } = localeMatcher.match('en-ZA, es'));
+console.log(`${locale.id} distance ${distance}`);
