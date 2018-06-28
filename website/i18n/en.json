@@ -6,7 +6,7 @@
     "tagline": "CLDR internationalization in Typescript, batteries-included",
     "api-availablelocales": "availableLocales",
     "api-buddhistdate": "BuddhistDate",
-    "api-bundle": "api-bundle",
+    "api-bundle": "Bundle",
     "api-calendardate": "CalendarDate",
     "api-calendartype": "CalendarType",
     "api-cldr-calendars": "CLDR.Calendars",

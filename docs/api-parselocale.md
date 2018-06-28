@@ -18,6 +18,7 @@ parseLocale(id): Locale
 ### Example
 
 ```typescript
+import { parseLocale } from '@phensley/cldr';
 for (const str of ['en_US', 'zh', 'fr-CA-u-ca-persian-u-nu-mathmono']) {
   const { id, tag } = parseLocale(str);
   console.log(`${tag.expanded()}`);
