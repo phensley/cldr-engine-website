@@ -33,13 +33,17 @@
       "api-gregoriandate",
       "api-iso8601date",
       "api-japanesedate",
+      "api-listpatterntype",
       "api-locale",
       "api-localematcher",
       "api-numbersystemtype",
       "api-parselocale",
       "api-persiandate",
       "api-quantity",
+      "api-relativetimeformatoptions",
       "api-roundingmodetype",
+      "api-unitformatoptions",
+      "api-unitlength",
       "api-unixepochtime"
     ]
   }

@@ -24,9 +24,9 @@ fieldOfGreatestDifference(a, b): DateTimePatternFieldType
 </pre>
 
 #### Parameters
-  - <code>a: <span>[CalendarDate](api-calendardate.html)</span></code>
+  - <code class="def">a: <span>[CalendarDate](api-calendardate.html)</span></code>
     - First date to compare
-  - <code>b: <span>[CalendarDate](api-calendardate.html)</span></code>
+  - <code class="def">b: <span>[CalendarDate](api-calendardate.html)</span></code>
     - Second date to compare
 
 #### Return value
@@ -66,19 +66,15 @@ y ->  Gregorian 2021-03-23 04:23:00.000 America/New_York
 Format a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepochtime.html) instance to a string.
 
 #### Syntax
-
 <pre class="syntax">
 formatDate(date [, options]): string
 </pre>
 
-
 #### Parameters
-
-  - <code>date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
     - Date or timestamp to format
-  - <code>options?: <span>[DateFormatOptions](api-dateformatoptions.html)</span></code>
+  - <code class="def">options?: <span>[DateFormatOptions](api-dateformatoptions.html)</span></code>
     - Options to control formatting
-
 
 #### Example
 
@@ -92,19 +88,178 @@ cldr.Calendars.formatDate({ epoch, zoneId }, { datetime: 'full' });
 Wednesday, June 27, 2018 at 4:23:00 AM Eastern Daylight Time
 </pre>
 
+
+
 ## formatDateToParts
+
+Format a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepochtime.html) instance to an array of parts.
+
+#### Parameters
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+    - Date or timestamp to format
+  - <code class="def">options?: <span>[DateFormatOptions](api-dateformatoptions.html)</span></code>
+    - Options to control formatting
+
+#### Example
+```typescript
+// June 27, 2018 4:23:00 AM
+const epoch = 1530087780000;
+const zoneId = 'America/New_York';
+
+cldr.Calendars.formatDateToParts({ epoch, zoneId }, { datetime: 'short' });
+```
+<pre class="output">
+[
+  { type: 'month', value: '6' },
+  { type: 'literal', value: '/' },
+  { type: 'day', value: '27' },
+  { type: 'literal', value: '/' },
+  { type: 'year', value: '18' },
+  { type: 'literal', value: ', ' },
+  { type: 'hour', value: '4' },
+  { type: 'literal', value: ':' },
+  { type: 'minute', value: '23' },
+  { type: 'literal', value: ' ' },
+  { type: 'dayperiod', value: 'AM' }
+]
+</pre>
+
 
 ## formatDateInterval
 
+Format a start and end date range to a string.
+
+#### Syntax
+<pre class="syntax">
+formatDateInterval(start, end [, options]): string
+</pre>
+
+#### Parameters
+  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+    - Start of the date range
+  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+    - End of the date range
+  - <code class="def">options?: <span>[DateIntervalFormatOptions](api-dateintervalformatoptions.html)</span></code>
+    - Options to control the format
+
+#### Examples
+
+```typescript
+// June 27, 2018 4:23:00 AM
+const epoch = 1530087780000;
+const zoneId = 'America/New_York';
+
+const day = 86400000;
+const start = { epoch, zoneId };
+for (const days of [1.2, 3, 17, 73, 1000]) {
+  const end = { epoch: epoch + (days * day), zoneId };
+  const result = cldr.Calendars.formatDateInterval(start, end, { skeleton: 'yMMMd' });
+  console.log(result);
+}
+```
+
+<pre class="output">
+Jun 27 – 28, 2018
+Jun 27 – 30, 2018
+Jun 27 – Jul 14, 2018
+Jun 27 – Sep 8, 2018
+Jun 27, 2018 – Mar 23, 2021
+</pre>
+
+
+
 ## formatDateIntervalToParts
 
-## formatRelativeTimeField
+Format a start and end date range to an array of parts.
+
+#### Syntax
+<pre class="syntax">
+formatDateInterval(start, end [, options]): Part[]
+</pre>
+
+#### Parameters
+  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+    - Start of the date range
+  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+    - End of the date range
+  - <code class="def">options?: <span>[DateIntervalFormatOptions](api-dateintervalformatoptions.html)</span></code>
+    - Options to control the format
+
+#### Example
+
+```typescript
+// June 27, 2018 4:23:00 AM
+const epoch = 1530087780000;
+const zoneId = 'America/New_York';
+
+const day = 86400000;
+const start = { epoch, zoneId };
+const end = { epoch: epoch + (day * 10), zoneId };
+cldr.Calendars.formatDateIntervalToParts(start, end, { skeleton: 'yMMMd' });
+```
+
+<pre class="output">
+[
+  { type: 'month', value: 'Jun' },
+  { type: 'literal', value: ' ' },
+  { type: 'day', value: '27' },
+  { type: 'literal', value: ' – ' },
+  { type: 'month', value: 'Jul' },
+  { type: 'literal', value: ' ' },
+  { type: 'day', value: '7' },
+  { type: 'literal', value: ', ' },
+  { type: 'year', value: '2018' }
+]
+</pre>
+
+
 
 ## formatDateRaw
 
+
+
 ## formatDateRawToParts
 
+
+## formatRelativeTimeField
+
+Formats a value as a unit of relative time.
+
+#### Syntax
+<pre class="syntax">
+formatRelativeTimeField(value, field [, options]): string
+</pre>
+
+#### Parameters
+  - <code class="def">value: <span>number | string | [Decimal](api-decimal.html)</span></code>
+    - Number of units
+  - <code class="def">field: <span>[DateFieldType](api-datefieldtype.html)</span></code>
+    - Field indicating the unit of relative time, e.g. `"month"`
+  - <code class="def">options?: <span>[RelativeTimeFormatOptions](api-relativetimeformatoptions.html)</span></code>
+    - Options to control the format
+
+#### Example
+
+```typescript
+for (const value of ['-2', -1, '0', 1, 3, new Decimal('12.5')]) {
+  const result = cldr.Calendars.formatRelativeTimeField(value, 'month', { });
+  console.log(result);
+}
+```
+
+<pre class="output">
+2 months ago
+last month
+this month
+next month
+in 3 months
+in 12.5 months
+</pre>
+
+
 ## months
+
+
 
 ## newBuddhistDate
 

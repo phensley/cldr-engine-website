@@ -1,3 +1,6 @@
+const { join } = require('path');
+const { headerLinks } = require('./siteData');
+
 const users = [
   {
     // caption: 'Foo',
@@ -14,14 +17,7 @@ const siteConfig = {
   projectName: 'cldr-engine',
   organizationName: 'phensley',
   gaTrackingId: 'UA-121435304-1',
-  headerLinks: [
-    { doc: 'doc-index', label: 'Docs' },
-    { doc: 'api-cldr', label: 'API' },
-    { href: '/cldr-engine/liveapi.html', label: 'Live'},
-    { href: 'https://phensley.github.io/cldr-engine-react-demo', label: 'Demo '},
-    { href: 'https://github.com/phensley/cldr-engine', label: 'Github' },
-    { href: 'https://www.npmjs.com/package/@phensley/cldr', label: 'NPM' }
-  ],
+  headerLinks: headerLinks,
   users,
   headerIcon: 'img/cldr-engine-logo-w.svg',
   footerIcon: 'img/cldr-engine-logo-w.svg',
@@ -53,6 +49,12 @@ const siteConfig = {
       md.renderer.rules.list_item_open = function(tokens, idx) {
         return (tokens[idx].char === '*') ? '<li class="list">' : '<li>';
       };
+    },
+    function include(md) {
+      const includeDir = join(__dirname, 'includes');
+      const { parse, render } = require('./markdown/include');
+      md.inline.ruler.push('include', parse(includeDir));
+      md.renderer.rules.include = render(md);
     }
   ]
 };

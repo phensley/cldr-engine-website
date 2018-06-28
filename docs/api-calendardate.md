@@ -16,6 +16,36 @@ title: CalendarDate
   * [JapaneseDate](api-japanesedate.html)
     * A date in the Japanese calendar
 
+## add
+
+Add or subtract a quantity from one or more calendar fields.
+
+#### Syntax
+
+<pre class="syntax">
+add(fields): CalendarDate
+</pre>
+
+
+#### Parameters
+  - <code>fields: <span>[CalendarDateFields](api-calendardatefields.html)</span></code>
+    - Amounts to add or subtract from fields.
+
+#### Example
+
+```typescript
+const date = cldr.Calendars.newGregorianDate(1530087780000, 'America/New_York');
+console.log(date.toString());
+console.log(date.add({ year: 1, month: 5 }).toString());
+console.log(date.add({ year: -5, day: 7, minute: 22 }).toString());
+```
+
+<pre class="output">
+Gregorian 2018-06-27 04:23:00.000 America/New_York
+Gregorian 2019-11-27 03:23:00.000 America/New_York
+Gregorian 2013-07-04 04:45:00.000 America/New_York
+</pre>
+
 ## dayOfMonth
 
 ## dayOfWeek

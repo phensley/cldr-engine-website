@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { headerLinks } from '../../siteConfig';
+import { headerLinks } from '../../siteData';
 
 const links = headerLinks;
 
