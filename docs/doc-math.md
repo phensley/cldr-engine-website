@@ -1,9 +1,9 @@
 ---
 id: doc-math
-title: Arbitrary Precision Math
+title: Decimal Math
 ---
 
-This project supports arbitrary precision decimal math via the `@phensley/cldr` package. This package can be used on its own if desired.
+This project supports arbitrary precision decimal math via the `@phensley/decimal` package. This package can be used on its own if desired.
 
 Arbitrary precision means the number of digits in a number is not limited arbitrarily.
 
