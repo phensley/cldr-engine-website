@@ -81,7 +81,14 @@ resolve(tag): Locale
 #### Example
 
 ```typescript
-for (const id of ['en_CA', 'zh', 'fr-u-ca-persian-u-nu-mathmono']) {
+const ids = [
+  'en_CA',
+  'ko',
+  'und-Cyrl',
+  'fr-u-ca-persian-u-nu-mathmono',
+  'und-CN'
+];
+for (const id of ids) {
   const { tag } = cldr.Locales.resolve(id);
   console.log(`${tag.language()}  ${tag.script()}  ${tag.region()}`);
 }
@@ -89,6 +96,8 @@ for (const id of ['en_CA', 'zh', 'fr-u-ca-persian-u-nu-mathmono']) {
 
 <pre class="output">
 en  Latn  CA
-zh  Hans  CN
+ko  Kore  KR
+ru  Cyrl  RU
 fr  Latn  FR
+zh  Hans  CN
 </pre>

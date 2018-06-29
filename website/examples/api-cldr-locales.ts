@@ -24,7 +24,14 @@ const SEP = '\n--------------------------------\n\n';
 
 (() => {
   const cldr = framework.get('en');
-  for (const id of ['en_CA', 'zh', 'fr-u-ca-persian-u-nu-mathmono']) {
+  const ids = [
+    'en_CA',
+    'ko',
+    'und-Cyrl',
+    'fr-u-ca-persian-u-nu-mathmono',
+    'und-CN'
+  ];
+  for (const id of ids) {
     const { tag } = cldr.Locales.resolve(id);
     console.log(`${tag.language()}  ${tag.script()}  ${tag.region()}`);
   }
