@@ -1,7 +1,7 @@
 const fs = require('fs');
 const { join } = require('path');
 
-const INCLUDE_RE = /\{\>\s*([\w\._-]+)\s*\}/;
+const INCLUDE_RE = /\{\>\s*([\w\/\._-]+)\s*\}/;
 
 var parse = function(includeDir) {
   return function(state) {
@@ -16,6 +16,7 @@ var parse = function(includeDir) {
 
     state.push({
       type: 'include',
+      path: path,
       data: data,
       level: state.level
     });
@@ -25,9 +26,15 @@ var parse = function(includeDir) {
 };
 
 var render = function(md) {
-  return function(tokens, idx, options) {
-    const { data } = tokens[idx];
-    return md.render(data);
+  return function(tokens, idx) {
+    const { path, data } = tokens[idx];
+    if (path.endsWith('.md')) {
+      return md.render(data);
+    } else if (path.endsWith('.ts')) {
+      const raw = data.endsWith('\n') ? data.trim() : data;
+      return md.render('```typescript\n' + raw + '\n```');
+    }
+    return data;
   };
 };
 

@@ -2,9 +2,14 @@
   "docs": {
     "Introduction": [
       "doc-index",
-      "doc-init",
-      "doc-locales",
-      "doc-math"
+      "doc-init"
+    ],
+    "Locales": [
+      "doc-locales"
+    ],
+    "Math": [
+      "doc-math",
+      "doc-math-example-factorial"
     ]
   },
   "reference": {

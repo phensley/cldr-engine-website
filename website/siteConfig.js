@@ -51,9 +51,8 @@ const siteConfig = {
       };
     },
     function include(md) {
-      const includeDir = join(__dirname, 'includes');
       const { parse, render } = require('./markdown/include');
-      md.inline.ruler.push('include', parse(includeDir));
+      md.inline.ruler.push('include', parse(__dirname));
       md.renderer.rules.include = render(md);
     }
   ]
