@@ -22,7 +22,7 @@ dayPeriods([calendar]): { [x: string]: string }
 </pre>
 
 #### Parameters
-  - <code class="def">calendar? <span>[CalendarType](api-calendartype.html)</span></code>
+  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
     - Override the calendar type
 
 #### Example
@@ -302,7 +302,7 @@ months([calendar]): { [x: number]: string }
 </pre>
 
 #### Parameters
-  - <code class="def">calendar? <span>[CalendarType](api-calendartype.html)</span></code>
+  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
     - Override the calendar type
 
 #### Example
@@ -353,7 +353,7 @@ quarters([calendar]): { [x: number]: string }
 </pre>
 
 #### Parameters
-  - <code class="def">calendar? <span>[CalendarType](api-calendartype.html)</span></code>
+  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
     - Override the calendar type
 
 #### Example
@@ -385,13 +385,14 @@ toBuddhistDate(date): BuddhistDate
 </pre>
 
 #### Parameters
-  - <code>date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
     - Date or timestamp to convert
 
 #### Example
 
 ```typescript
-cldr.Calendars.toBuddhistDate({ epoch: 1530124872456, zoneId: 'America/New_York'});
+cldr.Calendars.toBuddhistDate({
+  epoch: 1530124872456, zoneId: 'America/New_York'});
 ```
 
 <pre class="output">
@@ -411,13 +412,14 @@ toGregorianDate(date): GregorianDate
 </pre>
 
 #### Parameters
-  - <code>date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
     - Date or timestamp to convert
 
 #### Examples
 
 ```typescript
-cldr.Calendars.toGregorianDate({ epoch: 1530124872456, zoneId: 'America/New_York' });
+cldr.Calendars.toGregorianDate({
+  epoch: 1530124872456, zoneId: 'America/New_York' });
 ```
 
 <pre class="output">
@@ -427,11 +429,13 @@ Gregorian 2018-06-27 14:41:12.456 America/New_York
 ```typescript
 // JavaScript Date is interpreted as a UTC date time
 let epoch = new Date(2018, 1, 17, 12, 34, 56, 789);
-const date = cldr.Calendars.toGregorianDate({ epoch, zoneId: 'America/New_York' });
+const date = cldr.Calendars.toGregorianDate({
+  epoch, zoneId: 'America/New_York' });
 console.log(date.toString());
 
 epoch = new Date(2018, 6, 17, 12, 34, 56, 789);
-date = cldr.Calendars.toGregorianDate({ epoch, zoneId: 'America/New_York' });
+date = cldr.Calendars.toGregorianDate({
+  epoch, zoneId: 'America/New_York' });
 console.log(date.toString());
 ```
 
@@ -457,7 +461,7 @@ weekdays([calendar]): { [x: number]: string }
 </pre>
 
 #### Parameters
-  - <code class="def">calendar? <span>[CalendarType](api-calendartype.html)</span></code>
+  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
     - Override the calendar type
 
 #### Example

@@ -155,7 +155,7 @@ Here is how we use the accessor object for our DSL to fetch the "medium time for
 ```typescript
 // The 'timeFormats' object here is a 1-dimensional vector arrow using the
 // key index ['short', 'medium', 'long', 'full'] and the base offset 4
-const pattern = CalendarSchema.timeFormats.get(bundle, 'medium');
+const pattern = schema.Gregorian.timeFormats.get(bundle, 'medium');
 
 // The arrow computed 4 + 1 to get the bundle string offset 5
 console.log(pattern);

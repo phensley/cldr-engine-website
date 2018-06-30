@@ -26,30 +26,18 @@ pre code {
   margin: 20px 0 8px 0;
   padding: 0.3em;
   border-left: 6px solid #5b82d8;
-  /* border-left: 6px solid #7d9ee6; */
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
   font-size: 13px;
   overflow-x: auto;
-  background-color: #f5f5f5;
 }
 
 pre {
   margin-bottom: 4px;
 }
 
-.hljs {
-  background-color: #f6f5f6;
+code.hljs {
+  background-color: #f9f9f9;
 }
-
-/* code {
-  padding: 3px 8px;
-  background-color: #4a69ad;
-  border-radius: .3em;
-  box-shadow: none;
-  color: white;
-  font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
-  word-break: break-word;
-} */
 
 code {
   font-size: 14px;
@@ -59,15 +47,14 @@ code {
 
 pre.output {
   display: block;
-  margin: 0 4px 10px 4px;
-  /* border-radius: .3em; */
-  /* background-color: #f6f5f6; */
-  padding: .5rem 1.5rem;
-  /* border-left: 5px solid #dadbdc; */
-  border-left: 3px #ddd;
-  border-right: 3px #ddd;
-  border-left-style: dotted;
-  border-right-style: dotted;
+  margin: 0 7px 10px 7px;
+  padding: 1rem 1.5rem;
+  border-left: 3px dotted #dedede;
+  border-right: 3px dotted #dedede;
+
+  color: black;
+  /* background-color: #f9f9f9; */
+  background-color: #fefefe;
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
   font-size: 13px;
   overflow-x: auto;

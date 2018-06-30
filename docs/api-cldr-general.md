@@ -14,9 +14,9 @@ characterOrder(): CharacterOrderType
 </pre>
 
 #### Return values
-  - `"ttb"`
+  - <code class="def">"ttb"</code>
     - Top to bottom
-  - `"btt"`
+  - <code class="def">"btt"</code>
     - Bottom to top
 
 ## lineOrder
@@ -30,9 +30,9 @@ lineOrder(): LineOrderType
 </pre>
 
 #### Return values
-  - `"ltr"`
+  - <code class="def">"ltr"</code>
     - Left to right
-  - `"rtl"`
+  - <code class="def">"rtl"</code>
     - Right to left
 
 
@@ -47,9 +47,9 @@ formatList(items [, type]): string
 </pre>
 
 #### Parameters
-  - <code>items: <span>string[]</span></code>
+  - <code class="def">items: <span>string[]</span></code>
     - Items to join together into a list
-  - <code>type?: <span>[ListPatternType](api-listpatterntype.html)</span></code>
+  - <code class="def">type?: <span>[ListPatternType](api-listpatterntype.html)</span></code>
     - Type of list to format
 
 #### Example
@@ -84,9 +84,9 @@ formatList(items [, type]): Part[]
 </pre>
 
 #### Parameters
-  - <code>items: <span>string[]</span></code>
+  - <code class="def">items: <span>string[]</span></code>
     - Items to join together into a list
-  - <code>type?: <span>[ListPatternType](api-listpatterntype.html)</span></code>
+  - <code class="def">type?: <span>[ListPatternType](api-listpatterntype.html)</span></code>
     - Type of list to format
 
 #### Example
@@ -134,7 +134,7 @@ getScriptDisplayName(scriptId): string
 </pre>
 
 #### Parameters
-  - <code>scriptId: <span>ScriptIdType</span></code>
+  - <code class="def">scriptId: <span>ScriptIdType</span></code>
     - Valid [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) script identifier
 
 #### Examples
@@ -175,7 +175,7 @@ getRegionDisplayName(regionId): string
 </pre>
 
 #### Parameters
-  - <code>regionId: <span>RegionIdType</span></code>
+  - <code class="def">regionId: <span>RegionIdType</span></code>
     - Valid [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) region identifier
 
 #### Examples
