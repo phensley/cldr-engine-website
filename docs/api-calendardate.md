@@ -5,16 +5,16 @@ title: CalendarDate
 
 `CalendarDate` is the abstract base class for specific calendar implementations:
 
-  * [BuddhistDate](api-buddhistdate.html)
-    * A date in the Buddhist calendar
-  * [GregorianDate](api-gregoriandate.html)
-    * A date in the Gregorian calendar
-  * [ISO8601Date](api-iso8601date.html)
-    * A date in the ISO-8601 calendar
-  * [PersianDate](api-persiandate.html)
-    * A date in the Persian calendar
-  * [JapaneseDate](api-japanesedate.html)
-    * A date in the Japanese calendar
+  - [BuddhistDate](api-buddhistdate.html)
+    - A date in the Buddhist calendar
+  - [GregorianDate](api-gregoriandate.html)
+    - A date in the Gregorian calendar
+  - [ISO8601Date](api-iso8601date.html)
+    - A date in the ISO-8601 calendar
+  - [PersianDate](api-persiandate.html)
+    - A date in the Persian calendar
+  - [JapaneseDate](api-japanesedate.html)
+    - A date in the Japanese calendar
 
 ## add
 
@@ -34,6 +34,7 @@ add(fields): CalendarDate
 #### Example
 
 ```typescript
+// Wed June 27 2018 4:23:00 AM UTC
 const date = cldr.Calendars.newGregorianDate(1530087780000, 'America/New_York');
 console.log(date.toString());
 console.log(date.add({ year: 1, month: 5 }).toString());

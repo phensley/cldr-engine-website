@@ -3,6 +3,15 @@ import { Decimal } from '@phensley/cldr';
 
 const SEP = '\n--------------------------------\n\n';
 
+// dayPeriods
+(() => {
+  const en = framework.get('en');
+  const p = en.Calendars.dayPeriods();
+  console.log(p);
+
+  console.log(SEP);
+})();
+
 // fieldOfGreatestDifference
 (() => {
   const cldr = framework.get('en');
@@ -99,21 +108,72 @@ const SEP = '\n--------------------------------\n\n';
 })();
 
 
-// newBuddhistDate
+// months
+(() => {
+  const en = framework.get('en');
+  const fr = framework.get('fr');
+  const monthsEN = en.Calendars.months();
+  console.log(monthsEN);
+
+  const monthsFR = fr.Calendars.months();
+  const date = en.Calendars.toGregorianDate({
+    epoch: new Date(2018, 5, 11, 12, 1, 12),
+    zoneId: 'America/New_York'
+  });
+
+  console.log(`month is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
+
+  console.log(SEP);
+})();
+
+
+// quarters
+(() => {
+  const en = framework.get('en');
+  const quarters = en.Calendars.quarters();
+  console.log(quarters);
+
+  console.log(SEP);
+})();
+
+// toBuddhistDate
 (() => {
   const cldr = framework.get('en');
-  const date = cldr.Calendars.newBuddhistDate(1530124872456, 'America/New_York');
+  const date = cldr.Calendars.toBuddhistDate({ epoch: 1530124872456, zoneId: 'America/New_York'});
   console.log(date.toString());
 
   console.log(SEP);
 })();
 
 
-// newGregorianDate
+// toGregorianDate
 (() => {
   const cldr = framework.get('en');
-  const date = cldr.Calendars.newGregorianDate(1530124872456, 'America/New_York');
+  const date = cldr.Calendars.toGregorianDate({ epoch: 1530124872456, zoneId: 'America/New_York' });
   console.log(date.toString());
+
+  console.log(SEP);
+})();
+
+// toGregorianDate
+(() => {
+  const cldr = framework.get('en');
+  let epoch = new Date(2018, 1, 17, 12, 34, 56, 789);
+  let date = cldr.Calendars.toGregorianDate({ epoch, zoneId: 'America/New_York' });
+  console.log(date.toString());
+
+  epoch = new Date(2018, 6, 17, 12, 34, 56, 789);
+  date = cldr.Calendars.toGregorianDate({ epoch, zoneId: 'America/New_York' });
+  console.log(date.toString());
+
+  console.log(SEP);
+})();
+
+// weekdays
+(() => {
+  const en = framework.get('en');
+  const weekdays = en.Calendars.weekdays();
+  console.log(weekdays);
 
   console.log(SEP);
 })();

@@ -2,7 +2,11 @@
   "docs": {
     "Introduction": [
       "doc-index",
+      "doc-design",
       "doc-init"
+    ],
+    "Design": [
+      "doc-design-bundles"
     ],
     "Locales": [
       "doc-locales"

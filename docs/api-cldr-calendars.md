@@ -13,6 +13,40 @@ The `CLDR.Calendars` namespace allows you to:
 
 ## dayPeriods
 
+Returns a mapping of day period key to name for the current locale.
+
+#### Syntax
+
+<pre class="syntax">
+dayPeriods([calendar]): { [x: string]: string }
+</pre>
+
+#### Parameters
+  - <code class="def">calendar? <span>[CalendarType](api-calendartype.html)</span></code>
+    - Override the calendar type
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+en.Calendars.dayPeriods();
+```
+
+<pre class="output">
+{
+  noon: 'noon',
+  midnight: 'midnight',
+  am: 'AM',
+  pm: 'PM',
+  morning1: 'morning',
+  afternoon1: 'afternoon',
+  evening1: 'evening',
+  night1: 'night'
+}
+</pre>
+
+
+
 ## fieldOfGreatestDifference
 
 Computes the field of greatest different between two [CalendarDate](api-calendardate.html) instances.
@@ -259,71 +293,84 @@ in 12.5 months
 
 ## months
 
-
-
-## newBuddhistDate
-
-Creates a date in the Buddhist calendar, from a Unix epoch timestamp and timezone identifier.
+Returns a mapping of month ordinal number to name for the current locale.
 
 #### Syntax
 
 <pre class="syntax">
-newBuddhistDate(epoch, zoneId): BuddhistDate
+months([calendar]): { [x: number]: string }
 </pre>
 
 #### Parameters
-  - <code class="def">epoch: <span>number</span></code>
-    - Unix epoch timestamp in milliseconds.
-  - <code class="def">zoneId: <span>string</span></code>
-    - IANA Timezone identifier, e.g. `"America/New_York"`
+  - <code class="def">calendar? <span>[CalendarType](api-calendartype.html)</span></code>
+    - Override the calendar type
 
 #### Example
 
 ```typescript
-const date = cldr.Calendars.newBuddhistDate(1530124872456, 'America/New_York');
-console.log(date.toString());
+const en = framework.get('en');
+const fr = framework.get('fr');
+
+const monthsEN = en.Calendars.months();
+console.log(monthsEN);
+
+const monthsFR = fr.Calendars.months();
+const date = en.Calendars.toGregorianDate({
+  epoch: new Date(2018, 5, 11, 12, 1, 12),
+  zoneId: 'America/New_York'
+});
+
+console.log(`month is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
 ```
 
 <pre class="output">
-Buddhist 2561-06-27 14:41:12.456 America/New_York
+{
+  '1': 'January',
+  '2': 'February',
+  '3': 'March',
+  '4': 'April',
+  '5': 'May',
+  '6': 'June',
+  '7': 'July',
+  '8': 'August',
+  '9': 'September',
+  '10': 'October',
+  '11': 'November',
+  '12': 'December'
+}
+month is June / juin
 </pre>
 
 
+## quarters
 
-## newGregorianDate
-
-Creates a date in the Gregorian calendar, from a Unix epoch timestamp and timezone identifier.
+Return a mapping of quarter ordinal number to name for the current locale.
 
 #### Syntax
 
 <pre class="syntax">
-newGregorianDate(epoch, zoneId): GregorianDate
+quarters([calendar]): { [x: number]: string }
 </pre>
 
 #### Parameters
-  - <code class="def">epoch: <span>number</span></code>
-    - Unix epoch timestamp in milliseconds.
-  - <code class="def">zoneId: <span>string</span></code>
-    - IANA Timezone identifier, e.g. `"America/New_York"`
+  - <code class="def">calendar? <span>[CalendarType](api-calendartype.html)</span></code>
+    - Override the calendar type
 
 #### Example
 
 ```typescript
-const date = cldr.Calendars.newGregorianDate(1530124872456, 'America/New_York');
-console.log(date.toString());
+const en = framework.get('en');
+en.Calendars.quarters();
 ```
 
 <pre class="output">
-Gregorian 2018-06-27 14:41:12.456 America/New_York
+{
+  '1': '1st quarter',
+  '2': '2nd quarter',
+  '3': '3rd quarter',
+  '4': '4th quarter'
+}
 </pre>
-
-
-
-## newISO8601Date
-
-## newJapaneseDate
-
-## newPersianDate
 
 
 
@@ -341,6 +388,18 @@ toBuddhistDate(date): BuddhistDate
   - <code>date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
     - Date or timestamp to convert
 
+#### Example
+
+```typescript
+cldr.Calendars.toBuddhistDate({ epoch: 1530124872456, zoneId: 'America/New_York'});
+```
+
+<pre class="output">
+Buddhist 2561-06-27 14:41:12.456 America/New_York
+</pre>
+
+
+
 ## toGregorianDate
 
 Converts a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepochtime.html) instance to a [GregorianDate](api-gregoriandate.html).
@@ -355,6 +414,31 @@ toGregorianDate(date): GregorianDate
   - <code>date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
     - Date or timestamp to convert
 
+#### Examples
+
+```typescript
+cldr.Calendars.toGregorianDate({ epoch: 1530124872456, zoneId: 'America/New_York' });
+```
+
+<pre class="output">
+Gregorian 2018-06-27 14:41:12.456 America/New_York
+</pre>
+
+```typescript
+// JavaScript Date is interpreted as a UTC date time
+let epoch = new Date(2018, 1, 17, 12, 34, 56, 789);
+const date = cldr.Calendars.toGregorianDate({ epoch, zoneId: 'America/New_York' });
+console.log(date.toString());
+
+epoch = new Date(2018, 6, 17, 12, 34, 56, 789);
+date = cldr.Calendars.toGregorianDate({ epoch, zoneId: 'America/New_York' });
+console.log(date.toString());
+```
+
+<pre class="output">
+Gregorian 2018-02-17 07:34:56.789 America/New_York
+Gregorian 2018-07-17 08:34:56.789 America/New_York
+</pre>
 
 ## toISO8601Date
 
@@ -363,3 +447,34 @@ toGregorianDate(date): GregorianDate
 ## toPersianDate
 
 ## weekdays
+
+Return a mapping of weekday ordinal number to name for the current locale.
+
+#### Syntax
+
+<pre class="syntax">
+weekdays([calendar]): { [x: number]: string }
+</pre>
+
+#### Parameters
+  - <code class="def">calendar? <span>[CalendarType](api-calendartype.html)</span></code>
+    - Override the calendar type
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+en.Calendars.weekdays();
+```
+
+<pre class="output">
+{
+  '1': 'Sunday',
+  '2': 'Monday',
+  '3': 'Tuesday',
+  '4': 'Wednesday',
+  '5': 'Thursday',
+  '6': 'Friday',
+  '7': 'Saturday'
+}
+</pre>
