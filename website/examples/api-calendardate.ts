@@ -2,10 +2,12 @@ import { framework } from './helpers';
 
 const SEP = '\n--------------------------------\n\n';
 
-// fieldOfGreatestDifference
+// add
 (() => {
-  const cldr = framework.get('fr');
-  const date = cldr.Calendars.newGregorianDate(1530087780000, 'America/New_York');
+  const cldr = framework.get('en');
+  // Wed June 27 2018 4:23:00 AM UTC
+  const date = cldr.Calendars.toGregorianDate({
+  epoch: 1530087780000, zoneId: 'America/New_York' });
   console.log(date.toString());
   console.log(date.add({ year: 1, month: 5 }).toString());
   console.log(date.add({ year: -5, day: 7, minute: 22 }).toString());
@@ -26,7 +28,7 @@ const SEP = '\n--------------------------------\n\n';
 
   for (let day = 0; day < 80; day += 1) {
     const days = day * 86400000;
-    const date = cldr.Calendars.newGregorianDate(epoch + days, zoneId);
+    const date = cldr.Calendars.toGregorianDate({ epoch: epoch + days, zoneId });
     const dom = date.dayOfMonth();
     const month = date.month();
     const weekday = date.dayOfWeek();

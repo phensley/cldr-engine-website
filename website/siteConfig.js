@@ -27,7 +27,7 @@ const siteConfig = {
     secondaryColor: '#59585d'
   },
   highlight: {
-    theme: 'vs2015'
+    theme: 'vs'
   },
   fonts: {
     baseFont: ['Source Sans Pro', 'Segoe UI', 'Helvetica Neue', 'sans-serif']

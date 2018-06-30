@@ -1,4 +1,4 @@
-<pre class="output">
+<pre class="output small">
                                                                             1 = 1!
                                                                             2 = 2!
                                                                             6 = 3!

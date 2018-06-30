@@ -18,13 +18,13 @@ const SEP = '\n--------------------------------\n\n';
 
   // June 27, 2018 4:23:00 AM
   const epoch = 1530087780000;
-  const zone = 'America/New_York';
-  const d1 = cldr.Calendars.newGregorianDate(epoch, zone);
+  const zoneId = 'America/New_York';
+  const d1 = cldr.Calendars.toGregorianDate({ epoch, zoneId });
 
   const factors = [0.0002, 0.005, 0.25, .75, 3, 50, 425, 1000];
   factors.forEach(f => {
     const days = f * 86400 * 1000;
-    const d2 = cldr.Calendars.newGregorianDate(epoch + days, zone);
+    const d2 = cldr.Calendars.toGregorianDate({ epoch: epoch + days, zoneId });
     const field = cldr.Calendars.fieldOfGreatestDifference(d1, d2);
     console.log(`${field} ->  ${d2.toString()}`);
   });

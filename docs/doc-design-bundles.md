@@ -3,9 +3,9 @@ id: doc-design-bundles
 title: Resource bundles
 ---
 
-Resource bundles contain the locale-specific strings that will be used for various purposes. Calendar and number formatting patterns, names of the months in various calendars, names of units of measure, and so on.
+Resource bundles contain the locale-specific strings that will be used for various purposes. These include calendar and number formatting patterns, names of the months and weekdays, names of units of measure, and so on.
 
-A resource bundle will only be required when a user selects a particular locale, so we need them available to be loaded at runtime. They should be as small as possible, to be transferred over the network rapidly, and use as little of JavaScript heap as possible.
+A resource bundle needs to be available when a user selects a particular locale, so we need them available to be loaded at runtime. They should be as small as possible, to be transferred over the network rapidly, and use as little of JavaScript heap as possible.
 
 
 ## Size of the raw CLDR data set
@@ -14,12 +14,14 @@ The CLDR JSON data set is quite large. There are 360 locales in the modern set. 
 
 The size of the data set is depends on which files you're using. At the time of this writing, this library uses data contained in the following 16 JSON files across all 360 locales (where present):
 
-<pre class="output">
+```typescript
+[
   'ca-buddhist', 'ca-gregorian', 'ca-japanese', 'ca-persian', 'characters',
   'contextTransforms', 'currencies', 'dateFields', 'languages', 'layout',
   'listPatterns', 'numbers', 'scripts', 'territories', 'timeZoneNames',
   'units'
-</pre>
+]
+```
 
 ### Schema overhead
 
@@ -75,18 +77,19 @@ The CLDR's JSON schema is quite deep, but we prefer something more compact. To a
 Using the "dateFormats" example above, we would remove several of the levels, flattening it to:
 
 ```javascript
-"Gregorian": {
-  "dateFormats": {
-    "short": "dd/MM/y",
-    "medium": "d MMM y",
-    "long": "d MMMM y",
-    "full": "EEEE, d MMMM y",
-  "timeFormats": {
-    "short": "h:mm a",
-    "medium": "h:mm:ss a",
-    "long": "h:mm:ss a z",
-    "full": "h:mm:ss a zzzz"
-  },
+{
+  "Gregorian": {
+    "dateFormats": {
+      "short": "dd/MM/y",
+      "medium": "d MMM y",
+      "long": "d MMMM y",
+      "full": "EEEE, d MMMM y",
+    "timeFormats": {
+      "short": "h:mm a",
+      "medium": "h:mm:ss a",
+      "long": "h:mm:ss a z",
+      "full": "h:mm:ss a zzzz"
+    },
   ...
 ```
 
@@ -188,9 +191,9 @@ Next compute the pairwise distance between each array and the others, and choose
 
 ```typescript
 {
-  'en-001': {     'en': 1,  'en-CA': 2 },   // dist 3 -> selected as base region
-      'en': { 'en-001': 1,  'en-CA': 3 },   // dist 4
-   'en-CA': {     'en': 3, 'en-001': 2 }    // dist 5
+  'en-001': {     'en': 1,  'en-CA': 2 },  // dist 3 -> base region
+      'en': { 'en-001': 1,  'en-CA': 3 },  // dist 4
+   'en-CA': {     'en': 3, 'en-001': 2 }   // dist 5
   }
 }
 ```
