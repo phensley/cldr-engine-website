@@ -29,9 +29,9 @@ body {
 
 pre code {
   display: block;
-  margin: 20px 0 8px 4px;
+  margin: 20px 0 8px 0px;
   padding: 1em;
-  /* border-left: 4px solid #8192a5; */
+  border-left: 6px solid #d3d8e0;
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
   font-size: 13px;
   overflow-x: auto;
@@ -55,17 +55,12 @@ pre.output {
   display: block;
   margin: 0 7px 10px 5px;
   padding: 1rem 1.5rem;
-  border-left: 2px dashed #dddcdc;
-  border-right: 2px dashed #dddcdc;
-
+  border-left: 5px dotted #e9eaec;
   color: black;
-  /* background-color: #f9f9f9; */
   background-color: #fefefe;
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
   font-size: 13px;
   overflow-x: auto;
-  /* box-shadow: 4px 4px #dedede; */
-  /* box-shadow: 0px 5px #efefef; */
 }
 
 pre.output.small {
@@ -86,7 +81,7 @@ pre.syntax {
   padding: .75rem 1.5rem;
   background-color: #eaf1fb;
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
-  font-size: 18px;
+  font-size: 17px;
   overflow-x: auto;
 }
 
