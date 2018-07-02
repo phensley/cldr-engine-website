@@ -3,11 +3,14 @@ id: doc-design-bundles
 title: Resource bundles
 ---
 
-Resource bundles contain the locale-specific strings that will be used for various purposes. These include calendar and number formatting patterns, names of the months and weekdays, names of units of measure, and so on.
+This document goes into detail on the rationale for the design of the [resource bundle file format](https://unpkg.com/@phensley/cldr@0.6.3/packs/) and how field values are encoded and later retrieved at runtime.
 
-A resource bundle needs to be available when a user selects a particular locale, so we need them available to be loaded at runtime. They should be as small as possible, to be transferred over the network rapidly, and use as little of JavaScript heap as possible.
+Resource bundles / packs contain the locale-specific strings that will be used by the framework for various purposes. These include calendar and number formatting patterns, names of the months and weekdays, names of units of measure, and so on.
+
+When an application changes locale in response to a user action, the bundle for that locale needs to be loaded as quickly as possible. The resource bundles should be as small as possible, so they can be transferred over the network quickly, and once instantiated use as little of JavaScript heap as possible.
 
 The first section discusses some limitations around using the CLDR JSON data directly. The second section discusses the approach used to design this library's resource bundle encoding, and the ways it is accessed internally.
+
 
 ## CLDR JSON data
 
@@ -15,7 +18,7 @@ Below we discuss some of the limitations of using the [JSON encoding of the CLDR
 
 ### Data size
 
-The CLDR JSON data set is quite large. The design goals for this library require that we have a lot of data available at runtime, so the size of the data is a major concern.
+The CLDR JSON data set is quite large. The design goals for this library require that we have a lot of CLDR data available at runtime, so the size of the data is a major concern.
 
 CLDR data is split across several files. For example, "ca-gregorian.json" contains fields relating to the Gregorian calendar. The size of the data set depends on which files your library requires. At the time of this writing, this library uses data contained in the following 16 JSON files across all 360 modern locales (where present):
 
@@ -50,9 +53,11 @@ The intermediate nodes in the tree add considerable overhead to the JSON encodin
 "EEEE, d MMMM y"
 ```
 
+Admittedly some of this schema is reused across multiple fields, but it would be nice if we could eliminate it.
+
 #### Storing the full schema vs values only
 
-Below are the sizes for the JSON representation of these 16 files across all 360 locales:
+Below are the sizes for the JSON representation of these 16 files across all 360 locales.
 
 | size (MB)  |   object                                      |
 |------------|-----------------------------------------------|
@@ -65,11 +70,12 @@ Storing just the values reduces the size to 1/4 of the original. Even if we can 
 
 This raises the question of how to eliminate the schema but still make the field data easily accessible.
 
-### Accessing field values is brittle
+### Accessing field values can be brittle
 
 If we were to use the JSON representation directly, the interface for retrieving a field would need to accept a path as an argument.  There are a few possible ways this interface could look:
 
 **Path as template string**
+
 ```typescript
 const bundle = get('en-001');
 const width = 'full';
@@ -77,18 +83,24 @@ const value = bundle.get(`main/${locale}/dates/calendars/gregorian/dateFormats/$
 ```
 
 **Path as array**
+
+This is more efficient since it doesn't have to reconstruct the array by splitting the string, or implement some iterative traversal of the path.
+
 ```typescript
 const path = ['main', locale, 'dates', 'calendars', 'gregorian', 'dateFormats', width];
 const value = bundle.get(path);
 ```
 
-The array method is more efficient since `bundle.get(path)` doesn't have to reconstruct the array by splitting the string, or implement some iterative traversal of the path.
+**Direct access**
+```typescript
+const value = bundle.main[locale].dates.calendars.gregorian.dateFormats[width];
+```
 
-Since the path segments are plain strings, there is a chance of making typos. A developer would also have to remember the exact naming, e.g. `"dateFormats"` not `"dateformats"`, and any mistakes would have to be caught at runtime with a unit test.
+In all these variants, with path segments composed using strings or object properties, there is a chance of making mistakes. A developer would always need to get the naming correct, e.g. `"dateFormats"` not `"dateformats"`, and any mistakes would need to be caught at runtime with a unit test.
 
-This reliance on high test coverage isn't so bad, and a lot of JavaScript libraries are developed this way, but since the CLDR schema is large and complex it would be much nicer if we had a typesafe interface to access the fields.
+This reliance on high test coverage to catch path/property name errors isn't so bad, and a lot of JavaScript libraries are developed this way; however, since the CLDR schema is large and complex it would be much nicer if we had a typesafe interface to access the fields.
 
-Our goal should be something that looks like this:
+Our goal should be something that looks like the direct access, but done in a typesafe way, and ideally where the schema is a singleton object we can reuse across all bundles:
 
 **Typesafe, autocompletable**
 ```typescript
@@ -96,12 +108,12 @@ const bundle = get('en-001');
 const value = schema.calendars.gregorian.dateFormats.get(bundle, width);
 ```
 
+### Questions so far:
 
-#### Questions so far:
-
- * How do we eliminate the schema while still being able to access the field values?
- * Can we reduce the final size even more?
- * Can we define a bundle encoding that is simultaneously small, simple and fast?
+ 1. How do we eliminate the schema while still being able to access the field values?
+ 2. Can we reduce a resource bundle's size further, beyond just eliminating the schema?
+ 3. Can we define a bundle encoding that is simultaneously small, simple and fast?
+ 4. Can we define a way of accessing fields in the schema that is typesafe and static?
 
 ## Designing the resource bundle
 
@@ -176,24 +188,22 @@ Once the encoding is complete, we convert the array into a tab-separated string:
 ..
 // Gregorian {
 //   dateFormats.{short, medium, long, full} => offsets 0, 1, 2, 3
-'dd/MM/y\tdd MMM y\td MMMM y\tEEEE, d MMMM y' +
+['dd/MM/y', 'dd MMM y', 'd MMMM y', 'EEEE, d MMMM y',
 
 //   timeFormats.{short, medium, long, full} => offsets 4, 5, 6, 7
-'h:mm a\th:mm:ss a\th:mm:ss a z\th:mm:ss a zzzz'
+'h:mm a', 'h:mm:ss a', 'h:mm:ss a z', 'h:mm:ss a zzzz'].join('\t')
 ```
 
 #### Accessor builder
 
 The accessor builder constructs an object that mirrors our schema's structure, and our `vector1` type generates a function for fetching a specific field value.
 
-Here is how we might use the accessor object for our DSL to fetch the "medium time format" value:
+Here is how we might use the accessor object for our DSL to fetch the "medium time format" value.
+
+The `timeFormats` object is a 1-dimensional vector arrow whose base offset is 4. It uses the key index `['short', 'medium', 'long', 'full']`. Since the argument `'medium'` is at index 1, the desired pattern will be found in the string table at offset 5:
 
 ```typescript
-// The 'timeFormats' object here is a 1-dimensional vector arrow using the
-// key index ['short', 'medium', 'long', 'full'] and the base offset 4
 const pattern = schema.Gregorian.timeFormats.get(bundle, 'medium');
-
-// The arrow computed 4 + 1 to get the bundle string offset 5
 console.log(pattern);
 ```
 
@@ -209,7 +219,7 @@ We put all of the regions and scripts for a given language together. So for Span
 This has a few advantages:
  * A language's regions tend to be quite similar, so we can exploit this to reduce the duplication.
  * In an application, a user might select their language and then separately select their country. Once the language is selected and that bundle loaded, no further network traffic is required when choosing a region.
- * It results in fewer bundles, and simplifies finding the bundle for a locale, since we only need to map the 2- or 3-character code to a filename without dealing with its script or region subtags.
+ * It results in fewer bundles, and simplifies resolving the bundle for a locale, since we only need to map the 2- or 3-character language code to a filename without dealing with its script and region subtags.
 
 ### 5. Define a base region in the bundle, per script, from which all other regions inherit
 
@@ -364,21 +374,21 @@ console.log(values);
 }
 </pre>
 
-We can keep references to deep parts of the schema we use frequently:
+We can hold references to deep parts of the schema that will be repeatedly used:
 
 ```typescript
-// We can also cache specific levels of the hierarchy that are used frequently
 const { dateFormats } schema.Gregorian;
-
-// ... later
-
+// ... used later
 const value = dateFormats.get(bundle, width);
 ```
 
 This gives us some wins:
- * Schema access is in code which is checked by the compiler vs using strings/array paths which are not.
+ * Schema access is in code which is checked by the compiler.
  * Enables autocompletion for the entire schema, saving the developer from having to remember the names, arguments, and how the types fit together.
- * Separates concerns about the schema's design and correctness from its usage.
- * We can evolve the schema and easily find all of the places inside the library that need to be adapted.
  * Reduces the chance of errors when accessing fields.
- * We could hang documentation on all of the schema's types and generate documentation, assisting developers in better understanding their meaning and use.
+ * Separates concerns about the schema's design and correctness from its usage.
+ * When we evolve the schema we can easily locate the places inside the library that need to be adapted.
+ * We could add comment headers to all of the schema's types and generate documentation, assisting developers in better understanding their meaning and provide examples.
+ * The singleton accessor object can be used across any locale / bundle, so we only have to initialize it once.
+ * The field accessors are implemented in a general way and reused, e.g. `Vector1Arrow`, `Vector2Arrow`.
+ * The field accessors allow us to retrieve multiple fields together as a structure, e.g. `dateFormats.mapping(bundle)`.
