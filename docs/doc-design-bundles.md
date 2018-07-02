@@ -79,7 +79,8 @@ If we were to use the JSON representation directly, the interface for retrieving
 ```typescript
 const bundle = get('en-001');
 const width = 'full';
-const value = bundle.get(`main/${locale}/dates/calendars/gregorian/dateFormats/${width}`);
+const path = `main/${locale}/dates/calendars/gregorian/dateFormats/${width}`;
+const value = bundle.get(path);
 ```
 
 **Path as array**
@@ -92,6 +93,9 @@ const value = bundle.get(path);
 ```
 
 **Direct access**
+
+Parsing most of the files in JSON should result in a series of nested JavaScript objects, and many of the keys in the schema correspond to valid JavaScript identifiers, we can directly access nested objects
+
 ```typescript
 const value = bundle.main[locale].dates.calendars.gregorian.dateFormats[width];
 ```
@@ -187,11 +191,14 @@ Once the encoding is complete, we convert the array into a tab-separated string:
 ```typescript
 ..
 // Gregorian {
-//   dateFormats.{short, medium, long, full} => offsets 0, 1, 2, 3
+//   dateFormats.{short, medium, long, full}
+//     => offsets 0, 1, 2, 3
 ['dd/MM/y', 'dd MMM y', 'd MMMM y', 'EEEE, d MMMM y',
 
-//   timeFormats.{short, medium, long, full} => offsets 4, 5, 6, 7
-'h:mm a', 'h:mm:ss a', 'h:mm:ss a z', 'h:mm:ss a zzzz'].join('\t')
+//   timeFormats.{short, medium, long, full}
+//     => offsets 4, 5, 6, 7
+'h:mm a', 'h:mm:ss a', 'h:mm:ss a z', 'h:mm:ss a zzzz']
+.join('\t')
 ```
 
 #### Accessor builder
@@ -238,7 +245,7 @@ Next compute the pairwise distance between each array and the others, and choose
 
 ```typescript
 {
-  'en-001': {     'en': 1,  'en-CA': 2 },  // dist 3, selected as the base region
+  'en-001': {     'en': 1,  'en-CA': 2 },  // dist 3, base region
       'en': { 'en-001': 1,  'en-CA': 3 },  // dist 4
    'en-CA': {     'en': 3, 'en-001': 2 }   // dist 5
   }
@@ -352,10 +359,12 @@ A typo will fail to compile ..
 
 ```typescript
 schema.GregorianSchema.dateformat.get(bundle, 'medium');
-// [ts] Property 'dateformat' does not exist on type 'CalendarSchema'. Did you mean 'dateFormats'?
+// [ts] Property 'dateformat' does not exist
+// on type 'CalendarSchema'. Did you mean 'dateFormats'?
 
 schema.GregorianSchema.dateFormats.get(bundle, 'mediumfoo');
-// ts] Argument of type '"mediumfoo"' is not assignable to parameter of type 'FormatWidthType'.
+// [ts] Argument of type '"mediumfoo"' is not assignable
+// to parameter of type 'FormatWidthType'.
 ```
 
 We can fetch all values for a field efficiently:
