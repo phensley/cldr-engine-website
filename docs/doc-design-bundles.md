@@ -7,12 +7,17 @@ Resource bundles contain the locale-specific strings that will be used for vario
 
 A resource bundle needs to be available when a user selects a particular locale, so we need them available to be loaded at runtime. They should be as small as possible, to be transferred over the network rapidly, and use as little of JavaScript heap as possible.
 
+The first section discusses some limitations around using the CLDR JSON data directly. The second section discusses the approach used to design this library's resource bundle encoding, and the ways it is accessed internally.
 
-## Size of the raw CLDR data set
+## CLDR JSON data
 
-The CLDR JSON data set is quite large. There are 360 locales in the modern set. The design goals of this library require that we have a lot of CLDR data available at runtime, so the overall size of the data is a major concern.
+Below we discuss some of the limitations of using the [JSON encoding of the CLDR data](https://github.com/unicode-cldr) directly at runtime.
 
-The size of the data set is depends on which files you're using. At the time of this writing, this library uses data contained in the following 16 JSON files across all 360 locales (where present):
+### Data size
+
+The CLDR JSON data set is quite large. The design goals for this library require that we have a lot of data available at runtime, so the size of the data is a major concern.
+
+CLDR data is split across several files. For example, "ca-gregorian.json" contains fields relating to the Gregorian calendar. The size of the data set depends on which files your library requires. At the time of this writing, this library uses data contained in the following 16 JSON files across all 360 modern locales (where present):
 
 ```typescript
 [
@@ -25,9 +30,9 @@ The size of the data set is depends on which files you're using. At the time of 
 
 ### Schema overhead
 
-The [CLDR JSON encoding](https://github.com/unicode-cldr) stores values in a hierarchical schema. Finding a value requires following a path down the tree to reach a leaf node holding the value.
+The JSON encoding stores values in a hierarchical schema. Finding a value requires traversing a path in the tree until we reach a leaf node that holds the value.
 
-The tree itself adds considerable overhead to the JSON encoding. For example, to retrieve the full date format for the en-001 Gregorian calendar, you would traverse the following path:
+The intermediate nodes in the tree add considerable overhead to the JSON encoding. For example, if you want to find the "full date format for the Gregorian calendar" in the "en-001/ca-gregorian.json" file, you would traverse the following path:
 
 ```javascript
 "main": {
@@ -43,11 +48,9 @@ The tree itself adds considerable overhead to the JSON encoding. For example, to
 
 // .. to access a 12 byte value
 "EEEE, d MMMM y"
-
-// What if we could eliminate the schema?
 ```
 
-### Full schema vs values only
+#### Storing the full schema vs values only
 
 Below are the sizes for the JSON representation of these 16 files across all 360 locales:
 
@@ -60,15 +63,49 @@ Below are the sizes for the JSON representation of these 16 files across all 360
 
 Storing just the values reduces the size to 1/4 of the original. Even if we can eliminate the schema, 34 MB is still large.
 
+This raises the question of how to eliminate the schema but still make the field data easily accessible.
+
+### Accessing field values is brittle
+
+If we were to use the JSON representation directly, the interface for retrieving a field would need to accept a path as an argument.  There are a few possible ways this interface could look:
+
+**Path as template string**
+```typescript
+const bundle = get('en-001');
+const width = 'full';
+const value = bundle.get(`main/${locale}/dates/calendars/gregorian/dateFormats/${width}`);
+```
+
+**Path as array**
+```typescript
+const path = ['main', locale, 'dates', 'calendars', 'gregorian', 'dateFormats', width];
+const value = bundle.get(path);
+```
+
+The array method is more efficient since `bundle.get(path)` doesn't have to reconstruct the array by splitting the string, or implement some iterative traversal of the path.
+
+Since the path segments are plain strings, there is a chance of making typos. A developer would also have to remember the exact naming, e.g. `"dateFormats"` not `"dateformats"`, and any mistakes would have to be caught at runtime with a unit test.
+
+This reliance on high test coverage isn't so bad, and a lot of JavaScript libraries are developed this way, but since the CLDR schema is large and complex it would be much nicer if we had a typesafe interface to access the fields.
+
+Our goal should be something that looks like this:
+
+**Typesafe, autocompletable**
+```typescript
+const bundle = get('en-001');
+const value = schema.calendars.gregorian.dateFormats.get(bundle, width);
+```
+
+
 #### Questions so far:
 
  * How do we eliminate the schema while still being able to access the field values?
  * Can we reduce the final size even more?
  * Can we define a bundle encoding that is simultaneously small, simple and fast?
 
-## Resource bundle design
+## Designing the resource bundle
 
-The design of the **phensley/cldr** bundle format involves several design choices, described below.
+The design of the **phensley/cldr** bundle format involves several choices, described below.
 
 ### 1. Flatten the schema
 
@@ -97,15 +134,14 @@ Using the "dateFormats" example above, we would remove several of the levels, fl
 
 Given the flattened schema above, we want to define a (deterministic) ordered traversal of all fields for a locale.
 
-For example, given the array `['short', 'medium', 'long', 'full']`, each time we iterate over it we always visit the elements in the same order. We extend this concept to the entire schema, as if it were part of one large array.
+For example, given the array `['short', 'medium', 'long', 'full']`, each time we iterate over it we always visit the elements in the same order. **We extend this concept to the entire schema, as if it were part of one large array**.
 
-We express this traversal using a DSL that can be written in Typescript.
-Here are a few types we need in our DSL:
+We express this using a DSL that can be written in Typescript. Here are a few of the types we need in our DSL:
 
   - <code class="def">keyindex(keys)</code>
     - Map an array element's offset to the element
   - <code class="def">scope(name, block)</code>
-    - Creates a named scope that contains a nested array of instructions
+    - Creates a named scope that contains a nested array of nodes
   - <code class="def">vector1(name, index)</code>
     - A 1-dimensional vector with a name and a key index
 
@@ -120,9 +156,9 @@ scope('Gregorian', [
 ]);
 ```
 
-### 3. Use the DSL program to encode and access field values
+### 3. Use the DSL program to both encode and access field values
 
-Next we build 2 interpreters for the above DSL "program":
+Next we build 2 interpreters for the above DSL:
 
  - <code class="def">Encoder</code>
    - Executed at build time, it traverses the schema and encodes the fields into a resource bundle.
@@ -132,17 +168,17 @@ Next we build 2 interpreters for the above DSL "program":
 
 #### Encoder
 
-As we traverse the DSL we increment by 1 as we visit each field. This integer offset becomes the position of that field's value in the encoded array.
+As we traverse the DSL and visit each field we increment an offset by 1. This offset is the position of that field's value in the final array.
 
 Once the encoding is complete, we convert the array into a tab-separated string:
 
 ```typescript
 ..
 // Gregorian {
-//   dateFormats.{short, medium, long, full} => 0, 1, 2, 3, ..
-'dd/MM/y\tdd MMM y\td MMMM y\tEEEE, d MMMM y'
+//   dateFormats.{short, medium, long, full} => offsets 0, 1, 2, 3
+'dd/MM/y\tdd MMM y\td MMMM y\tEEEE, d MMMM y' +
 
-//   timeFormats.{short, medium, long, full} => .., 4, 5, 6, 7
+//   timeFormats.{short, medium, long, full} => offsets 4, 5, 6, 7
 'h:mm a\th:mm:ss a\th:mm:ss a z\th:mm:ss a zzzz'
 ```
 
@@ -150,7 +186,7 @@ Once the encoding is complete, we convert the array into a tab-separated string:
 
 The accessor builder constructs an object that mirrors our schema's structure, and our `vector1` type generates a function for fetching a specific field value.
 
-Here is how we use the accessor object for our DSL to fetch the "medium time format" value:
+Here is how we might use the accessor object for our DSL to fetch the "medium time format" value:
 
 ```typescript
 // The 'timeFormats' object here is a 1-dimensional vector arrow using the
@@ -165,18 +201,19 @@ console.log(pattern);
 h:mm:ss a
 </pre>
 
+
 ### 4. Encode all locales for a given language in single bundle
 
 We put all of the regions and scripts for a given language together. So for Spanish, we would bundle together 'es', 'es-419', 'es-AR', 'es-BO', etc.
 
 This has a few advantages:
- * A language's regions are quite similar, so we have can exploit this to reduce the duplication.
+ * A language's regions tend to be quite similar, so we can exploit this to reduce the duplication.
  * In an application, a user might select their language and then separately select their country. Once the language is selected and that bundle loaded, no further network traffic is required when choosing a region.
  * It results in fewer bundles, and simplifies finding the bundle for a locale, since we only need to map the 2- or 3-character code to a filename without dealing with its script or region subtags.
 
 ### 5. Define a base region in the bundle, per script, from which all other regions inherit
 
-Start by creating the full string array for all locales in a given language:
+Start by creating the full string array for all locales in a given language. We use letters of the alphabet as field values for clarity:
 
 ```typescript
 {
@@ -191,7 +228,7 @@ Next compute the pairwise distance between each array and the others, and choose
 
 ```typescript
 {
-  'en-001': {     'en': 1,  'en-CA': 2 },  // dist 3 -> base region
+  'en-001': {     'en': 1,  'en-CA': 2 },  // dist 3, selected as the base region
       'en': { 'en-001': 1,  'en-CA': 3 },  // dist 4
    'en-CA': {     'en': 3, 'en-001': 2 }   // dist 5
   }
@@ -214,7 +251,7 @@ The resulting bundle will look something like this:
       "base": 'a b c d e f',
       "exceptions": 'Q R S',
       "regions": {
-        "001": "",
+        "001": "",        // en-001 == base region
          "US": "2:0",     // c -> Q
          "CA": "1:1 4:2"  // b -> R, e -> S
       }
@@ -223,7 +260,7 @@ The resulting bundle will look something like this:
 }
 ```
 
-## Size of the resource bundles
+#### Resulting size of the @phensley/cldr resource bundles
 
 To summarize we have:
   * Flattened the schema
@@ -236,7 +273,112 @@ The resulting bundle sizes:
 |    size    |   object                                      |
 |------------|-----------------------------------------------|
 |     11 MB  | All resource bundles                          |
-|    1.5 MB  |   .. with 'gzip --best'                            |
+|    1.5 MB  |   .. with 'gzip --best'                       |
 |    191 KB  | 'en' resource bundle (all scripts + regions)  |
-|     33 KB  |   .. with 'gzip --best'                            |
+|     33 KB  |   .. with 'gzip --best'                       |
 
+The bundle format can likely be further improved, but it is simple and the size is sufficient for the current version.
+
+
+### 6. Create a typesafe hierarchy that mirrors our schema
+
+Since our DSL program encodes a locale's fields into a bundle, and is used to build an accessor object, we can construct a set of types that mirrors the structure accessor object, providing a nicer interface for accessing the fields at runtime.
+
+Our DSL example:
+
+```typescript
+formatWidths = keyindex(['short','medium','long','full']);
+
+scope('Gregorian', [
+  vector1('dateFormats', formatWidths),
+  vector1('timeFormats', formatWidths),
+]);
+```
+
+Which is used to dynamically generate a singleton accessor object at library initialization time:
+
+```typescript
+const schema = {
+  Gregorian: {
+    dateFormats: new Vector1Arrow<FormatWidthType>(0, formatWidths),
+    timeFormats: new Vector1Arrow<FormatWidthType>(4, formatWidths),
+    ..
+  },
+  Numbers: {
+    ..
+  }
+}
+```
+
+Then we define a set of types that mirror the DSL structure / accessor object:
+
+```typescript
+export type FormatWidthType = 'short' | 'medium' | 'long' | 'full';
+
+export interface CalendarSchema {
+  readonly dateFormats: Vector1Arrow<FormatWidthType>;
+  readonly timeFormats: Vector1Arrow<FormatWidthType>;
+}
+
+export interface GregorianSchema extends CalendarSchema {}
+
+export interface Schema {
+  readonly Gregorian: GregorianSchema;
+}
+```
+
+Now we can fetch fields from any bundle in a typesafe way:
+
+```typescript
+const value = schema.Gregorian.dateFormats.get(bundle, 'medium');
+console.log(value);
+```
+
+<pre class="output">
+d MMM y
+</pre>
+
+A typo will fail to compile ..
+
+```typescript
+schema.GregorianSchema.dateformat.get(bundle, 'medium');
+// [ts] Property 'dateformat' does not exist on type 'CalendarSchema'. Did you mean 'dateFormats'?
+
+schema.GregorianSchema.dateFormats.get(bundle, 'mediumfoo');
+// ts] Argument of type '"mediumfoo"' is not assignable to parameter of type 'FormatWidthType'.
+```
+
+We can fetch all values for a field efficiently:
+
+```typescript
+const values = schema.Gregorian.dateFormats.mapping(bundle);
+console.log(values);
+```
+
+<pre class="output">
+{
+  short: "dd/MM/y",
+  medium: "d MMM y",
+  long: "d MMMM y",
+  full: "EEEE, d MMMM y"
+}
+</pre>
+
+We can keep references to deep parts of the schema we use frequently:
+
+```typescript
+// We can also cache specific levels of the hierarchy that are used frequently
+const { dateFormats } schema.Gregorian;
+
+// ... later
+
+const value = dateFormats.get(bundle, width);
+```
+
+This gives us some wins:
+ * Schema access is in code which is checked by the compiler vs using strings/array paths which are not.
+ * Enables autocompletion for the entire schema, saving the developer from having to remember the names, arguments, and how the types fit together.
+ * Separates concerns about the schema's design and correctness from its usage.
+ * We can evolve the schema and easily find all of the places inside the library that need to be adapted.
+ * Reduces the chance of errors when accessing fields.
+ * We could hang documentation on all of the schema's types and generate documentation, assisting developers in better understanding their meaning and use.

@@ -25,7 +25,7 @@ pre code {
   display: block;
   margin: 20px 0 8px 0;
   padding: 0.3em;
-  border-left: 6px solid #5b82d8;
+  border-left: 5px solid #5d91df;
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
   font-size: 13px;
   overflow-x: auto;
@@ -58,6 +58,8 @@ pre.output {
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
   font-size: 13px;
   overflow-x: auto;
+  /* box-shadow: -4px 4px #dedede; */
+  /* box-shadow: 0px 5px #efefef; */
 }
 
 pre.output.small {
