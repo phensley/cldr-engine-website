@@ -41,6 +41,7 @@
     "api-unitformatoptions": "UnitFormatOptions",
     "api-unitlength": "UnitLength",
     "api-unixepochtime": "UnixEpochTime",
+    "doc-calendar-examples": "Examples",
     "doc-design-bundles": "Resource bundles",
     "doc-design-caching": "Caching",
     "doc-faq": "Rationale",
@@ -59,8 +60,8 @@
     "Introduction": "Introduction",
     "Design": "Design",
     "Locales": "Locales",
-    "Math": "Math",
     "Calendars": "Calendars",
+    "Math": "Math",
     "General": "General",
     "Numbers": "Numbers",
     "Units": "Units"

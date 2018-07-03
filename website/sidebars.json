@@ -13,6 +13,9 @@
     "Locales": [
       "doc-locales"
     ],
+    "Calendars": [
+      "doc-calendar-examples"
+    ],
     "Math": [
       "doc-math",
       "doc-math-example-factorial"
