@@ -2,11 +2,13 @@
   "docs": {
     "Introduction": [
       "doc-index",
-      "doc-design",
-      "doc-init"
+      "doc-faq",
+      "doc-quickstart"
     ],
     "Design": [
-      "doc-design-bundles"
+      "doc-goals",
+      "doc-design-bundles",
+      "doc-design-caching"
     ],
     "Locales": [
       "doc-locales"
@@ -46,6 +48,7 @@
     "Locales": [
       "api-availablelocales",
       "api-bundle",
+      "api-languagetag",
       "api-locale",
       "api-localematcher",
       "api-parselocale"

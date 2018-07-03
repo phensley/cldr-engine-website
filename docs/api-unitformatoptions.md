@@ -7,16 +7,16 @@ title: UnitFormatOptions
 
 <pre class="syntax">
 object {
-  length,
-  style,
-  nu,
-  round,
-  group,
-  minimumIntegerDigits,
-  maximumFractionDigits,
-  minimumFractionDigits,
-  maximumSignificantDigits,
-  minimumSignificantDigits
+  length?,
+  style?,
+  nu?,
+  round?,
+  group?,
+  minimumIntegerDigits?,
+  maximumFractionDigits?,
+  minimumFractionDigits?,
+  maximumSignificantDigits?,
+  minimumSignificantDigits?
 }
 </pre>
 

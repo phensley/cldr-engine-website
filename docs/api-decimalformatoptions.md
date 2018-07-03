@@ -9,15 +9,15 @@ Object expressing options for decimal formatting methods.
 
 <pre class="syntax">
 object {
-  style,
-  nu,
-  round,
-  group,
-  minimumIntegerDigits,
-  maximumFractionDigits,
-  minimumFractionDigits,
-  maximumSignificantDigits,
-  minimumSignificantDigits
+  style?,
+  nu?,
+  round?,
+  group?,
+  minimumIntegerDigits?,
+  maximumFractionDigits?,
+  minimumFractionDigits?,
+  maximumSignificantDigits?,
+  minimumSignificantDigits?
 }
 </pre>
 

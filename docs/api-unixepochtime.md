@@ -7,7 +7,7 @@ title: UnixEpochTime
 <pre class="syntax">
 object {
   epoch,
-  zoneId
+  zoneId?
 }
 </pre>
 

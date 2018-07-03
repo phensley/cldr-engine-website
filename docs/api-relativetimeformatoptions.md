@@ -7,8 +7,8 @@ title: RelativeTimeFormatOptions
 
 <pre class="syntax">
 object {
-  width,
-  nu
+  width?,
+  nu?
 }
 </pre>
 

@@ -43,7 +43,7 @@ Format a list of items, with a given list type, returning a string.
 #### Syntax
 
 <pre class="syntax">
-formatList(items [, type]): string
+formatList(items, type?): string
 </pre>
 
 #### Parameters
@@ -80,7 +80,7 @@ Format a list of items, with a given list type, returning an array of parts.
 #### Syntax
 
 <pre class="syntax">
-formatList(items [, type]): Part[]
+formatList(items, type?): Part[]
 </pre>
 
 #### Parameters

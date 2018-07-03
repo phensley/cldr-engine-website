@@ -9,16 +9,16 @@ Object expressing options for currency formatting methods.
 
 <pre class="syntax">
 object {
-  style,
-  symbolWidth,
-  nu,
-  round,
-  group,
-  minimumIntegerDigits,
-  maximumFractionDigits,
-  minimumFractionDigits,
-  maximumSignificantDigits,
-  minimumSignificantDigits
+  style?,
+  symbolWidth?,
+  nu?,
+  round?,
+  group?,
+  minimumIntegerDigits?,
+  maximumFractionDigits?,
+  minimumFractionDigits?,
+  maximumSignificantDigits?,
+  minimumSignificantDigits?
 }
 </pre>
 

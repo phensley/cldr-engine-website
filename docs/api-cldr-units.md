@@ -9,7 +9,7 @@ Format a given unit quantity to string.
 
 #### Syntax
 <pre class="syntax">
-formatQuantity(qty [, options]): string
+formatQuantity(qty, options?): string
 </pre>
 
 #### Parameters
@@ -36,7 +36,7 @@ Format a given unit quantity to an array of parts.
 
 #### Syntax
 <pre class="syntax">
-formatQuantity(qty [, options]): Part[]
+formatQuantity(qty, options?): Part[]
 </pre>
 
 #### Parameters
@@ -69,7 +69,7 @@ Format a sequence of [Quantity](api-quantity.html) into a string.
 #### Syntax
 
 <pre class="syntax">
-formatQuantitySequence(quantities [, options]): string
+formatQuantitySequence(quantities, options?): string
 </pre>
 
 #### Parameters
@@ -112,7 +112,7 @@ Format a sequence of [Quantity](api-quantity.html) into an array of parts.
 #### Syntax
 
 <pre class="syntax">
-formatQuantitySequenceToParts(quantities [, options]): string
+formatQuantitySequenceToParts(quantities, options?): string
 </pre>
 
 #### Parameters
@@ -158,7 +158,7 @@ Return a string containing the unit display name.
 #### Syntax
 
 <pre class="syntax">
-getUnitDisplayName(unit [, length]): string
+getUnitDisplayName(unit, length?): string
 </pre>
 
 #### Parameters

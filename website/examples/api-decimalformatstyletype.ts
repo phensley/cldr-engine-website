@@ -28,3 +28,12 @@ const SEP = '\n--------------------------------\n\n';
   console.log(result, SEP);
 
 })();
+
+(() => {
+  const cldr = framework.get('de');
+  console.log(cldr.Numbers.formatCurrency('12345.678', 'CAD', { group: true }));
+
+  framework.getAsync('und-CA').then((cldr) => {
+    console.log(cldr.Numbers.formatCurrency('12345.678', 'CAD', { group: true }));
+  });
+})();

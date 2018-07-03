@@ -9,4 +9,17 @@ const loader = (language: string): any => {
   return fs.readFileSync(path, { encoding: 'utf-8' });
 };
 
-export const framework = new CLDRFramework({ loader });
+const asyncLoader = (language: string): Promise<any> =>
+  new Promise<any>((resolve, reject) => {
+    const path = join(ROOT, `${language}.json`);
+    fs.readFile(path, { encoding: 'utf-8' }, (err, data) => {
+      if (err) {
+        reject(err);
+      } else {
+        resolve(data);
+      }
+    });
+  });
+
+
+export const framework = new CLDRFramework({ loader, asyncLoader });

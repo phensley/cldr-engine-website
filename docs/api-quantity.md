@@ -10,7 +10,7 @@ A number representing a quantity of a given unit.
 <pre class="syntax">
 object {
   value,
-  unit
+  unit?
 }
 </pre>
 

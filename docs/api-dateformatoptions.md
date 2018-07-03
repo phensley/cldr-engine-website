@@ -7,13 +7,13 @@ title: DateFormatOptions
 
 <pre class="syntax">
 object {
-  datetime,
-  date,
-  time,
-  skeleton,
-  wrap,
-  ca,
-  nu
+  datetime?,
+  date?,
+  time?,
+  skeleton?,
+  wrap?,
+  ca?,
+  nu?
 }
 </pre>
 

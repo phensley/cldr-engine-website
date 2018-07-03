@@ -18,7 +18,7 @@ Returns a mapping of day period key to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-dayPeriods([calendar]): { [x: string]: string }
+dayPeriods(calendar?): { [x: string]: string }
 </pre>
 
 #### Parameters
@@ -101,7 +101,7 @@ Format a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepocht
 
 #### Syntax
 <pre class="syntax">
-formatDate(date [, options]): string
+formatDate(date, options?): string
 </pre>
 
 #### Parameters
@@ -127,6 +127,11 @@ Wednesday, June 27, 2018 at 4:23:00 AM Eastern Daylight Time
 ## formatDateToParts
 
 Format a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepochtime.html) instance to an array of parts.
+
+#### Syntax
+<pre class="syntax">
+formatDateToParts(date, options?): Part[]
+</pre>
 
 #### Parameters
   - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
@@ -165,7 +170,7 @@ Format a start and end date range to a string.
 
 #### Syntax
 <pre class="syntax">
-formatDateInterval(start, end [, options]): string
+formatDateInterval(start, end, options?): string
 </pre>
 
 #### Parameters
@@ -208,7 +213,7 @@ Format a start and end date range to an array of parts.
 
 #### Syntax
 <pre class="syntax">
-formatDateInterval(start, end [, options]): Part[]
+formatDateIntervalToParts(start, end, options?): Part[]
 </pre>
 
 #### Parameters
@@ -261,7 +266,7 @@ Formats a value as a unit of relative time.
 
 #### Syntax
 <pre class="syntax">
-formatRelativeTimeField(value, field [, options]): string
+formatRelativeTimeField(value, field, options?): string
 </pre>
 
 #### Parameters
@@ -298,7 +303,7 @@ Returns a mapping of month ordinal number to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-months([calendar]): { [x: number]: string }
+months(calendar?): { [x: number]: string }
 </pre>
 
 #### Parameters
@@ -349,7 +354,7 @@ Return a mapping of quarter ordinal number to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-quarters([calendar]): { [x: number]: string }
+quarters(calendar?): { [x: number]: string }
 </pre>
 
 #### Parameters
@@ -450,6 +455,7 @@ Gregorian 2018-07-17 08:34:56.789 America/New_York
 
 ## toPersianDate
 
+
 ## weekdays
 
 Return a mapping of weekday ordinal number to name for the current locale.
@@ -457,7 +463,7 @@ Return a mapping of weekday ordinal number to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-weekdays([calendar]): { [x: number]: string }
+weekdays(calendar?): { [x: number]: string }
 </pre>
 
 #### Parameters

@@ -27,29 +27,35 @@ body {
 @media only screen and (min-width: 1500px) {
 }
 
-pre code {
-  display: block;
-  margin: 20px 0 8px 0px;
-  padding: 1em;
-  border-left: 6px solid #d3d8e0;
-  font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
-  font-size: 13px;
-  overflow-x: auto;
-}
-
-pre {
-  margin-bottom: 4px;
+code {
+  font-size: 14px;
+  background-color: white;
+  color: black;
+  padding: 0;
+  font-weight: 400;
+  padding: 0.2em;
 }
 
 code.hljs {
   background-color: #f0f1f3;
 }
 
-code {
-  font-size: 14px;
-  background-color: white;
-  color: black;
+pre code {
+  display: block;
+  margin: 20px 0 20px 0px;
+  padding: 1em;
+  border-left: 6px solid #d3d8e0;
+  font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
+  font-size: 13px;
+  overflow-x: auto;
+  font-weight: 400;
 }
+
+pre {
+  margin-bottom: 4px;
+}
+
+
 
 pre.output {
   display: block;

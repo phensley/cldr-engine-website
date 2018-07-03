@@ -106,9 +106,26 @@ This reliance on high test coverage to catch path/property name errors isn't so 
 
 Our goal should be something that looks like the direct access, but done in a typesafe way, and ideally where the schema is a singleton object we can reuse across all bundles:
 
-**Typesafe, autocompletable**
+**Typesafe with autocomplete**
+
+The type information provides some compile time validation of our field accesses, and drives the autocompletion features of IDEs, saving developers having to refer back to the JSON structure to construct paths.
+
 ```typescript
+interface DateFormats {
+  get(bundle: Bundle, width: FormatWidthType);
+}
+interface GregorianSchema {
+  dateFormats: DateFormats;
+}
+interface CalendarSchema {
+  gregorian: GregorianSchema;
+}
+interface Schema {
+  calendars: CalendarSchema;
+}
+
 const bundle = get('en-001');
+const width = 'medium';
 const value = schema.calendars.gregorian.dateFormats.get(bundle, width);
 ```
 
@@ -119,15 +136,19 @@ const value = schema.calendars.gregorian.dateFormats.get(bundle, width);
  3. Can we define a bundle encoding that is simultaneously small, simple and fast?
  4. Can we define a way of accessing fields in the schema that is typesafe and static?
 
+
+
 ## Designing the resource bundle
 
 The design of the **phensley/cldr** bundle format involves several choices, described below.
 
 ### 1. Flatten the schema
 
-The CLDR's JSON schema is quite deep, but we prefer something more compact. To achieve this we transform the schema on the fly using [lenses](https://github.com/calmm-js/partial.lenses), to flatten, filter, and transform the data tree.
+The CLDR's JSON schema is quite deep, but we prefer something more compact. Performance should improve if we traverse fewer levels to get to a field value.
 
-Using the "dateFormats" example above, we would remove several of the levels, flattening it to:
+To achieve this we transform the schema on the fly using [lenses](https://github.com/calmm-js/partial.lenses), to flatten, filter, and transform the data tree.
+
+Using the "dateFormats" example above, we remove several of the levels, flattening it to:
 
 ```javascript
 {
@@ -171,6 +192,8 @@ scope('Gregorian', [
   vector1('timeFormats', formatWidths),
 ]);
 ```
+
+Other libraries require a developer to identify which parts of the CLDR JSON file(s) they need and filter the JSON files as part of their build process. Since the DSL only refers to fields that are used by the library, it performs this filtering process.
 
 ### 3. Use the DSL program to both encode and access field values
 
@@ -280,28 +303,46 @@ The resulting bundle will look something like this:
 #### Resulting size of the @phensley/cldr resource bundles
 
 To summarize we have:
-  * Flattened the schema
-  * Encoded the values only
-  * Encoded all scripts/regions of a language into a single resource bundle
-  * Reduced duplicates by regions inheriting from a base region
+ * Flattened the schema
+ * Encoded the values only
+ * Encoded all scripts/regions of a language into a single resource bundle
+ * Reduced duplicates by regions inheriting from a base region
+ * All field lookups are fast since they're indexing into a string array.
 
 The resulting bundle sizes:
 
-|    size    |   object                                      |
-|------------|-----------------------------------------------|
-|     11 MB  | All resource bundles                          |
-|    1.5 MB  |   .. with 'gzip --best'                       |
-|    191 KB  | 'en' resource bundle (all scripts + regions)  |
-|     33 KB  |   .. with 'gzip --best'                       |
+|    size    |   object                                          |
+|------------|---------------------------------------------------|
+|     11 MB  | All resource bundles                              |
+|    1.5 MB  | All .. with 'gzip --best'                         |
+|    192 KB  | English resource bundle (104 locales)             |
+|     34 KB  | English .. with 'gzip --best'                     |
 
 The bundle format can likely be further improved, but it is simple and the size is sufficient for the current version.
 
+```sh
+$ du -sbh node_modules/@phensley/cldr/packs/en.json.gz
+34K	node_modules/@phensley/cldr/packs/en.json.gz
+
+$ gunzip -c node_modules/@phensley/cldr/packs/en.json.gz | fold -w 80 | head -10
+{"version":"0.6.3","cldr":"32.0.1","language":"en","default":"en-Latn-US","scrip
+ts":{"Latn":{"strings":"E\tAdlam\tAfaka\tCaucasian Albanian\tAhom\tArabic\tImper
+ial Aramaic\tArmenian\tAvestan\tBalinese\tBamum\tBassa Vah\tBatak\tBangla\tBhaik
+suki\tBlissymbols\tBopomofo\tBrahmi\tBraille\tBuginese\tBuhid\tChakma\tUnified C
+anadian Aboriginal Syllabics\tCarian\tCham\tCherokee\tCirth\tCoptic\tCypriot\tCy
+rillic\tOld Church Slavonic Cyrillic\tDevanagari\tDeseret\tDuployan shorthand\tE
+gyptian demotic\tEgyptian hieratic\tEgyptian hieroglyphs\tElbasan\tEthiopic\tGeo
+rgian Khutsuri\tGeorgian\tGlagolitic\tMasaram Gondi\tGothic\tGrantha\tGreek\tGuj
+arati\tGurmukhi\tHan with Bopomofo\tHangul\tHan\tHanunoo\tSimplified\tTraditiona
+l\tHatran\tHebrew\tHiragana\tAnatolian Hieroglyphs\tPahawh Hmong\tJapanese sylla
+.. snip ..
+```
 
 ### 6. Create a typesafe hierarchy that mirrors our schema
 
-Since our DSL program encodes a locale's fields into a bundle, and is used to build an accessor object, we can construct a set of types that mirrors the structure accessor object, providing a nicer interface for accessing the fields at runtime.
+Our DSL is used to build a singleton accessor object, and we add type information that mirrors its structure, providing a sound interface for accessing fields at runtime.
 
-Our DSL example:
+Our DSL example looks like this:
 
 ```typescript
 formatWidths = keyindex(['short','medium','long','full']);
@@ -312,7 +353,7 @@ scope('Gregorian', [
 ]);
 ```
 
-Which is used to dynamically generate a singleton accessor object at library initialization time:
+We use this to dynamically generate the singleton accessor object at library initialization time:
 
 ```typescript
 const schema = {
@@ -327,7 +368,7 @@ const schema = {
 }
 ```
 
-Then we define a set of types that mirror the DSL structure / accessor object:
+Then we define a set of types that mirrors the structure of the accessor object. Note that, while it would be possible to generate some of these interfaces directly from the DSL, the types are currently hand-written.
 
 ```typescript
 export type FormatWidthType = 'short' | 'medium' | 'long' | 'full';
@@ -359,15 +400,17 @@ A typo will fail to compile ..
 
 ```typescript
 schema.GregorianSchema.dateformat.get(bundle, 'medium');
+
 // [ts] Property 'dateformat' does not exist
 // on type 'CalendarSchema'. Did you mean 'dateFormats'?
 
 schema.GregorianSchema.dateFormats.get(bundle, 'mediumfoo');
+
 // [ts] Argument of type '"mediumfoo"' is not assignable
 // to parameter of type 'FormatWidthType'.
 ```
 
-We can fetch all values for a field efficiently:
+We can enhance the field accessors with other helper methods. For example, `mapping(bundle): object` lets us fetch all values for a given field efficiently:
 
 ```typescript
 const values = schema.Gregorian.dateFormats.mapping(bundle);
@@ -391,13 +434,17 @@ const { dateFormats } schema.Gregorian;
 const value = dateFormats.get(bundle, width);
 ```
 
-This gives us some wins:
+## Summary
+
+Summarizing the benefits of the resource bundle design:
+
+ * Developers don't need to understand the structure of the CLDR, or perform any manual filtering of the JSON data themselves.
  * Schema access is in code which is checked by the compiler.
- * Enables autocompletion for the entire schema, saving the developer from having to remember the names, arguments, and how the types fit together.
- * Reduces the chance of errors when accessing fields.
- * Separates concerns about the schema's design and correctness from its usage.
+ * Autocompletion for the entire schema, saving the developer from having to remember the names, arguments, and how the types fit together.
+ * Reduce the chance of errors when accessing fields.
+ * Separate concerns about the schema's design and correctness from its usage.
  * When we evolve the schema we can easily locate the places inside the library that need to be adapted.
  * We could add comment headers to all of the schema's types and generate documentation, assisting developers in better understanding their meaning and provide examples.
- * The singleton accessor object can be used across any locale / bundle, so we only have to initialize it once.
- * The field accessors are implemented in a general way and reused, e.g. `Vector1Arrow`, `Vector2Arrow`.
- * The field accessors allow us to retrieve multiple fields together as a structure, e.g. `dateFormats.mapping(bundle)`.
+ * The singleton accessor object is initialized once and reused across all locales.
+ * Bundles are 100 times smaller than the raw JSON form with schema intact (139 MB vs 1.5 MB), and 20 times smaller when storing the values only (34 MB vs 1.5 MB), by reducing the duplication between locales in the same language.
+ * Field lookups become indexes into a single array.

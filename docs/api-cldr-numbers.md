@@ -16,7 +16,7 @@ Format a decimal number, representing an amount in a given currency, into a stri
 #### Syntax
 
 <pre class="syntax">
-formatCurrency(num, code [, options]): string
+formatCurrency(num, code, options?): string
 </pre>
 
 #### Parameters
@@ -49,7 +49,7 @@ Format a decimal number, representing an amount in a given currency, into an arr
 #### Syntax
 
 <pre class="syntax">
-formatCurrencyToParts(num, code [, options]): Part[]
+formatCurrencyToParts(num, code, options?): Part[]
 </pre>
 
 #### Parameters
@@ -87,7 +87,7 @@ Format a decimal number to a string.
 #### Syntax
 
 <pre class="syntax">
-formatDecimal(num [, options]): string
+formatDecimal(num, options?): string
 </pre>
 
 #### Parameters
@@ -118,7 +118,7 @@ Format a decimal number to an array of parts.
 #### Syntax
 
 <pre class="syntax">
-formatDecimalToParts(num, [, options]): Part[]
+formatDecimalToParts(num, options?): Part[]
 </pre>
 
 #### Parameters
@@ -155,7 +155,7 @@ Get the display symbol for a given currency.
 #### Syntax
 
 <pre class="syntax">
-getCurrencySymbol(code [, width]): string
+getCurrencySymbol(code, width?): string
 </pre>
 
 #### Parameters
@@ -208,7 +208,7 @@ Get the pluralized name for a given currency.
 #### Syntax
 
 <pre class="syntax">
-getCurrencyPluralName(code: CurrencyType, plural: string): string
+getCurrencyPluralName(code, plural): string
 </pre>
 
 #### Parameters

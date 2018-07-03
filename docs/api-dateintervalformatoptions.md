@@ -9,9 +9,9 @@ Options used for date interval formatting.
 
 <pre class="syntax">
 object {
-  skeleton,
-  ca,
-  nu
+  skeleton?,
+  ca?,
+  nu?
 }
 </pre>
 

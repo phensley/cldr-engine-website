@@ -19,9 +19,7 @@ new LocaleMatcher(supported)
 ### Example
 
 ```typescript
-import { availableLocales, LocaleMatcher } from '@phensley/cldr';
-
-const allLocales = availableLocales();
+import { LocaleMatcher } from '@phensley/cldr';
 
 const localeMatcher = new LocaleMatcher('en, es-419, en-GB, pt-BR, es');
 
