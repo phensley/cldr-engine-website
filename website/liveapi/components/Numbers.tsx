@@ -8,8 +8,8 @@ export class Numbers extends React.Component<any> {
       <Group>
         <Input placeholder='Bar' />
         <Input placeholder='Another' />
-      </Group>;
+      </Group>
         <Label>group</Label><Switch checked={true} />
-        </div>;
-      }
+    </div>
+  }
 }

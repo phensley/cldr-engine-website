@@ -21,8 +21,18 @@ object {
 ### Example
 
 ```typescript
-
+const cldr = framework.get('en');
+for (const n of [-5, -2, -1, 0, 1, 2, 5]) {
+  console.log(cldr.Calendars.formatRelativeTimeField(n, 'day', { width: 'wide' }));
+}
 ```
 
 <pre class="output">
+5 days ago
+2 days ago
+yesterday
+today
+tomorrow
+in 2 days
+in 5 days
 </pre>

@@ -1,9 +1,10 @@
 "use strict";
 
+const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-module.exports = {
+const config = {
   mode: 'production',
   devtool: 'source-map',
   entry: {
@@ -12,6 +13,10 @@ module.exports = {
   output: {
     filename: "[name].js",
     path: __dirname + "/static/"
+  },
+  devServer: {
+    publicPath: '/cldr-engine/',
+    compress: true
   },
   performance: {
     hints: 'warning'
@@ -30,9 +35,6 @@ module.exports = {
     extensions: ['.js', '.ts', '.tsx']
   },
   plugins: [
-    new webpack.EnvironmentPlugin({
-      PUBLIC_URL: '/cldr-engine/'
-    }),
     new HtmlWebpackPlugin({
       inject: true,
       filename: 'liveapi.html',
@@ -52,4 +54,17 @@ module.exports = {
       },
     }),
   ]
+};
+
+module.exports = (env, argv) => {
+  const cfg = {
+    PUBLIC_URL: '/cldr-engine/'
+  };
+  if (argv.mode === 'development') {
+    config.devServer.publicPath = path.join('/');
+    config.devServer.contentBase = path.join(__dirname);
+    cfg.PUBLIC_URL = '/static/';
+  }
+  config.plugins.unshift(new webpack.EnvironmentPlugin(cfg));
+  return config;
 };

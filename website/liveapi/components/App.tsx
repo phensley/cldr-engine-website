@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { English } from '../locale';
 import { DecimalFormatOptions, Decimal, DecimalConstants } from '@phensley/cldr-core';
-// import { Numbers } from './Numbers';
+import { Numbers } from './Numbers';
 import { Sidebar } from './Sidebar';
 
 // The rebass typings are way out of date
@@ -28,8 +28,8 @@ export class App extends React.Component<any> {
       </Heading>
       ({num.toString()} * {num.toString()}) / {DecimalConstants.PI.setScale(20).toString()} = {English.Numbers.formatDecimal(result, opts)}
       <Sidebar />
-      {/* <Numbers /> */}
+      <Numbers />
       </Box>
-    </Provider>;
+    </Provider>
   }
 }
