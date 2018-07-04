@@ -97,7 +97,7 @@ $12,345.68
 
 ### Redux example
 
-In this example we use Redux and Redux Saga in the example below. It should be straightforward to adapt this to your state container of choice.
+In this example we use Redux and Redux Saga, although it should be straightforward to adapt this to your state container of choice.
 
 **Redux store containing the locale state**
 ```typescript
