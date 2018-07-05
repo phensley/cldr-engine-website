@@ -1,14 +1,14 @@
 ---
-id: api-parselocale
-title: parseLocale
+id: api-resolvelocale
+title: resolveLocale
 ---
 
-Parse a BCP 47 language tag or Java locale identifier into a [Locale](api-locale.html) object.
+Parse a BCP 47 language tag or Java locale identifier and resolve it, returning a [Locale](api-locale.html) object.
 
 ### Syntax
 
 <pre class="syntax">
-parseLocale(id): Locale
+resolveLocale(id): Locale
 </pre>
 
 ### Parameters
@@ -18,9 +18,9 @@ parseLocale(id): Locale
 ### Example
 
 ```typescript
-import { parseLocale } from '@phensley/cldr';
+import { resolveLocale } from '@phensley/cldr';
 for (const str of ['en_US', 'zh', 'fr-CA-u-ca-persian-u-nu-mathmono']) {
-  const { id, tag } = parseLocale(str);
+  const { id, tag } = resolveLocale(str);
   console.log(`${tag.expanded()}`);
 }
 ```

@@ -17,14 +17,14 @@ const SEP = '\n--------------------------------\n\n';
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
-  const epoch = 1530087780000;
+  const date = 1530087780000;
   const zoneId = 'America/New_York';
-  const d1 = cldr.Calendars.toGregorianDate({ epoch, zoneId });
+  const d1 = cldr.Calendars.toGregorianDate({ date, zoneId });
 
   const factors = [0.0002, 0.005, 0.25, .75, 3, 50, 425, 1000];
   factors.forEach(f => {
     const days = f * 86400 * 1000;
-    const d2 = cldr.Calendars.toGregorianDate({ epoch: epoch + days, zoneId });
+    const d2 = cldr.Calendars.toGregorianDate({ date: date + days, zoneId });
     const field = cldr.Calendars.fieldOfGreatestDifference(d1, d2);
     console.log(`${field} ->  ${d2.toString()}`);
   });
@@ -37,10 +37,10 @@ const SEP = '\n--------------------------------\n\n';
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
-  const epoch = 1530087780000;
+  const date = 1530087780000;
   const zoneId = 'America/New_York';
 
-  const result = cldr.Calendars.formatDate({ epoch, zoneId }, { datetime: 'full' });
+  const result = cldr.Calendars.formatDate({ date, zoneId }, { datetime: 'full' });
   console.log(result);
 
   console.log(SEP);
@@ -51,10 +51,10 @@ const SEP = '\n--------------------------------\n\n';
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
-  const epoch = 1530087780000;
+  const date = 1530087780000;
   const zoneId = 'America/New_York';
 
-  const result = cldr.Calendars.formatDateToParts({ epoch, zoneId }, { datetime: 'short' });
+  const result = cldr.Calendars.formatDateToParts({ date, zoneId }, { datetime: 'short' });
   console.log(result);
 
   console.log(SEP);
@@ -65,13 +65,13 @@ const SEP = '\n--------------------------------\n\n';
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
-  const epoch = 1530087780000;
+  const date = 1530087780000;
   const zoneId = 'America/New_York';
 
   const day = 86400000;
-  const start = { epoch, zoneId };
+  const start = { date, zoneId };
   for (const days of [1.2, 3, 17, 73, 1000]) {
-    const end = { epoch: epoch + (days * day), zoneId };
+    const end = { date: date + (days * day), zoneId };
     const result = cldr.Calendars.formatDateInterval(start, end, { skeleton: 'yMMMd' });
     console.log(result);
   }
@@ -84,12 +84,12 @@ const SEP = '\n--------------------------------\n\n';
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
-  const epoch = 1530087780000;
+  const date = 1530087780000;
   const zoneId = 'America/New_York';
 
   const day = 86400000;
-  const start = { epoch, zoneId };
-  const end = { epoch: epoch + (day * 10), zoneId };
+  const start = { date, zoneId };
+  const end = { date: date + (day * 10), zoneId };
   const result = cldr.Calendars.formatDateIntervalToParts(start, end, { skeleton: 'yMMMd' });
   console.log(result);
 
@@ -117,7 +117,7 @@ const SEP = '\n--------------------------------\n\n';
 
   const monthsFR = fr.Calendars.months();
   const date = en.Calendars.toGregorianDate({
-    epoch: new Date(2018, 5, 11, 12, 1, 12),
+    date: new Date(2018, 5, 11, 12, 1, 12),
     zoneId: 'America/New_York'
   });
 
@@ -139,7 +139,7 @@ const SEP = '\n--------------------------------\n\n';
 // toBuddhistDate
 (() => {
   const cldr = framework.get('en');
-  const date = cldr.Calendars.toBuddhistDate({ epoch: 1530124872456, zoneId: 'America/New_York'});
+  const date = cldr.Calendars.toBuddhistDate({ date: 1530124872456, zoneId: 'America/New_York'});
   console.log(date.toString());
 
   console.log(SEP);
@@ -149,7 +149,7 @@ const SEP = '\n--------------------------------\n\n';
 // toGregorianDate
 (() => {
   const cldr = framework.get('en');
-  const date = cldr.Calendars.toGregorianDate({ epoch: 1530124872456, zoneId: 'America/New_York' });
+  const date = cldr.Calendars.toGregorianDate({ date: 1530124872456, zoneId: 'America/New_York' });
   console.log(date.toString());
 
   console.log(SEP);
@@ -158,12 +158,12 @@ const SEP = '\n--------------------------------\n\n';
 // toGregorianDate
 (() => {
   const cldr = framework.get('en');
-  let epoch = new Date(2018, 1, 17, 12, 34, 56, 789);
-  let date = cldr.Calendars.toGregorianDate({ epoch, zoneId: 'America/New_York' });
+  let date = new Date(2018, 1, 17, 12, 34, 56, 789);
+  let gregorian = cldr.Calendars.toGregorianDate({ date, zoneId: 'America/New_York' });
   console.log(date.toString());
 
-  epoch = new Date(2018, 6, 17, 12, 34, 56, 789);
-  date = cldr.Calendars.toGregorianDate({ epoch, zoneId: 'America/New_York' });
+  date = new Date(2018, 6, 17, 12, 34, 56, 789);
+  gregorian = cldr.Calendars.toGregorianDate({ date, zoneId: 'America/New_York' });
   console.log(date.toString());
 
   console.log(SEP);

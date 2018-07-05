@@ -36,7 +36,7 @@ add(fields): CalendarDate
 ```typescript
 // Wed June 27 2018 4:23:00 AM UTC
 const date = cldr.Calendars.toGregorianDate({
-  epoch: 1530087780000, zoneId: 'America/New_York' });
+  date: 1530087780000, zoneId: 'America/New_York' });
 
 console.log(date.toString());
 console.log(date.add({ year: 1, month: 5 }).toString());

@@ -1,5 +1,5 @@
 
-import { availableLocales, parseLocale } from '@phensley/cldr';
+import { availableLocales, resolveLocale } from '@phensley/cldr';
 
 (() => {
   const locales = availableLocales().slice(0, 10);
@@ -11,7 +11,7 @@ import { availableLocales, parseLocale } from '@phensley/cldr';
 
 (() => {
   for (const str of ['en_US', 'zh', 'fr-CA-u-ca-persian-u-nu-mathmono']) {
-    const { id, tag } = parseLocale(str);
+    const { id, tag } = resolveLocale(str);
     console.log(`${tag.expanded()}`);
   }
 })();

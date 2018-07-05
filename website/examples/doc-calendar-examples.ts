@@ -10,7 +10,7 @@ const header = (s: string) => console.log(`## ${s}\n\n`);
 // formatDate
 (() => {
   const cldr = framework.get('en');
-  const epoch = new Date(2018, 2, 15, 12, 34, 56, 789);
+  const date = new Date(2018, 2, 15, 12, 34, 56, 789);
   const newyork = 'America/New_York';
   const tokyo = 'Asia/Tokyo';
   const london = 'Europe/London';
@@ -22,7 +22,7 @@ const header = (s: string) => console.log(`## ${s}\n\n`);
 
   for (const width of widths) {
     const opts = { date: width };
-    const d = { epoch, zoneId: newyork };
+    const d = { date, zoneId: newyork };
     console.log(ts(method(opts)));
     const res = cldr.Calendars.formatDate(d, opts);
     console.log(html(res));
@@ -37,7 +37,7 @@ const header = (s: string) => console.log(`## ${s}\n\n`);
 
     let res: string[] = [];
     for (const zoneId of zones) {
-      const d = { epoch, zoneId };
+      const d = { date, zoneId };
       const s = cldr.Calendars.formatDate(d, opts);
       res.push(s);
     }
@@ -53,7 +53,7 @@ const header = (s: string) => console.log(`## ${s}\n\n`);
 
     let res: string[] = [];
     for (const zoneId of zones) {
-      const d = { epoch, zoneId };
+      const d = { date, zoneId };
       const s = cldr.Calendars.formatDate(d, opts);
       res.push(s);
     }
@@ -69,7 +69,7 @@ const header = (s: string) => console.log(`## ${s}\n\n`);
   for (const skeleton of skeletons) {
     const opts = { skeleton };
     console.log(ts(`cldr.Calendars.formatDate(date, ${inspect(opts)});`));
-    const res = cldr.Calendars.formatDate({ epoch, zoneId: newyork }, opts);
+    const res = cldr.Calendars.formatDate({ date, zoneId: newyork }, opts);
     console.log(html(res));
     console.log();
   }
@@ -82,7 +82,7 @@ const header = (s: string) => console.log(`## ${s}\n\n`);
     console.log(ts(`cldr.Calendars.formatDate(date, ${inspect(opts)});`));
     let res: string[] = [];
     for (const zoneId of zones) {
-      const s = cldr.Calendars.formatDate({ epoch, zoneId }, opts);
+      const s = cldr.Calendars.formatDate({ date, zoneId }, opts);
       res.push(s);
     }
     console.log(html(res.join('\n')));
@@ -97,7 +97,7 @@ const header = (s: string) => console.log(`## ${s}\n\n`);
     console.log(ts(`cldr.Calendars.formatDate(date, ${inspect(opts)});`));
     let res: string[] = [];
     for (const zoneId of zones) {
-      const s = cldr.Calendars.formatDate({ epoch, zoneId }, opts);
+      const s = cldr.Calendars.formatDate({ date, zoneId }, opts);
       res.push(s);
     }
     console.log(html(res.join('\n')));

@@ -11,7 +11,8 @@
       "doc-design-caching"
     ],
     "Locales": [
-      "doc-locales"
+      "doc-locales-parsing",
+      "doc-locales-matching"
     ],
     "Calendars": [
       "doc-calendar-examples"
@@ -43,7 +44,7 @@
       "api-japanesedate",
       "api-persiandate",
       "api-relativetimeformatoptions",
-      "api-unixepochtime"
+      "api-zoneddatetime"
     ],
     "General": [
       "api-listpatterntype"
@@ -54,7 +55,8 @@
       "api-languagetag",
       "api-locale",
       "api-localematcher",
-      "api-parselocale"
+      "api-parselanguagetag",
+      "api-resolvelocale"
     ],
     "Numbers": [
       "api-currencyformatoptions",

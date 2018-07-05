@@ -1,18 +1,18 @@
 ---
-id: api-unixepochtime
-title: UnixEpochTime
+id: api-zoneddatetime
+title: ZonedDateTime
 ---
 
 ### Syntax
 <pre class="syntax">
 object {
-  epoch,
+  date,
   zoneId?
 }
 </pre>
 
 ### Properties
-  - <code class="def">epoch: <span>number | Date</span></code>
+  - <code class="def">date: <span>number | Date</span></code>
     - Timestamp or Date value, representing milliseconds since Jan 1 1970 at midnight UTC.
   - <code class="def">zoneId?: <span>string</span></code>
     - IANA tzdb zone identifier, defaults to `'UTC'`
@@ -20,7 +20,7 @@ object {
 ### Example
 
 ```typescript
-let time: UnixEpochTime = { epoch: -6105991722000, zoneId: 'America/New_York' };
+let time: ZonedDateTime = { date: -6105991722000, zoneId: 'America/New_York' };
 cldr.Calendars.formatDate(time, { date: 'full' });
 ```
 
@@ -32,11 +32,11 @@ Thursday, July 4, 1776
 const day = 86400 * 1000;
 const epoch = -12219223722000;
 
-let time: UnixEpochTime = { epoch: epoch - day, zoneId: 'Europe/Rome' };
+let time: ZonedDateTime = { date: epoch - day, zoneId: 'Europe/Rome' };
 let result = cldr.Calendars.formatDate(time, { date: 'full' });
 console.log(result);
 
-time = { epoch, zoneId: 'Europe/Rome' };
+time = { date, zoneId: 'Europe/Rome' };
 result = cldr.Calendars.formatDate(time, { date: 'full' });
 console.log(result);
 ```

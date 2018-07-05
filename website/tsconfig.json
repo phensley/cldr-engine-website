@@ -20,7 +20,7 @@
   "include": [
     "./*.js",
     "liveapi/**/*",
-    "examples/*"
+    "examples/*.ts"
   ],
   "exclude": [
     "node_modules"

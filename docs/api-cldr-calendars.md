@@ -70,14 +70,14 @@ fieldOfGreatestDifference(a, b): DateTimePatternFieldType
 
 ```typescript
 // June 27, 2018 4:23:00 AM
-const epoch = 1530087780000;
+const date = 1530087780000;
 const zoneId = 'America/New_York';
-const d1 = cldr.Calendars.toGregorianDate({ epoch, zoneId });
+const d1 = cldr.Calendars.toGregorianDate({ date, zoneId });
 
 const factors = [0.0002, 0.005, 0.25, .75, 3, 50, 425, 1000];
 factors.forEach(f => {
   const days = f * 86400 * 1000;
-  const d2 = cldr.Calendars.toGregorianDate({ epoch: epoch + days, zoneId });
+  const d2 = cldr.Calendars.toGregorianDate({ date: epoch + days, zoneId });
   const field = cldr.Calendars.fieldOfGreatestDifference(d1, d2);
   console.log(`${field} ->  ${d2.toString()}`);
 });
@@ -97,7 +97,7 @@ y ->  Gregorian 2021-03-23 04:23:00.000 America/New_York
 
 ## formatDate
 
-Format a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepochtime.html) instance to a string.
+Format a [CalendarDate](api-calendardate.html) or [ZonedDateTime](api-zoneddatetime.html) instance to a string.
 
 #### Syntax
 <pre class="syntax">
@@ -105,7 +105,7 @@ formatDate(date, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
     - Date or timestamp to format
   - <code class="def">options?: <span>[DateFormatOptions](api-dateformatoptions.html)</span></code>
     - Options to control formatting
@@ -113,9 +113,9 @@ formatDate(date, options?): string
 #### Example
 
 ```typescript
-const epoch = 1530087780000;
+const date = 1530087780000;
 const zoneId = 'America/New_York';
-cldr.Calendars.formatDate({ epoch, zoneId }, { datetime: 'full' });
+cldr.Calendars.formatDate({ date, zoneId }, { datetime: 'full' });
 ```
 
 <pre class="output">
@@ -126,7 +126,7 @@ Wednesday, June 27, 2018 at 4:23:00 AM Eastern Daylight Time
 
 ## formatDateToParts
 
-Format a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepochtime.html) instance to an array of parts.
+Format a [CalendarDate](api-calendardate.html) or [ZonedDateTime](api-zoneddatetime.html) instance to an array of parts.
 
 #### Syntax
 <pre class="syntax">
@@ -134,7 +134,7 @@ formatDateToParts(date, options?): Part[]
 </pre>
 
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
     - Date or timestamp to format
   - <code class="def">options?: <span>[DateFormatOptions](api-dateformatoptions.html)</span></code>
     - Options to control formatting
@@ -142,10 +142,10 @@ formatDateToParts(date, options?): Part[]
 #### Example
 ```typescript
 // June 27, 2018 4:23:00 AM
-const epoch = 1530087780000;
+const date = 1530087780000;
 const zoneId = 'America/New_York';
 
-cldr.Calendars.formatDateToParts({ epoch, zoneId }, { datetime: 'short' });
+cldr.Calendars.formatDateToParts({ date, zoneId }, { datetime: 'short' });
 ```
 <pre class="output">
 [
@@ -174,9 +174,9 @@ formatDateInterval(start, end, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
     - Start of the date range
-  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
     - End of the date range
   - <code class="def">options?: <span>[DateIntervalFormatOptions](api-dateintervalformatoptions.html)</span></code>
     - Options to control the format
@@ -189,9 +189,9 @@ const epoch = 1530087780000;
 const zoneId = 'America/New_York';
 
 const day = 86400000;
-const start = { epoch, zoneId };
+const start = { date: epoch, zoneId };
 for (const days of [1.2, 3, 17, 73, 1000]) {
-  const end = { epoch: epoch + (days * day), zoneId };
+  const end = { date: epoch + (days * day), zoneId };
   const result = cldr.Calendars.formatDateInterval(start, end, { skeleton: 'yMMMd' });
   console.log(result);
 }
@@ -217,9 +217,9 @@ formatDateIntervalToParts(start, end, options?): Part[]
 </pre>
 
 #### Parameters
-  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
     - Start of the date range
-  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
     - End of the date range
   - <code class="def">options?: <span>[DateIntervalFormatOptions](api-dateintervalformatoptions.html)</span></code>
     - Options to control the format
@@ -232,8 +232,8 @@ const epoch = 1530087780000;
 const zoneId = 'America/New_York';
 
 const day = 86400000;
-const start = { epoch, zoneId };
-const end = { epoch: epoch + (day * 10), zoneId };
+const start = { date: epoch, zoneId };
+const end = { date: epoch + (day * 10), zoneId };
 cldr.Calendars.formatDateIntervalToParts(start, end, { skeleton: 'yMMMd' });
 ```
 
@@ -321,7 +321,7 @@ console.log(monthsEN);
 
 const monthsFR = fr.Calendars.months();
 const date = en.Calendars.toGregorianDate({
-  epoch: new Date(2018, 5, 11, 12, 1, 12),
+  date: new Date(2018, 5, 11, 12, 1, 12),
   zoneId: 'America/New_York'
 });
 
@@ -381,7 +381,7 @@ en.Calendars.quarters();
 
 ## toBuddhistDate
 
-Converts a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepochtime.html) instance to a [BuddhistDate](api-buddhistdate.html).
+Converts a [CalendarDate](api-calendardate.html) or [ZonedDateTime](api-zoneddatetime.html) instance to a [BuddhistDate](api-buddhistdate.html).
 
 #### Syntax
 
@@ -390,14 +390,14 @@ toBuddhistDate(date): BuddhistDate
 </pre>
 
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
     - Date or timestamp to convert
 
 #### Example
 
 ```typescript
 cldr.Calendars.toBuddhistDate({
-  epoch: 1530124872456, zoneId: 'America/New_York'});
+  date: 1530124872456, zoneId: 'America/New_York'});
 ```
 
 <pre class="output">
@@ -408,7 +408,7 @@ Buddhist 2561-06-27 14:41:12.456 America/New_York
 
 ## toGregorianDate
 
-Converts a [CalendarDate](api-calendardate.html) or [UnixEpochTime](api-unixepochtime.html) instance to a [GregorianDate](api-gregoriandate.html).
+Converts a [CalendarDate](api-calendardate.html) or [ZonedDateTime](api-zoneddatetime.html) instance to a [GregorianDate](api-gregoriandate.html).
 
 #### Syntax
 
@@ -417,14 +417,14 @@ toGregorianDate(date): GregorianDate
 </pre>
 
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [UnixEpochTime](api-unixepochtime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
     - Date or timestamp to convert
 
 #### Examples
 
 ```typescript
 cldr.Calendars.toGregorianDate({
-  epoch: 1530124872456, zoneId: 'America/New_York' });
+  date: 1530124872456, zoneId: 'America/New_York' });
 ```
 
 <pre class="output">
@@ -433,15 +433,15 @@ Gregorian 2018-06-27 14:41:12.456 America/New_York
 
 ```typescript
 // JavaScript Date is interpreted as a UTC date time
-let epoch = new Date(2018, 1, 17, 12, 34, 56, 789);
-const date = cldr.Calendars.toGregorianDate({
-  epoch, zoneId: 'America/New_York' });
-console.log(date.toString());
+let date = new Date(2018, 1, 17, 12, 34, 56, 789);
+const zoneId = 'America/New_York';
 
-epoch = new Date(2018, 6, 17, 12, 34, 56, 789);
-date = cldr.Calendars.toGregorianDate({
-  epoch, zoneId: 'America/New_York' });
-console.log(date.toString());
+const d = cldr.Calendars.toGregorianDate({ date, zoneId  });
+console.log(d.toString());
+
+date = new Date(2018, 6, 17, 12, 34, 56, 789);
+d = cldr.Calendars.toGregorianDate({ date, zoneId });
+console.log(d.toString());
 ```
 
 <pre class="output">

@@ -1,5 +1,5 @@
 import { framework } from './helpers';
-import { Quantity, UnitFormatOptions, UnitType } from '@phensley/cldr';
+import { Quantity, UnitFormatOptions } from '@phensley/cldr';
 
 const SEP = '\n--------------------------------\n\n';
 

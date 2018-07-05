@@ -74,7 +74,7 @@ This raises the question of how to eliminate the schema but still make the field
 
 If we were to use the JSON representation directly, the interface for retrieving a field would need to accept a path as an argument.  There are a few possible ways this interface could look:
 
-**Path as template string**
+**1. Path as template string**
 
 ```typescript
 const bundle = get('en-001');
@@ -83,7 +83,7 @@ const path = `main/${locale}/dates/calendars/gregorian/dateFormats/${width}`;
 const value = bundle.get(path);
 ```
 
-**Path as array**
+**2. Path as array**
 
 This is more efficient since it doesn't have to reconstruct the array by splitting the string, or implement some iterative traversal of the path.
 
@@ -92,7 +92,7 @@ const path = ['main', locale, 'dates', 'calendars', 'gregorian', 'dateFormats', 
 const value = bundle.get(path);
 ```
 
-**Direct access**
+**3. Direct access**
 
 Parsing most of the files in JSON should result in a series of nested JavaScript objects, and many of the keys in the schema correspond to valid JavaScript identifiers, we can directly access nested objects
 
@@ -104,9 +104,9 @@ In all these variants, with path segments composed using strings or object prope
 
 This reliance on high test coverage to catch path/property name errors isn't so bad, and a lot of JavaScript libraries are developed this way; however, since the CLDR schema is large and complex it would be much nicer if we had a typesafe interface to access the fields.
 
-Our goal should be something that looks like the direct access, but done in a typesafe way, and ideally where the schema is a singleton object we can reuse across all bundles:
+**Goal: typesafe accessor**
 
-**Typesafe with autocomplete**
+Our goal should be direct access but with compile-time checking against a schema, and ideally where that schema is a singleton object we can reuse across all bundles.
 
 The type information provides some compile time validation of our field accesses, and drives the autocompletion features of IDEs, saving developers having to refer back to the JSON structure to construct paths.
 
@@ -114,12 +114,15 @@ The type information provides some compile time validation of our field accesses
 interface DateFormats {
   get(bundle: Bundle, width: FormatWidthType);
 }
+
 interface GregorianSchema {
   dateFormats: DateFormats;
 }
+
 interface CalendarSchema {
   gregorian: GregorianSchema;
 }
+
 interface Schema {
   calendars: CalendarSchema;
 }
@@ -430,13 +433,15 @@ We can hold references to deep parts of the schema that will be repeatedly used:
 
 ```typescript
 const { dateFormats } schema.Gregorian;
-// ... used later
+
+// ..
+
 const value = dateFormats.get(bundle, width);
 ```
 
 ## Summary
 
-Summarizing the benefits of the resource bundle design:
+Summarizing the benefits of the resource bundle and schema design:
 
  * Developers don't need to understand the structure of the CLDR, or perform any manual filtering of the JSON data themselves.
  * Schema access is in code which is checked by the compiler.
@@ -448,3 +453,4 @@ Summarizing the benefits of the resource bundle design:
  * The singleton accessor object is initialized once and reused across all locales.
  * Bundles are 100 times smaller than the raw JSON form with schema intact (139 MB vs 1.5 MB), and 20 times smaller when storing the values only (34 MB vs 1.5 MB), by reducing the duplication between locales in the same language.
  * Field lookups become indexes into a single array.
+ * Avoids excessive string concatenation to form paths and construct lookup keys.

@@ -55,8 +55,6 @@ pre {
   margin-bottom: 4px;
 }
 
-
-
 pre.output {
   display: block;
   margin: 0 7px 10px 5px;
@@ -71,6 +69,10 @@ pre.output {
 
 pre.output.small {
   font-size: 10px;
+}
+
+pre + pre.output {
+  margin-top: -10px;
 }
 
 pre.plain {

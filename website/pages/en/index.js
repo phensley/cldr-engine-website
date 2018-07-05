@@ -1,9 +1,9 @@
 const React = require('react');
 
-// const CompLibrary = require('../../core/CompLibrary.js');
-// const MarkdownBlock = CompLibrary.MarkdownBlock;
-// const Container = CompLibrary.Container;
-// const GridBlock = CompLibrary.GridBlock;
+const CompLibrary = require('../../core/CompLibrary.js');
+const MarkdownBlock = CompLibrary.MarkdownBlock;
+const Container = CompLibrary.Container;
+const GridBlock = CompLibrary.GridBlock;
 
 const siteConfig = require(process.cwd() + '/siteConfig.js');
 
@@ -65,33 +65,51 @@ class HomeSplash extends React.Component {
   }
 }
 
-// const Block = props => (
-//   <Container
-//     padding={['bottom', 'top']}
-//     id={props.id}
-//     background={props.background}>
-//     <GridBlock align="center" contents={props.children} layout={props.layout} />
-//   </Container>
-// );
+const Block = props => (
+  <Container
+    padding={['bottom', 'top']}
+    id={props.id}
+    background={props.background}>
+    <GridBlock align="center" contents={props.children} layout={props.layout} />
+  </Container>
+);
 
-// const Features = props => (
-//   <Block layout="fourColumn">
-//     {[
-//       {
-//         content: 'This is the content of my feature',
-//         image: imgUrl('docusaurus.svg'),
-//         imageAlign: 'top',
-//         title: 'Feature One',
-//       },
-//       {
-//         content: 'The content of my second feature',
-//         image: imgUrl('docusaurus.svg'),
-//         imageAlign: 'top',
-//         title: 'Feature Two',
-//       },
-//     ]}
-//   </Block>
-// );
+const Features = props => (
+  <Block layout="twoColumn">
+    {[
+      // {
+      //   title: 'Broad and deep CLDR-based functionality',
+      //   content: 'Locale parsing, language matching, calendars, numbers, currencies, names, units of measure, etc',
+      //   image: imgUrl('docusaurus.svg'),
+      //   imageAlign: 'top',
+      // },
+      // {
+      //   title: 'Date formatting in multiple calendars',
+      //   content: 'Gregorian, Japanese, Buddhist, Persian',
+      //   image: imgUrl('docusaurus.svg'),
+      //   imageAlign: 'top',
+      // },
+      // {
+      //   title: 'Extensive language and region support',
+      //   content: '77 languages, 360 modern locales',
+      //   image: imgUrl('docusaurus.svg'),
+      //   imageAlign: 'top',
+      // },
+      // {
+      //   title: 'Arbitrary precision decimal math',
+      //   content: 'Handle large and small numbers and currency values with precision',
+      //   image: imgUrl('docusaurus.svg'),
+      //   imageAlign: 'top',
+      // },
+      // {
+      //   title: 'Compact resource bundles',
+      //   content: 'Faster loading at runtime. All 104 English locales fit in a single 34 KB gzipped file',
+      //   image: imgUrl('docusaurus.svg'),
+      //   imageAlign: 'top',
+      // },
+    ]}
+  </Block>
+);
 
 // const FeatureCallout = props => (
 //   <div
@@ -179,11 +197,11 @@ class Index extends React.Component {
       <div>
         <HomeSplash language={language} />
         <div className="mainContainer">
-          {/* <Features /> */}
+          <Features />
           {/* <FeatureCallout /> */}
-          {/* <LearnHow />
-          <TryOut />
-          <Description /> */}
+          {/* <LearnHow /> */}
+          {/* <TryOut /> */}
+          {/* <Description /> */}
           <Showcase language={language} />
         </div>
       </div>

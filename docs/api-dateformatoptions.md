@@ -36,10 +36,10 @@ object {
 ### Examples
 
 ```typescript
-const epoch = 1530087780000;
+const date = 1530087780000;
 const zoneId = 'America/New_York';
 const opts: DateFormatOptions = { skeleton: 'yMMMEEEEdhm' };
-cldr.Calendars.formatDate({ epoch, zoneId }, opts);
+cldr.Calendars.formatDate({ date, zoneId }, opts);
 ```
 
 <pre class="output">
@@ -48,7 +48,7 @@ Wednesday, Jun 27, 2018, 4:23 AM
 
 ```typescript
 const opts: DateFormatOptions = { time: 'long' };
-cldr.Calendars.formatDate({ epoch, zoneId }, opts);
+cldr.Calendars.formatDate({ date, zoneId }, opts);
 ```
 
 <pre class="output">
@@ -57,7 +57,7 @@ cldr.Calendars.formatDate({ epoch, zoneId }, opts);
 
 ```typescript
 const opts: DateFormatOptions = { date: 'short' };
-cldr.Calendars.formatDate({ epoch, zoneId }, opts);
+cldr.Calendars.formatDate({ date, zoneId }, opts);
 ```
 
 <pre class="output">
@@ -66,7 +66,7 @@ cldr.Calendars.formatDate({ epoch, zoneId }, opts);
 
 ```typescript
 const opts: DateFormatOptions = { datetime: 'full', ca: 'japanese' };
-cldr.Calendars.formatDate({ epoch, zoneId }, opts);
+cldr.Calendars.formatDate({ date, zoneId }, opts);
 ```
 
 <pre class="output">
@@ -76,7 +76,7 @@ Wednesday, June 27, 30 Heisei at 4:23:00 AM Eastern Daylight Time
 ```typescript
 const cldr = framework.get('ar');
 const opts: DateFormatOptions = { datetime: 'full' };
-cldr.Calendars.formatDate({ epoch, zoneId }, opts);
+cldr.Calendars.formatDate({ date, zoneId }, opts);
 ```
 
 <pre class="output">
@@ -87,7 +87,7 @@ cldr.Calendars.formatDate({ epoch, zoneId }, opts);
 ```typescript
 const cldr = framework.get('en-u-ca-buddhist');
 const opts: DateFormatOptions = { date: 'full' };
-cldr.Calendars.formatDate({ epoch, zoneId }, opts);
+cldr.Calendars.formatDate({ date, zoneId }, opts);
 ```
 
 <pre class="output">

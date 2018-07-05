@@ -5,6 +5,8 @@ title: LanguageTag
 
 An object representing a resolved [BCP 47](https://en.wikipedia.org/wiki/IETF_language_tag) language tag.
 
+## new
+
 #### Syntax
 
 <pre class="syntax">
@@ -37,4 +39,47 @@ console.log(tag.expanded());
 <pre class="output">
 und-Latn
 und-Latn-ZZ
+</pre>
+
+## compact
+
+Returns the most compact representation of the language tag, omitting any undefined subtags while ensuring the structure of the language tag is valid.
+
+#### Syntax
+
+<pre class="syntax">
+compact(): string
+</pre>
+
+#### Example
+
+```typescript
+const tag = new LanguageTag(undefined, undefined, 'US');
+console.log(tag.compact());
+```
+
+<pre class="output">
+und-US
+</pre>
+
+
+## expanded
+
+Returns the expanded representation of the language tag, including the string representations for undefined subtags. The result always includes language, script, and region subtags.
+
+#### Syntax
+
+<pre class="syntax">
+expanded(): string
+</pre>
+
+#### Example
+
+```typescript
+const tag = new LanguageTag(undefined, undefined, 'US');
+console.log(tag.expanded());
+```
+
+<pre class="output">
+und-Zzzz-US
 </pre>

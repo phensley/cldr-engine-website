@@ -13,3 +13,18 @@ console.log(`${locale.id} distance ${distance}`);
 
 ({ distance, locale } = localeMatcher.match('en-ZA, es'));
 console.log(`${locale.id} distance ${distance}`);
+
+({ distance, locale } = localeMatcher.match('zh'));
+console.log(`${locale.id} distance ${distance}`);
+
+({ distance, locale } = localeMatcher.match('und'));
+console.log(`${locale.id} distance ${distance}`);
+
+console.log('-----------------------');
+for (const id of ['ee']) {
+  for (const threshold of [30, 20, 15, 8, 4]) {
+    ({ distance, locale } = localeMatcher.match(id, threshold));
+    console.log(`(${id} ${threshold}) -> ${locale.id} distance ${distance}`);
+  }
+  console.log();
+}

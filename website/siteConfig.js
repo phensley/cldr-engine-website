@@ -11,7 +11,7 @@ const users = [
 
 const siteConfig = {
   title: '@phensley/cldr',
-  tagline: 'CLDR internationalization in Typescript, batteries-included',
+  tagline: 'CLDR internationalization and localization in Typescript, batteries-included',
   url: 'https://phensley.github.io',
   baseUrl: '/cldr-engine/',
   projectName: 'cldr-engine',

@@ -6,8 +6,7 @@ const SEP = '\n--------------------------------\n\n';
 (() => {
   const cldr = framework.get('en');
   // Wed June 27 2018 4:23:00 AM UTC
-  const date = cldr.Calendars.toGregorianDate({
-  epoch: 1530087780000, zoneId: 'America/New_York' });
+  const date = cldr.Calendars.toGregorianDate({ date: 1530087780000, zoneId: 'America/New_York' });
   console.log(date.toString());
   console.log(date.add({ year: 1, month: 5 }).toString());
   console.log(date.add({ year: -5, day: 7, minute: 22 }).toString());
@@ -17,7 +16,7 @@ const SEP = '\n--------------------------------\n\n';
 
 (() => {
   const cldr = framework.get('en');
-  const epoch = 1530087780000;
+  const timestamp = 1530087780000;
   const zoneId = 'America/New_York';
 
   const w = (s: string, n: number) => `${' '.repeat(n - s.length)}${s}`;
@@ -28,7 +27,7 @@ const SEP = '\n--------------------------------\n\n';
 
   for (let day = 0; day < 80; day += 1) {
     const days = day * 86400000;
-    const date = cldr.Calendars.toGregorianDate({ epoch: epoch + days, zoneId });
+    const date = cldr.Calendars.toGregorianDate({ date: timestamp + days, zoneId });
     const dom = date.dayOfMonth();
     const month = date.month();
     const weekday = date.dayOfWeek();
@@ -41,10 +40,10 @@ const SEP = '\n--------------------------------\n\n';
 
 (() => {
   const cldr = framework.get('en');
-  const epoch = new Date(2018, 0, 1, 12, 34, 56, 789);
+  const date = new Date(2018, 0, 1, 12, 34, 56, 789);
 
   for (const zoneId of ['UTC', 'America/New_York', 'Europe/Paris']) {
-    const result = cldr.Calendars.formatDate({ epoch, zoneId }, { datetime: 'full' });
+    const result = cldr.Calendars.formatDate({ date, zoneId }, { datetime: 'full' });
     console.log(result);
   }
 
