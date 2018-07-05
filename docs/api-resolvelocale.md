@@ -3,7 +3,7 @@ id: api-resolvelocale
 title: resolveLocale
 ---
 
-Parse a BCP 47 language tag or Java locale identifier and resolve it, returning a [Locale](api-locale.html) object.
+Parses a BCP 47 language tag or Java locale identifier and [resolves it](doc-locales-parsing.html#resolution), returning a [Locale](api-locale.html) object.
 
 ### Syntax
 
@@ -12,10 +12,10 @@ resolveLocale(id): Locale
 </pre>
 
 ### Parameters
-  - <code class="def">id: <span>string</span></code>
-    - Identifier to parse
+  - <code class="def">id: <span>string | [LanguageTag](api-languagetag.html)</span></code>
+    - Identifier or language tag to resolve
 
-### Example
+### Examples
 
 ```typescript
 import { resolveLocale } from '@phensley/cldr';
@@ -31,5 +31,19 @@ zh-Hans-CN
 fr-Latn-CA-u-ca-persian-nu-mathmono
 </pre>
 
+```typescript
+for (const s of ['und-US', 'fr']) {
+  const parsed = parseLanguageTag(s);
+  const resolved = resolveLocale(parsed);
+  console.log(`${parsed.expanded()}  ${resolved.tag.compact()}`);
+}
+```
+
+<pre class="output">
+und-Zzzz-US  en-Latn-US
+fr-Zzzz-ZZ  fr-Latn-FR
+</pre>
+
 ### See Also
   - [Locale](api-locale.html)
+  - [parseLanguageTag](api-parselanguagetag.html)

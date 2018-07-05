@@ -44,7 +44,7 @@ pre code {
   display: block;
   margin: 20px 0 20px 0px;
   padding: 1em;
-  border-left: 6px solid #d3d8e0;
+  /* border-left: 6px solid #d3d8e0; */
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
   font-size: 13px;
   overflow-x: auto;
@@ -57,11 +57,12 @@ pre {
 
 pre.output {
   display: block;
-  margin: 0 7px 10px 5px;
+  margin: 0 0px 15px 0px;
   padding: 1rem 1.5rem;
-  border-left: 5px dotted #e9eaec;
+  border-left: 3px solid #f0f1f3;
+  border-top: 3px solid #f0f1f3;
   color: black;
-  background-color: #fefefe;
+  /* background-color: #fefefe; */
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
   font-size: 13px;
   overflow-x: auto;
@@ -72,7 +73,8 @@ pre.output.small {
 }
 
 pre + pre.output {
-  margin-top: -10px;
+  margin-top: -25px;
+  padding-top: 20px;
 }
 
 pre.plain {
