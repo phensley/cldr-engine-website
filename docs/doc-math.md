@@ -19,8 +19,8 @@ There are a few tradeoffs you need to make when using arbitrary precision:
 
 ### Example
 
-{> examples/doc-math.ts }
-{> examples/doc-math-output.md }
+{> src/examples/doc-math.ts }
+{> src/examples/doc-math-output.md }
 
 ### See Also
   - [Decimal](api-decimal.html)

@@ -5,5 +5,5 @@ title: "Example: factorial"
 
 Factorial with memoization.
 
-{> examples/doc-math-factorial.ts }
-{> examples/doc-math-factorial-output.md }
+{> src/examples/doc-math-factorial.ts }
+{> src/examples/doc-math-factorial-output.md }

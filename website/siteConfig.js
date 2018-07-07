@@ -1,5 +1,4 @@
-const { join } = require('path');
-const { headerLinks } = require('./siteData');
+const { headerLinks } = require('./src/data');
 
 const users = [
   {
@@ -35,6 +34,9 @@ const siteConfig = {
   copyright: 'Copyright © ' + new Date().getFullYear() +' Patrick Hensley',
   stylesheets: [
     'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300italic'
+  ],
+  separateCss: [
+    'static/liveapi-css'
   ],
   scripts: [
     'https://buttons.github.io/buttons.js'

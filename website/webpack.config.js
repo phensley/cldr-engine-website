@@ -3,12 +3,13 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InterpolateHtmlPlugin = require('./webpack/interpolate-html-plugin');
 
 const config = {
   mode: 'production',
   devtool: 'source-map',
   entry: {
-    liveapi: "./liveapi/index.tsx"
+    liveapi: "./src/liveapi/index.tsx"
   },
   output: {
     filename: "[name].js",
@@ -34,37 +35,49 @@ const config = {
   resolve: {
     extensions: ['.js', '.ts', '.tsx']
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      inject: true,
-      filename: 'liveapi.html',
-      template: 'liveapi/liveapi.html',
-      cache: false,
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-    }),
-  ]
+  plugins: []
+};
+
+const htmlConfig = {
+  inject: true,
+  filename: 'liveapi.html',
+  template: 'src/liveapi.html',
+  templateParameters: {},
+  cache: false,
+  minify: {
+    removeComments: true,
+    collapseWhitespace: true,
+    removeRedundantAttributes: true,
+    useShortDoctype: true,
+    removeEmptyAttributes: true,
+    removeStyleLinkTypeAttributes: true,
+    keepClosingSlash: true,
+    minifyJS: true,
+    minifyCSS: true,
+    minifyURLs: true,
+  },
 };
 
 module.exports = (env, argv) => {
-  const cfg = {
-    PUBLIC_URL: '/cldr-engine/'
-  };
+  let publicUrl = '/cldr-engine/';
+  let nodeEnv = 'production';
+
   if (argv.mode === 'development') {
     config.devServer.publicPath = path.join('/');
     config.devServer.contentBase = path.join(__dirname);
-    cfg.PUBLIC_URL = '/static/';
+    publicUrl = '/static/';
+    nodeEnv = argv.mode;
   }
-  config.plugins.unshift(new webpack.EnvironmentPlugin(cfg));
+
+  const pluginEnv = {
+    PUBLIC_URL: publicUrl,
+    NODE_ENV: nodeEnv
+  };
+
+  config.plugins = [
+    new webpack.EnvironmentPlugin(pluginEnv),
+    new HtmlWebpackPlugin(htmlConfig),
+    new InterpolateHtmlPlugin(pluginEnv),
+  ];
   return config;
 };

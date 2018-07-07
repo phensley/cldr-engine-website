@@ -1,29 +1,16 @@
 {
-	"compilerOptions": {
-    "baseUrl": ".",
-    "sourceMap": true,
-    "lib": ["es6", "dom"],
-    "jsx": "react",
-    "target": "es5",
-    "moduleResolution": "node",
-    "rootDir": "liveapi",
-    "allowJs": true,
-    "forceConsistentCasingInFileNames": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noImplicitAny": false,
-    "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
-    "traceResolution": false,
-    "listEmittedFiles": false
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
   },
   "include": [
-    "./*.js",
-    "liveapi/**/*",
-    "examples/*.ts"
+    "src/**/*.ts"
   ],
   "exclude": [
     "node_modules"
   ]
 }
-

@@ -59,8 +59,8 @@ pre.output {
   display: block;
   margin: 0 0px 15px 0px;
   padding: 1rem 1.5rem;
-  border-left: 3px solid #f0f1f3;
-  border-top: 3px solid #f0f1f3;
+  border-left: 6px solid #f0f1f3;
+  border-top: 5px solid #f0f1f3;
   color: black;
   /* background-color: #fefefe; */
   font-family: "SFMono-Regular",source-code-pro,Menlo,Monaco,Consolas,"Roboto Mono","Droid Sans Mono","Liberation Mono",Consolas,"Courier New",Courier,monospace;
