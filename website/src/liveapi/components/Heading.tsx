@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled, { css } from 'styled-components';
-
-const blue = '#56727c';
+import { Config } from './config';
 
 // HEADER
 
@@ -9,7 +8,7 @@ const Header = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px;
-  background-color: ${blue};
+  background-color: ${Config.primaryColor};
 `;
 
 // SECTION
@@ -27,9 +26,10 @@ interface ItemProps {
 
 const Item = styled.div<ItemProps>`
   padding: 5px 15px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
-  color: #D9E9EF;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
 
   & + ${(): any => Item} {
     margin-left: 15px;
@@ -48,7 +48,7 @@ const Item = styled.div<ItemProps>`
 
 export class Heading extends React.Component<any> {
   render(): JSX.Element {
-    const selected = false;
+    const selected = true;
     return (
       <Header>
         <Section>

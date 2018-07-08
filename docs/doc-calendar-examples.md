@@ -1,6 +1,6 @@
 ---
 id: doc-calendar-examples
-title: Examples
+title: "Example: date formatting"
 ---
 
 All examples below use:

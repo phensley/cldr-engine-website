@@ -1,8 +1,8 @@
 import wretch from 'wretch';
 import { CLDRFramework, CLDROptions } from '@phensley/cldr';
 
-import Resource from '@phensley/cldr/packs/resource.json';
-import EnglishPack from '@phensley/cldr/packs/en.json';
+import * as Resource from '@phensley/cldr/packs/resource.json';
+import * as EnglishPack from '@phensley/cldr/packs/en.json';
 
 const version = Resource.sha256.substring(0, 10);
 

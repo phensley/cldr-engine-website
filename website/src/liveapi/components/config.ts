@@ -28,6 +28,7 @@ const codeFont = font([
 export const Config = {
   bodyFont,
   codeFont,
+  primaryColor: '#2c2c2e',
   gridSize: 12,
   gutterWidth: 1,
   outerMargin: 0,

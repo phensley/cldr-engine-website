@@ -15,7 +15,7 @@ Other libraries also rely on the built-in JavaScript number type, which has limi
 
 With browser applications, code and data size are a major concern. Transmitting a few MB of data to the browser to format a few currency values isn't a great tradeoff.
 
-Some CLDR features are complicated to implement, so they are never implemented. The CLDR is complex so the nuances of some features tend to be overlooked. As a result there are many libraries with partial and incomplete functionality. Getting everything together in one library within the size constraints is challenging.
+Some CLDR features are complicated to implement, so they are never implemented. The CLDR is complex so the nuances of some features tend to be overlooked. As a result there are many libraries with partial functionality and features partially or incorrectly implemented. Getting everything together in one library (within the constraints imposed by the browser environment) is challenging.
 
 ### Why "batteries included"? Can this library be modularized even further?
 

@@ -5,9 +5,9 @@ title: Goals
 
 #### 1. Support a broad set of CLDR functionality
 
-A key goal is supporting rich single-page applications which may use a large number of CLDR features simultaneously.
+A key goal is supporting rich single-page applications which make use of a number of different CLDR features simultaneously.
 
-We also want to support the full functionality transitively, so that libraries can be created which expose the full functionality to their users. For example, a template engine library that exposes CLDR-based formatters, letting template authors (or even end users) use any of the available options, patterns, units of measure, etc, without restriction.
+We also want to support the full functionality transitively, so that libraries can be created which expose the full CLDR functionality to their users. For example, a template engine library that exposes CLDR-based formatters, letting template authors (or even end users) use any of the available options, patterns, units of measure, etc, without restriction.
 
 
 #### 2. Minimize the overall data and code size

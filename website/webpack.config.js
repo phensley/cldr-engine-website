@@ -12,7 +12,7 @@ const config = {
     liveapi: "./src/liveapi/index.tsx"
   },
   output: {
-    filename: "[name].js",
+    filename: "[name]/[name].js",
     path: __dirname + "/static/"
   },
   devServer: {
@@ -40,7 +40,7 @@ const config = {
 
 const htmlConfig = {
   inject: true,
-  filename: 'liveapi.html',
+  filename: 'liveapi/index.html',
   template: 'src/liveapi.html',
   templateParameters: {},
   cache: false,

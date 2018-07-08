@@ -1,6 +1,23 @@
 {
-  "extends": "../tsconfig.json",
   "compilerOptions": {
+    "baseUrl": ".",
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["es6", "dom"],
+    "sourceMap": false,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "outDir": "lib",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "traceResolution": false,
+    "listEmittedFiles": false,
     "plugins": [
       {
         "name": "typescript-styled-plugin"
@@ -8,7 +25,7 @@
     ]
   },
   "include": [
-    "src/**/*.ts"
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"

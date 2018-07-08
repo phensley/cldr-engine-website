@@ -67,9 +67,9 @@ export const English = framework.get('en');
 
 Once you have a framework instance you can start using it. This is an over-simplified example that may work for some cases. Larger applications are probably using a state manager, so the Redux example below will be more applicable.
 
-#### Synchronous example
+#### Synchronous
 
-This is probably only useful in a real application for loading a statically-imported resource pack, as in the `EnglishPack` example above, or for loading multiple locales in a server application on startup. This will block execution while the resource pack loads.
+This is probably only useful in a real application for loading a statically-imported resource pack, as in the `EnglishPack` example above, or for loading multiple locales in a server application on startup. The call to `framework.get(locale)` will block execution while the resource pack loads.
 
 ```typescript
 import { framework } from '../locale';
@@ -81,7 +81,9 @@ console.log(cldr.Numbers.formatCurrency('12345.678', 'CAD', { group: true }));
 12.345,68 CA$
 </pre>
 
-#### Asynchronous example
+#### Asynchronous
+
+This is closer to what you'd find in a web application.
 
 ```typescript
 import { framework } from '../locale';

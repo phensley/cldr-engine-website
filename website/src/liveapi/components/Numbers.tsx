@@ -19,9 +19,8 @@ class NumbersImpl extends React.Component<any> {
 
   render(): JSX.Element {
     const cldr: CLDR = this.props.cldr;
-    console.log(this.state);
     cldr.Numbers.formatCurrency('1.23', 'USD', { });
-    const result = cldr.Numbers.formatDecimal('12345.1533', { group: true });
+    const result = cldr.Numbers.formatDecimal('12345.153999999', { group: true });
     return (
     <div>{result}
       {/* <Group>
@@ -30,6 +29,7 @@ class NumbersImpl extends React.Component<any> {
       </Group>
         <Label>group: {result}</Label>
         <Switch checked={true} onClick={this.changeLocale} /> */}
+        {'  '}<a href='#' onClick={this.changeLocale}>click me</a>
     </div>);
   }
 }

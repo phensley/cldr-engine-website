@@ -13,7 +13,6 @@ const composeEnhancers = typeof window === 'object' &&
   window[REDUX_EXT] ? window[REDUX_EXT]({}) : compose;
 
 export const setupStore = (state: State): SagaStore<State> => {
-  console.log('setup');
   const sagaMiddleware = createSagaMiddleware();
   const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
   const store = createStore<State>(reducer, state, enhancer) as SagaStore<State>;

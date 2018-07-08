@@ -7,7 +7,6 @@ const get = (locale: Locale) => framework.getAsync(locale);
 
 export function* fetchLocale(action: Action<Locale>): IterableIterator<any> {
   const { payload } = action;
-  console.log('here');
   try {
     const request = yield call(get, payload);
     yield put(localeUpdate(request));
@@ -18,6 +17,5 @@ export function* fetchLocale(action: Action<Locale>): IterableIterator<any> {
 }
 
 export function* localeSaga(): IterableIterator<any> {
-  console.log('here');
   yield takeEvery('locale/change', fetchLocale);
 }

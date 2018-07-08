@@ -1,5 +1,8 @@
 /build
-/static/liveapi.*
+/lib
+/static/liveapi
 /static/packs
 
 yarn.lock
+yarn-error.log
+

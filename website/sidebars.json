@@ -12,6 +12,7 @@
     ],
     "Locales": [
       "doc-locales-parsing",
+      "doc-locales-resolution",
       "doc-locales-matching"
     ],
     "Calendars": [
