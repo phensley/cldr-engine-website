@@ -20,7 +20,7 @@ formatCurrency(num, code, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-math.html#decimal)</span></code>
+  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
     - The currency amount to format.
   - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
     - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
@@ -53,7 +53,7 @@ formatCurrencyToParts(num, code, options?): Part[]
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-math.html#decimal)</span></code>
+  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
     - The currency amount to format.
   - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
     - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.

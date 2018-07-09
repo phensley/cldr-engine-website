@@ -3,7 +3,11 @@ id: api-decimal
 title: Decimal
 ---
 
+Arbitrary precision decimal math. Add, subtract, multiply, divide numbers, shift digits left and right, with control over rounding and precision or scale of the result.
+
 ## new
+
+Constructs a new decimal value from a `number` or `string`.
 
 #### Syntax
 
