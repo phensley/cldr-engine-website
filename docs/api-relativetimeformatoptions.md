@@ -22,8 +22,9 @@ object {
 
 ```typescript
 const cldr = framework.get('en');
+const opts: RelativeTimeFormatOptions = { width: 'wide' };
 for (const n of [-5, -2, -1, 0, 1, 2, 5]) {
-  console.log(cldr.Calendars.formatRelativeTimeField(n, 'day', { width: 'wide' }));
+  console.log(cldr.Calendars.formatRelativeTimeField(n, 'day', opts));
 }
 ```
 

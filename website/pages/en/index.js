@@ -74,6 +74,14 @@ const Block = props => (
   </Container>
 );
 
+const Sandbox = props => (
+  <Container padding={['bottom', 'top']}
+  id={props.id}
+  background={props.background}>
+    <iframe src="https://codesandbox.io/embed/qqr1rl40r6?fontsize=12" style={{ width: '100%', height: '700px', border: 0, borderRadius: '4px', overflow: 'hidden'}} sandbox='allow-modals allow-forms allow-popups allow-scripts allow-same-origin'></iframe>
+  </Container>
+);
+
 const Features = props => (
   <Block layout="twoColumn">
     {[
@@ -95,12 +103,12 @@ const Features = props => (
       //   image: imgUrl('docusaurus.svg'),
       //   imageAlign: 'top',
       // },
-      // {
-      //   title: 'Arbitrary precision decimal math',
-      //   content: 'Handle large and small numbers and currency values with precision',
-      //   image: imgUrl('docusaurus.svg'),
-      //   imageAlign: 'top',
-      // },
+      {
+        title: 'Arbitrary precision decimal math',
+        content: 'Handle large and small numbers and currency values with precision',
+        image: imgUrl('factorial.png'),
+        imageAlign: 'top',
+      },
       // {
       //   title: 'Compact resource bundles',
       //   content: 'Faster loading at runtime. All 104 English locales fit in a single 34 KB gzipped file',
@@ -197,12 +205,13 @@ class Index extends React.Component {
       <div>
         <HomeSplash language={language} />
         <div className="mainContainer">
-          <Features />
+          {/* <Features /> */}
           {/* <FeatureCallout /> */}
           {/* <LearnHow /> */}
           {/* <TryOut /> */}
+          {/* <Sandbox /> */}
           {/* <Description /> */}
-          <Showcase language={language} />
+          {/* <Showcase language={language} /> */}
         </div>
       </div>
     );

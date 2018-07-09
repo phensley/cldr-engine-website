@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import { join } from 'path';
 import { CLDR, CLDRFramework } from '@phensley/cldr';
 
-const ROOT = join(__dirname, '../node_modules/@phensley/cldr/packs');
+const ROOT = join(__dirname, '../../node_modules/@phensley/cldr/packs');
 
 const loader = (language: string): any => {
   const path = join(ROOT, `${language}.json`);

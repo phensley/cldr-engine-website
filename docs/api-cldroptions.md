@@ -71,13 +71,13 @@ const framework = new CLDRFramework(options);
 
 let cldr;
 cldr = framework.get('en');    // from disk
-cldr = framework.get('en-CA'); // from cache
+cldr = framework.get('en-CA'); // from cache, same base language
 
 cldr = framework.get('fr');    // from disk
 cldr = framework.get('zh');    // from disk
-cldr = framework.get('ko');    // from disk, 'en' evicted
+cldr = framework.get('ko');    // from disk, 'en' is evicted
 
 cldr = framework.get('fr');    // from cache
 
-cldr = framework.get('en');    // from disk, previously evicted
+cldr = framework.get('en');    // from disk again, 'zh' is evicted
 ```

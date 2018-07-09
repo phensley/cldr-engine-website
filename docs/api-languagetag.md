@@ -7,11 +7,21 @@ An object representing a resolved [BCP 47](https://en.wikipedia.org/wiki/IETF_la
 
 ## new
 
+Constructs a language tag object.
+
+**Note:** this type only does basic canonicalization of each subtag. Use [parseLanguageTag](api-parselanguagetag.html) to apply stricter rules for each subtag. Use [resolveLocale](api-resolvelocale.html) to parse and then perform alias substitution, and fill in any missing subtags using a "likely subtags" map.
+
 #### Syntax
 
 <pre class="syntax">
 new LanguageTag(
-  language?, script?, region?, variant?, extensions?, privateUse?)
+  language?,
+  script?,
+  region?,
+  variant?,
+  extensions?,
+  privateUse?
+)
 </pre>
 
 #### Properties
@@ -83,3 +93,182 @@ console.log(tag.expanded());
 <pre class="output">
 und-Zzzz-US
 </pre>
+
+
+## extensions
+
+Returns a map containing the extension subtags.
+
+#### Syntax
+
+<pre class="syntax">
+extensions(): { [x: string]: string[] }
+</pre>
+
+#### Example
+
+```typescript
+const tag = new LanguageTag('en', '', 'US', '', { u: ['ca-gregory'] });
+console.log(tag.expanded());
+console.log(tag.extensions());
+```
+
+<pre class="output">
+en-Zzzz-US-u-ca-gregory
+{ u: [ 'ca-gregory' ] }
+</pre>
+
+
+## hasLanguage
+
+Indicates the language subtag is defined.
+
+#### Syntax
+
+<pre class="syntax">
+hasLanguage(): boolean
+</pre>
+
+#### Example
+
+```typescript
+let tag = new LanguageTag('und');
+console.log(tag.hasLanguage());
+
+tag = new LanguageTag();
+console.log(tag.hasLanguage());
+
+tag = new LanguageTag('zh');
+console.log(tag.hasLanguage());
+```
+
+<pre class="output">
+false
+false
+true
+</pre>
+
+
+## hasRegion
+
+Indicates the region subtag is defined.
+
+#### Syntax
+
+<pre class="syntax">
+hasRegion(): boolean
+</pre>
+
+## hasScript
+
+Indicates the script subtag is defined.
+
+#### Syntax
+
+<pre class="syntax">
+hasScript(): boolean
+</pre>
+
+## language
+
+Returns the language subtag.
+
+#### Syntax
+
+<pre class="syntax">
+language(): string
+</pre>
+
+#### Example
+
+```typescript
+let tag = new LanguageTag();
+console.log(tag.language());
+
+tag = new LanguageTag('en');
+console.log(tag.language());
+```
+
+<pre class="output">
+und
+en
+</pre>
+
+<!-- TODO: this api will change, since we'll merge the extensions together -->
+<!-- ## privateUse
+
+Returns the private use subtag, if any.
+
+#### Syntax
+
+<pre class="syntax">
+privateUse(): string
+</pre>
+
+#### Example
+
+```typescript
+const tag = new LanguageTag('en', 'Latn', 'US', undefined, undefined, 'x-nothing');
+console.log(tag.expanded());
+console.log(tag.privateUse());
+```
+
+<pre class="output">
+en-Latn-US-x-nothing
+x-nothing
+</pre> -->
+
+## region
+
+Returns the region subtag.
+
+#### Syntax
+
+<pre class="syntax">
+region(): string
+</pre>
+
+#### Example
+
+```typescript
+let tag = new LanguageTag('en', 'Latn');
+console.log(tag.region());
+
+tag = new LanguageTag('en', 'Latn', 'US');
+console.log(tag.region());
+```
+
+<pre class="output">
+ZZ
+US
+</pre>
+
+## script
+
+Returns the script subtag.
+
+#### Syntax
+
+<pre class="syntax">
+script(): string
+</pre>
+
+#### Example
+
+```typescript
+let tag = new LanguageTag('en');
+console.log(tag.script());
+
+tag = new LanguageTag('en', 'latn');
+console.log(tag.script());
+```
+
+<pre class="output">
+Zzzz
+Latn
+</pre>
+
+
+## toString
+
+Equivalent of [compact()](#compact).

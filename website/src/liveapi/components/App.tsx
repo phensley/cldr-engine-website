@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HashRouter, Link, Route } from 'react-router-dom';
+import { HashRouter, Link, Route, RouteComponentProps  } from 'react-router-dom';
 import { English } from '../locale';
 import { Decimal, DecimalConstants, DecimalFormatOptions } from '@phensley/cldr';
 import { injectGlobal } from 'styled-components';
@@ -12,6 +12,7 @@ import { Config } from './config';
 import { Grid } from './Grid';
 import { Col } from './Col';
 import { Row } from './Row';
+import { Example1 } from './Example1';
 
 injectGlobal`
 html, body {
@@ -33,14 +34,31 @@ const rand = (): number => Math.floor(Math.random() * 12);
 
 const routes = [
   {
+    name: 'One',
     path: '/',
     exact: true,
-    component: () => <h2>One</h2>
+    component: (props: RouteComponentProps<any>) => {
+      console.log(props);
+      return <Example1 route={props} />;
+    }
   },
   {
+    name: 'Two',
     path: '/foo',
     exact: false,
     component: (props: any) => <pre>Two{JSON.stringify(props, undefined, 2)}</pre>
+  },
+  {
+    name: 'Three',
+    path: '/cldr/Numbers/formatDecimal',
+    exact: true,
+    component: (props: any) => <pre>formatDecimal: {JSON.stringify(props, undefined, 2)}</pre>
+  },
+  {
+    name: 'Four',
+    path: '/cldr/Numbers/formatCurrency',
+    exact: true,
+    component: (props: any) => <pre>formatDecimal: {JSON.stringify(props, undefined, 2)}</pre>
   }
 ];
 
@@ -65,9 +83,10 @@ export class App extends React.Component<any> {
           </Row>
           <Row>
             <FooCol xs={2}>
-
-            <Link to='/'>One</Link><br/>
-            <Link to='/foo'>Two</Link>
+            {routes.map(r => [<Link to={r.path}>{r.name}</Link>, <br/>])}
+            {/* <Link to='/'>One</Link><br/>
+            <Link to='/foo'>Two</Link><br/>
+            <Link to='/cldr/Numbers/formatDecimal'>Three</Link> */}
             </FooCol>
             <Col xs={10}>
               <h1>formatDecimal</h1>
