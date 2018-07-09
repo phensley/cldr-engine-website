@@ -7,6 +7,8 @@ The CLDR [enhanced language matching](https://www.unicode.org/reports/tr35/tr35.
 
 An application defines its list of supported locales, sorted in the order of most- to least-supported, with the default locale first. Given a list of a user's desired locales (sorted in a similar way) it returns the best supported locale to use.
 
+## Basics
+
 In the example below the application supports a finite list of locales. These are locales for which it has translations for all of its message strings.
 
 Since the locale `pt` is equivalent to `pt-BR` it matches with a distance of 0.
@@ -70,3 +72,55 @@ en distance 100
 </pre>
 
 The default distance threshold is 50. You can pass in your own desired threshold, but make sure you know what you're doing. Consult the documentation on [enhanced language matching](https://www.unicode.org/reports/tr35/tr35.html#EnhancedLanguageMatching) and the [language distance table](https://github.com/phensley/cldr-engine/blob/master/notes/language-distance-table.txt) to better understand how distance works.
+
+## Matching against all available locales
+
+This ensures we always resolve to a valid, best-fit supported locale. We sort English to the front so it becomes the default locale, and will be returned when a match fails to meet the distance threshold.
+
+```typescript
+import { availableLocales, LocaleMatcher } from '@phensley/cldr';
+
+const allLocales = availableLocales();
+
+const supported = allLocales.sort(
+  l => l.tag.expanded() === 'en-Latn-US' ? -1 : 1
+).map(l => l.id);
+
+const cldrMatcher = new LocaleMatcher(supported);
+
+// We don't support Klingon, unfortunately
+const { distance, locale } = cldrMatcher.match('i-klingon');
+console.log(`${locale.id} distance ${distance}`);
+```
+
+<pre class="output">
+en-Latn-US distance 10
+</pre>
+
+
+## Separate matchers for messages and formats
+
+Applications may use more than one matcher, to handle situations where an application may only have message translations for a few regions for a language, but wants to ensure all number and date formatting is the best fit for the user's desired locale.
+
+In the example below we match `es-419` for messages and `es-MX` for CLDR-based localization.
+
+```typescript
+// import cldrMatcher from above example
+
+// Locales for which the application has message translations
+const appLocales = ['es', 'es-419', 'en', 'en-CA'];
+const messageMatcher = new LocaleMatcher(appLocales);
+
+const userLocale = 'es-MX';
+
+const messageMatch = messageMatcher.match(userLocale);
+console.log(`messages: ${messageMatch.locale.tag.expanded()} distance ${messageMatch.distance}`);
+
+const cldrMatch = cldrMatcher.match(userLocale);
+console.log(`    cldr: ${cldrMatch.locale.tag.expanded()} distance ${cldrMatch.distance}`);
+```
+
+<pre class="output">
+messages: es-Latn-419 distance 4
+    cldr: es-Latn-MX distance 0
+</pre>

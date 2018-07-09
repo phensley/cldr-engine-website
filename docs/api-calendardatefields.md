@@ -8,7 +8,7 @@ Properties to add or subtract an amount from one or more [CalendarDate](api-cale
 ### Syntax
 
 <pre class="syntax">
-interface {
+object {
   year?,
   month?,
   week?,

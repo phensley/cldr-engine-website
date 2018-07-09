@@ -3,6 +3,19 @@ id: doc-quickstart
 title: Quick start
 ---
 
+Below are examples of how to integrate the library into an application. There are a few steps:
+ 1. Configure a [CLDRFramework](api-cldrframework.html) instance with at least one loader. This will provide the framework with a way to fetch language bundles at runtime.
+ 2. Obtain a [CLDR](api-cldr.html) instance by calling the method corresponding to the type of loader you configured.
+    * `framework.get(locale)` uses the synchronous loader
+    * `framework.getAsync(locale)` uses the asynchronous loader, returning a promise
+
+## Code Sandbox
+
+Below is [an example on codesandbox.io](https://codesandbox.io/s/qqr1rl40r6) which can be used to learn, demo, experiment, report a bug, etc.
+
+<iframe src="https://codesandbox.io/embed/qqr1rl40r6?fontsize=12" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>
+
+
 ## Integration
 
 In order to use the framework we must configure it with a resource pack loader. This tells the framework how to find the resource pack for a given locale.

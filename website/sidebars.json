@@ -2,11 +2,11 @@
   "docs": {
     "Introduction": [
       "doc-index",
+      "doc-goals",
       "doc-faq",
       "doc-quickstart"
     ],
     "Design": [
-      "doc-goals",
       "doc-design-bundles",
       "doc-design-caching"
     ],
@@ -25,6 +25,8 @@
   },
   "reference": {
     "API": [
+      "api-cldrframework",
+      "api-cldroptions",
       "api-cldr",
       "api-cldr-calendars",
       "api-cldr-general",

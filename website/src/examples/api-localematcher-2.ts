@@ -1,21 +1,28 @@
 import { availableLocales, LocaleMatcher } from '@phensley/cldr';
 
+// All locales available in the library
 const allLocales = availableLocales();
 
 const supported = allLocales.sort(
   l => l.tag.expanded() === 'en-Latn-US' ? -1 : 1
 ).map(l => l.id);
 
-const localeMatcher = new LocaleMatcher(supported);
+// This ensures we only ever match a valid, available locale.
+const cldrMatcher = new LocaleMatcher(supported);
 
-let { distance, locale } = localeMatcher.match('pt');
-console.log(`${locale.id} distance ${distance}`);
+const { distance, locale } = cldrMatcher.match('i-klingon');
+console.log(`${locale.tag.expanded()} distance ${distance}`);
 
-({ distance, locale } = localeMatcher.match('es-MX'));
-console.log(`${locale.id} distance ${distance}`);
+// import cldrMatcher from above example
 
-({ distance, locale } = localeMatcher.match('en-ZA'));
-console.log(`${locale.id} distance ${distance}`);
+// Locales for which the application has message translations
+const appLocales = ['es', 'es-419', 'en', 'en-CA'];
+const messageMatcher = new LocaleMatcher(appLocales);
 
-({ distance, locale } = localeMatcher.match('en-ZA, es'));
-console.log(`${locale.id} distance ${distance}`);
+const userLocale = 'es-MX';
+
+const messageMatch = messageMatcher.match(userLocale);
+console.log(`messages: ${messageMatch.locale.tag.expanded()} distance ${messageMatch.distance}`);
+
+const cldrMatch = cldrMatcher.match(userLocale);
+console.log(`    cldr: ${cldrMatch.locale.tag.expanded()} distance ${cldrMatch.distance}`);

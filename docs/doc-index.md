@@ -11,9 +11,3 @@ As the library approaches a 1.0 release and the [public API](api-cldr.html) is f
 
 Some of the interfaces may change, but the changes should not be drastic.
 
-
-## Code Sandbox
-
-Below is [an example on codesandbox.io](https://codesandbox.io/s/qqr1rl40r6) which can be used to learn, demo, experiment, report a bug, etc.
-
-<iframe src="https://codesandbox.io/embed/qqr1rl40r6?fontsize=12" style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;" sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"></iframe>

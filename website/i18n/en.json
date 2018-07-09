@@ -16,6 +16,8 @@
     "api-cldr-numbers": "CLDR.Numbers",
     "api-cldr-units": "CLDR.Units",
     "api-cldr": "CLDR",
+    "api-cldrframework": "CLDRFramework",
+    "api-cldroptions": "CLDROptions",
     "api-currencyformatoptions": "CurrencyFormatOptions",
     "api-currencyformatstyletype": "CurrencyFormatStyleType",
     "api-currencytype": "CurrencyType",
