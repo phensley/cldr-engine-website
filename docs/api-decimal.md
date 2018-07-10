@@ -65,7 +65,11 @@ console.log(n.abs().toString());
 123.456
 </pre>
 
+
+
 ## add
+
+Add the argument to this number.
 
 #### Syntax
 
@@ -371,15 +375,15 @@ const { E, PI } = DecimalConstants;
 const n = new Decimal('7');
 for (const m of ['12', '1e10', '0.0000004737', '0.9999999', PI, E]) {
   const r = n.multiply(m, { scale: 30 });
-  console.log(r.toString());
+  console.log(`${r.stripTrailingZeros()}`);
 }
 ```
 
 <pre class="output">
-84.000000000000000000000000000000
-70000000000.000000000000000000000000000000
-0.000003315900000000000000000000
-6.999999300000000000000000000000
+84
+70000000000
+0.0000033159
+6.9999993
 21.991148575128552669238503682957
 19.027972799213316647522012299469
 </pre>
@@ -465,65 +469,245 @@ for (const n of ['1', '1e-10', '1.2345']) {
 
 ## setScale
 
+Sets the scale of this number.
+
 #### Syntax
 
 <pre class="syntax">
+setScale(number): Decimal
 </pre>
 
+#### Examples
+
+```typescript
+const n = new Decimal('12345.678');
+for (let scale = -5; scale <= 5; scale++) {
+  const r = n.setScale(scale);
+  console.log(`scale ${scale} = ${r}`);
+}
+```
+
+<pre class="output">
+scale -5 = 0
+scale -4 = 10000
+scale -3 = 12000
+scale -2 = 12300
+scale -1 = 12350
+scale 0 = 12346
+scale 1 = 12345.7
+scale 2 = 12345.68
+scale 3 = 12345.678
+scale 4 = 12345.6780
+scale 5 = 12345.67800
+</pre>
 
 
 ## shiftleft
 
+Shift digits `n` places to the left, increasing precision.
+
 #### Syntax
 
 <pre class="syntax">
+shiftleft(shift): Decimal
 </pre>
 
+#### Example
 
+```typescript
+for (const n of ['1', '0.123456789']) {
+  console.log(n.toString());
+  for (let shift = 1; shift <= 10; shift++) {
+    const r = new Decimal(n).shiftleft(shift);
+    console.log(`  ${shift} -> ${r}`);
+  }
+}
+```
+
+<pre class="output">
+1
+  1 -> 10
+  2 -> 100
+  3 -> 1000
+  4 -> 10000
+  5 -> 100000
+  6 -> 1000000
+  7 -> 10000000
+  8 -> 100000000
+  9 -> 1000000000
+  10 -> 10000000000
+0.123456789
+  1 -> 1.234567890
+  2 -> 12.345678900
+  3 -> 123.456789000
+  4 -> 1234.567890000
+  5 -> 12345.678900000
+  6 -> 123456.789000000
+  7 -> 1234567.890000000
+  8 -> 12345678.900000000
+  9 -> 123456789.000000000
+  10 -> 1234567890.000000000
+</pre>
 
 ## shiftright
 
+Shifts digits `n` places to the right and rounds, reducing precision.
+
+Note that when the shift is equal to or greater than the precision it can shift the number to zero. The exponent is also preserved even when the number is shifted to zero.
+
 #### Syntax
 
 <pre class="syntax">
+shiftright(shift, round?): Decimal
+</pre>
+
+
+#### Parameters
+  - <code class="def">shift: <span>number</span></code>
+    - Number of decimal places to shift
+  - <code class="def">round?: <span>[RoundingMode](api-roundingmode.html)</span></code>
+    - Rounding mode to use
+
+#### Example
+
+```typescript
+for (const n of ['12345.67890', '55555.55555']) {
+  console.log(n.toString());
+  for (let shift = 1; shift <= 10; shift++) {
+    const r = new Decimal(n).shiftright(shift);
+    console.log(`  ${shift} -> ${r}`);
+  }
+}
+```
+
+<pre class="output">
+12345.67890
+  1 -> 12345.6789
+  2 -> 12345.679
+  3 -> 12345.68
+  4 -> 12345.7
+  5 -> 12346
+  6 -> 12350
+  7 -> 12300
+  8 -> 12000
+  9 -> 10000
+  10 -> 0
+55555.55555
+  1 -> 55555.5556
+  2 -> 55555.556
+  3 -> 55555.56
+  4 -> 55555.6
+  5 -> 55556
+  6 -> 55560
+  7 -> 55600
+  8 -> 56000
+  9 -> 60000
+  10 -> 100000
 </pre>
 
 
 
 ## signum
 
+Returns 1 if the sign of the number is positive, -1 if negative, and 0 if equal to `0`.
+
 #### Syntax
 
 <pre class="syntax">
+signum(): number
 </pre>
 
 
 
 ## stripTrailingZeros
 
+Remove any trailing zeros from a number.
+
 #### Syntax
 
 <pre class="syntax">
+stripTrailingZeros(): Decimal
 </pre>
 
+#### Example
+
+```typescript
+for (const n of ['1.0', '0.9999900000', '1.57000000', '1e10']) {
+  console.log(new Decimal(n).stripTrailingZeros().toString());
+}
+```
+
+<pre class="output">
+1
+0.99999
+1.57
+10000000000
+</pre>
 
 
 ## subtract
 
+Subtract the argument from this number.
+
 #### Syntax
 
 <pre class="syntax">
+subtract(number): Decimal
+</pre>
+
+#### Parameters
+  - <code class="def">number: <span>number | string | Decimal</span></code>
+    - Number to subtract
+
+#### Example
+
+```typescript
+const { E } = DecimalConstants;
+const n = new Decimal('1');
+for (const m of ['.999999', '37.79', E]) {
+  let r = n.subtract(m);
+  if (r.scale() > 20) {
+    r = r.setScale(20);
+  }
+  console.log(r.toString());
+}
+```
+
+<pre class="output">
+0.000001
+-36.79
+-1.71828182845904523536
 </pre>
 
 
 
 ## toParts
 
+Render a number into an array of `Part`.
+
 #### Syntax
 
 <pre class="syntax">
+toParts(): Part[]
 </pre>
 
+#### Example
+
+```typescript
+for (const n of ['3', '1e10', '3.14159']) {
+  console.log(new Decimal(n).toParts());
+}
+```
+
+<pre class="output">
+[ { type: 'digits', value: '3' } ]
+[ { type: 'digits', value: '10000000000' } ]
+[
+  { type: 'digits', value: '3' },
+  { type: 'decimal', value: '.' },
+  { type: 'digits', value: '14159' }
+]
+</pre>
 
 
 ## toString
@@ -548,7 +732,24 @@ console.log(n.toString());
 
 ## trailingZeros
 
+Returns the number of trailing decimal zeros.
+
 #### Syntax
 
 <pre class="syntax">
+trailingZeros(): number
+</pre>
+
+#### Examples
+
+```typescript
+for (const n of ['1', '1e10', '0.12300000']) {
+  console.log(new Decimal(n).trailingZeros());
+}
+```
+
+<pre class="output">
+0
+0
+5
 </pre>
