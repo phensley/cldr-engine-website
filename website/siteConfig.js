@@ -20,7 +20,7 @@ const siteConfig = {
   users,
   headerIcon: 'img/cldr-engine-logo-w.svg',
   footerIcon: 'img/cldr-engine-logo-w.svg',
-  favicon: 'img/favicon.png',
+  favicon: 'img/favicon.ico',
   colors: {
     primaryColor: '#2c2c2e',
     secondaryColor: '#59585d'
