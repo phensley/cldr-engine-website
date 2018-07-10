@@ -7,9 +7,11 @@ An object representing a resolved [BCP 47](https://en.wikipedia.org/wiki/IETF_la
 
 ## new
 
-Constructs a language tag object.
+Constructs a language tag object directly.
 
-**Note:** this type only does basic canonicalization of each subtag. Use [parseLanguageTag](api-parselanguagetag.html) to apply stricter rules for each subtag. Use [resolveLocale](api-resolvelocale.html) to parse and then perform alias substitution, and fill in any missing subtags using a "likely subtags" map.
+**Note:** This type's constuctor should not be used in most cases. It does basic canonicalization of each subtag but no validation, so it is possible to construct invalid language tags. Use with caution.
+
+Recommendation is to use [parseLanguageTag](api-parselanguagetag.html) or [resolveLocale](api-resolvelocale.html) instead.
 
 #### Syntax
 
@@ -33,10 +35,10 @@ new LanguageTag(
     - ISO 3166-1 or UN M.49 code
   - <code class="def">variant?: <span>string</span></code>
     - IETF registered variant
-  - <code class="def">extensions?: <span>object</span></code>
-    - Mapping of extension prefix to subtags
+  - <code class="def">extensions?: <span>{ [x: string]: string[] }</span></code>
+    - Mapping of extension prefixes to subtags
   - <code class="def">privateUse?: <span>string</span></code>
-    - Private use subtag
+    - Private use subtags, as a string
 
 #### Example
 
@@ -194,10 +196,9 @@ und
 en
 </pre>
 
-<!-- TODO: this api will change, since we'll merge the extensions together -->
-<!-- ## privateUse
+## privateUse
 
-Returns the private use subtag, if any.
+Returns the private use subtags.
 
 #### Syntax
 
@@ -216,7 +217,7 @@ console.log(tag.privateUse());
 <pre class="output">
 en-Latn-US-x-nothing
 x-nothing
-</pre> -->
+</pre>
 
 ## region
 

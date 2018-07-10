@@ -6,10 +6,6 @@
       "doc-faq",
       "doc-quickstart"
     ],
-    "Design": [
-      "doc-design-bundles",
-      "doc-design-caching"
-    ],
     "Locales": [
       "doc-locales-parsing",
       "doc-locales-resolution",
@@ -21,6 +17,10 @@
     "Math": [
       "doc-math",
       "doc-math-example-factorial"
+    ],
+    "Design": [
+      "doc-design-bundles",
+      "doc-design-caching"
     ]
   },
   "reference": {
@@ -62,15 +62,19 @@
       "api-parselanguagetag",
       "api-resolvelocale"
     ],
+    "Math": [
+      "api-decimal",
+      "api-decimalconstants",
+      "api-mathcontext",
+      "api-roundingmodetype"
+    ],
     "Numbers": [
       "api-currencyformatoptions",
       "api-currencyformatstyletype",
       "api-currencytype",
-      "api-decimal",
       "api-decimalformatoptions",
       "api-decimalformatstyletype",
-      "api-numbersystemtype",
-      "api-roundingmodetype"
+      "api-numbersystemtype"
     ],
     "Units": [
       "api-quantity",

@@ -12,19 +12,19 @@ Specifies a rounding mode used in [Decimal](api-decimal.html) operations.
 
 ### Values
 
-  - `"up"`
+  - <code class="def">'up'</code>
     - Round away from zero
-  - `"down"`
+  - <code class="def">'down;</code>
     - Round towards zero (same as 'truncate')
-  - `"ceiling"`
+  - <code class="def">'ceiling'</code>
     - Round towards positive infinity
-  - `"floor"`
+  - <code class="def">'floor'</code>
     - Round towards negative infinity
-  - `"half-up"`
+  - <code class="def">'half-up'</code>
     - If digit >= 5 round up; otherwise round down
-  - `"half-down"`
+  - <code class="def">'half-down'</code>
     - If digit > 5 round up; otherwise round down
-  - `"half-even"`
+  - <code class="def">'half-even'</code>
     - If digit = 5 and digit to left is odd, round up; if even round down
-  - `"05up"`
+  - <code class="def">'05up'</code>
     - Round away from zero if digit to left is 0 or 5; otherwise round towards zero

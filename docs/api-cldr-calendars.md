@@ -49,7 +49,7 @@ en.Calendars.dayPeriods();
 
 ## fieldOfGreatestDifference
 
-Computes the field of greatest different between two [CalendarDate](api-calendardate.html) instances.
+Computes the field of greatest different between two dates. Date arguments can be [CalendarDate](api-calendardate.html), [ZonedDateTime](api-zoneddatetime.html) instances, or a bare JavaScript `Date`.
 
 #### Syntax
 
@@ -58,9 +58,9 @@ fieldOfGreatestDifference(a, b): DateTimePatternFieldType
 </pre>
 
 #### Parameters
-  - <code class="def">a: <span>[CalendarDate](api-calendardate.html)</span></code>
+  - <code class="def">a: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - First date to compare
-  - <code class="def">b: <span>[CalendarDate](api-calendardate.html)</span></code>
+  - <code class="def">b: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Second date to compare
 
 #### Return value
@@ -97,7 +97,7 @@ y ->  Gregorian 2021-03-23 04:23:00.000 America/New_York
 
 ## formatDate
 
-Format a [CalendarDate](api-calendardate.html) or [ZonedDateTime](api-zoneddatetime.html) instance to a string.
+Format a date to a string.
 
 #### Syntax
 <pre class="syntax">
@@ -105,7 +105,7 @@ formatDate(date, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Date or timestamp to format
   - <code class="def">options?: <span>[DateFormatOptions](api-dateformatoptions.html)</span></code>
     - Options to control formatting
@@ -126,7 +126,7 @@ Wednesday, June 27, 2018 at 4:23:00 AM Eastern Daylight Time
 
 ## formatDateToParts
 
-Format a [CalendarDate](api-calendardate.html) or [ZonedDateTime](api-zoneddatetime.html) instance to an array of parts.
+Format a date to an array of parts.
 
 #### Syntax
 <pre class="syntax">
@@ -134,7 +134,7 @@ formatDateToParts(date, options?): Part[]
 </pre>
 
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Date or timestamp to format
   - <code class="def">options?: <span>[DateFormatOptions](api-dateformatoptions.html)</span></code>
     - Options to control formatting
@@ -174,9 +174,9 @@ formatDateInterval(start, end, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
+  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Start of the date range
-  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
+  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - End of the date range
   - <code class="def">options?: <span>[DateIntervalFormatOptions](api-dateintervalformatoptions.html)</span></code>
     - Options to control the format
@@ -217,9 +217,9 @@ formatDateIntervalToParts(start, end, options?): Part[]
 </pre>
 
 #### Parameters
-  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
+  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Start of the date range
-  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
+  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - End of the date range
   - <code class="def">options?: <span>[DateIntervalFormatOptions](api-dateintervalformatoptions.html)</span></code>
     - Options to control the format
@@ -381,7 +381,7 @@ en.Calendars.quarters();
 
 ## toBuddhistDate
 
-Converts a [CalendarDate](api-calendardate.html) or [ZonedDateTime](api-zoneddatetime.html) instance to a [BuddhistDate](api-buddhistdate.html).
+Converts a date to a [BuddhistDate](api-buddhistdate.html) instance.
 
 #### Syntax
 
@@ -390,7 +390,7 @@ toBuddhistDate(date): BuddhistDate
 </pre>
 
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Date or timestamp to convert
 
 #### Example
@@ -408,7 +408,7 @@ Buddhist 2561-06-27 14:41:12.456 America/New_York
 
 ## toGregorianDate
 
-Converts a [CalendarDate](api-calendardate.html) or [ZonedDateTime](api-zoneddatetime.html) instance to a [GregorianDate](api-gregoriandate.html).
+Converts a date to a [GregorianDate](api-gregoriandate.html) instance.
 
 #### Syntax
 
@@ -417,7 +417,7 @@ toGregorianDate(date): GregorianDate
 </pre>
 
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html)</span></code>
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Date or timestamp to convert
 
 #### Examples
