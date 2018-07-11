@@ -49,6 +49,8 @@ Gregorian 2019-11-27 03:23:00.000 America/New_York
 Gregorian 2013-07-04 04:45:00.000 America/New_York
 </pre>
 
+
+
 ## dayOfMonth
 
 ## dayOfWeek
@@ -61,13 +63,36 @@ Gregorian 2013-07-04 04:45:00.000 America/New_York
 
 ## extendedYear
 
+
 ## fieldOfGreatestDifference
 
 ## firstDayOfWeek
 
+
+
 ## hour
 
+Indicates the hour of the morning or afternoon, used for the 12-hour clock (0 - 11). Noon and midnight are 0 not 12.
+
+#### Syntax
+
+<pre class="syntax">
+hour(): number
+</pre>
+
+
+
 ## hourOfDay
+
+Indicates the hour of the day, used for the 24-hour clock (0 - 23). Noon is 12 and midnight is 0.
+
+#### Syntax
+
+<pre class="syntax">
+hourOfDay(): number
+</pre>
+
+
 
 ## isDaylightSavings
 
@@ -85,21 +110,89 @@ Gregorian 2013-07-04 04:45:00.000 America/New_York
 
 ## minDaysInFirstWeek
 
+
+
 ## minute
+
+Indicates the minute of the hour (0 - 59).
+
+#### Syntax
+
+<pre class="syntax">
+minute(): number
+</pre>
+
+
 
 ## modifiedJulianDay
 
+
+
 ## month
+
+Indicates the month of the year, 1-based. Gregorian JANUARY = 1.
+
+#### Syntax
+
+<pre class="syntax">
+month(): number
+</pre>
+
+
 
 ## ordinalDayofWeek
 
+
+
 ## second
+
+Indicates the second of the minute (0 - 59).
+
+#### Syntax
+
+<pre class="syntax">
+second(): number
+</pre>
+
+
 
 ## timeZoneId
 
+The IANA timezone identifier for this date.
+
+#### Syntax
+
+<pre class="syntax">
+timeZoneId(): string
+</pre>
+
+
+
 ## timeZoneOffset
 
+The offset of this date's timezone, in milliseconds.
+
+#### Syntax
+
+<pre class="syntax">
+timeZoneOffset(): number
+</pre>
+
+
+
 ## type
+
+Type of calendar this date uses.
+
+#### Syntax
+
+<pre class="syntax">
+type(): CalendarType
+</pre>
+
+#### Return value
+  - A <code class="def"><span>[CalendarType](api-calendartype.html)</span></code> indicating the calendar for this date uses.
+
 
 ## unixEpoch
 
@@ -108,5 +201,8 @@ Gregorian 2013-07-04 04:45:00.000 America/New_York
 ## weekOfYear
 
 ## year
+
+Indicates the calendar-specific year for this date.
+
 
 ## yearOfWeekofYear

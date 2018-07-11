@@ -41,7 +41,7 @@
       "api-calendartype",
       "api-dateformatoptions",
       "api-dateintervalformatoptions",
-      "api-date-time-skeleton",
+      "api-dateskeleton",
       "api-datetimepatternfieldtype",
       "api-gregoriandate",
       "api-iso8601date",

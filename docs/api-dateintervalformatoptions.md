@@ -16,7 +16,7 @@ object {
 </pre>
 
 ### Properties
-  - <code class="def">skeleton: <span>string ([date time skeleton](api-date-time-skeleton.html))</span></code>
+  - <code class="def">skeleton: <span>string ([DateSkeleton](api-dateskeleton.html))</span></code>
     - Skeleton used to build the interval format pattern
   - <code class="def">ca: <span>[CalendarType](api-calendartype.html)</span></code>
     - Override the calendar to use
