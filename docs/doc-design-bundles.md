@@ -402,12 +402,12 @@ d MMM y
 A typo will fail to compile ..
 
 ```typescript
-schema.GregorianSchema.dateformat.get(bundle, 'medium');
+schema.Gregorian.dateformat.get(bundle, 'medium');
 
 // [ts] Property 'dateformat' does not exist
 // on type 'CalendarSchema'. Did you mean 'dateFormats'?
 
-schema.GregorianSchema.dateFormats.get(bundle, 'mediumfoo');
+schema.Gregorian.dateFormats.get(bundle, 'mediumfoo');
 
 // [ts] Argument of type '"mediumfoo"' is not assignable
 // to parameter of type 'FormatWidthType'.
