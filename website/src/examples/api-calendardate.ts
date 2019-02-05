@@ -14,7 +14,54 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 })();
 
+// dayOfMonth
 (() => {
+  const cldr = framework.get('en');
+  // Aug 11 2019 07:08:09 UTC
+  const zoneId = 'America/New_York';
+  const date = cldr.Calendars.toGregorianDate({ date: 1565550489000, zoneId });
+
+  const endings = { one: 'st', two: 'nd', few: 'rd', other: 'th' };
+  const ord = (n: number) => endings[cldr.Numbers.getPluralOrdinal(n)];
+
+  const weekdays = cldr.Calendars.weekdays(date.type());
+  const months = cldr.Calendars.months(date.type());
+
+  const day = date.dayOfMonth();
+  const weekday = weekdays[date.dayOfWeek()];
+  const month = months[date.month()];
+  const year = date.year();
+  const dayinmonth = date.dayOfWeekInMonth();
+
+  console.log(`the ${day}${ord(day)} is the ${dayinmonth}${ord(dayinmonth)} ${weekday} in ${month}, ${year}`);
+
+  console.log(SEP);
+})();
+
+// dayOfYear
+(() => {
+  const cldr = framework.get('en');
+  const zoneId = 'America/New_York';
+  const date = cldr.Calendars.toGregorianDate({ date: 1565550489000, zoneId });
+  const result = cldr.Calendars.formatDate(date, { date: 'short' });
+  const doy = date.dayOfYear();
+  console.log(`${result} is the ${doy} day of ${date.year()}`);
+
+  console.log(SEP);
+})();
+
+// era
+(() => {
+  const cldr = framework.get('en');
+  const zoneId = 'America/New_York';
+  const date = cldr.Calendars.toGregorianDate({ date: -66222222200000, zoneId });
+  const result = cldr.Calendars.formatDate(date, { date: 'full' });
+  console.log(`${result} era is ${date.era()}`);
+
+  console.log(SEP);
+})();
+
+false && (() => {
   const cldr = framework.get('en');
   const timestamp = 1530087780000;
   const zoneId = 'America/New_York';

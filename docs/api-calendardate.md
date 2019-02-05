@@ -53,18 +53,70 @@ Gregorian 2013-07-04 04:45:00.000 America/New_York
 
 ## dayOfMonth
 
+
 ## dayOfWeek
 
 ## dayOfWeekInMonth
 
+Ordinal number indicating the day of the week in the current month.
+For example, if the `dayOfWeek` is Sunday, and `dayOfWeekInMonth` is 2,
+this could be used to format messages like "`2nd Sunday in August`".
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+// Aug 11 2019 07:08:09 UTC
+const zoneId = 'America/New_York';
+const date = cldr.Calendars.toGregorianDate({ date: 1565550489000, zoneId });
+
+const endings = { one: 'st', two: 'nd', few: 'rd', other: 'th' };
+const ord = (n: number) => endings[cldr.Numbers.getPluralOrdinal(n)];
+
+const weekdays = cldr.Calendars.weekdays(date.type());
+const months = cldr.Calendars.months(date.type());
+
+const day = date.dayOfMonth();
+const weekday = weekdays[date.dayOfWeek()];
+const month = months[date.month()];
+const year = date.year();
+const dayinmonth = date.dayOfWeekInMonth();
+
+console.log(`the ${day}${ord(day)} is the ${dayinmonth}${ord(dayinmonth)} ${weekday} in ${month}, ${year}`);
+```
+
+<pre class="output">
+the 11th is the 2nd Sunday in August, 2019
+</pre>
+
 ## dayOfYear
 
+Ordinal day of the year, e.g. January 1st is the 1st day of the year.
+
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+const date = cldr.Calendars.toGregorianDate({ date: 1565550489000, zoneId });
+const result = cldr.Calendars.formatDate(date, { date: 'short' });
+const doy = date.dayOfYear();
+console.log(`${result} is the ${doy} day of ${date.year()}`);
+```
+
+<pre class="output">
+8/11/19 is the 223 day of 2019
+</pre>
+
 ## era
+
+Ordinal number of the era in the date's calendar, e.g. 0 is BC and 1 is AD in the Gregorian calendar.
 
 ## extendedYear
 
 
 ## fieldOfGreatestDifference
+
+Compares the current date with another and returns the field of greatest difference.
+
 
 ## firstDayOfWeek
 
@@ -195,6 +247,8 @@ type(): CalendarType
 
 
 ## unixEpoch
+
+Unix epoch timestamp with no timezone offset.
 
 ## weekOfMonth
 
