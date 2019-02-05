@@ -7,7 +7,16 @@ const SEP = '\n--------------------------------\n\n';
 (() => {
   const en = framework.get('en');
   const p = en.Calendars.dayPeriods();
-  console.log(p);
+  console.log(p.wide);
+
+  console.log(SEP);
+})();
+
+// eras
+(() => {
+  const en = framework.get('en');
+  const p = en.Calendars.eras();
+  console.log(p.names);
 
   console.log(SEP);
 })();
@@ -107,15 +116,14 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 })();
 
-
 // months
 (() => {
   const en = framework.get('en');
   const fr = framework.get('fr');
-  const monthsEN = en.Calendars.months();
+  const monthsEN = en.Calendars.months().wide;
   console.log(monthsEN);
 
-  const monthsFR = fr.Calendars.months();
+  const monthsFR = fr.Calendars.months().wide;
   const date = en.Calendars.toGregorianDate({
     date: new Date(2018, 5, 11, 12, 1, 12),
     zoneId: 'America/New_York'
@@ -126,11 +134,10 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 })();
 
-
 // quarters
 (() => {
   const en = framework.get('en');
-  const quarters = en.Calendars.quarters();
+  const quarters = en.Calendars.quarters().wide;
   console.log(quarters);
 
   console.log(SEP);
@@ -144,7 +151,6 @@ const SEP = '\n--------------------------------\n\n';
 
   console.log(SEP);
 })();
-
 
 // toGregorianDate
 (() => {
@@ -172,7 +178,7 @@ const SEP = '\n--------------------------------\n\n';
 // weekdays
 (() => {
   const en = framework.get('en');
-  const weekdays = en.Calendars.weekdays();
+  const weekdays = en.Calendars.weekdays().wide;
   console.log(weekdays);
 
   console.log(SEP);

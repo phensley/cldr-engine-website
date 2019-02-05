@@ -18,7 +18,7 @@ Returns a mapping of day period key to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-dayPeriods(calendar?): { [x: string]: string }
+dayPeriods(calendar?): FieldWidthMap
 </pre>
 
 #### Parameters
@@ -29,7 +29,7 @@ dayPeriods(calendar?): { [x: string]: string }
 
 ```typescript
 const en = framework.get('en');
-en.Calendars.dayPeriods();
+en.Calendars.dayPeriods().wide;
 ```
 
 <pre class="output">
@@ -46,6 +46,31 @@ en.Calendars.dayPeriods();
 </pre>
 
 
+
+## eras
+
+Return a mapping of era key to name for the current locale.
+
+#### Syntax
+
+<pre class="syntax">
+eras(calendar?): EraWidthMap
+</pre>
+
+#### Parameters
+  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
+    - Override the calendar type
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+en.Calendars.eras().names;
+```
+
+<pre class="output">
+{ '0': 'Before Christ', '1': 'Anno Domini' }
+</pre>
 
 ## fieldOfGreatestDifference
 
@@ -303,7 +328,7 @@ Returns a mapping of month ordinal number to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-months(calendar?): { [x: number]: string }
+months(calendar?): FieldWidthMap
 </pre>
 
 #### Parameters
@@ -316,10 +341,10 @@ months(calendar?): { [x: number]: string }
 const en = framework.get('en');
 const fr = framework.get('fr');
 
-const monthsEN = en.Calendars.months();
+const monthsEN = en.Calendars.months().wide;
 console.log(monthsEN);
 
-const monthsFR = fr.Calendars.months();
+const monthsFR = fr.Calendars.months().wide;
 const date = en.Calendars.toGregorianDate({
   date: new Date(2018, 5, 11, 12, 1, 12),
   zoneId: 'America/New_York'
@@ -354,7 +379,7 @@ Return a mapping of quarter ordinal number to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-quarters(calendar?): { [x: number]: string }
+quarters(calendar?): FieldWidthMap
 </pre>
 
 #### Parameters
@@ -365,7 +390,7 @@ quarters(calendar?): { [x: number]: string }
 
 ```typescript
 const en = framework.get('en');
-en.Calendars.quarters();
+en.Calendars.quarters().wide;
 ```
 
 <pre class="output">
@@ -463,7 +488,7 @@ Return a mapping of weekday ordinal number to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-weekdays(calendar?): { [x: number]: string }
+weekdays(calendar?): FieldWidthMap
 </pre>
 
 #### Parameters
@@ -474,7 +499,7 @@ weekdays(calendar?): { [x: number]: string }
 
 ```typescript
 const en = framework.get('en');
-en.Calendars.weekdays();
+en.Calendars.weekdays().wide;
 ```
 
 <pre class="output">
