@@ -29,6 +29,7 @@
     "api-decimalconstants": "DecimalConstants",
     "api-decimalformatoptions": "DecimalFormatOptions",
     "api-decimalformatstyletype": "DecimalFormatStyleType",
+    "api-formatwidthtype": "FormatWidthType",
     "api-gregoriandate": "GregorianDate",
     "api-iso8601date": "ISO8601Date",
     "api-japanesedate": "JapaneseDate",

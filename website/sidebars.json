@@ -43,6 +43,7 @@
       "api-dateintervalformatoptions",
       "api-dateskeleton",
       "api-datetimepatternfieldtype",
+      "api-formatwidthtype",
       "api-gregoriandate",
       "api-iso8601date",
       "api-japanesedate",
