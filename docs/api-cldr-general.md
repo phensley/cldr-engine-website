@@ -36,6 +36,37 @@ lineOrder(): LineOrderType
     - Right to left
 
 
+## measurementSystem
+
+
+#### Syntax
+
+<pre class="syntax">
+measurementSystem(category?: MeasurementCategory): MeasurementSystem
+</pre>
+
+#### Parameters
+
+  - <code class="def">category?: <span>[MeasurementCategory](api-measurementcategory.html)</span></code>
+    - Optional category (ex: temperature has special handling for certain regions)
+
+#### Return values
+  A [MeasurementSystem](api-measurementsystem.html) value
+
+#### Example
+
+```typescript
+let cldr = framework.get('es-PR');
+cldr.General.measurementSystem();
+cldr.General.measurementSystem('temperature');
+```
+
+<pre class="output">
+metric
+us
+</pre>
+
+
 ## formatList
 
 Format a list of items, with a given list type, returning a string.
@@ -161,7 +192,6 @@ de.General.getScriptDisplayName('Latn');
 <pre class="output">
 Lateinisch
 </pre>
-
 
 
 ## getRegionDisplayName

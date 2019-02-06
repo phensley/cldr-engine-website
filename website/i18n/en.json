@@ -38,6 +38,8 @@
     "api-locale": "Locale",
     "api-localematcher": "LocaleMatcher",
     "api-mathcontext": "MathContext",
+    "api-measurementcategory": "MeasurementCategory",
+    "api-measurementsystem": "MeasurementSystem",
     "api-numbersystemtype": "NumberSystemType",
     "api-parselanguagetag": "parseLanguageTag",
     "api-persiandate": "PersianDate",

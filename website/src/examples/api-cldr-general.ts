@@ -4,6 +4,17 @@ import { RegionIdType } from '@phensley/cldr';
 const SEP = '\n--------------------------------\n\n';
 
 (() => {
+  const cldr = framework.get('es-PR');
+  const s1 = cldr.General.measurementSystem();
+  const s2 = cldr.General.measurementSystem('temperature');
+
+  console.log(s1);
+  console.log(s2);
+
+  console.log(SEP);
+})();
+
+(() => {
   const cldr = framework.get('en');
   const items = ['one', 'two', 'three', 'four', 'five'];
   let result = cldr.General.formatList(items.slice(0, 2), 'and');
