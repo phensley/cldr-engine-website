@@ -243,4 +243,4 @@ fr-Zzzz-ZZ  fr-Latn-FR
 
 #### See Also
   - [Locale](api-locale.html)
-  - [parseLanguageTag](api-parselanguagetag.html)
+  - [CLDRFramework.parseLanguageTag](api-cldrframework.html#parselanguagetag)
