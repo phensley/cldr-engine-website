@@ -1,4 +1,6 @@
-import { resolveLocale, parseLanguageTag } from '@phensley/cldr';
+import { CLDRFramework } from '@phensley/cldr';
+
+const { resolveLocale, parseLanguageTag } = CLDRFramework;
 
 const SEP = '------------------------\n\n';
 

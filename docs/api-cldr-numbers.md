@@ -270,6 +270,40 @@ console.log(fractions);
 </pre>
 
 
+## getCurrencyForRegion
+
+Get the currency code for a given region code.
+
+#### Syntax
+
+<pre class="syntax">
+getCurrencyForRegion(region): CurrencyType
+</pre>
+
+#### Parameters
+  - <code class="def">region: <span>string</span></code>
+    - The 2-letter ISO-3166-1 code for a region.
+
+#### REturn value
+  - A [CurrencyType](api-currencytype.html) value
+
+#### Example
+
+```typescript
+let currency = cldr.Numbers.getCurrencyForRegion('ME');
+console.log(currency);
+
+currency = cldr.Numbers.getCurrencyForRegion('CH');
+console.log(currency);
+```
+
+
+<pre class="output">
+EUR
+CHF
+</pre>
+
+
 ## getPluralCardinal
 
 Get the plural category for a cardinal number.

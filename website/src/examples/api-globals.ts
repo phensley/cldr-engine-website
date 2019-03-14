@@ -1,5 +1,6 @@
+import { CLDRFramework } from '@phensley/cldr';
 
-import { availableLocales, resolveLocale } from '@phensley/cldr';
+const { availableLocales, resolveLocale } = CLDRFramework;
 
 (() => {
   const locales = availableLocales().slice(0, 10);

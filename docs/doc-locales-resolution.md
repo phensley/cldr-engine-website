@@ -5,7 +5,7 @@ title: Locale resolution
 
 Resolution is the process of filling in any undefined subtags, and replacing subtag aliases with a preferred value.
 
-The function [resolveLocale](api-resolvelocale.html) performs both parsing and resolution, returning a [Locale](api-locale.html) object.
+The function [CLDRFramework.resolveLocale](api-cldrframework.html#resolvelocale) performs both parsing and resolution, returning a [Locale](api-locale.html) object.
 
 A [Locale](api-locale.html) object has two properties: `id` is the original unaltered identifier, and `tag` is the [LanguageTag](api-languagetag.html) object with its subtags resolved and normalized.
 

@@ -25,4 +25,4 @@ object {
     - Parsed and resolved language tag, allowing the library internals to access individual properties, e.g. language, script, region, extensions.
 
 #### See Also
-  * [resolveLocale](api-resolvelocale.html)
+  * [CLDRFramework.resolveLocale](api-cldrframework.html#resolvelocale)

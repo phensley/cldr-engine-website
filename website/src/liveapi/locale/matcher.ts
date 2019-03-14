@@ -1,6 +1,6 @@
-import { availableLocales, LocaleMatcher } from '@phensley/cldr';
+import { LocaleMatcher, CLDRFramework } from '@phensley/cldr';
 
-export const allLocales = availableLocales();
+export const allLocales = CLDRFramework.availableLocales();
 
 const supported = allLocales.sort(
   l => l.tag.expanded() === 'en-Latn-US' ? -1 : 1

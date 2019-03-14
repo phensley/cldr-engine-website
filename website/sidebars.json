@@ -57,13 +57,10 @@
       "api-measurementsystem"
     ],
     "Locales": [
-      "api-availablelocales",
       "api-bundle",
       "api-languagetag",
       "api-locale",
-      "api-localematcher",
-      "api-parselanguagetag",
-      "api-resolvelocale"
+      "api-localematcher"
     ],
     "Math": [
       "api-decimal",

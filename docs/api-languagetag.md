@@ -11,7 +11,7 @@ Constructs a language tag object directly.
 
 **Note:** This type's constuctor should not be used in most cases. It does basic canonicalization of each subtag but no validation, so it is possible to construct invalid language tags. Use with caution.
 
-Recommendation is to use [parseLanguageTag](api-parselanguagetag.html) or [resolveLocale](api-resolvelocale.html) instead.
+Recommendation is to use [CLDRFramework.parseLanguageTag](api-cldrframework.html#parselanguagetag) or [CLDRFramework.resolveLocale](api-cldrframework.html#resolvelocale) instead.
 
 #### Syntax
 
