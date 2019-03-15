@@ -46,6 +46,7 @@
     "api-roundingmodetype": "RoundingModeType",
     "api-unitformatoptions": "UnitFormatOptions",
     "api-unitlength": "UnitLength",
+    "api-unittype": "UnitType",
     "api-zoneddatetime": "ZonedDateTime",
     "doc-calendar-examples": "Example: date formatting",
     "doc-design-bundles": "Resource bundles",
