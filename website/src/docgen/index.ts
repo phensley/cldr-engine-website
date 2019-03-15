@@ -1,7 +1,7 @@
-import { generateUnits } from './units';
+import { generateTypes } from './types';
 
 const main = () => {
-  generateUnits();
+  generateTypes();
 };
 
 main();
