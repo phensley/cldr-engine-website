@@ -14,9 +14,9 @@ The resolution process and the [Locale](api-locale.html) object are important si
 In the example below, the identifier `"und-US"` uses the undefined language subtag, and its script subtag is missing. The resolution process will apply ["likely subtags"](https://www.unicode.org/reports/tr35/tr35.html#Likely_Subtags) data to fill in these undefined values.
 
 ```typescript
-import { resolveLocale } from '@phensley/cldr';
+import { CLDRFramework } from '@phensley/cldr';
 
-let { id, tag } = resolveLocale('und-US');
+let { id, tag } = CLDRFramework.resolveLocale('und-US');
 console.log(id);
 console.log(tag.expanded());
 ```
@@ -28,7 +28,7 @@ en-Latn-US
 In other cases a subtag is aliased to a preferred value that should be used. Resolution will perform language and region alias substitution.
 
 ```typescript
-const { id, tag } = resolveLocale('cmn-TW');
+const { id, tag } = CLDRFramework.resolveLocale('cmn-TW');
 console.log(tag.compact());
 ```
 <pre class="output">
@@ -38,7 +38,7 @@ zh-Hant-TW
 Irregular or grandfathered tags are mapped directly to a replacement value.
 
 ```typescript
-const { id, tag } = resolveLocale('i-klingon');
+const { id, tag } = CLDRFramework.resolveLocale('i-klingon');
 console.log(tag.language());
 ```
 <pre class="output">

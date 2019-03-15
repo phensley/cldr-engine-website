@@ -142,7 +142,9 @@ static parseLanguageTag(id): LanguageTag
 #### Example
 
 ```typescript
-import { parseLanguageTag } from '@phensley/cldr';
+import { CLDRFramework } from '@phensley/cldr';
+
+const { parseLanguageTag } = CLDRFramework;
 
 const ids = [
   'en-US',
@@ -215,7 +217,8 @@ static resolveLocale(id): Locale
 #### Examples
 
 ```typescript
-import { resolveLocale } from '@phensley/cldr';
+import { CLDRFramework } from '@phensley/cldr';
+const { resolveLocale } = CLDRFramework;
 for (const str of ['en_US', 'zh', 'fr-CA-u-ca-persian-u-nu-mathmono']) {
   const { id, tag } = resolveLocale(str);
   console.log(`${tag.expanded()}`);
@@ -229,6 +232,8 @@ fr-Latn-CA-u-ca-persian-nu-mathmono
 </pre>
 
 ```typescript
+import { CLDRFramework } from '@phensley/cldr';
+const { parseLanguageTag, resolveLocale } = CLDRFramework;
 for (const s of ['und-US', 'fr']) {
   const parsed = parseLanguageTag(s);
   const resolved = resolveLocale(parsed);
