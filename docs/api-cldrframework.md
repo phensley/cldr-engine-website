@@ -202,7 +202,7 @@ no-Zzzz-GB-u-ca-gregory-nu-mathmono
 
 ## resolveLocale
 
-Parses a BCP 47 language tag or Java locale identifier and [resolves it](doc-locales-parsing.html#resolution), returning a [Locale](api-locale.html) object.
+Parses a BCP 47 language tag or Java locale identifier and [resolves it](doc-locales-resolution.html), returning a [Locale](api-locale.html) object.
 
 #### Syntax
 
