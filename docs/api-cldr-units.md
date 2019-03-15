@@ -3,6 +3,33 @@ id: api-cldr-units
 title: CLDR.Units
 ---
 
+## availableUnits
+
+Return an array of available units ([UnitType](api-unittype.html)).
+
+#### Syntax
+<pre class="syntax">
+availableUnits(): UnitType[]
+</pre>
+
+#### Example
+
+```typescript
+const units = cldr.Units.availableUnits();
+for (const u of units) {
+  console.log(u);
+}
+```
+
+<pre class="output">
+acre
+acre-foot
+ampere
+arc-minute
+...
+</pre>
+
+
 ## formatQuantity
 
 Format a given unit quantity to string.
