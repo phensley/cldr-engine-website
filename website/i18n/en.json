@@ -44,6 +44,7 @@
     "api-quantity": "Quantity",
     "api-relativetimeformatoptions": "RelativeTimeFormatOptions",
     "api-roundingmodetype": "RoundingModeType",
+    "api-timezonetype": "TimeZoneType",
     "api-unitformatoptions": "UnitFormatOptions",
     "api-unitlength": "UnitLength",
     "api-unittype": "UnitType",

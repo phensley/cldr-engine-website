@@ -49,6 +49,7 @@
       "api-japanesedate",
       "api-persiandate",
       "api-relativetimeformatoptions",
+      "api-timezonetype",
       "api-zoneddatetime"
     ],
     "General": [

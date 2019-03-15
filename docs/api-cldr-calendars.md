@@ -403,6 +403,27 @@ en.Calendars.quarters().wide;
 </pre>
 
 
+## timeZoneIds
+
+Returns an array of timezone identifiers of type [TimeZoneType](api-timezonetype.html).
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+for (const id of en.Calendars.timeZoneIds()) {
+  console.log(id);
+}
+```
+
+<pre class="output">
+'Africa/Abidjan'
+'Africa/Accra'
+'Africa/Addis_Ababa'
+'Africa/Algiers'
+...
+</pre>
+
 
 ## toBuddhistDate
 

@@ -1,4 +1,4 @@
-import { UnitValues, CurrencyValues } from '@phensley/cldr-schema';
+import { UnitValues, CurrencyValues, TimeZoneValues } from '@phensley/cldr-schema';
 import { getCLDR, writeDoc } from './utils';
 
 const cldr = getCLDR();
@@ -21,8 +21,21 @@ A 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for a currenc
 ### Values
 
 ${CURRENCIES}
-
 `
+const TIMEZONES = TimeZoneValues.sort().map(t => `  - '${t}'`).join('\n');
+
+const TIMEZONE_TYPE = `---
+id: api-timezonetype
+title: TimeZoneType
+---
+
+The identifier for a timezone, e.g. '\`America/New_York\`'.
+
+### Values
+
+${TIMEZONES}
+`
+
 const UNITS = UnitValues.sort().map(u => `  - '${u}'`).join('\n');
 
 const UNIT_TYPE = `---
@@ -39,5 +52,6 @@ ${UNITS}
 
 export const generateTypes = () => {
   writeDoc('api-currencytype.md', CURRENCY_TYPE);
+  writeDoc('api-timezonetype.md', TIMEZONE_TYPE);
   writeDoc('api-unittype.md', UNIT_TYPE);
 };
