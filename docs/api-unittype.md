@@ -5,6 +5,12 @@ title: UnitType
 
 The name of a unit like '`kilogram`' or '`terabyte`'.
 
+### Syntax
+
+<pre class="syntax">
+'acre' | 'acre-foot' | 'ampere' ... 'week' | 'yard' | 'year'
+</pre>
+
 ### Values
 
   - 'acre'

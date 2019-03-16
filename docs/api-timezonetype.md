@@ -5,6 +5,13 @@ title: TimeZoneType
 
 The identifier for a timezone, e.g. '`America/New_York`'.
 
+### Syntax
+
+<pre class="syntax">
+'Africa/Abidjan' | 'Africa/Accra' ... 'Pacific/Wake' | 'Pacific/Wallis'
+</pre>
+
+
 ### Values
 
   - 'Africa/Abidjan'
