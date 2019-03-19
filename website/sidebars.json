@@ -75,6 +75,7 @@
       "api-currencytype",
       "api-decimalformatoptions",
       "api-decimalformatstyletype",
+      "api-numberformaterrortype",
       "api-numbersystemtype"
     ],
     "Units": [

@@ -39,6 +39,7 @@
     "api-mathcontext": "MathContext",
     "api-measurementcategory": "MeasurementCategory",
     "api-measurementsystem": "MeasurementSystem",
+    "api-numberformaterrortype": "NumberFormatErrorType",
     "api-numbersystemtype": "NumberSystemType",
     "api-persiandate": "PersianDate",
     "api-quantity": "Quantity",

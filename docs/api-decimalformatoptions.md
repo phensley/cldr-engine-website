@@ -18,6 +18,7 @@ object {
   maximumSignificantDigits?,
   minimumSignificantDigits?,
   nu?,
+  errors?: NumberFormatErrorType[]
 }
 </pre>
 
@@ -41,6 +42,8 @@ object {
     - Minimum significant digits to display.
   - <code class="def">nu?: <span>NumberSystemType</span></code>
     - Override the number system used to format the digits.
+  - <code class="def">errors?: <span>[NumberFormatErrorType](api-numberformaterrortype.html)</span></code>
+    - Optional flags controlling when formatting a `NaN` or `Infinity` will raise an error
 
 ### Defaults
 
@@ -54,7 +57,7 @@ object {
 * Integer and fraction option defaults are determined by the selected number pattern.
 * Options for significant digits default to `undefined`.
 * Numbering system default is determined by the locale.
-
+* By default values `NaN` and `Infinity` are formatted
 
 ### See Also
   - [CLDR.Numbers.formatDecimal](api-cldr-numbers#formatdecimal)
