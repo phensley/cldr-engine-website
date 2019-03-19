@@ -33,6 +33,17 @@ object {
   - <code>nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
     - Override the numbering system.
 
+### Defaults
+
+```typescript
+{
+  date: 'full'
+}
+```
+
+* Numbering system default is determined by the locale.
+* Calendar system default is determined by the locale.
+
 ### Examples
 
 ```typescript

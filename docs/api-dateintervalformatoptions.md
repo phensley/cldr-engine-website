@@ -23,6 +23,17 @@ object {
   - <code class="def">nu: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
     - Override the numbering system
 
+### Defaults
+
+```typescript
+{
+  skeleton: 'yMd'
+}
+```
+
+* Numbering system default is determined by the locale.
+* Calendar system default is determined by the locale.
+
 ### Example
 
 ```typescript
