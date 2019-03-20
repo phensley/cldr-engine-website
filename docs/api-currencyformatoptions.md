@@ -51,12 +51,11 @@ object {
 ```typescript
 {
   style: 'symbol',
-  group: false,
+  group: true,
   round: 'half-even',
   symbolWidth: 'default'
 }
 ```
-
 
 * Integer and fraction option defaults are determined by the selected number pattern.
 * Options for significant digits default to `undefined`.

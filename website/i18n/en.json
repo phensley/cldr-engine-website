@@ -26,9 +26,6 @@
       "api-cldr-general": {
         "title": "CLDR.General"
       },
-      "api-cldr-locales": {
-        "title": "CLDR.Locales"
-      },
       "api-cldr-numbers": {
         "title": "CLDR.Numbers"
       },

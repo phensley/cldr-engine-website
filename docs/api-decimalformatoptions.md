@@ -50,10 +50,11 @@ object {
 ```typescript
 {
   style: 'decimal',
-  group: false,
+  group: true,
   round: 'half-even'
 }
 ```
+
 * Integer and fraction option defaults are determined by the selected number pattern.
 * Options for significant digits default to `undefined`.
 * Numbering system default is determined by the locale.

@@ -9,9 +9,8 @@ several namespaces.
  - [`CLDR.Calendars`](api-cldr-calendars.html)
    - Creating dates in various calendars, formatting dates, relative times, time intervals, field of greatest difference
  - [`CLDR.General`](api-cldr-general.html)
-   - Formatting lists, display names for regions, scripts, locale character and line order
- - [`CLDR.Locales`](api-cldr-locales.html)
    - Information about the current language bundle, locale, a method for resolving language tags
+   - Formatting lists, display names for regions, scripts, locale character and line order
  - [`CLDR.Numbers`](api-cldr-numbers.html)
    - Formatting decimal numbers and currencies, plural categories for cardinal and ordinal numbers, currency info
  - [`CLDR.Units`](api-cldr-units.html)
