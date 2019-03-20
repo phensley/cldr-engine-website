@@ -4,80 +4,209 @@
     "next": "Next",
     "previous": "Previous",
     "tagline": "CLDR internationalization and localization in Typescript, batteries-included",
-    "api-buddhistdate": "BuddhistDate",
-    "api-bundle": "Bundle",
-    "api-calendardate": "CalendarDate",
-    "api-calendardatefields": "CalendarDateFields",
-    "api-calendartype": "CalendarType",
-    "api-cldr-calendars": "CLDR.Calendars",
-    "api-cldr-general": "CLDR.General",
-    "api-cldr-locales": "CLDR.Locales",
-    "api-cldr-numbers": "CLDR.Numbers",
-    "api-cldr-units": "CLDR.Units",
-    "api-cldr": "CLDR",
-    "api-cldrframework": "CLDRFramework",
-    "api-cldroptions": "CLDROptions",
-    "api-currencyformatoptions": "CurrencyFormatOptions",
-    "api-currencyformatstyletype": "CurrencyFormatStyleType",
-    "api-currencytype": "CurrencyType",
-    "api-dateformatoptions": "DateFormatOptions",
-    "api-dateintervalformatoptions": "DateIntervalFormatOptions",
-    "api-dateskeleton": "DateSkeleton",
-    "api-datetimepatternfieldtype": "DateTimePatternFieldType",
-    "api-decimal": "Decimal",
-    "api-decimalconstants": "DecimalConstants",
-    "api-decimalformatoptions": "DecimalFormatOptions",
-    "api-decimalformatstyletype": "DecimalFormatStyleType",
-    "api-formatwidthtype": "FormatWidthType",
-    "api-gregoriandate": "GregorianDate",
-    "api-iso8601date": "ISO8601Date",
-    "api-japanesedate": "JapaneseDate",
-    "api-languageidtype": "LanguageIdType",
-    "api-languagetag": "LanguageTag",
-    "api-listpatterntype": "ListPatternType",
-    "api-locale": "Locale",
-    "api-localematcher": "LocaleMatcher",
-    "api-mathcontext": "MathContext",
-    "api-measurementcategory": "MeasurementCategory",
-    "api-measurementsystem": "MeasurementSystem",
-    "api-numberformaterrortype": "NumberFormatErrorType",
-    "api-numbersystemtype": "NumberSystemType",
-    "api-persiandate": "PersianDate",
-    "api-quantity": "Quantity",
-    "api-regionidtype": "RegionIdType",
-    "api-relativetimeformatoptions": "RelativeTimeFormatOptions",
-    "api-roundingmodetype": "RoundingModeType",
-    "api-scriptidtype": "ScriptIdType",
-    "api-timezonetype": "TimeZoneType",
-    "api-unitformatoptions": "UnitFormatOptions",
-    "api-unitlength": "UnitLength",
-    "api-unittype": "UnitType",
-    "api-zoneddatetime": "ZonedDateTime",
-    "doc-calendar-examples": "Example: date formatting",
-    "doc-design-bundles": "Resource bundles",
-    "doc-design-caching": "Caching",
-    "doc-faq": "Rationale",
-    "doc-goals": "Goals",
-    "doc-index": "Overview",
-    "doc-locales-matching": "Language matching",
-    "doc-locales-parsing": "Locale parsing",
-    "doc-locales-resolution": "Locale resolution",
-    "doc-math-example-factorial": "Example: factorial",
-    "doc-math": "Arbitrary Precision",
-    "doc-quickstart": "Quick start",
-    "Docs": "Docs",
-    "API": "API",
-    "Demo ": "Demo ",
-    "Github": "Github",
-    "NPM": "NPM",
-    "Introduction": "Introduction",
-    "Locales": "Locales",
-    "Calendars": "Calendars",
-    "Math": "Math",
-    "Design": "Design",
-    "General": "General",
-    "Numbers": "Numbers",
-    "Units": "Units"
+    "docs": {
+      "api-buddhistdate": {
+        "title": "BuddhistDate"
+      },
+      "api-bundle": {
+        "title": "Bundle"
+      },
+      "api-calendardate": {
+        "title": "CalendarDate"
+      },
+      "api-calendardatefields": {
+        "title": "CalendarDateFields"
+      },
+      "api-calendartype": {
+        "title": "CalendarType"
+      },
+      "api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "api-cldr-general": {
+        "title": "CLDR.General"
+      },
+      "api-cldr-locales": {
+        "title": "CLDR.Locales"
+      },
+      "api-cldr-numbers": {
+        "title": "CLDR.Numbers"
+      },
+      "api-cldr-units": {
+        "title": "CLDR.Units"
+      },
+      "api-cldr": {
+        "title": "CLDR"
+      },
+      "api-cldrframework": {
+        "title": "CLDRFramework"
+      },
+      "api-cldroptions": {
+        "title": "CLDROptions"
+      },
+      "api-currencyformatoptions": {
+        "title": "CurrencyFormatOptions"
+      },
+      "api-currencyformatstyletype": {
+        "title": "CurrencyFormatStyleType"
+      },
+      "api-currencytype": {
+        "title": "CurrencyType"
+      },
+      "api-dateformatoptions": {
+        "title": "DateFormatOptions"
+      },
+      "api-dateintervalformatoptions": {
+        "title": "DateIntervalFormatOptions"
+      },
+      "api-dateskeleton": {
+        "title": "DateSkeleton"
+      },
+      "api-datetimepatternfieldtype": {
+        "title": "DateTimePatternFieldType"
+      },
+      "api-decimal": {
+        "title": "Decimal"
+      },
+      "api-decimalconstants": {
+        "title": "DecimalConstants"
+      },
+      "api-decimalformatoptions": {
+        "title": "DecimalFormatOptions"
+      },
+      "api-decimalformatstyletype": {
+        "title": "DecimalFormatStyleType"
+      },
+      "api-formatwidthtype": {
+        "title": "FormatWidthType"
+      },
+      "api-gregoriandate": {
+        "title": "GregorianDate"
+      },
+      "api-iso8601date": {
+        "title": "ISO8601Date"
+      },
+      "api-japanesedate": {
+        "title": "JapaneseDate"
+      },
+      "api-languageidtype": {
+        "title": "LanguageIdType"
+      },
+      "api-languagetag": {
+        "title": "LanguageTag"
+      },
+      "api-listpatterntype": {
+        "title": "ListPatternType"
+      },
+      "api-locale": {
+        "title": "Locale"
+      },
+      "api-localematcher": {
+        "title": "LocaleMatcher"
+      },
+      "api-mathcontext": {
+        "title": "MathContext"
+      },
+      "api-measurementcategory": {
+        "title": "MeasurementCategory"
+      },
+      "api-measurementsystem": {
+        "title": "MeasurementSystem"
+      },
+      "api-numberformaterrortype": {
+        "title": "NumberFormatErrorType"
+      },
+      "api-numbersystemtype": {
+        "title": "NumberSystemType"
+      },
+      "api-persiandate": {
+        "title": "PersianDate"
+      },
+      "api-quantity": {
+        "title": "Quantity"
+      },
+      "api-regionidtype": {
+        "title": "RegionIdType"
+      },
+      "api-relativetimeformatoptions": {
+        "title": "RelativeTimeFormatOptions"
+      },
+      "api-roundingmodetype": {
+        "title": "RoundingModeType"
+      },
+      "api-scriptidtype": {
+        "title": "ScriptIdType"
+      },
+      "api-timezonetype": {
+        "title": "TimeZoneType"
+      },
+      "api-unitformatoptions": {
+        "title": "UnitFormatOptions"
+      },
+      "api-unitlength": {
+        "title": "UnitLength"
+      },
+      "api-unittype": {
+        "title": "UnitType"
+      },
+      "api-zoneddatetime": {
+        "title": "ZonedDateTime"
+      },
+      "doc-calendar-examples": {
+        "title": "Example: date formatting"
+      },
+      "doc-design-bundles": {
+        "title": "Resource bundles"
+      },
+      "doc-design-caching": {
+        "title": "Caching"
+      },
+      "doc-faq": {
+        "title": "Rationale"
+      },
+      "doc-goals": {
+        "title": "Goals"
+      },
+      "doc-index": {
+        "title": "Overview"
+      },
+      "doc-locales-matching": {
+        "title": "Language matching"
+      },
+      "doc-locales-parsing": {
+        "title": "Locale parsing"
+      },
+      "doc-locales-resolution": {
+        "title": "Locale resolution"
+      },
+      "doc-math-example-factorial": {
+        "title": "Example: factorial"
+      },
+      "doc-math": {
+        "title": "Arbitrary Precision"
+      },
+      "doc-quickstart": {
+        "title": "Quick start"
+      }
+    },
+    "links": {
+      "Docs": "Docs",
+      "API": "API",
+      "Demo ": "Demo ",
+      "Github": "Github",
+      "NPM": "NPM"
+    },
+    "categories": {
+      "Introduction": "Introduction",
+      "Locales": "Locales",
+      "Calendars": "Calendars",
+      "Math": "Math",
+      "Design": "Design",
+      "API": "API",
+      "General": "General",
+      "Numbers": "Numbers",
+      "Units": "Units"
+    }
   },
   "pages-strings": {
     "Help Translate|recruit community translators for your project": "Help Translate",
