@@ -3,6 +3,34 @@ id: api-cldr-general
 title: CLDR.General
 ---
 
+## bundle
+
+Returns a reference to the [Bundle](api-bundle.html) for this [CLDR](api-cldr.html) instance.
+
+#### Syntax
+
+<pre class="syntax">
+bundle(): Bundle
+</pre>
+
+#### Example
+
+```typescript
+for (const locale of ['en', 'fr', 'ja', 'ar']) {
+  const cldr = framework.get(locale);
+  const b = cldr.General.bundle();
+  console.log(`${b.id()}  ${b.language()}  ${b.region()}`);
+}
+```
+
+<pre class="output">
+en-Latn-US  en  US
+fr-Latn-FR  fr  FR
+ja-Jpan-JP  ja  JP
+ar-Arab-EG  ar  EG
+</pre>
+
+
 ## characterOrder
 
 Returns the character order for the current locale.
@@ -36,34 +64,31 @@ lineOrder(): LineOrderType
     - Right to left
 
 
-## measurementSystem
+## locale
 
+Returns the [Locale](api-locale.html) for this [CLDR](api-cldr.html) instance.
 
 #### Syntax
 
 <pre class="syntax">
-measurementSystem(category?: MeasurementCategory): MeasurementSystem
+locale(): Locale
 </pre>
-
-#### Parameters
-
-  - <code class="def">category?: <span>[MeasurementCategory](api-measurementcategory.html)</span></code>
-    - Optional category (ex: temperature has special handling for certain regions)
-
-#### Return values
-  A [MeasurementSystem](api-measurementsystem.html) value
 
 #### Example
 
 ```typescript
-let cldr = framework.get('es-PR');
-cldr.General.measurementSystem();
-cldr.General.measurementSystem('temperature');
+for (const locale of ['en', 'fr', 'ja', 'ar']) {
+  const cldr = framework.get(locale);
+  const { tag } = cldr.General.locale();
+  console.log(tag.expanded());
+}
 ```
 
 <pre class="output">
-metric
-us
+en-Latn-US
+fr-Latn-FR
+ja-Jpan-JP
+ar-Arab-EG
 </pre>
 
 
@@ -260,3 +285,78 @@ de.General.getScriptDisplayName('Latn');
 Lateinisch
 </pre>
 
+
+
+## measurementSystem
+
+
+#### Syntax
+
+<pre class="syntax">
+measurementSystem(category?: MeasurementCategory): MeasurementSystem
+</pre>
+
+#### Parameters
+
+  - <code class="def">category?: <span>[MeasurementCategory](api-measurementcategory.html)</span></code>
+    - Optional category (ex: temperature has special handling for certain regions)
+
+#### Return values
+  A [MeasurementSystem](api-measurementsystem.html) value
+
+#### Example
+
+```typescript
+let cldr = framework.get('es-PR');
+cldr.General.measurementSystem();
+cldr.General.measurementSystem('temperature');
+```
+
+<pre class="output">
+metric
+us
+</pre>
+
+
+## resolveLocale
+
+Parses and resolves a locale identifer or language tag into a [Locale](api-locale.html) object.
+
+Resolution involves:
+ * Replace language and region aliases
+ * Remap grandfathered tags
+ * Add likely subtags
+
+#### Syntax
+
+<pre class="syntax">
+resolveLocale(tag): Locale
+</pre>
+
+#### Parameters
+  - <code class="def">tag: <span>string</span></code>
+    - String to parse into a [Locale](api-locale.html) object
+
+#### Example
+
+```typescript
+const ids = [
+  'en_CA',
+  'ko',
+  'und-Cyrl',
+  'fr-u-ca-persian-u-nu-mathmono',
+  'und-CN'
+];
+for (const id of ids) {
+  const { tag } = cldr.General.resolveLocale(id);
+  console.log(`${tag.language()}  ${tag.script()}  ${tag.region()}`);
+}
+```
+
+<pre class="output">
+en  Latn  CA
+ko  Kore  KR
+ru  Cyrl  RU
+fr  Latn  FR
+zh  Hans  CN
+</pre>

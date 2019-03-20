@@ -30,7 +30,6 @@
       "api-cldr",
       "api-cldr-calendars",
       "api-cldr-general",
-      "api-cldr-locales",
       "api-cldr-numbers",
       "api-cldr-units"
     ],
