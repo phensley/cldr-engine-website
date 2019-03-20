@@ -53,9 +53,12 @@
       "api-zoneddatetime"
     ],
     "General": [
+      "api-languageidtype",
       "api-listpatterntype",
       "api-measurementcategory",
-      "api-measurementsystem"
+      "api-measurementsystem",
+      "api-regionidtype",
+      "api-scriptidtype"
     ],
     "Locales": [
       "api-bundle",
