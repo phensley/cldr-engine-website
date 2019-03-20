@@ -35,11 +35,13 @@ function Versions(props) {
               <tr>
                 <th>{latestVersion}</th>
                 <td>
-                  <a href="">Documentation</a>
+                  <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
+                      props.language
+                    }/doc-index`}>Documentation</a>
                 </td>
-                <td>
+                {/* <td>
                   <a href="">Release Notes</a>
-                </td>
+                </td> */}
               </tr>
             </tbody>
           </table>
@@ -47,21 +49,7 @@ function Versions(props) {
             This is the version that is configured automatically when you first
             install this project.
           </p>
-          <h3 id="rc">Pre-release versions</h3>
-          <table className="versions">
-            <tbody>
-              <tr>
-                <th>master</th>
-                <td>
-                  <a href="">Documentation</a>
-                </td>
-                <td>
-                  <a href="">Release Notes</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <p>Other text describing this section.</p>
+
           <h3 id="archive">Past Versions</h3>
           <table className="versions">
             <tbody>
@@ -71,11 +59,13 @@ function Versions(props) {
                     <tr>
                       <th>{version}</th>
                       <td>
-                        <a href="">Documentation</a>
+                        <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
+                            props.language
+                          }/${version}/`}>Documentation</a>
                       </td>
-                      <td>
+                      {/* <td>
                         <a href="">Release Notes</a>
-                      </td>
+                      </td> */}
                     </tr>
                   ),
               )}
