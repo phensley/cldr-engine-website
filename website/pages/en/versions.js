@@ -39,9 +39,9 @@ function Versions(props) {
                       props.language
                     }/doc-index`}>Documentation</a>
                 </td>
-                {/* <td>
-                  <a href="">Release Notes</a>
-                </td> */}
+                <td>
+                  <a href={`${repoUrl}/releases/tag/v${latestVersion}`}>Release Notes</a>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -63,9 +63,9 @@ function Versions(props) {
                             props.language
                           }/${version}/doc-index`}>Documentation</a>
                       </td>
-                      {/* <td>
-                        <a href="">Release Notes</a>
-                      </td> */}
+                      <td>
+                  <a href={`${repoUrl}/releases/tag/v${version}`}>Release Notes</a>
+                </td>
                     </tr>
                   ),
               )}
