@@ -74,6 +74,9 @@
       "api-decimalformatstyletype": {
         "title": "DecimalFormatStyleType"
       },
+      "api-default": {
+        "title": "default"
+      },
       "api-formatwidthtype": {
         "title": "FormatWidthType"
       },
@@ -376,6 +379,9 @@
       },
       "version-0.9.0/version-0.9.0-api-currencyformatoptions": {
         "title": "CurrencyFormatOptions"
+      },
+      "version-0.9.0/version-0.9.0-api-currencyformatstyletype": {
+        "title": "CurrencyFormatStyleType"
       },
       "version-0.9.0/version-0.9.0-api-decimalformatoptions": {
         "title": "DecimalFormatOptions"

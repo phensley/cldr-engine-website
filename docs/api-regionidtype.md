@@ -3,7 +3,10 @@ id: api-regionidtype
 title: RegionIdType
 ---
 
-An [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) identifier for a region.
+
+
+An [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
+or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) identifier for a region.
 
 ### Syntax
 

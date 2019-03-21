@@ -3,6 +3,8 @@ id: api-timezonetype
 title: TimeZoneType
 ---
 
+
+
 The identifier for a timezone, e.g. '`America/New_York`'.
 
 ### Syntax

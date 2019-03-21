@@ -3,6 +3,8 @@ id: api-scriptidtype
 title: ScriptIdType
 ---
 
+
+
 An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
 
 ### Syntax
