@@ -54,14 +54,14 @@ function Versions(props) {
           <table className="versions">
             <tbody>
               {versions.map(
-                version =>
+                (version, i) =>
                   version !== latestVersion && (
-                    <tr>
+                    <tr key={i}>
                       <th>{version}</th>
                       <td>
                         <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
                             props.language
-                          }/${version}/`}>Documentation</a>
+                          }/${version}/doc-index`}>Documentation</a>
                       </td>
                       {/* <td>
                         <a href="">Release Notes</a>
