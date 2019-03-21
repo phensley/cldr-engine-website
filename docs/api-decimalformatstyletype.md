@@ -56,7 +56,7 @@ cldr.Numbers.formatDecimal('123456.6789', { style: 'long' });
 cldr.Numbers.formatDecimal('12.3456', { style: 'percent' });
 ```
 <pre class="output">
-1235%
+1,235%
 </pre>
 
 ```typescript
@@ -70,7 +70,7 @@ cldr.Numbers.formatDecimal('12.3456', { style: 'percent-scaled' });
 cldr.Numbers.formatDecimal('12.3456', { style: 'permille' });
 ```
 <pre class="output">
-12346‰
+12,346‰
 </pre>
 
 ```typescript
