@@ -29,11 +29,19 @@ Indicates which format style to use when formatting decimal numbers.
 ### Examples
 
 ```typescript
-cldr.Numbers.formatDecimal('123456.6789', { style: 'decimal', group: true });
+cldr.Numbers.formatDecimal('123456.6789', { style: 'decimal' });
 ```
 
 <pre class="output">
 123,456.679
+</pre>
+
+```typescript
+cldr.Numbers.formatDecimal('123456.6789', { style: 'decimal', group: false });
+```
+
+<pre class="output">
+123456.679
 </pre>
 
 ```typescript

@@ -1,6 +1,7 @@
 ---
-id: api-currencyformatstyletype
+id: version-0.9.0-api-currencyformatstyletype
 title: CurrencyFormatStyleType
+original_id: api-currencyformatstyletype
 ---
 
 Indicates which format style to use when formatting currencies.

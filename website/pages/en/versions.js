@@ -50,6 +50,27 @@ function Versions(props) {
             install this project.
           </p>
 
+          <h3 id="rc">Latest Version</h3>
+          Here you can find the latest documentation for unreleased code.
+          <table className="versions">
+            <tbody>
+              <tr>
+                <th>master</th>
+                <td>
+                  <a
+                    href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
+                      props.language
+                    }/next/doc-index`}>
+                    Documentation
+                  </a>
+                </td>
+                <td>
+                  <a href={repoUrl}>Source Code</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
           <h3 id="archive">Past Versions</h3>
           <table className="versions">
             <tbody>
