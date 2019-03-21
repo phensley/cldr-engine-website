@@ -379,6 +379,9 @@
       },
       "version-0.9.0/version-0.9.0-api-decimalformatoptions": {
         "title": "DecimalFormatOptions"
+      },
+      "version-0.9.0/version-0.9.0-api-decimalformatstyletype": {
+        "title": "DecimalFormatStyleType"
       }
     },
     "links": {

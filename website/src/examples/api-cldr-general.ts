@@ -4,6 +4,44 @@ import { RegionIdType } from '@phensley/cldr';
 const SEP = '\n--------------------------------\n\n';
 
 (() => {
+  for (const locale of ['en', 'fr', 'ja', 'ar']) {
+    const cldr = framework.get(locale);
+    const b = cldr.General.bundle();
+    console.log(`${b.id()}  ${b.language()}  ${b.region()}`);
+  }
+
+  console.log(SEP);
+})();
+
+(() => {
+  for (const locale of ['en', 'fr', 'ja', 'ar']) {
+    const cldr = framework.get(locale);
+    const { tag } = cldr.General.locale();
+    console.log(tag.expanded());
+  }
+
+  console.log(SEP);
+})();
+
+(() => {
+  const cldr = framework.get('en');
+  const ids = [
+    'en_CA',
+    'ko',
+    'und-Cyrl',
+    'fr-u-ca-persian-u-nu-mathmono',
+    'und-CN'
+  ];
+  for (const id of ids) {
+    const { tag } = cldr.General.resolveLocale(id);
+    console.log(`${tag.language()}  ${tag.script()}  ${tag.region()}`);
+  }
+
+  console.log(SEP);
+})();
+
+
+(() => {
   const cldr = framework.get('es-PR');
   const s1 = cldr.General.measurementSystem();
   const s2 = cldr.General.measurementSystem('temperature');
