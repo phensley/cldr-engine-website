@@ -74,9 +74,6 @@
       "api-decimalformatstyletype": {
         "title": "DecimalFormatStyleType"
       },
-      "api-default": {
-        "title": "default"
-      },
       "api-formatwidthtype": {
         "title": "FormatWidthType"
       },
