@@ -318,6 +318,33 @@ us
 </pre>
 
 
+## parseLanguageTag
+
+Parses a language tag and canonicalizes its fields, returning a [LanguageTag](api-languagetag.html) object.
+
+#### Syntax
+
+<pre class="syntax">
+parseLanguageTag(tag: string): LanguageTag
+</pre>
+
+#### Parameters
+  - <code class="def">tag: <span>string</span></code>
+    - String to parse into a [LanguageTag](api-languagetag.html) object
+
+#### Example
+
+```typescript
+cldr.General.parseLanguageTag('fr-AU').expanded();
+cldr.General.parseLanguageTag('en').expanded();
+```
+
+<pre class="output">
+fr-Zzzz-AU
+en-Zzzz-US
+</pre>
+
+
 ## resolveLocale
 
 Parses and resolves a locale identifer or language tag into a [Locale](api-locale.html) object.

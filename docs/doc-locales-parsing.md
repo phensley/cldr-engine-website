@@ -22,7 +22,9 @@ The parser will also accept underscores, which appear in locale identifiers in s
 In the example below we use the [`CLDRFramework.parseLanguageTag`](api-cldrfrmaework.html#parselanguagetag) function to parse several identifiers into [`LanguageTag`](api-languagetag.html) objects, and calling several methods on them.
 
 ```typescript
-import { parseLanguageTag } from '@phensley/cldr';
+import { CLDRFramework } from '@phensley/cldr';
+
+const { parseLanguageTag } = CLDRFramework;
 
 const ids = [
   'en-US',
