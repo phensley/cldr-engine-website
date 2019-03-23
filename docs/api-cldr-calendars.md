@@ -11,6 +11,8 @@ The `CLDR.Calendars` namespace allows you to:
   * Obtain weekday and month names for a given calendar
   * Calculate the field of greatest difference between two dates
 
+
+
 ## dayPeriods
 
 Returns a mapping of day period key to name for the current locale.
@@ -18,30 +20,30 @@ Returns a mapping of day period key to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-dayPeriods(calendar?): FieldWidthMap
+dayPeriods(options?): any
 </pre>
 
 #### Parameters
-  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
-    - Override the calendar type
+  - <code class="def">options?: <span>[CalendarFieldOptions](api-calendarfieldoptions.html)</span></code>
+    - Options for field width, context, etc.
 
 #### Example
 
 ```typescript
 const en = framework.get('en');
-en.Calendars.dayPeriods().wide;
+en.Calendars.dayPeriods({ width: 'wide', context: 'begin-sentence' });
 ```
 
 <pre class="output">
 {
-  noon: 'noon',
-  midnight: 'midnight',
+  noon: 'Noon',
+  midnight: 'Midnight',
   am: 'AM',
   pm: 'PM',
-  morning1: 'morning',
-  afternoon1: 'afternoon',
-  evening1: 'evening',
-  night1: 'night'
+  morning1: 'Morning',
+  afternoon1: 'Afternoon',
+  evening1: 'Evening',
+  night1: 'Night'
 }
 </pre>
 
@@ -54,23 +56,24 @@ Return a mapping of era key to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-eras(calendar?): EraWidthMap
+eras(options?): any
 </pre>
 
 #### Parameters
-  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
-    - Override the calendar type
+  - <code class="def">options?: <span>[EraFieldOptions](api-erafieldoptions.html)</span></code>
+    - Options for field width, context, etc.
 
 #### Example
 
 ```typescript
 const en = framework.get('en');
-en.Calendars.eras().names;
+en.Calendars.eras({ width: 'names' });
 ```
 
 <pre class="output">
 { '0': 'Before Christ', '1': 'Anno Domini' }
 </pre>
+
 
 ## fieldOfGreatestDifference
 
@@ -194,6 +197,7 @@ cldr.Calendars.formatDateToParts({ date, zoneId }, { datetime: 'short' });
 Format a start and end date range to a string.
 
 #### Syntax
+
 <pre class="syntax">
 formatDateInterval(start, end, options?): string
 </pre>
@@ -328,12 +332,12 @@ Returns a mapping of month ordinal number to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-months(calendar?): FieldWidthMap
+months(options?): any
 </pre>
 
 #### Parameters
-  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
-    - Override the calendar type
+  - <code class="def">options?: <span>[CalendarFieldOptions](api-calendarfieldoptions.html)</span></code>
+    - Options for field width, context, etc.
 
 #### Example
 
@@ -341,10 +345,13 @@ months(calendar?): FieldWidthMap
 const en = framework.get('en');
 const fr = framework.get('fr');
 
-const monthsEN = en.Calendars.months().wide;
-console.log(monthsEN);
+const context = 'begin-sentence';
+const monthsEN = en.Calendars.months({ context });
+const monthsFR = fr.Calendars.months({ context });
 
-const monthsFR = fr.Calendars.months().wide;
+console.log(monthsEN);
+console.log(monthsFR);
+
 const date = en.Calendars.toGregorianDate({
   date: new Date(2018, 5, 11, 12, 1, 12),
   zoneId: 'America/New_York'
@@ -368,7 +375,20 @@ console.log(`month is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
   '11': 'November',
   '12': 'December'
 }
-month is June / juin
+{ '1': 'Janvier',
+  '2': 'Février',
+  '3': 'Mars',
+  '4': 'Avril',
+  '5': 'Mai',
+  '6': 'Juin',
+  '7': 'Juillet',
+  '8': 'Août',
+  '9': 'Septembre',
+  '10': 'Octobre',
+  '11': 'Novembre',
+  '12': 'Décembre'
+}
+month is June / Juin
 </pre>
 
 
@@ -379,18 +399,18 @@ Return a mapping of quarter ordinal number to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-quarters(calendar?): FieldWidthMap
+quarters(options?): any
 </pre>
 
 #### Parameters
-  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
-    - Override the calendar type
+  - <code class="def">options?: <span>[CalendarFieldOptions](api-calendarfieldoptions.html)</span></code>
+    - Options for field width, context, etc.
 
 #### Example
 
 ```typescript
 const en = framework.get('en');
-en.Calendars.quarters().wide;
+en.Calendars.quarters();
 ```
 
 <pre class="output">
@@ -502,6 +522,7 @@ Gregorian 2018-07-17 08:34:56.789 America/New_York
 ## toPersianDate
 
 
+
 ## weekdays
 
 Return a mapping of weekday ordinal number to name for the current locale.
@@ -509,28 +530,39 @@ Return a mapping of weekday ordinal number to name for the current locale.
 #### Syntax
 
 <pre class="syntax">
-weekdays(calendar?): FieldWidthMap
+weekdays(options?): any
 </pre>
 
 #### Parameters
-  - <code class="def">calendar?: <span>[CalendarType](api-calendartype.html)</span></code>
-    - Override the calendar type
+  - <code class="def">options?: <span>[CalendarFieldOptions](api-calendarfieldoptions.html)</span></code>
+    - Options for field width, context, etc.
 
 #### Example
 
 ```typescript
 const en = framework.get('en');
-en.Calendars.weekdays().wide;
+const es = framework.get('es');
+const context = 'ui-list-or-menu';
+
+console.log(en.Calendars.weekdays({ context }));
+console.log(es.Calendars.weekdays({ context }));
 ```
 
 <pre class="output">
-{
-  '1': 'Sunday',
+{ '1': 'Sunday',
   '2': 'Monday',
   '3': 'Tuesday',
   '4': 'Wednesday',
   '5': 'Thursday',
   '6': 'Friday',
   '7': 'Saturday'
+}
+{ '1': 'Domingo',
+  '2': 'Lunes',
+  '3': 'Martes',
+  '4': 'Miércoles',
+  '5': 'Jueves',
+  '6': 'Viernes',
+  '7': 'Sábado'
 }
 </pre>

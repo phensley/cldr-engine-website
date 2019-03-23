@@ -17,6 +17,9 @@
       "api-calendardatefields": {
         "title": "CalendarDateFields"
       },
+      "api-calendarfieldoptions": {
+        "title": "CalendarFieldOptions"
+      },
       "api-calendartype": {
         "title": "CalendarType"
       },
@@ -40,6 +43,9 @@
       },
       "api-cldroptions": {
         "title": "CLDROptions"
+      },
+      "api-contexttype": {
+        "title": "ContextType"
       },
       "api-currencyformatoptions": {
         "title": "CurrencyFormatOptions"
@@ -73,6 +79,15 @@
       },
       "api-decimalformatstyletype": {
         "title": "DecimalFormatStyleType"
+      },
+      "api-erafieldoptions": {
+        "title": "EraFieldOptions"
+      },
+      "api-erawidthtype": {
+        "title": "EraWidthType"
+      },
+      "api-fieldwidthtype": {
+        "title": "FieldWidthType"
       },
       "api-formatwidthtype": {
         "title": "FormatWidthType"

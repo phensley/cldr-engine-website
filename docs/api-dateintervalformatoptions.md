@@ -11,7 +11,8 @@ Options used for date interval formatting.
 object {
   skeleton?,
   ca?,
-  nu?
+  nu?,
+  context?
 }
 </pre>
 
@@ -22,12 +23,15 @@ object {
     - Override the calendar to use
   - <code class="def">nu: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
     - Override the numbering system
+  - <code class="def">context?: <span>[ContextType](api-contexttype.html)</span></code>
+    - Specify the context in which the string will be display
 
 ### Defaults
 
 ```typescript
 {
-  skeleton: 'yMd'
+  skeleton: 'yMd',
+  context: 'middle-of-text'
 }
 ```
 

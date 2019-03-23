@@ -24,8 +24,8 @@ const SEP = '\n--------------------------------\n\n';
   const endings = { one: 'st', two: 'nd', few: 'rd', other: 'th' };
   const ord = (n: number) => endings[cldr.Numbers.getPluralOrdinal(n)];
 
-  const weekdays = cldr.Calendars.weekdays(date.type());
-  const months = cldr.Calendars.months(date.type());
+  const weekdays = cldr.Calendars.weekdays({ ca: date.type() });
+  const months = cldr.Calendars.months({ ca: date.type() });
 
   const day = date.dayOfMonth();
   const weekday = weekdays[date.dayOfWeek()];

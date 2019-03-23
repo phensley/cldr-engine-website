@@ -6,8 +6,8 @@ const SEP = '\n--------------------------------\n\n';
 // dayPeriods
 (() => {
   const en = framework.get('en');
-  const p = en.Calendars.dayPeriods();
-  console.log(p.wide);
+  const p = en.Calendars.dayPeriods({ width: 'wide', context: 'begin-sentence' });
+  console.log(p);
 
   console.log(SEP);
 })();
@@ -15,8 +15,8 @@ const SEP = '\n--------------------------------\n\n';
 // eras
 (() => {
   const en = framework.get('en');
-  const p = en.Calendars.eras();
-  console.log(p.names);
+  const p = en.Calendars.eras({ width: 'names' });
+  console.log(p);
 
   console.log(SEP);
 })();
@@ -120,16 +120,20 @@ const SEP = '\n--------------------------------\n\n';
 (() => {
   const en = framework.get('en');
   const fr = framework.get('fr');
-  const monthsEN = en.Calendars.months().wide;
-  console.log(monthsEN);
 
-  const monthsFR = fr.Calendars.months().wide;
+  const context = 'begin-sentence';
+  const monthsEN = en.Calendars.months({ context });
+  const monthsFR = fr.Calendars.months({ context });
+
+  console.log(monthsEN);
+  console.log(monthsFR);
+
   const date = en.Calendars.toGregorianDate({
     date: new Date(2018, 5, 11, 12, 1, 12),
     zoneId: 'America/New_York'
   });
 
-  console.log(`month is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
+  console.log(`\nmonth is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
 
   console.log(SEP);
 })();
@@ -137,7 +141,7 @@ const SEP = '\n--------------------------------\n\n';
 // quarters
 (() => {
   const en = framework.get('en');
-  const quarters = en.Calendars.quarters().wide;
+  const quarters = en.Calendars.quarters();
   console.log(quarters);
 
   console.log(SEP);
@@ -178,8 +182,10 @@ const SEP = '\n--------------------------------\n\n';
 // weekdays
 (() => {
   const en = framework.get('en');
-  const weekdays = en.Calendars.weekdays().wide;
-  console.log(weekdays);
+  const es = framework.get('es');
+  const context = 'ui-list-or-menu';
+  console.log(en.Calendars.weekdays({ context }));
+  console.log(es.Calendars.weekdays({ context }));
 
   console.log(SEP);
 })();

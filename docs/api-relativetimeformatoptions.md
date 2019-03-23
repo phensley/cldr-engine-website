@@ -8,7 +8,8 @@ title: RelativeTimeFormatOptions
 <pre class="syntax">
 object {
   width?,
-  nu?
+  nu?,
+  context?
 }
 </pre>
 
@@ -17,6 +18,16 @@ object {
     - Width of the unit of relative time: `'short' | 'narrow' | 'wide'`
   - <code class="def">nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
     - Override the numbering system
+  - <code class="def">context?: <span>[ContextType](api-contexttype.html)</span></code>
+    - Specify the context in which the string will be display
+
+### Defaults
+
+```typescript
+{
+  context: 'middle-of-text'
+}
+```
 
 ### Example
 
