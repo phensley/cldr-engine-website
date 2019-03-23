@@ -67,6 +67,9 @@ function Versions(props) {
                 <td>
                   <a href={repoUrl}>Source Code</a>
                 </td>
+                <td>
+                  <a href={`${repoUrl}/compare/v${latestVersion}...master`}>Changes</a>
+                </td>
               </tr>
             </tbody>
           </table>
