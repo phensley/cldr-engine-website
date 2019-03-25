@@ -45,6 +45,7 @@
       "api-datetimepatternfieldtype",
       "api-erafieldoptions",
       "api-erawidthtype",
+      "api-exemplarcity",
       "api-fieldwidthtype",
       "api-formatwidthtype",
       "api-gregoriandate",
@@ -52,6 +53,7 @@
       "api-japanesedate",
       "api-persiandate",
       "api-relativetimeformatoptions",
+      "api-timezoneinfo",
       "api-timezonetype",
       "api-zoneddatetime"
     ],

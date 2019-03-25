@@ -86,6 +86,9 @@
       "api-erawidthtype": {
         "title": "EraWidthType"
       },
+      "api-exemplarcity": {
+        "title": "ExemplarCity"
+      },
       "api-fieldwidthtype": {
         "title": "FieldWidthType"
       },
@@ -148,6 +151,9 @@
       },
       "api-scriptidtype": {
         "title": "ScriptIdType"
+      },
+      "api-timezoneinfo": {
+        "title": "TimeZoneInfo"
       },
       "api-timezonetype": {
         "title": "TimeZoneType"

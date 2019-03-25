@@ -427,6 +427,12 @@ en.Calendars.quarters();
 
 Returns an array of timezone identifiers of type [TimeZoneType](api-timezonetype.html).
 
+#### Syntax
+
+<pre class="syntax">
+timeZoneIds(): TimeZoneType[]
+</pre>
+
 #### Example
 
 ```typescript
@@ -441,6 +447,41 @@ for (const id of en.Calendars.timeZoneIds()) {
 'Africa/Accra'
 'Africa/Addis_Ababa'
 'Africa/Algiers'
+...
+</pre>
+
+
+## timeZoneInfo
+
+Returns an array of `TimeZoneInfo` objects, including the exemplar city for each.
+
+
+#### Syntax
+
+<pre class="syntax">
+timeZoneInfo(): TimeZoneInfo[]
+</pre>
+
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+for (const info of en.Calendars.timeZoneInfo()) {
+  console.log(info);
+}
+```
+
+<pre class="output">
+{ id: 'Africa/Abidjan', city: { name: 'Abidjan' } }
+{ id: 'Africa/Accra', city: { name: 'Accra' } }
+{ id: 'Africa/Addis_Ababa', city: { name: 'Addis Ababa' } }
+{ id: 'Africa/Algiers', city: { name: 'Algiers' } }
+{ id: 'Africa/Asmera', city: { name: 'Asmara' } }
+{ id: 'Africa/Bamako', city: { name: 'Bamako' } }
+{ id: 'Africa/Bangui', city: { name: 'Bangui' } }
+{ id: 'Africa/Banjul', city: { name: 'Banjul' } }
+{ id: 'Africa/Bissau', city: { name: 'Bissau' } }
 ...
 </pre>
 
