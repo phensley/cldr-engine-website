@@ -206,6 +206,42 @@
       "doc-quickstart": {
         "title": "Quick start"
       },
+      "version-0.10.2/version-0.10.2-api-calendardate": {
+        "title": "CalendarDate"
+      },
+      "version-0.10.2/version-0.10.2-api-calendarfieldoptions": {
+        "title": "CalendarFieldOptions"
+      },
+      "version-0.10.2/version-0.10.2-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-0.10.2/version-0.10.2-api-contexttype": {
+        "title": "ContextType"
+      },
+      "version-0.10.2/version-0.10.2-api-dateformatoptions": {
+        "title": "DateFormatOptions"
+      },
+      "version-0.10.2/version-0.10.2-api-dateintervalformatoptions": {
+        "title": "DateIntervalFormatOptions"
+      },
+      "version-0.10.2/version-0.10.2-api-erafieldoptions": {
+        "title": "EraFieldOptions"
+      },
+      "version-0.10.2/version-0.10.2-api-erawidthtype": {
+        "title": "EraWidthType"
+      },
+      "version-0.10.2/version-0.10.2-api-exemplarcity": {
+        "title": "ExemplarCity"
+      },
+      "version-0.10.2/version-0.10.2-api-fieldwidthtype": {
+        "title": "FieldWidthType"
+      },
+      "version-0.10.2/version-0.10.2-api-relativetimeformatoptions": {
+        "title": "RelativeTimeFormatOptions"
+      },
+      "version-0.10.2/version-0.10.2-api-timezoneinfo": {
+        "title": "TimeZoneInfo"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
