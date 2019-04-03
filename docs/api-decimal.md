@@ -466,6 +466,29 @@ for (const n of ['1', '1e-10', '1.2345']) {
 </pre>
 
 
+## scientific
+
+Return the coefficient and adjusted exponent of the number, suitable for displaying
+scientific notation.
+
+#### Syntax
+
+<pre class="syntax">
+scientific(minIntDigits: number = 1): [Decimal, number]
+</pre>
+
+#### Examples
+
+```typescript
+const n = new Decimal('157.39E10');
+const [coeff, exp] = n.scientific();
+console.log(coeff.toString(), exp);
+```
+
+<pre class="output">
+1.5739 12
+</pre>
+
 
 ## setScale
 
@@ -727,6 +750,55 @@ console.log(n.toString());
 
 <pre class="output">
 90071992547409919007199254740991.9007199254740991
+</pre>
+
+
+## toScientificParts
+
+Format the number in scientific notation as an array of parts.
+
+#### Syntax
+
+<pre class="syntax">
+toScientificParts(minIntegers: number = 1): Part[]
+</pre>
+
+#### Example
+
+```typescript
+const n = new Decimal('157.39E10');
+console.log(n.toScientificParts());
+```
+
+<pre class="output">
+[
+  { type: 'digits', value: '1' },
+  { type: 'decimal', value: '.' },
+  { type: 'digits', value: '5739' },
+  { type: 'e', value: 'E' },
+  { type: 'digits', value: '12' }
+]
+</pre>
+
+## toScientificString
+
+Format the number in scientific notation as a string.
+
+#### Syntax
+
+<pre class="syntax">
+toScientificString(minIntegers: number = 1): string
+</pre>
+
+#### Example
+
+```typescript
+const n = new Decimal('157.39E10');
+console.log(n.toScientificString());
+```
+
+<pre class="output">
+1.5739E+12
 </pre>
 
 
