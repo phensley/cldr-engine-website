@@ -1,6 +1,7 @@
 ---
-id: api-decimalformatstyletype
+id: version-0.11.3-api-decimalformatstyletype
 title: DecimalFormatStyleType
+original_id: api-decimalformatstyletype
 ---
 
 Indicates which format style to use when formatting decimal numbers.

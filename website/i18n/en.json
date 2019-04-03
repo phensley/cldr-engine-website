@@ -242,6 +242,12 @@
       "version-0.10.2/version-0.10.2-api-timezoneinfo": {
         "title": "TimeZoneInfo"
       },
+      "version-0.11.3/version-0.11.3-api-decimal": {
+        "title": "Decimal"
+      },
+      "version-0.11.3/version-0.11.3-api-decimalformatstyletype": {
+        "title": "DecimalFormatStyleType"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
