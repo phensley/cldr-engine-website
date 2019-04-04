@@ -5,13 +5,13 @@
   "version": "0.8.17",
   "scripts": {
     "clean": "rimraf build",
+    "deploy": "yarn build && USE_SSH=true docusaurus-publish",
     "start": "concurrently \"yarn start:docs\" \"yarn start:webpack\"",
     "start:docs": "docusaurus-start",
     "start:webpack": "node scripts/copy-packs.js && webpack-dev-server -w -d",
     "start:webpack-old": "webpack-dev-server -d --content-base ./static/",
     "build": "yarn packs && webpack -p && docusaurus-build",
     "packs": "rimraf ./static/packs && node scripts/copy-packs.js",
-    "publish-gh-pages": "yarn build && USE_SSH=true docusaurus-publish",
     "write-translations": "docusaurus-write-translations",
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version"
