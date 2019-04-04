@@ -1,5 +1,5 @@
 import { framework } from './helpers';
-import { CalendarDate } from '@phensley/cldr';
+import { CalendarDate, DateFormatOptions } from '@phensley/cldr';
 
 const SEP = '\n--------------------------------\n\n';
 
@@ -254,6 +254,89 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 }
 
+// metaZoneId
+{
+  console.log('metaZoneId');
+
+  const cldr = framework.get('en');
+  const zoneId = 'America/New_York';
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(1990, 0, 1), zoneId });
+
+  console.log(date.metaZoneId());
+
+  console.log(SEP);
+}
+
+// milliseconds
+{
+  console.log('milliseconds');
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: 1560602096987 });
+  console.log(date.milliseconds());
+
+  console.log(SEP);
+}
+
+// millisecondsInDay
+{
+  console.log('millisecondsInDay');
+
+  const cldr = framework.get('en');
+  const zoneId = 'America/New_York';
+  let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 10, 6, 59, 59), zoneId });
+
+  const fmt = (d: CalendarDate) =>
+    console.log(`${cldr.Calendars.formatDate(d, { datetime: 'long' })}  ${d.millisecondsInDay()}`);
+
+  fmt(date);
+  fmt(date.add({ minute: 1 }));
+  fmt(date.add({ minute: 2 }));
+
+  console.log(SEP);
+}
+
+// minDaysInFirstWeek
+{
+  console.log('minDaysInFirstWeek');
+
+  const cldr = framework.get('en');
+
+  let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 5, 1) });
+  console.log(date.minDaysInFirstWeek());
+
+  date = cldr.Calendars.toISO8601Date(date);
+  console.log(date.minDaysInFirstWeek());
+
+  console.log(SEP);
+}
+
+// minute
+{
+  console.log('minute');
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
+
+  console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
+  console.log(date.minute());
+
+  console.log(SEP);
+}
+
+// month
+{
+  console.log('month');
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10) });
+
+  console.log(cldr.Calendars.formatDate(date, { date: 'long' }));
+  console.log(date.month());
+
+  console.log(SEP);
+}
+
 // modifiedJulianDay
 {
   console.log('modifiedJulianDay');
@@ -264,6 +347,120 @@ const SEP = '\n--------------------------------\n\n';
   console.log(date.modifiedJulianDay());
   console.log(date.add({ year: -10 }).modifiedJulianDay());
   console.log(date.add({ year: -100 }).modifiedJulianDay());
+
+  console.log(SEP);
+}
+
+// ordinalDayOfWeek
+{
+  console.log('ordinalDayOfWeek');
+
+  const us = framework.get('en-US');
+  const fr = framework.get('fr-FR');
+
+  const suffixes = { 'one': 'st', 'two': 'nd', 'few': 'rd', 'other': 'th' };
+  const usdate = us.Calendars.toGregorianDate({ date: new Date(2019, 4, 7 )});
+  const frdate = fr.Calendars.toGregorianDate(usdate);
+  let cat: string;
+
+  console.log(us.Calendars.formatDate(usdate));
+
+  let day = frdate.ordinalDayOfWeek();
+  cat = us.Numbers.getPluralOrdinal(day);
+  console.log(` .. in fr-FR is the ${day}${suffixes[cat]} day of the week`);
+
+  day = usdate.ordinalDayOfWeek();
+  cat = us.Numbers.getPluralOrdinal(day);
+  console.log(` .. in en-US is the ${day}${suffixes[cat]} day of the week`);
+
+  console.log(SEP);
+}
+
+// second
+{
+  console.log('second')
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
+
+  console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
+  console.log(date.second());
+
+  console.log(SEP);
+}
+
+// timeZoneId
+{
+  console.log('timeZoneId');
+
+  const cldr = framework.get('en');
+  const zoneId = 'America/New_York';
+
+  let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
+  console.log(date.timeZoneId());
+
+  date = cldr.Calendars.toGregorianDate({ date: date.unixEpoch(), zoneId });
+  console.log(date.timeZoneId());
+
+  console.log(SEP);
+}
+
+// timeZoneOffset
+{
+  console.log('timeZoneOffset');
+
+  const cldr = framework.get('en');
+  const epoch = new Date(2019, 4, 10, 12, 27, 41);
+  for (const zoneId of [undefined, 'America/New_York', 'Europe/Zurich']) {
+    const date = cldr.Calendars.toGregorianDate({ date: epoch, zoneId });
+    const s = cldr.Calendars.formatDate(date, { datetime: 'full' });
+    console.log(`${s} has offset ${date.timeZoneOffset()}`);
+  }
+
+  console.log(SEP);
+}
+
+// unixEpoch
+{
+  console.log('unixEpoch');
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: 1560602096987 });
+  console.log(date.unixEpoch());
+
+  console.log(SEP);
+}
+
+// weekOfMonth
+{
+  console.log('weekOfMonth');
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 1) });
+
+  const fmt = (d: CalendarDate) =>
+    console.log(`${cldr.Calendars.formatDate(d, { date: 'long' })} is in week ${d.weekOfMonth()}`);
+
+  for (let d = 0; d < 14; d++) {
+    fmt(date.add({ day: d }));
+  }
+
+  console.log(SEP);
+}
+
+// yearOfWeekOfYear and weekOfYear
+{
+  console.log('yearOfWeekOfYear  weekOfYear');
+
+  const cldr = framework.get('en');
+  const zoneId = 'America/New_York';
+  const opt: DateFormatOptions = { date: 'long' };
+  const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), zoneId })
+  for (let d = 0; d < 13; d++) {
+    const date = base.add({ day: d });
+    const str = `${cldr.Calendars.formatDate(date.add({ day: d }), opt)}`;
+    console.log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
+  }
 
   console.log(SEP);
 }

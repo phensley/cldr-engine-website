@@ -500,11 +500,113 @@ console.log(date.add({ year: -100 }).julianDay());
 
 ## metaZoneId
 
+Returns the CLDR metazone used for time zone display name formatting.
+
+#### Syntax
+
+<pre class="syntax">
+metaZoneId(): string
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+const date = cldr.Calendars.toGregorianDate({ date: new Date(1990, 0, 1), zoneId });
+
+console.log(date.metaZoneId());
+```
+
+<pre class="output">
+America_Eastern
+</pre>
+
+
+
 ## milliseconds
+
+Returns the milliseconds of the time.
+
+#### Syntax
+
+<pre class="syntax">
+milliseconds(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: 1560602096987 });
+console.log(date.milliseconds());
+```
+
+<pre class="output">
+987
+</pre>
+
+
 
 ## millisecondsInDay
 
+Returns a composite of all time-related fields: hours, minutes, seconds and milliseconds.
+
+#### Syntax
+
+<pre class="syntax">
+millisecondsInDay(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 10, 6, 59, 59), zoneId });
+
+const fmt = (d: CalendarDate) =>
+  console.log(`${cldr.Calendars.formatDate(d, { datetime: 'long' })}  ${d.millisecondsInDay()}`);
+
+fmt(date);
+fmt(date.add({ minute: 1 }));
+fmt(date.add({ minute: 2 }));
+```
+
+<pre class="output">
+March 10, 2019 at 1:59:59 AM EST  7199000
+March 10, 2019 at 3:00:59 AM EDT  10859000
+March 10, 2019 at 3:01:59 AM EDT  10919000
+</pre>
+
+
+
 ## minDaysInFirstWeek
+
+Minimum number of days in a week to count as the first week of the year.
+
+#### Syntax
+
+<pre class="syntax">
+minDaysInFirstWeek(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+
+let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 5, 1) });
+console.log(date.minDaysInFirstWeek());
+
+date = cldr.Calendars.toISO8601Date(date);
+console.log(date.minDaysInFirstWeek());
+```
+
+<pre class="output">
+1
+4
+</pre>
 
 
 
@@ -518,6 +620,20 @@ Indicates the minute of the hour (0 - 59).
 minute(): number
 </pre>
 
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
+
+console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
+console.log(date.minute());
+```
+
+<pre class="output">
+12:27:41 PM GMT
+27
+</pre>
 
 
 ## modifiedJulianDay
@@ -553,7 +669,7 @@ console.log(date.add({ year: -100 }).modifiedJulianDay());
 
 ## month
 
-Indicates the month of the year, 1-based. Gregorian JANUARY = 1.
+Indicates the month of the year, 1-based. Gregorian JANUARY = 1, FEBRUARY = 2, .., DECEMBER = 12.
 
 #### Syntax
 
@@ -561,9 +677,65 @@ Indicates the month of the year, 1-based. Gregorian JANUARY = 1.
 month(): number
 </pre>
 
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10) });
+
+console.log(cldr.Calendars.formatDate(date, { date: 'long' }));
+console.log(date.month());
+```
+
+<pre class="output">
+May 10, 2019
+5
+</pre>
 
 
-## ordinalDayofWeek
+
+## ordinalDayOfWeek
+
+Ordinal day of the week. 1 if this is the 1st day of the week, 2 if the 2nd, etc. Depends on the locale's starting day of the week.
+
+#### Syntax
+
+<pre class="syntax">
+ordinalDayOfWeek(): number
+</pre>
+
+#### Examples
+
+```typescript
+const us = framework.get('en-US');
+const fr = framework.get('fr-FR');
+
+const suffixes = { 'one': 'st', 'two': 'nd', 'few': 'rd', 'other': 'th' };
+const usdate = us.Calendars.toGregorianDate({ date: new Date(2019, 4, 7 )});
+const frdate = fr.Calendars.toGregorianDate(usdate);
+let cat: string;
+
+console.log(us.Calendars.formatDate(usdate));
+
+let day = frdate.ordinalDayOfWeek();
+cat = us.Numbers.getPluralOrdinal(day);
+console.log(` .. in fr-FR is the ${day}${suffixes[cat]} day of the week`);
+
+day = usdate.ordinalDayOfWeek();
+cat = us.Numbers.getPluralOrdinal(day);
+console.log(` .. in en-US is the ${day}${suffixes[cat]} day of the week`);
+```
+
+<pre class="output">
+Tuesday, May 7, 2019
+ .. in fr-FR is the 2nd day of the week
+ .. in en-US is the 3rd day of the week
+</pre>
+
+
+
+#### See Also
+ * [firstDayOfWeek](#firstdayofweek)
 
 
 
@@ -575,6 +747,21 @@ Indicates the second of the minute (0 - 59).
 
 <pre class="syntax">
 second(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
+
+console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
+console.log(date.second());
+```
+
+<pre class="output">
+12:27:41 PM GMT
+41
 </pre>
 
 
@@ -589,6 +776,23 @@ The IANA timezone identifier for this date.
 timeZoneId(): string
 </pre>
 
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+
+let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
+console.log(date.timeZoneId());
+
+date = cldr.Calendars.toGregorianDate({ date: date.unixEpoch(), zoneId });
+console.log(date.timeZoneId());
+```
+
+<pre class="output">
+Etc/UTC
+America/New_York
+</pre>
 
 
 ## timeZoneOffset
@@ -601,6 +805,23 @@ The offset of this date's timezone, in milliseconds.
 timeZoneOffset(): number
 </pre>
 
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const epoch = new Date(2019, 4, 10, 12, 27, 41);
+for (const zoneId of [undefined, 'America/New_York', 'Europe/Zurich']) {
+  const date = cldr.Calendars.toGregorianDate({ date: epoch, zoneId });
+  const s = cldr.Calendars.formatDate(date, { datetime: 'full' });
+  console.log(`${s} has offset ${date.timeZoneOffset()}`);
+}
+```
+
+<pre class="output">
+Friday, May 10, 2019 at 12:27:41 PM Greenwich Mean Time has offset 0
+Friday, May 10, 2019 at 8:27:41 AM Eastern Daylight Time has offset -14400000
+Friday, May 10, 2019 at 2:27:41 PM Central European Summer Time has offset 7200000
+</pre>
 
 
 ## type
@@ -619,11 +840,109 @@ type(): CalendarType
 
 ## unixEpoch
 
-Unix epoch timestamp with no timezone offset.
+Unix epoch timestamp with no timezone offset, in milliseconds.
+
+#### Syntax
+
+<pre class="syntax">
+unixEpoch(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: 1560602096987 });
+console.log(date.unixEpoch());
+```
+
+<pre class="output">
+1560602096987
+</pre>
+
 
 ## weekOfMonth
 
+Returns the week of the month computed using the locale's [firstDayOfWeek](#firstdayofweek) and [minDaysInFirstWeek](#mindaysinfirstweek).
+
+#### Syntax
+
+<pre class="syntax">
+weekOfMonth(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 1) });
+
+const fmt = (d: CalendarDate) =>
+  console.log(`${cldr.Calendars.formatDate(d, { date: 'long' })} is in week ${d.weekOfMonth()}`);
+
+for (let d = 0; d < 14; d++) {
+  fmt(date.add({ day: d }));
+}
+```
+
+<pre class="output">
+May 1, 2019 is in week 1
+May 2, 2019 is in week 1
+May 3, 2019 is in week 1
+May 4, 2019 is in week 1
+May 5, 2019 is in week 2
+May 6, 2019 is in week 2
+May 7, 2019 is in week 2
+May 8, 2019 is in week 2
+May 9, 2019 is in week 2
+May 10, 2019 is in week 2
+May 11, 2019 is in week 2
+May 12, 2019 is in week 3
+May 13, 2019 is in week 3
+May 14, 2019 is in week 3
+</pre>
+
+
 ## weekOfYear
+
+Indicates the ordinal number of the week of the year. The first week of the month or year,
+as defined by [firstDayOfWeek](#firstdayofweek) and [minDaysInFirstWeek](#mindaysinfirstweek) has value 1.
+
+#### Syntax
+
+<pre class="syntax">
+weekOfYear(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+const opt: DateFormatOptions = { date: 'long' };
+const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), zoneId })
+for (let d = 0; d < 13; d++) {
+  const date = base.add({ day: d });
+  const str = `${cldr.Calendars.formatDate(date.add({ day: d }), opt)}`;
+  console.log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
+}
+```
+
+<pre class="output">
+December 24, 2015  2015-52
+December 26, 2015  2015-52
+December 28, 2015  2015-52
+December 30, 2015  2016-1
+January 1, 2016  2016-1
+January 3, 2016  2016-1
+January 5, 2016  2016-1
+January 7, 2016  2016-1
+January 9, 2016  2016-1
+January 11, 2016  2016-1
+January 13, 2016  2016-2
+January 15, 2016  2016-2
+January 17, 2016  2016-2
+</pre>
 
 ## year
 
@@ -631,3 +950,41 @@ Indicates the calendar-specific year for this date.
 
 
 ## yearOfWeekofYear
+
+Extended year corresponding to the [weekOfYear](#weekofyear).
+
+#### Syntax
+
+<pre class="syntax">
+yearOfWeekOfYear(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+const opt: DateFormatOptions = { date: 'long' };
+const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), zoneId })
+for (let d = 0; d < 13; d++) {
+  const date = base.add({ day: d });
+  const str = `${cldr.Calendars.formatDate(date.add({ day: d }), opt)}`;
+  console.log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
+}
+```
+
+<pre class="output">
+December 24, 2015  2015-52
+December 26, 2015  2015-52
+December 28, 2015  2015-52
+December 30, 2015  2016-1
+January 1, 2016  2016-1
+January 3, 2016  2016-1
+January 5, 2016  2016-1
+January 7, 2016  2016-1
+January 9, 2016  2016-1
+January 11, 2016  2016-1
+January 13, 2016  2016-2
+January 15, 2016  2016-2
+January 17, 2016  2016-2
+</pre>
