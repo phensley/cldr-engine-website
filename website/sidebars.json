@@ -41,6 +41,7 @@
       "api-calendartype",
       "api-dateformatoptions",
       "api-dateintervalformatoptions",
+      "api-daterawformatoptions",
       "api-dateskeleton",
       "api-datetimepatternfieldtype",
       "api-erafieldoptions",

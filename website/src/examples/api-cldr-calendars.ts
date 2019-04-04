@@ -1,5 +1,5 @@
 import { framework } from './helpers';
-import { Decimal } from '@phensley/cldr';
+import { CalendarDate, Decimal } from '@phensley/cldr';
 
 const SEP = '\n--------------------------------\n\n';
 
@@ -105,6 +105,35 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 })();
 
+
+// formatDateRaw
+{
+  console.log('formatDateRaw');
+  const cldr = framework.get('en');
+  // June 27, 2018 4:23:00 AM
+  const date = 1530087780000;
+  const zoneId = 'America/New_York';
+
+  const s = cldr.Calendars.formatDateRaw({ date, zoneId }, { pattern: 'EEE MMM y, d' });
+  console.log(s);
+
+  console.log(SEP);
+}
+
+// formatDateRawToParts
+{
+  console.log('formatDateRaw');
+  const cldr = framework.get('en');
+  // June 27, 2018 4:23:00 AM
+  const date = 1530087780000;
+  const zoneId = 'America/New_York';
+
+  const p = cldr.Calendars.formatDateRawToParts({ date, zoneId }, { pattern: 'EEE MMM y, d' });
+  console.log(p);
+
+  console.log(SEP);
+}
+
 // formatRelativeTimeField
 (() => {
   const cldr = framework.get('en');
@@ -176,6 +205,32 @@ const SEP = '\n--------------------------------\n\n';
   gregorian = cldr.Calendars.toGregorianDate({ date, zoneId: 'America/New_York' });
   console.log(date.toString());
 
+  console.log(SEP);
+})();
+
+// toISO8601Date
+{
+  const cldr = framework.get('en');
+  const weekdays = cldr.Calendars.weekdays();
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(2017, 0, 1) });
+  const iso = cldr.Calendars.toISO8601Date(date);
+
+  const wk = (d: CalendarDate) => `week starts on ${weekdays[d.firstDayOfWeek()]}`;
+  const woy = (d: CalendarDate) => `week of year: ${d.yearOfWeekOfYear()}-${d.weekOfYear()}`;
+
+  console.log(`gregorian ${wk(date)}, ${woy(date)}`);
+  console.log(` iso-8601 ${wk(iso)}, ${woy(iso)}`);
+
+  console.log(SEP);
+}
+
+// toJapaneseDate
+(() => {
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toJapaneseDate({ date: 1530124872456, zoneId: 'America/New_York'});
+  console.log(date.toString());
+  console.log(date.relatedYear());
+  console.log(date.year());
   console.log(SEP);
 })();
 

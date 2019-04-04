@@ -284,9 +284,81 @@ cldr.Calendars.formatDateIntervalToParts(start, end, { skeleton: 'yMMMd' });
 
 ## formatDateRaw
 
+Format a date to a string using a user-supplied pattern.
+
+**Warning**: Only use this if you know what you're doing. Using a pre-defined CLDR format is recommended.
+
+#### Syntax
+
+<pre class="syntax">
+formatDateRaw(date, options?): string
+</pre>
+
+#### Parameters
+
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
+    - Date or timestamp to format
+  - <code class="def">options?: <span>[DateRawFormatOptions](api-daterawformatoptions.html)</span></code>
+    - Options to control formatting
+
+#### Examples
+
+```typescript
+// June 27, 2018 4:23:00 AM
+const date = 1530087780000;
+const zoneId = 'America/New_York';
+
+const s = cldr.Calendars.formatDateRaw({ date, zoneId }, { pattern: 'EEE MMM y, d' });
+console.log(s);
+```
+
+<pre class="output">
+Wed Jun 2018, 27
+</pre>
 
 
 ## formatDateRawToParts
+
+Format a date to parts using a user-supplied pattern.
+
+**Warning**: Only use this if you know what you're doing. Using a pre-defined CLDR format is recommended.
+
+#### Syntax
+
+<pre class="syntax">
+formatDateRawToParts(date, options?): Part[]
+</pre>
+
+#### Parameters
+
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
+    - Date or timestamp to format
+  - <code class="def">options?: <span>[DateRawFormatOptions](api-daterawformatoptions.html)</span></code>
+    - Options to control formatting
+
+#### Examples
+
+```typescript
+// June 27, 2018 4:23:00 AM
+const date = 1530087780000;
+const zoneId = 'America/New_York';
+
+const p = cldr.Calendars.formatDateRawToParts({ date, zoneId }, { pattern: 'EEE MMM y, d' });
+console.log(p);
+```
+
+<pre class="output">
+[
+  { type: 'weekday', value: 'Wed' },
+  { type: 'literal', value: ' ' },
+  { type: 'month', value: 'Jun' },
+  { type: 'literal', value: ' ' },
+  { type: 'year', value: '2018' },
+  { type: 'literal', value: ', ' },
+  { type: 'day', value: '27' }
+]
+</pre>
+
 
 
 ## formatRelativeTimeField
@@ -556,9 +628,69 @@ Gregorian 2018-02-17 07:34:56.789 America/New_York
 Gregorian 2018-07-17 08:34:56.789 America/New_York
 </pre>
 
+
 ## toISO8601Date
 
+Converts a date to a [ISO8601Date](api-iso8601date.html) instance.
+
+<pre class="syntax">
+toISO8601Date(date): ISO8601Date
+</pre>
+
+#### Parameters
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
+    - Date or timestamp to convert
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const weekdays = cldr.Calendars.weekdays();
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2017, 0, 1) });
+const iso = cldr.Calendars.toISO8601Date(date);
+
+const wk = (d: CalendarDate) => `week starts on ${weekdays[d.firstDayOfWeek()]}`;
+const woy = (d: CalendarDate) => `week of year: ${d.yearOfWeekOfYear()}-${d.weekOfYear()}`;
+
+console.log(`gregorian ${wk(date)}, ${woy(date)}`);
+console.log(` iso-8601 ${wk(iso)}, ${woy(iso)}`);
+```
+
+<pre class="output">
+gregorian week starts on Sunday, week of year: 2017-1
+ iso-8601 week starts on Monday, week of year: 2016-52
+</pre>
+
+
 ## toJapaneseDate
+
+Converts a date to a [JapaneseDate](api-japanesedate.html) instance.
+
+<pre class="syntax">
+toJapaneseDate(date): JapaneseDate
+</pre>
+
+#### Parameters
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
+    - Date or timestamp to convert
+
+#### Examples
+
+```typescript
+let date: JapaneseDate;
+date = cldr.Calendars.toGregorianDate({
+  date: 1530124872456, zoneId: 'America/New_York' });
+console.log(date.toString());
+console.log(date.relatedYear());
+console.log(date.year());
+```
+
+<pre class="output">
+Japanese 2018-06-27 14:41:12.456 America/New_York
+2018
+30
+</pre>
+
 
 ## toPersianDate
 

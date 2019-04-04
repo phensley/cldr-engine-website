@@ -62,6 +62,9 @@
       "api-dateintervalformatoptions": {
         "title": "DateIntervalFormatOptions"
       },
+      "api-daterawformatoptions": {
+        "title": "DateRawFormatOptions"
+      },
       "api-dateskeleton": {
         "title": "DateSkeleton"
       },

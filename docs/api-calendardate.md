@@ -53,8 +53,67 @@ Gregorian 2013-07-04 04:45:00.000 America/New_York
 
 ## dayOfMonth
 
+Returns the day of the month. The first day of the month has value `1`.
+
+#### Syntax
+
+<pre class="syntax">
+dayOfMonth(): number
+</pre>
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11) });
+
+console.log(cldr.Calendars.formatDate(date, { date: 'full' }));
+console.log(date.dayOfMonth());
+console.log(date.add({ day: 3 }).dayOfMonth());
+console.log(date.add({ week: 1 }).dayOfMonth());
+```
+
+<pre class="output">
+Monday, March 11, 2019
+11
+14
+18
+</pre>
+
+
 
 ## dayOfWeek
+
+Returns the day of the week, where 1 = SUNDAY, 2 = MONDAY, ..., 7 = SATURDAY
+
+#### Syntax
+
+<pre class="syntax">
+dayOfWeek(): number
+</pre>
+
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11) });
+const weekdays = cldr.Calendars.weekdays({ width: 'wide' });
+
+console.log(cldr.Calendars.formatDate(date, { date: 'full' }));
+console.log(weekdays[date.dayOfWeek()]);
+console.log(weekdays[date.add({ day: 1 }).dayOfWeek()]);
+console.log(weekdays[date.add({ day: 5 }).dayOfWeek()]);
+```
+
+<pre class="output">
+Monday, March 11, 2019
+Monday
+Tuesday
+Saturday
+</pre>
+
+
 
 ## dayOfWeekInMonth
 
@@ -93,6 +152,8 @@ the 11th is the 2nd Sunday in August, 2019
 
 Ordinal day of the year, e.g. January 1st is the 1st day of the year.
 
+#### Examples
+
 ```typescript
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
@@ -106,20 +167,139 @@ console.log(`${result} is the ${doy} day of ${date.year()}`);
 8/11/19 is the 223 day of 2019
 </pre>
 
+
 ## era
 
 Ordinal number of the era in the date's calendar, e.g. 0 is BC and 1 is AD in the Gregorian calendar.
 
+#### Syntax
+
+<pre class="syntax">
+era(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+const eras = cldr.Calendars.eras({ width: 'names' });
+
+let date = cldr.Calendars.toGregorianDate({ date: -66222222200000, zoneId });
+let s = cldr.Calendars.formatDate(date, { date: 'full' });
+console.log(`${s} era is ${eras[date.era()]}`);
+
+date = date.add({ year: 2100 });
+s = cldr.Calendars.formatDate(date, { date: 'full' });
+console.log(`${s} era is ${eras[date.era()]}`);
+```
+
+<pre class="output">
+Sunday, July 5, 130 era is Before Christ
+Monday, July 5, 1971 era is Anno Domini
+</pre>
+
+
+
 ## extendedYear
+
+Indicates the year as a positive number for CE years and negative values for BCE years, with
+1 BCE being extended year 0. For example the year 50 BCE would be extended year -49.
+
+#### Syntax
+
+<pre class="syntax">
+extendedYear(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(-49, 5, 15) });
+
+console.log(cldr.Calendars.formatDate(date, { skeleton: 'GyMMMd' }));
+console.log(date.extendedYear());
+```
+
+<pre class="output">
+Jun 17, 50 BC
+-49
+</pre>
 
 
 ## fieldOfGreatestDifference
 
 Compares the current date with another and returns the field of greatest difference.
 
+**Note**: This assumes the dates are of the same type and have the same timezone offset.
+
+
+#### Syntax
+
+<pre class="syntax">
+fieldOfGreatestDifference(other): DateTimePatternFieldType
+</pre>
+
+#### Parameters
+  - <code>other: <span>[CalendarDate](api-calendardate.html)</span></code>
+    - Date to compare the this date against.
+
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 15) });
+
+const fmt = (d: CalendarDate) => cldr.Calendars.formatDate(d, { datetime: 'long' });
+const cmp = (d: CalendarDate, o: CalendarDate) => {
+  console.log(`${fmt(d)}  ~  ${fmt(o)}  => ${d.fieldOfGreatestDifference(o)}`);
+};
+
+cmp(date, date.add({ minute: 1 }));
+cmp(date, date.add({ hour: 3 }));
+cmp(date, date.add({ day: 9 }));
+cmp(date, date.add({ month: 7 }));
+cmp(date, date.add({ year: 23 }));
+```
+
+<pre class="output">
+May 15, 2019 at 12:00:00 AM GMT  ~  May 15, 2019 at 12:01:00 AM GMT  => m
+May 15, 2019 at 12:00:00 AM GMT  ~  May 15, 2019 at 3:00:00 AM GMT  => H
+May 15, 2019 at 12:00:00 AM GMT  ~  May 24, 2019 at 12:00:00 AM GMT  => d
+May 15, 2019 at 12:00:00 AM GMT  ~  December 15, 2019 at 12:00:00 AM GMT  => M
+May 15, 2019 at 12:00:00 AM GMT  ~  May 15, 2042 at 12:00:00 AM GMT  => y
+</pre>
+
 
 ## firstDayOfWeek
 
+Returns the weekday that starts the week in the date's locale, where 1 = SUNDAY, 2 = MONDAY, ..., 7 = SATURDAY
+
+#### Syntax
+
+<pre class="syntax">
+firstDayOfWeek(): number
+</pre>
+
+#### Examples
+
+```typescript
+const us = framework.get('en-US');
+const fr = framework.get('fr-FR');
+const endate = us.Calendars.toGregorianDate({ date: new Date(-49, 5, 15) });
+const frdate = fr.Calendars.toGregorianDate(endate);
+const weekdays = us.Calendars.weekdays({ width: 'wide' });
+
+console.log(`en-US first day of week: ${weekdays[endate.firstDayOfWeek()]}`);
+console.log(`fr-FR first day of week: ${weekdays[frdate.firstDayOfWeek()]}`);
+```
+
+<pre class="output">
+en-US first day of week: Sunday
+fr-FR first day of week: Monday
+</pre>
 
 
 ## hour
@@ -133,6 +313,21 @@ hour(): number
 </pre>
 
 
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 10, 20) });
+
+console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
+console.log(date.hour());
+```
+
+<pre class="output">
+12:10:20 PM GMT
+0
+</pre>
+
 
 ## hourOfDay
 
@@ -144,15 +339,164 @@ Indicates the hour of the day, used for the 24-hour clock (0 - 23). Noon is 12 a
 hourOfDay(): number
 </pre>
 
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 10, 20) });
+
+console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
+console.log(date.hourOfDay());
+```
+
+<pre class="output">
+12:10:20 PM GMT
+12
+</pre>
+
 
 
 ## isDaylightSavings
 
+Indicates the date is in daylight savings time.
+
+#### Syntax
+
+<pre class="syntax">
+isDaylightSavings(): boolean
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 0, 10, 12, 0, 0), zoneId });
+
+const dst = (d: CalendarDate) =>
+  console.log(
+    `${cldr.Calendars.formatDate(d, { datetime: 'long' })} ` +
+    `daylight savings: ${d.isDaylightSavings()}`);
+
+dst(date);
+dst(date.add({ day: 58 }));
+dst(date.add({ day: 61 }));
+```
+
+<pre class="output">
+January 10, 2019 at 7:00:00 AM EST daylight savings: false
+March 9, 2019 at 7:00:00 AM EST daylight savings: false
+March 12, 2019 at 8:00:00 AM EDT daylight savings: true
+</pre>
+
+
 ## isAM
+
+Indicates if the time is in the A.M. period.
+
+#### Syntax
+
+<pre class="syntax">
+isAM(): boolean
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 0, 10, 13, 0, 0), zoneId });
+
+const isam = (d: CalendarDate) =>
+  console.log(
+    `${cldr.Calendars.formatDate(d, { datetime: 'long' })} ` +
+    `is AM: ${d.isAM()}`);
+
+
+isam(date);
+isam(date.add({ minute: 239 }));
+isam(date.add({ minute: 241 }));
+```
+
+<pre class="output">
+January 10, 2019 at 8:00:00 AM EST is AM: true
+January 10, 2019 at 11:59:00 AM EST is AM: true
+January 10, 2019 at 12:01:00 PM EST is AM: false
+</pre>
+
 
 ## isLeapYear
 
+Indicates the date's year is a leap year, per the date's calendar.
+
+#### Syntax
+
+<pre class="syntax">
+isLeapYear(): boolean
+</pre>
+
+#### Examples
+```typescript
+const cldr = framework.get('en');
+const zoneId = 'America/New_York';
+const date = cldr.Calendars.toGregorianDate({ date: new Date(1895, 0, 10, 13, 0, 0), zoneId });
+
+const isleap = (d: CalendarDate) =>
+  console.log(
+    `${cldr.Calendars.formatDate(d, { skeleton: 'y' })} ` +
+    `is leap year ${d.isLeapYear()}`);
+
+for (let y = 0; y < 11; y++) {
+  isleap(date.add({ year: y }));
+}
+```
+
+<pre class="output">
+1895 is leap year false
+1896 is leap year true
+1897 is leap year false
+1898 is leap year false
+1899 is leap year false
+1900 is leap year false
+1901 is leap year false
+1902 is leap year false
+1903 is leap year false
+1904 is leap year true
+1905 is leap year false
+</pre>
+
+
+
 ## julianDay
+
+Returns the julian day.
+
+Julian day is used by astronomers and in algorithms to compute the difference between two dates.
+Julian Day 0 starts at noon on Monday, January 1 4713 BC.
+
+#### Syntax
+
+<pre class="syntax">
+julianDay(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(1970, 0, 1 )});
+
+console.log(date.julianDay());
+console.log(date.add({ year: -10 }).julianDay());
+console.log(date.add({ year: -100 }).julianDay());
+```
+
+<pre class="output">
+2440587.5
+2436934.5
+2404063.5
+</pre>
+
 
 ## metaZoneId
 
@@ -178,6 +522,33 @@ minute(): number
 
 ## modifiedJulianDay
 
+Returns the modified julian day.
+
+Modified julian day is used internally for date calculations, and changes it to midnight-based by adding +0.5 to the Julian day.
+
+
+#### Syntax
+
+<pre class="syntax">
+modifiedJulianDay(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(1970, 0, 1 )});
+
+console.log(date.modifiedJulianDay());
+console.log(date.add({ year: -10 }).modifiedJulianDay());
+console.log(date.add({ year: -100 }).modifiedJulianDay());
+```
+
+<pre class="output">
+2440588
+2436935
+2404064
+</pre>
 
 
 ## month
