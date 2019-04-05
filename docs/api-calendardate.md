@@ -923,25 +923,25 @@ const opt: DateFormatOptions = { date: 'long' };
 const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), zoneId })
 for (let d = 0; d < 13; d++) {
   const date = base.add({ day: d });
-  const str = `${cldr.Calendars.formatDate(date.add({ day: d }), opt)}`;
+  const str = `${cldr.Calendars.formatDate(date, opt)}`;
   console.log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
 }
 ```
 
 <pre class="output">
 December 24, 2015  2015-52
+December 25, 2015  2015-52
 December 26, 2015  2015-52
-December 28, 2015  2015-52
+December 27, 2015  2016-1
+December 28, 2015  2016-1
+December 29, 2015  2016-1
 December 30, 2015  2016-1
+December 31, 2015  2016-1
 January 1, 2016  2016-1
-January 3, 2016  2016-1
-January 5, 2016  2016-1
-January 7, 2016  2016-1
-January 9, 2016  2016-1
-January 11, 2016  2016-1
-January 13, 2016  2016-2
-January 15, 2016  2016-2
-January 17, 2016  2016-2
+January 2, 2016  2016-1
+January 3, 2016  2016-2
+January 4, 2016  2016-2
+January 5, 2016  2016-2
 </pre>
 
 ## year
@@ -968,23 +968,23 @@ const opt: DateFormatOptions = { date: 'long' };
 const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), zoneId })
 for (let d = 0; d < 13; d++) {
   const date = base.add({ day: d });
-  const str = `${cldr.Calendars.formatDate(date.add({ day: d }), opt)}`;
+  const str = `${cldr.Calendars.formatDate(date, opt)}`;
   console.log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
 }
 ```
 
 <pre class="output">
 December 24, 2015  2015-52
+December 25, 2015  2015-52
 December 26, 2015  2015-52
-December 28, 2015  2015-52
+December 27, 2015  2016-1
+December 28, 2015  2016-1
+December 29, 2015  2016-1
 December 30, 2015  2016-1
+December 31, 2015  2016-1
 January 1, 2016  2016-1
-January 3, 2016  2016-1
-January 5, 2016  2016-1
-January 7, 2016  2016-1
-January 9, 2016  2016-1
-January 11, 2016  2016-1
-January 13, 2016  2016-2
-January 15, 2016  2016-2
-January 17, 2016  2016-2
+January 2, 2016  2016-1
+January 3, 2016  2016-2
+January 4, 2016  2016-2
+January 5, 2016  2016-2
 </pre>

@@ -458,7 +458,7 @@ const SEP = '\n--------------------------------\n\n';
   const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), zoneId })
   for (let d = 0; d < 13; d++) {
     const date = base.add({ day: d });
-    const str = `${cldr.Calendars.formatDate(date.add({ day: d }), opt)}`;
+    const str = `${cldr.Calendars.formatDate(date, opt)}`;
     console.log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
   }
 
