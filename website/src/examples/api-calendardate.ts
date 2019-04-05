@@ -420,6 +420,21 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 }
 
+// type
+{
+  console.log('type');
+
+  const cldr = framework.get('en');
+
+  let date = cldr.Calendars.toGregorianDate({ date: new Date() });
+  console.log(date.type());
+
+  date = cldr.Calendars.toJapaneseDate(date);
+  console.log(date.type());
+
+  console.log(SEP);
+}
+
 // unixEpoch
 {
   console.log('unixEpoch');
@@ -444,6 +459,19 @@ const SEP = '\n--------------------------------\n\n';
   for (let d = 0; d < 14; d++) {
     fmt(date.add({ day: d }));
   }
+
+  console.log(SEP);
+}
+
+// year
+{
+  console.log('year');
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 15) });
+
+  console.log(cldr.Calendars.formatDate(date, { date: 'long' }));
+  console.log(date.year());
 
   console.log(SEP);
 }

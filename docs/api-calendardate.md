@@ -837,6 +837,24 @@ type(): CalendarType
 #### Return value
   - A <code class="def"><span>[CalendarType](api-calendartype.html)</span></code> indicating the calendar for this date uses.
 
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+
+let date = cldr.Calendars.toGregorianDate({ date: new Date() });
+console.log(date.type());
+
+date = cldr.Calendars.toJapaneseDate(date);
+console.log(date.type());
+```
+
+<pre class="output">
+gregory
+japanese
+</pre>
+
+
 
 ## unixEpoch
 
@@ -947,10 +965,32 @@ January 4, 2016  2016-2
 January 5, 2016  2016-2
 </pre>
 
+
+
 ## year
 
 Indicates the calendar-specific year for this date.
 
+#### Syntax
+
+<pre class="syntax">
+year(): number
+</pre>
+
+#### Examples
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 15) });
+
+console.log(cldr.Calendars.formatDate(date, { date: 'long' }));
+console.log(date.year());
+```
+
+<pre class="output">
+March 15, 2019
+2019
+</pre>
 
 ## yearOfWeekofYear
 
