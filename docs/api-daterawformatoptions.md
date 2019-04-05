@@ -15,13 +15,13 @@ object {
 </pre>
 
 ### Properties
-  - <code>pattern: <span>string</span></code>
+  - <code class="def">pattern: <span>string</span></code>
     - A date time pattern string, specifying the fields to format
-  - <code>ca?: <span>[CalendarType](api-calendartype.html)</span></code>
+  - <code class="def">ca?: <span>[CalendarType](api-calendartype.html)</span></code>
     - Override the calendar. The argument will be converted to the requested calendar before formatting.
-  - <code>nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
+  - <code class="def">nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
     - Override the numbering system.
-  - <code>context?: <span>[ContextType](api-contexttype.html)</span></code>
+  - <code class="def">context?: <span>[ContextType](api-contexttype.html)</span></code>
     - Specify the context in which the string will be display
 
 

@@ -15,11 +15,11 @@ object {
 
 ### Properties
 
-  - <code>ca?: <span>[CalendarType](api-calendartype.html)</span></code>
+  - <code class="def">ca?: <span>[CalendarType](api-calendartype.html)</span></code>
     - Override the calendar. The argument will be converted to the requested calendar before formatting.
-  - <code>width?: <span>[EraWidthType](api-erawidthtype.html)</span></code>
+  - <code class="def">width?: <span>[EraWidthType](api-erawidthtype.html)</span></code>
     - Width of fields to return
-  - <code>context?: <span>[ContextType](api-contexttype.html)</span></code>
+  - <code class="def">context?: <span>[ContextType](api-contexttype.html)</span></code>
     - Specify the context in which the string will be display
 
 ### Defaults

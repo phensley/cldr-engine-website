@@ -28,7 +28,7 @@ add(fields): CalendarDate
 
 
 #### Parameters
-  - <code>fields: <span>[CalendarDateFields](api-calendardatefields.html)</span></code>
+  - <code class="def">fields: <span>[CalendarDateFields](api-calendardatefields.html)</span></code>
     - Amounts to add or subtract from fields.
 
 #### Example
@@ -242,7 +242,7 @@ fieldOfGreatestDifference(other): DateTimePatternFieldType
 </pre>
 
 #### Parameters
-  - <code>other: <span>[CalendarDate](api-calendardate.html)</span></code>
+  - <code class="def">other: <span>[CalendarDate](api-calendardate.html)</span></code>
     - Date to compare the this date against.
 
 

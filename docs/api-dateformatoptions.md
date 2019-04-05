@@ -19,21 +19,21 @@ object {
 </pre>
 
 ### Properties
-  - <code>datetime?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
+  - <code class="def">datetime?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
     - Format the date + time, using the format of the given width.
-  - <code>date?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
+  - <code class="def">date?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
     - Format the date only, using the format of the given width.
-  - <code>time?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
+  - <code class="def">time?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
     - Format the time only, using the format of the given width.
-  - <code>skeleton?: <span>string ([DateSkeleton](api-dateskeleton.html)))</span></code>
+  - <code class="def">skeleton?: <span>string ([DateSkeleton](api-dateskeleton.html)))</span></code>
     - Format using a flexible skeleton that defines which fields should appear in the date.
-  - <code>wrap?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
+  - <code class="def">wrap?: <span>[FormatWidthType](api-formatwidthtype.html)</span></code>
     - Override the wrapper used to format date + time.
-  - <code>ca?: <span>[CalendarType](api-calendartype.html)</span></code>
+  - <code class="def">ca?: <span>[CalendarType](api-calendartype.html)</span></code>
     - Override the calendar. The argument will be converted to the requested calendar before formatting.
-  - <code>nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
+  - <code class="def">nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
     - Override the numbering system.
-  - <code>context?: <span>[ContextType](api-contexttype.html)</span></code>
+  - <code class="def">context?: <span>[ContextType](api-contexttype.html)</span></code>
     - Specify the context in which the string will be display
 
 ### Defaults
