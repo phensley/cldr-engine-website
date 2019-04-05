@@ -251,6 +251,45 @@
       "version-0.11.3/version-0.11.3-api-decimalformatstyletype": {
         "title": "DecimalFormatStyleType"
       },
+      "version-0.11.4/version-0.11.4-api-calendardate": {
+        "title": "CalendarDate"
+      },
+      "version-0.11.4/version-0.11.4-api-calendarfieldoptions": {
+        "title": "CalendarFieldOptions"
+      },
+      "version-0.11.4/version-0.11.4-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-0.11.4/version-0.11.4-api-cldr-general": {
+        "title": "CLDR.General"
+      },
+      "version-0.11.4/version-0.11.4-api-cldrframework": {
+        "title": "CLDRFramework"
+      },
+      "version-0.11.4/version-0.11.4-api-currencyformatstyletype": {
+        "title": "CurrencyFormatStyleType"
+      },
+      "version-0.11.4/version-0.11.4-api-dateformatoptions": {
+        "title": "DateFormatOptions"
+      },
+      "version-0.11.4/version-0.11.4-api-daterawformatoptions": {
+        "title": "DateRawFormatOptions"
+      },
+      "version-0.11.4/version-0.11.4-api-decimal": {
+        "title": "Decimal"
+      },
+      "version-0.11.4/version-0.11.4-api-decimalformatstyletype": {
+        "title": "DecimalFormatStyleType"
+      },
+      "version-0.11.4/version-0.11.4-api-erafieldoptions": {
+        "title": "EraFieldOptions"
+      },
+      "version-0.11.4/version-0.11.4-api-fieldwidthtype": {
+        "title": "FieldWidthType"
+      },
+      "version-0.11.4/version-0.11.4-api-timezoneinfo": {
+        "title": "TimeZoneInfo"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
