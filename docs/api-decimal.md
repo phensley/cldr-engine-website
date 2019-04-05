@@ -69,27 +69,62 @@ console.log(n.abs().toString());
 
 ## add
 
-Add the argument to this number.
+Adds the argument to this number, returning the sum. The scale of the result will be `max(this.scale(), n.scale())`.
 
 #### Syntax
 
 <pre class="syntax">
+add(n): Decimal
 </pre>
 
+#### Parameters
+  - <code class="def">n: <span>number | string | Decimal</span></code>
+    - The number to add to this one.
+
+#### Example
+
+```typescript
+const a = new Decimal('0.003');
+const b = new Decimal('0.0005');
+const c = a.add(b).add(b);
+console.log(c.toString());
+```
+
+<pre class="output">
+0.0040
+</pre>
+
+
+<!-- Leaving undocumented for now, since it is used as a convenience
+method when comparing two numbers.
 
 ## alignexp
 
+ Adjusted exponent for alignment.  Two numbers with the same `alignexp()` exponent are aligned for arithmetic operations.
+
 #### Syntax
 
 <pre class="syntax">
+alignexp(): number
 </pre>
 
+#### Example
+
+```typescript
+
+```
+
+<pre class="output">
+
+</pre>
+-->
 
 
 ## compare
 
 Compare the decimal `u` to `v`, returning a number indicating whether one is larger or they are equal.
 
+The `abs`
 
 #### Syntax
 
@@ -98,7 +133,10 @@ compare(v [, abs]): number
 </pre>
 
 #### Parameters
-  - <code>v: <span>number | string | Decimal</span></code>
+  - <code class="def">v: <span>number | string | Decimal</span></code>
+    - Number to compare
+  - <code class="def">abs: <span>boolean</span></code>
+    - If `true` compare the absolute values, defaults to `false`.
 
 #### Return value
   - Returns a `number` with one of the following values:
@@ -107,6 +145,33 @@ compare(v [, abs]): number
   -1  if u &lt; v
    0  if u = v
    1  if u &gt; v
+</pre>
+
+#### Example
+
+```typescript
+const w = (s: string) => ' '.repeat(10 - s.length) + s;
+
+const cmp = (a: string, b: string) =>
+  console.log(`${w(a)}   cmp ${w(b)} = ${new Decimal(a).compare(b)}`);
+
+cmp('1234', '1234');
+cmp('1e10', '1e11');
+cmp('1.23e5', '12e4');
+cmp('12e4', '1.23e5');
+cmp('-12e4', '1.23e5');
+cmp('-1.23e5', '12e4');
+cmp('1.2345e-10', '12e4');
+```
+
+<pre class="output">
+      1234   cmp       1234 = 0
+      1e10   cmp       1e11 = -1
+    1.23e5   cmp       12e4 = 1
+      12e4   cmp     1.23e5 = -1
+     -12e4   cmp     1.23e5 = -1
+   -1.23e5   cmp       12e4 = -1
+1.2345e-10   cmp       12e4 = -1
 </pre>
 
 
@@ -300,11 +365,28 @@ Indicates if this number is negative.
 isNegative(): boolean
 </pre>
 
+#### Example
+
+```typescript
+for (const s of ['0', '123', '-15.7']) {
+  const neg = new Decimal(s).isNegative();
+  console.log(`${s} ${neg ? 'is' : 'is not'} negative`);
+}
+```
+
+<pre class="output">
+0 is not negative
+123 is not negative
+-15.7 is negative
+</pre>
+
 
 
 ## mod
 
-Divides a numer by an argument and returns the remainder.
+Divides a number by an argument and returns the remainder.
+
+**Note** This differs from the *modulo* operator in math in that it can return a negative number.
 
 #### Syntax
 
@@ -312,6 +394,28 @@ Divides a numer by an argument and returns the remainder.
 mod(number): Decimal
 </pre>
 
+#### Parameters
+  - <code class="def">n: <span>number</span></code>
+    - Number to divide by
+
+#### Example
+
+```typescript
+const n = new Decimal(777);
+for (const m of [2, 3, 4, 5, 6]) {
+  const a = n.mod(m);
+  const b = n.negate().mod(m);
+  console.log(`${n.toString()} % ${m} = ${a.toString()}   ` +
+    `-${n.toString()} % ${m} = ${b.toString()}`);
+}
+```
+<pre class="output">
+777 % 2 = 1   -777 % 2 = -1
+777 % 3 = 0   -777 % 3 = 0
+777 % 4 = 1   -777 % 4 = -1
+777 % 5 = 2   -777 % 5 = -2
+777 % 6 = 3   -777 % 6 = -3
+</pre>
 
 
 ## movePoint
@@ -416,9 +520,9 @@ for (const n of ['-5', '3.1415']) {
 
 ## precision
 
-Returns the precision in the number. Precision indicates the total digits in the number, independent of the exponent.
+Returns the precision in the number. Precision indicates the number of digits used to express the value.
 
-For example the number `1e10` has 1 digit of precision.
+For example the number `1e10` has 1 digit of precision, while `123e10` has 3.
 
 #### Syntax
 
@@ -443,7 +547,9 @@ for (const n of ['1', '1e10', '1.2345']) {
 
 ## scale
 
-Returns the scale of the number. Scale indicates the number of decimal places.
+Returns the scale of the number. Scale that is zero or positive indicates the number of digits to the right of the decimal point. A negative scale indicates the negated power of 10 the unscaled value is multiplied by.
+
+For example the number `1.234` has a scale of 3 while `1e10` has a scale of -10.
 
 #### Syntax
 
@@ -454,15 +560,17 @@ scale(): number
 #### Example
 
 ```typescript
-for (const n of ['1', '1e-10', '1.2345']) {
-  console.log(new Decimal(n).scale());
+for (const n of ['1', '1e-10', '1e10', '1.2345', '1.234e10']) {
+  console.log(`${n} scale ${new Decimal(n).scale()}`);
 }
 ```
 
 <pre class="output">
-0
-10
-4
+1 scale 0
+1e-10 scale 10
+1e10 scale -10
+1.2345 scale 4
+1.234e10 scale -7
 </pre>
 
 
@@ -477,16 +585,16 @@ scientific notation.
 scientific(minIntDigits: number = 1): [Decimal, number]
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const n = new Decimal('157.39E10');
 const [coeff, exp] = n.scientific();
-console.log(coeff.toString(), exp);
+console.log(`${coeff.toString()} x 10^${exp}`);
 ```
 
 <pre class="output">
-1.5739 12
+1.5739 x 10^12
 </pre>
 
 
@@ -500,7 +608,7 @@ Sets the scale of this number.
 setScale(number): Decimal
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const n = new Decimal('12345.678');
@@ -572,6 +680,7 @@ for (const n of ['1', '0.123456789']) {
   10 -> 1234567890.000000000
 </pre>
 
+
 ## shiftright
 
 Shifts digits `n` places to the right and rounds, reducing precision.
@@ -640,6 +749,21 @@ Returns 1 if the sign of the number is positive, -1 if negative, and 0 if equal 
 signum(): number
 </pre>
 
+#### Example
+
+```typescript
+for (const n of ['0', '-1.2', '345', '10e-10', '-10e10']) {
+  console.log(`${n} signum is ${new Decimal(n).signum()}`);
+}
+```
+
+<pre class="output">
+0 signum is 0
+-1.2 signum is -1
+345 signum is 1
+10e-10 signum is 1
+-10e10 signum is -1
+</pre>
 
 
 ## stripTrailingZeros
@@ -812,7 +936,7 @@ Returns the number of trailing decimal zeros.
 trailingZeros(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 for (const n of ['1', '1e10', '0.12300000']) {

@@ -36,7 +36,7 @@ object {
 * Numbering system default is determined by the locale.
 * Calendar system default is determined by the locale.
 
-### Examples
+### Example
 
 ```typescript
 // June 27, 2018 4:23:00 AM

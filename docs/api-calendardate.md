@@ -152,7 +152,7 @@ the 11th is the 2nd Sunday in August, 2019
 
 Ordinal day of the year, e.g. January 1st is the 1st day of the year.
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -178,7 +178,7 @@ Ordinal number of the era in the date's calendar, e.g. 0 is BC and 1 is AD in th
 era(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -212,7 +212,7 @@ Indicates the year as a positive number for CE years and negative values for BCE
 extendedYear(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -246,7 +246,7 @@ fieldOfGreatestDifference(other): DateTimePatternFieldType
     - Date to compare the this date against.
 
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -283,7 +283,7 @@ Returns the weekday that starts the week in the date's locale, where 1 = SUNDAY,
 firstDayOfWeek(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const us = framework.get('en-US');
@@ -313,7 +313,7 @@ hour(): number
 </pre>
 
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -339,7 +339,7 @@ Indicates the hour of the day, used for the 24-hour clock (0 - 23). Noon is 12 a
 hourOfDay(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -366,7 +366,7 @@ Indicates the date is in daylight savings time.
 isDaylightSavings(): boolean
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -400,7 +400,7 @@ Indicates if the time is in the A.M. period.
 isAM(): boolean
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -435,7 +435,7 @@ Indicates the date's year is a leap year, per the date's calendar.
 isLeapYear(): boolean
 </pre>
 
-#### Examples
+#### Example
 ```typescript
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
@@ -480,7 +480,7 @@ Julian Day 0 starts at noon on Monday, January 1 4713 BC.
 julianDay(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -508,7 +508,7 @@ Returns the CLDR metazone used for time zone display name formatting.
 metaZoneId(): string
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -534,7 +534,7 @@ Returns the milliseconds of the time.
 milliseconds(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -558,7 +558,7 @@ Returns a composite of all time-related fields: hours, minutes, seconds and mill
 millisecondsInDay(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -591,7 +591,7 @@ Minimum number of days in a week to count as the first week of the year.
 minDaysInFirstWeek(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -620,7 +620,7 @@ Indicates the minute of the hour (0 - 59).
 minute(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -649,7 +649,7 @@ Modified julian day is used internally for date calculations, and changes it to 
 modifiedJulianDay(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -677,7 +677,7 @@ Indicates the month of the year, 1-based. Gregorian JANUARY = 1, FEBRUARY = 2, .
 month(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -704,7 +704,7 @@ Ordinal day of the week. 1 if this is the 1st day of the week, 2 if the 2nd, etc
 ordinalDayOfWeek(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const us = framework.get('en-US');
@@ -749,7 +749,7 @@ Indicates the second of the minute (0 - 59).
 second(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -776,7 +776,7 @@ The IANA timezone identifier for this date.
 timeZoneId(): string
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -805,7 +805,7 @@ The offset of this date's timezone, in milliseconds.
 timeZoneOffset(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -837,7 +837,7 @@ type(): CalendarType
 #### Return value
   - A <code class="def"><span>[CalendarType](api-calendartype.html)</span></code> indicating the calendar for this date uses.
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -866,7 +866,7 @@ Unix epoch timestamp with no timezone offset, in milliseconds.
 unixEpoch(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -889,7 +889,7 @@ Returns the week of the month computed using the locale's [firstDayOfWeek](#firs
 weekOfMonth(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -933,7 +933,7 @@ as defined by [firstDayOfWeek](#firstdayofweek) and [minDaysInFirstWeek](#minday
 weekOfYear(): number
 </pre>
 
-#### Examples
+#### Example
 
 **Note:** In the following example, the Gregorian date was constructed in the US region, so is using the week rules for the US. The first week of the year is the one containing Jan 1.
 
@@ -977,7 +977,7 @@ Indicates the calendar-specific year for this date.
 year(): number
 </pre>
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -1002,7 +1002,7 @@ Extended year corresponding to the [weekOfYear](#weekofyear).
 yearOfWeekOfYear(): number
 </pre>
 
-#### Examples
+#### Example
 
 **Note:** In the following example, the Gregorian date was constructed in the US region, so is using the week rules for the US. The first week of the year is the one containing Jan 1.
 

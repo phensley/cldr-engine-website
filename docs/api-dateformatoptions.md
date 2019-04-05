@@ -48,7 +48,7 @@ object {
 * Numbering system default is determined by the locale.
 * Calendar system default is determined by the locale.
 
-### Examples
+### Example
 
 ```typescript
 const date = 1530087780000;

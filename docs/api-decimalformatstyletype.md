@@ -28,7 +28,7 @@ Indicates which format style to use when formatting decimal numbers.
   - `"scientific"`
     - Formats a number in scientific notation (beta)
 
-### Examples
+### Example
 
 ```typescript
 cldr.Numbers.formatDecimal('123456.6789', { style: 'decimal' });

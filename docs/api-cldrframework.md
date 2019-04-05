@@ -214,7 +214,7 @@ static resolveLocale(id): Locale
   - <code class="def">id: <span>string | [LanguageTag](api-languagetag.html)</span></code>
     - Identifier or language tag to resolve
 
-#### Examples
+#### Example
 
 ```typescript
 import { CLDRFramework } from '@phensley/cldr';

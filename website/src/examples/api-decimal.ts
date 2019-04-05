@@ -20,6 +20,54 @@ const SEP = '-------------------------------\n';
   console.log(SEP);
 })();
 
+// add
+{
+  console.log('add');
+
+  const a = new Decimal('0.003');
+  const b = new Decimal('0.0005');
+  const c = a.add(b).add(b);
+  console.log(c.toString());
+
+  console.log(SEP);
+}
+
+// alignexp
+{
+  console.log('alignexp');
+
+  const nums = [
+    '1.2345',
+    '123.45',
+    '12345.'
+  ];
+  for (const n of nums) {
+    console.log(new Decimal(n).alignexp());
+  }
+
+  console.log(SEP);
+}
+
+// compare
+{
+  console.log('compare');
+
+  const w = (s: string) => ' '.repeat(10 - s.length) + s;
+
+  const cmp = (a: string, b: string) =>
+    console.log(`${w(a)}   cmp ${w(b)} = ${new Decimal(a).compare(b)}`);
+
+  cmp('1234', '1234');
+  cmp('1e10', '1e11');
+  cmp('1.23e5', '12e4');
+  cmp('12e4', '1.23e5');
+  cmp('-12e4', '1.23e5');
+  cmp('-1.23e5', '12e4');
+  cmp('1.2345e-10', '12e4');
+
+  console.log(SEP);
+}
+
 // decrement
 (() => {
   const n = new Decimal('1.57');
@@ -29,7 +77,9 @@ const SEP = '-------------------------------\n';
 })();
 
 // divide
-(() => {
+{
+  console.log('divide');
+
   const rounding: RoundingModeType[] = ['half-even', 'floor'];
   const n = new Decimal('10');
   for (const round of rounding) {
@@ -40,7 +90,7 @@ const SEP = '-------------------------------\n';
     }
   }
   console.log(SEP);
-})();
+}
 
 // divmod
 (() => {
@@ -81,6 +131,33 @@ const SEP = '-------------------------------\n';
 
   console.log(SEP);
 })();
+
+// isNegative
+{
+  console.log('isNegative');
+
+  for (const s of ['0', '123', '-15.7']) {
+    const neg = new Decimal(s).isNegative();
+    console.log(`${s} ${neg ? 'is' : 'is not'} negative`);
+  }
+
+  console.log(SEP);
+}
+
+// mod
+{
+  console.log('mod');
+
+  const n = new Decimal(777);
+  for (const m of [2, 3, 4, 5, 6]) {
+    const a = n.mod(m);
+    const b = n.negate().mod(m);
+    console.log(`${n.toString()} % ${m} = ${a.toString()}   ` +
+      `-${n.toString()} % ${m} = ${b.toString()}`);
+  }
+
+  console.log(SEP);
+}
 
 // movePoint
 (() => {
@@ -123,13 +200,26 @@ const SEP = '-------------------------------\n';
 })();
 
 // scale
-(() => {
-  for (const n of ['1', '1e-10', '1.2345']) {
-    console.log(new Decimal(n).scale());
-  }
+{
+console.log('scale\n');
+
+for (const n of ['1', '1e-10', '1e10', '1.2345', '1.234e10']) {
+  console.log(`${n} scale ${new Decimal(n).scale()}`);
+}
+
+console.log(SEP);
+}
+
+// scientific
+{
+  console.log('scientific\n');
+
+  const n = new Decimal('157.39E10');
+  const [coeff, exp] = n.scientific();
+  console.log(`${coeff.toString()} x 10^${exp}`);
 
   console.log(SEP);
-})();
+}
 
 // setScale
 (() => {
@@ -171,6 +261,17 @@ const SEP = '-------------------------------\n';
 
   console.log(SEP);
 })();
+
+// signum
+{
+  console.log('signum');
+
+  for (const n of ['0', '-1.2', '345', '10e-10', '-10e10']) {
+    console.log(`${n} signum is ${new Decimal(n).signum()}`);
+  }
+
+  console.log(SEP);
+}
 
 // stripTrailingZeros
 (() => {

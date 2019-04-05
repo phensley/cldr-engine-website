@@ -194,7 +194,7 @@ getLanguageDisplayName(languageId): string
   - <code class="def">languageId: <span>[LanguageIdType](api-languageidtype.html)</span></code>
     - Valid [ISO 639](https://en.wikipedia.org/wiki/ISO_639) language identifier
 
-#### Examples
+#### Example
 
 ```typescript
 const en = framework.get('en');
@@ -226,7 +226,7 @@ getRegionDisplayName(regionId): string
   - <code class="def">regionId: <span>[RegionIdType](api-regionidtype.html)</span></code>
     - Valid [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) region identifier
 
-#### Examples
+#### Example
 
 ```typescript
 const en = framework.get('en');
@@ -260,7 +260,7 @@ getScriptDisplayName(scriptId): string
   - <code class="def">scriptId: <span>[ScriptIdType](api-scriptidtype.html)</span></code>
     - Valid [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) script identifier
 
-#### Examples
+#### Example
 
 ```typescript
 const en = framework.get('en');

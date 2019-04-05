@@ -22,7 +22,7 @@ Indicates which format style to use when formatting currencies.
   - `"short"`
     - Compact form, using as few digits as needed, and indicating order of magnitude. In en-US K=thousands, M=millions, etc.
 
-### Examples
+### Example
 
 ```typescript
 const nums = ['1.25', '-3456.789', '999900.00', '-12345678.00'];

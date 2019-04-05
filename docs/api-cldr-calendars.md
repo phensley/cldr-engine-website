@@ -210,7 +210,7 @@ formatDateInterval(start, end, options?): string
   - <code class="def">options?: <span>[DateIntervalFormatOptions](api-dateintervalformatoptions.html)</span></code>
     - Options to control the format
 
-#### Examples
+#### Example
 
 ```typescript
 // June 27, 2018 4:23:00 AM
@@ -301,7 +301,7 @@ formatDateRaw(date, options?): string
   - <code class="def">options?: <span>[DateRawFormatOptions](api-daterawformatoptions.html)</span></code>
     - Options to control formatting
 
-#### Examples
+#### Example
 
 ```typescript
 // June 27, 2018 4:23:00 AM
@@ -336,7 +336,7 @@ formatDateRawToParts(date, options?): Part[]
   - <code class="def">options?: <span>[DateRawFormatOptions](api-daterawformatoptions.html)</span></code>
     - Options to control formatting
 
-#### Examples
+#### Example
 
 ```typescript
 // June 27, 2018 4:23:00 AM
@@ -599,7 +599,7 @@ toGregorianDate(date): GregorianDate
   - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Date or timestamp to convert
 
-#### Examples
+#### Example
 
 ```typescript
 cldr.Calendars.toGregorianDate({
@@ -641,7 +641,7 @@ toISO8601Date(date): ISO8601Date
   - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Date or timestamp to convert
 
-#### Examples
+#### Example
 
 ```typescript
 const cldr = framework.get('en');
@@ -674,7 +674,7 @@ toJapaneseDate(date): JapaneseDate
   - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
     - Date or timestamp to convert
 
-#### Examples
+#### Example
 
 ```typescript
 let date: JapaneseDate;
