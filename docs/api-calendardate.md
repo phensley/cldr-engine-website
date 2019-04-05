@@ -908,6 +908,7 @@ May 14, 2019 is in week 3
 Indicates the ordinal number of the week of the year. The first week of the month or year,
 as defined by [firstDayOfWeek](#firstdayofweek) and [minDaysInFirstWeek](#mindaysinfirstweek) has value 1.
 
+
 #### Syntax
 
 <pre class="syntax">
@@ -915,6 +916,8 @@ weekOfYear(): number
 </pre>
 
 #### Examples
+
+**Note:** In the following example, the Gregorian date was constructed in the US region, so is using the week rules for the US. The first week of the year is the one containing Jan 1.
 
 ```typescript
 const cldr = framework.get('en');
@@ -960,6 +963,8 @@ yearOfWeekOfYear(): number
 </pre>
 
 #### Examples
+
+**Note:** In the following example, the Gregorian date was constructed in the US region, so is using the week rules for the US. The first week of the year is the one containing Jan 1.
 
 ```typescript
 const cldr = framework.get('en');
