@@ -72,11 +72,11 @@ cldr.Numbers.formatCurrencyToParts('12345.6789', 'EUR', { group: true });
 <pre class="output">
 [
   { type: 'currency', value: '€' },
-  { type: 'digits', value: '12' },
+  { type: 'integer', value: '12' },
   { type: 'group', value: ',' },
-  { type: 'digits', value: '345' },
+  { type: 'integer', value: '345' },
   { type: 'decimal', value: '.' },
-  { type: 'digits', value: '68' }
+  { type: 'fraction', value: '68' }
 ]
 </pre>
 
@@ -138,11 +138,11 @@ cldr.Numbers.formatDecimalToParts('12345.6789', { group: true });
 
 <pre class="output">
 [
-  { type: 'digits', value: '12' },
+  { type: 'integer', value: '12' },
   { type: 'group', value: ',' },
-  { type: 'digits', value: '345' },
+  { type: 'integer', value: '345' },
   { type: 'decimal', value: '.' },
-  { type: 'digits', value: '679' }
+  { type: 'fraction', value: '679' }
 ]
 </pre>
 

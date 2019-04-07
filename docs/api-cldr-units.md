@@ -81,9 +81,9 @@ cldr.Units.formatQuantityToParts(qty, { length: 'long' });
 
 <pre class="output">
 [
-  { type: 'digits', value: '1353' },
+  { type: 'integer', value: '1353' },
   { type: 'decimal', value: '.' },
-  { type: 'digits', value: '76' },
+  { type: 'fraction', value: '76' },
   { type: 'literal', value: ' miles per hour' }
 ]
 </pre>
@@ -162,18 +162,18 @@ cldr.Units.formatQuantitySequenceToParts(qty, { length: 'short' });
 
 <pre class="output">
 [
-  { type: 'digits', value: '3' },
+  { type: 'integer', value: '3' },
   { type: 'literal', value: ' mi' },
   { type: 'literal', value: ', ' },
-  { type: 'digits', value: '1' },
+  { type: 'integer', value: '1' },
   { type: 'literal', value: ' yd' },
   { type: 'literal', value: ', ' },
-  { type: 'digits', value: '23' },
+  { type: 'integer', value: '23' },
   { type: 'literal', value: ' ft' },
   { type: 'literal', value: ', ' },
-  { type: 'digits', value: '9' },
+  { type: 'integer', value: '9' },
   { type: 'decimal', value: '.' },
-  { type: 'digits', value: '6' },
+  { type: 'fraction', value: '6' },
   { type: 'literal', value: ' in' }
 ]
 </pre>

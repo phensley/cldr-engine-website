@@ -847,12 +847,12 @@ for (const n of ['3', '1e10', '3.14159']) {
 ```
 
 <pre class="output">
-[ { type: 'digits', value: '3' } ]
-[ { type: 'digits', value: '10000000000' } ]
+[ { type: 'integer', value: '3' } ]
+[ { type: 'integer', value: '10000000000' } ]
 [
-  { type: 'digits', value: '3' },
+  { type: 'integer', value: '3' },
   { type: 'decimal', value: '.' },
-  { type: 'digits', value: '14159' }
+  { type: 'fraction', value: '14159' }
 ]
 </pre>
 
@@ -896,11 +896,12 @@ console.log(n.toScientificParts());
 
 <pre class="output">
 [
-  { type: 'digits', value: '1' },
+  { type: 'integer', value: '1' },
   { type: 'decimal', value: '.' },
-  { type: 'digits', value: '5739' },
-  { type: 'e', value: 'E' },
-  { type: 'digits', value: '12' }
+  { type: 'fraction', value: '5739' },
+  { type: 'exp', value: 'E' },
+  { type: 'plus', value: '+' },
+  { type: 'integer', value: '12' }
 ]
 </pre>
 
