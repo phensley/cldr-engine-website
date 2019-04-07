@@ -7,15 +7,15 @@ Specifies a rounding mode used in [Decimal](api-decimal.html) operations.
 
 <pre class="syntax">
 'up' | 'down' | 'ceiling' | 'floor' | 'half-up' |
-'half-down' | 'half-even' | '05up' | 'truncate'
+'half-down' | 'half-even'
 </pre>
 
 ### Values
 
   - <code class="def">'up'</code>
     - Round away from zero
-  - <code class="def">'down;</code>
-    - Round towards zero (same as 'truncate')
+  - <code class="def">'down'</code>
+    - Round towards zero
   - <code class="def">'ceiling'</code>
     - Round towards positive infinity
   - <code class="def">'floor'</code>
@@ -26,5 +26,3 @@ Specifies a rounding mode used in [Decimal](api-decimal.html) operations.
     - If digit > 5 round up; otherwise round down
   - <code class="def">'half-even'</code>
     - If digit = 5 and digit to left is odd, round up; if even round down
-  - <code class="def">'05up'</code>
-    - Round away from zero if digit to left is 0 or 5; otherwise round towards zero
