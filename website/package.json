@@ -12,12 +12,13 @@
     "start:webpack-old": "webpack-dev-server -d --content-base ./static/",
     "build": "yarn packs && webpack -p && docusaurus-build",
     "packs": "rimraf ./static/packs && node scripts/copy-packs.js",
+		"report": "source-map-explorer --html -m ./build/cldr-engine/liveapi/liveapi.js >report.html",
     "write-translations": "docusaurus-write-translations",
     "version": "docusaurus-version",
     "rename-version": "docusaurus-rename-version"
   },
   "dependencies": {
-    "@phensley/cldr": "next",
+    "@phensley/cldr": "0.12.1",
     "@types/react-router-dom": "^4.2.7",
     "emotion": "^9.2.4",
     "icepick": "^2.3.0",
@@ -43,6 +44,7 @@
     "docusaurus": "1.7.3",
     "html-webpack-plugin": "^3.2.0",
     "js-yaml": "^3.12.0",
+    "source-map-explorer": "^1.8.0",
     "ts-lint": "^4.5.1",
     "ts-loader": "^4.4.1",
     "ts-node": "^7.0.0",
