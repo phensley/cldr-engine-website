@@ -152,6 +152,9 @@
       "api-roundingmodetype": {
         "title": "RoundingModeType"
       },
+      "api-schemaconfig": {
+        "title": "SchemaConfig"
+      },
       "api-scriptidtype": {
         "title": "ScriptIdType"
       },

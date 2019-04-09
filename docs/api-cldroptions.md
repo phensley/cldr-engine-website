@@ -28,6 +28,11 @@ object {
     - Indicates the number of parsed number and calendar patterns to cache at any given time. Caching scheme is least-recently used (LRU).
     - **Default: 50**
 
+If `CLDROptions` is imported via the `@phensley/cldr-core` package, additional properties are available for [customization of the resource pack and schema](https://github.com/phensley/cldr-engine-customization-example).
+
+ - <code class="def">config?: <span>[SchemaConfig](api-schemaconfig.html)</span></code>
+   - Object used to configure the runtime schema accessor.
+   - **Note:** This config *must* be identical to the one used to generate the resource packs or bad things will occur.
 
 #### Examples
 

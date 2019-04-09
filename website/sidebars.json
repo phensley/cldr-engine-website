@@ -31,7 +31,8 @@
       "api-cldr-calendars",
       "api-cldr-general",
       "api-cldr-numbers",
-      "api-cldr-units"
+      "api-cldr-units",
+      "api-schemaconfig"
     ],
     "Calendars": [
       "api-buddhistdate",
