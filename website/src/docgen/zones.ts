@@ -1,7 +1,8 @@
-import { TimeZoneValues } from '@phensley/cldr-schema';
+import { config } from '@phensley/cldr/lib-es/config';
 import { typeSlice } from './utils';
 
-const TIMEZONES_DESC = TimeZoneValues.sort().map(t => `  - '${t}'`);
+const TIMEZONE_CODES = config['timezone-id']!.sort();
+const TIMEZONES_DESC = TIMEZONE_CODES.map(t => `  - '${t}'`);
 
 const TIMEZONE_TYPE = `
 
@@ -10,7 +11,7 @@ The identifier for a timezone, e.g. '\`America/New_York\`'.
 ### Syntax
 
 <pre class="syntax">
-${typeSlice(TimeZoneValues.sort(), 2)}
+${typeSlice(TIMEZONE_CODES, 2)}
 </pre>
 
 

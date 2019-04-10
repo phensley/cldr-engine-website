@@ -5,16 +5,19 @@ title: SchemaConfig
 
 Allows configuration of the runtime schema accessor.
 
-See the [example application](https://github.com/phensley/cldr-engine-customization-example) for more details. (This is currently experimental, docs to come later).
+
+See the [example application](https://github.com/phensley/cldr-engine-customization-example) for more details.
+
+**Note: This is currently experimental, docs to come later.**
 
 #### Syntax
 
 ```typescript
 export interface SchemaConfig {
   /**
-   * Additional calendar types to include besides "gregorian".
+   * Calendar types to include.
    *
-   * Ex: ['buddhist', 'japanese', 'persian']
+   * Ex: ['gregorian', 'buddhist', 'japanese', 'persian']
    */
   calendars?: string[];
 
@@ -26,23 +29,17 @@ export interface SchemaConfig {
   ['currency-id']?: string[];
 
   /**
-   * Language identifiers to include. Used to pull in display name data.
-   *
-   * Ex: ['en', 'fr', 'es']
+   * Language identifiers to include.
    */
   ['language-id']?: string[];
 
   /**
-   * Script identifiers to include. Used to pull in display name data.
-   *
-   * Ex: ['Latn', 'Cyrl']
+   * Script identifiers to include.
    */
   ['script-id']?: string[];
 
   /**
-   * Region identifiers to include. Used to pull in display name data.
-   *
-   * Ex: ['001', 'US', '419', 'AR', 'GB']
+   * Region identifiers to include.
    */
   ['region-id']?: string[];
 
@@ -54,9 +51,16 @@ export interface SchemaConfig {
   ['unit-id']?: string[];
 
   /**
-   * Number system names to include besides 'latn'.
+   * CLDR stable timezone identifiers to include.
    *
-   * Ex: ['arab', 'arabext', 'laoo']
+   * Ex: ['America/New_York', 'America/Adak', ... ]
+   */
+  ['timezone-id']?: string[];
+
+  /**
+   * Number system names to include.
+   *
+   * Ex: ['latn', 'arab', 'laoo']
    */
   ['number-system-name']: string[];
 }

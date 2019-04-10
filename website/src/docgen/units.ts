@@ -1,7 +1,9 @@
-import { UnitValues } from '@phensley/cldr-schema';
+import { UnitType } from '@phensley/cldr-schema';
+import { config } from '@phensley/cldr/lib-es/config';
 import { typeSlice } from './utils';
 
-const UNITS_DESC = UnitValues.sort().map(u => `  - '${u}'`).join('\n');
+const UNIT_CODES = config['unit-id']!.sort();
+const UNITS_DESC = UNIT_CODES.map(u => `  - '${u}'`).join('\n');
 
 const UNIT_TYPE = `
 
@@ -10,7 +12,7 @@ The name of a unit like '\`kilogram\`' or '\`terabyte\`'.
 ### Syntax
 
 <pre class="syntax">
-${typeSlice( UnitValues.sort(), 3)}
+${typeSlice(UNIT_CODES, 3)}
 </pre>
 
 ### Values

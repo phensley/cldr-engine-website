@@ -1,10 +1,12 @@
-import { CurrencyValues } from '@phensley/cldr-schema';
+import { CurrencyType } from '@phensley/cldr-schema';
+import { config } from '@phensley/cldr/lib-es/config';
 import { getCLDR, typeSlice } from './utils';
 
 const cldr = getCLDR();
 
-const CURRENCIES_DESC = CurrencyValues.sort().map(c => {
-  const name = cldr.Numbers.getCurrencyDisplayName(c);
+const CURRENCY_CODES = config['currency-id']!.sort();
+const CURRENCIES_DESC = CURRENCY_CODES.map(c => {
+  const name = cldr.Numbers.getCurrencyDisplayName(c as CurrencyType);
   let r = '';
   r += `  - '${c}'\n`;
   r += `    - ${name}\n`;
@@ -17,7 +19,7 @@ A 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for a currenc
 ### Syntax
 
 <pre class="syntax">
-${typeSlice(CurrencyValues.sort())}
+${typeSlice(CURRENCY_CODES.sort())}
 </pre>
 
 
