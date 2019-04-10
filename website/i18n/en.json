@@ -305,6 +305,12 @@
       "version-0.12.1/version-0.12.1-api-roundingmodetype": {
         "title": "RoundingModeType"
       },
+      "version-0.13.4/version-0.13.4-api-cldroptions": {
+        "title": "CLDROptions"
+      },
+      "version-0.13.4/version-0.13.4-api-schemaconfig": {
+        "title": "SchemaConfig"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
