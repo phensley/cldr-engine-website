@@ -1,6 +1,7 @@
 ---
-id: doc-index
+id: version-0.13.6-doc-index
 title: Overview
+original_id: doc-index
 ---
 
 ### Work in Progress
