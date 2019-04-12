@@ -9,16 +9,18 @@ Allows configuration of the runtime schema accessor.
 
 See the [example application](https://github.com/phensley/cldr-engine-customization-example) for more details.
 
-**Note: This is currently experimental, docs to come later.**
+**Note: This is currently experimental. Until this note changes consider this to be an undocumented, unsupported feature as it may change significantly before 1.0 release.**
 
 #### Syntax
 
 ```typescript
 export interface SchemaConfig {
   /**
-   * Calendar types to include.
+   * Calendar types to include. Note that 'gregory' for the
+   * gregorian calendar will be included by default, even if
+   * omitted from this list.
    *
-   * Ex: ['gregorian', 'buddhist', 'japanese', 'persian']
+   * Ex: ['buddhist', 'japanese', 'persian']
    */
   calendars?: string[];
 
@@ -30,17 +32,20 @@ export interface SchemaConfig {
   ['currency-id']?: string[];
 
   /**
-   * Language identifiers to include.
+   * Language identifiers to include. This only controls
+   * inclusion of language display name data.
    */
   ['language-id']?: string[];
 
   /**
-   * Script identifiers to include.
+   * Script identifiers to include. This only controls
+   * inclusion of script display name data.
    */
   ['script-id']?: string[];
 
   /**
-   * Region identifiers to include.
+   * Region identifiers to include. This only controls
+   * inclusion of region display name data.
    */
   ['region-id']?: string[];
 
@@ -52,17 +57,21 @@ export interface SchemaConfig {
   ['unit-id']?: string[];
 
   /**
-   * CLDR stable timezone identifiers to include.
+   * CLDR stable timezone identifiers to include. This only
+   * controls inclusion of exemplar city data. All timezone
+   * ids and offset data will work even if this array is
+   * empty.
    *
    * Ex: ['America/New_York', 'America/Adak', ... ]
    */
   ['timezone-id']?: string[];
 
   /**
-   * Number system names to include.
+   * Number system names to include. Note that 'latn' will be
+   * included by default, even if omitted from this list.
    *
-   * Ex: ['latn', 'arab', 'laoo']
+   * Ex: ['arab', 'laoo']
    */
-  ['number-system-name']: string[];
+  ['number-system-name']?: string[];
 }
 ```
