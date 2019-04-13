@@ -29,7 +29,7 @@ object {
     - Style used to format the number.
   - <code class="def">group?: <span>boolean</span></code>
     - Enable grouping of digits.
-  - <code class="def">round?: <span>RoundingModeType</span></code>
+  - <code class="def">round?: <span>[RoundingModeType](api-roundingmodetype.html)</span></code>
     - Mode used to round numbers during formatting.
   - <code class="def">minimumIntegerDigits?: <span>number</span></code>
     - Minimum integer digits to display.
