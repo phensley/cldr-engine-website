@@ -11,6 +11,7 @@ Object expressing options for currency formatting methods.
 object {
   style?,
   group?,
+  cash?,
   round?,
   symbolWidth?,
   minimumIntegerDigits?,
@@ -31,6 +32,8 @@ object {
     - Enable grouping of digits.
   - <code class="def">round?: <span>RoundingModeType</span></code>
     - Mode used to round numbers during formatting. Note that this should be used carefully when formatting currencies, as each currency defines the number of decimal digits that should appear in the result.
+  - <code class="def">cash?: <span>boolean</span></code>
+    - Activate rounding to nearest cash increment. The Canadian Dollar's eliminated the penny so cash transactions round to the nearest `0.05` increment.
   - <code class="def">symbolWidth?: <span>CurrencySymbolWidthType</span></code>
     - Hint to use the narrow symbol width if available.
   - <code class="def">minimumIntegerDigits?: <span>number</span></code>
@@ -53,6 +56,7 @@ object {
   style: 'symbol',
   group: true,
   round: 'half-even',
+  cash: false,
   symbolWidth: 'default'
 }
 ```
