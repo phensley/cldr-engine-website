@@ -9,9 +9,10 @@ title: UnitFormatOptions
 object {
   length?,
   style?,
+  group?,
   nu?,
   round?,
-  group?,
+  divisor?,
   minimumIntegerDigits?,
   maximumFractionDigits?,
   minimumFractionDigits?,
@@ -25,12 +26,14 @@ object {
     - Length of the unit indicator
   - <code class="def">style?: <span>[DecimalFormatStyleType](api-decimalformatstyletype.html)</span></code>
     - Style used to format the number.
+  - <code class="def">group?: <span>boolean</span></code>
+    - Enable grouping of digits.
   - <code class="def">nu?: <span>NumberSystemType</span></code>
     - Override the number system used to format the digits.
   - <code class="def">round?: <span>RoundingModeType</span></code>
     - Mode used to round numbers during formatting.
-  - <code class="def">group?: <span>boolean</span></code>
-    - Enable grouping of digits.
+  - <code class="def">divisor?: <span>number</span></code>
+    - Specify an explicit divisor when formatting a compact style. Should be a round power of 10, e.g. `1000`, `10000`, etc.
   - <code class="def">minimumIntegerDigits?: <span>number</span></code>
     - Minimum integer digits to display.
   - <code class="def">maximumFractionDigits?: <span>number</span></code>

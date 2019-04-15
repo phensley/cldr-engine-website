@@ -1,12 +1,39 @@
 import { framework } from './helpers';
+import { DecimalFormatOptions, CurrencyFormatOptions } from '@phensley/cldr';
 
 const SEP = '\n--------------------------------\n\n';
 
 // formatCurrency
 (() => {
+  console.log('formatCurrency');
+
+  let s: string;
   const cldr = framework.get('en');
-  const result = cldr.Numbers.formatCurrency('12345.6789', 'EUR', { group: true });
-  console.log(result, SEP);
+
+  s = cldr.Numbers.formatCurrency('12345.6789', 'EUR', { group: true });
+  console.log(s);
+
+  let opts: CurrencyFormatOptions = { style: 'short', divisor: 1000 };
+  s = cldr.Numbers.formatCurrency('100', 'USD', opts);
+  console.log(s);
+
+  s = cldr.Numbers.formatCurrency('1234567', 'USD', opts);
+  console.log(s);
+
+  opts = { cash: true };
+  s = cldr.Numbers.formatCurrency('345.67', 'DKK', opts);
+  console.log(s);
+
+  s = cldr.Numbers.formatCurrency('345.76', 'DKK', opts);
+  console.log(s);
+
+  s = cldr.Numbers.formatCurrency('345.67', 'CAD', opts);
+  console.log(s);
+
+  s = cldr.Numbers.formatCurrency('345.76', 'CAD', opts);
+  console.log(s);
+
+  console.log(SEP);
 })();
 
 // formatCurrencyToParts
@@ -19,9 +46,21 @@ const SEP = '\n--------------------------------\n\n';
 
 // formatDecimal
 (() => {
+  console.log(`formatDecimal`);
+
+  let s: string;
   const cldr = framework.get('en');
-  const result = cldr.Numbers.formatDecimal('12345.6789', { group: true });
-  console.log(result, SEP);
+  s = cldr.Numbers.formatDecimal('12345.6789', { group: true });
+  console.log(s);
+
+  const opts: DecimalFormatOptions = { style: 'short', divisor: 1000 };
+  s = cldr.Numbers.formatDecimal('100', opts);
+  console.log(s);
+
+  s = cldr.Numbers.formatDecimal('1234567', opts);
+  console.log(s);
+
+  console.log(SEP);
 })();
 
 // formatDecimalToParts

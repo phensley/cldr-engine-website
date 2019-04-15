@@ -12,6 +12,7 @@ object {
   style?,
   group?,
   round?,
+  divisor?,
   minimumIntegerDigits?,
   maximumFractionDigits?,
   minimumFractionDigits?,
@@ -30,6 +31,8 @@ object {
     - Enable grouping of digits.
   - <code class="def">round?: <span>[RoundingModeType](api-roundingmodetype.html)</span></code>
     - Mode used to round numbers during formatting.
+  - <code class="def">divisor?: <span>number</span></code>
+    - Specify an explicit divisor when formatting a compact style. Should be a round power of 10, e.g. `1000`, `10000`, etc.
   - <code class="def">minimumIntegerDigits?: <span>number</span></code>
     - Minimum integer digits to display.
   - <code class="def">maximumFractionDigits?: <span>number</span></code>
@@ -59,6 +62,29 @@ object {
 * Options for significant digits default to `undefined`.
 * Numbering system default is determined by the locale.
 * By default values `NaN` and `Infinity` are formatted
+
+### Examples
+
+```typescript
+cldr.Numbers.formatDecimal('12345.6789', { group: true });
+```
+
+<pre class="output">
+12,345.679
+</pre>
+
+Using a compact style with an explicit fixed divisor.
+
+```typescript
+const opts = { style: 'long', divisor: 1000 };
+cldr.Numbers.formatDecimal('100', opts);
+cldr.Numbers.formatDecimal('1234567', opts);
+```
+
+<pre class="output">
+0.1 thousand
+1,235 thousand
+</pre>
 
 ### See Also
   - [CLDR.Numbers.formatDecimal](api-cldr-numbers#formatdecimal)
