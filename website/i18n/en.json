@@ -314,6 +314,24 @@
       "version-0.13.6/version-0.13.6-doc-index": {
         "title": "Overview"
       },
+      "version-0.13.7/version-0.13.7-api-cldr-numbers": {
+        "title": "CLDR.Numbers"
+      },
+      "version-0.13.7/version-0.13.7-api-currencyformatoptions": {
+        "title": "CurrencyFormatOptions"
+      },
+      "version-0.13.7/version-0.13.7-api-decimalformatoptions": {
+        "title": "DecimalFormatOptions"
+      },
+      "version-0.13.7/version-0.13.7-api-roundingmodetype": {
+        "title": "RoundingModeType"
+      },
+      "version-0.13.7/version-0.13.7-api-schemaconfig": {
+        "title": "SchemaConfig"
+      },
+      "version-0.13.7/version-0.13.7-api-unitformatoptions": {
+        "title": "UnitFormatOptions"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
