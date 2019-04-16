@@ -37,7 +37,7 @@ object {
     - Activate rounding to nearest cash increment. The Canadian Dollar's eliminated the penny so cash transactions round to the nearest `0.05` increment.
   - <code class="def">divisor?: <span>number</span></code>
     - Specify an explicit divisor when formatting a compact style. Should be a round power of 10, e.g. `1000`, `10000`, etc.
-  - <code class="def">symbolWidth?: <span>CurrencySymbolWidthType</span></code>
+  - <code class="def">symbolWidth?: <span>[CurrencySymbolWidthType](api-currencysymbolwidthtype.html)</span></code>
     - Hint to use the narrow symbol width if available.
   - <code class="def">minimumIntegerDigits?: <span>number</span></code>
     - Minimum integer digits to display.
@@ -49,7 +49,7 @@ object {
     - Maximum significant digits to display.
   - <code class="def">minimumSignificantDigits?: <span>number</span></code>
     - Minimum significant digits to display.
-  - <code class="def">nu?: <span>NumberSystemType</span></code>
+  - <code class="def">nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
     - Override the number system used to format the digits.
 
 ### Defaults

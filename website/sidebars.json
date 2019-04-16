@@ -83,6 +83,7 @@
     "Numbers": [
       "api-currencyformatoptions",
       "api-currencyformatstyletype",
+      "api-currencysymbolwidthtype",
       "api-currencytype",
       "api-decimalformatoptions",
       "api-decimalformatstyletype",

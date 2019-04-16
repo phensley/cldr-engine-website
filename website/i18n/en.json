@@ -53,6 +53,9 @@
       "api-currencyformatstyletype": {
         "title": "CurrencyFormatStyleType"
       },
+      "api-currencysymbolwidthtype": {
+        "title": "CurrencySymbolWidthType"
+      },
       "api-currencytype": {
         "title": "CurrencyType"
       },

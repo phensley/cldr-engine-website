@@ -43,7 +43,7 @@ object {
     - Maximum significant digits to display.
   - <code class="def">minimumSignificantDigits?: <span>number</span></code>
     - Minimum significant digits to display.
-  - <code class="def">nu?: <span>NumberSystemType</span></code>
+  - <code class="def">nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
     - Override the number system used to format the digits.
   - <code class="def">errors?: <span>[NumberFormatErrorType](api-numberformaterrortype.html)</span></code>
     - Optional flags controlling when formatting a `NaN` or `Infinity` will raise an error

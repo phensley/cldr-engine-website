@@ -10,14 +10,14 @@ object {
   length?,
   style?,
   group?,
-  nu?,
   round?,
   divisor?,
   minimumIntegerDigits?,
   maximumFractionDigits?,
   minimumFractionDigits?,
   maximumSignificantDigits?,
-  minimumSignificantDigits?
+  minimumSignificantDigits?,
+  nu?
 }
 </pre>
 
@@ -28,8 +28,6 @@ object {
     - Style used to format the number.
   - <code class="def">group?: <span>boolean</span></code>
     - Enable grouping of digits.
-  - <code class="def">nu?: <span>NumberSystemType</span></code>
-    - Override the number system used to format the digits.
   - <code class="def">round?: <span>RoundingModeType</span></code>
     - Mode used to round numbers during formatting.
   - <code class="def">divisor?: <span>number</span></code>
@@ -44,6 +42,8 @@ object {
     - Maximum significant digits to display.
   - <code class="def">minimumSignificantDigits?: <span>number</span></code>
     - Minimum significant digits to display.
+  - <code class="def">nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
+    - Override the number system used to format the digits.
 
 
 ### Example
