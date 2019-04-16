@@ -1,7 +1,7 @@
-import { config } from '@phensley/cldr/lib-es/config';
+import { TZ } from '@phensley/timezone';
 import { typeSlice } from './utils';
 
-const TIMEZONE_CODES = config['timezone-id']!.sort();
+const TIMEZONE_CODES = TZ.zoneIds().sort();
 const TIMEZONES_DESC = TIMEZONE_CODES.map(t => `  - '${t}'`);
 
 const TIMEZONE_TYPE = `

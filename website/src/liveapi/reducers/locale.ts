@@ -1,4 +1,4 @@
-import { Reducer } from 'redux';
+import { Reducer, AnyAction } from 'redux';
 import * as icepick from 'icepick';
 import { CLDR } from '@phensley/cldr';
 import { LocaleAction } from '../actions';
@@ -13,7 +13,7 @@ const initialState = icepick.freeze({
 });
 
 export const locale: Reducer<LocaleState> =
-  (state: LocaleState = initialState, action: LocaleAction): LocaleState => {
+  (state: LocaleState = initialState, action: AnyAction): LocaleState => {
   switch (action.type) {
     case 'locale/update':
       return icepick.set(state, 'cldr', action.payload);
