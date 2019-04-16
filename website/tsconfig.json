@@ -1,32 +1,35 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "baseUrl": ".",
+    "target": "es2015",
     "module": "commonjs",
-    "moduleResolution": "node",
     "lib": ["es6", "dom"],
-		"jsx": "react",
-    "sourceMap": true,
-		"allowJs": true,
-		"rootDir": ".",
+    "sourceMap": false,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "src",
     "outDir": "lib",
+    "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "resolveJsonModule": true,
-		"esModuleInterop": true,
-		"strictNullChecks": true,
-		"suppressImplicitAnyIndexErrors": true,
-    "removeComments": false,
-    "strict": true,
+		"resolveJsonModule": false,
+		"esModuleInterop": false,
     "strictNullChecks": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noFallthroughCasesInSwitch": false,
-		"traceResolution": false,
-    "baseUrl": "."
-	},
-	"include": [
-		"src/**/*"
-	]
+    "suppressImplicitAnyIndexErrors": true,
+    "traceResolution": false,
+    "listEmittedFiles": false,
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
-

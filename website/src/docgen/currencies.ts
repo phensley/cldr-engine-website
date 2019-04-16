@@ -1,5 +1,5 @@
 import { CurrencyType } from '@phensley/cldr-schema';
-import { config } from '@phensley/cldr/lib-es/config';
+import { config } from '@phensley/cldr/lib/config';
 import { getCLDR, typeSlice } from './utils';
 
 const cldr = getCLDR();

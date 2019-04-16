@@ -379,7 +379,7 @@ or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) identifier for a region.
   - 'MH'
     - Marshall Islands
   - 'MK'
-    - Macedonia
+    - North Macedonia
   - 'ML'
     - Mali
   - 'MM'
@@ -387,7 +387,7 @@ or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) identifier for a region.
   - 'MN'
     - Mongolia
   - 'MO'
-    - Macau SAR China
+    - Macao SAR China
   - 'MP'
     - Northern Mariana Islands
   - 'MQ'
@@ -519,7 +519,7 @@ or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) identifier for a region.
   - 'SY'
     - Syria
   - 'SZ'
-    - Swaziland
+    - Eswatini
   - 'TA'
     - Tristan da Cunha
   - 'TC'

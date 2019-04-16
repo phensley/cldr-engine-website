@@ -1,5 +1,5 @@
 import { LanguageIdType, RegionIdType, ScriptIdType } from '@phensley/cldr';
-import { config } from '@phensley/cldr/lib-es/config';
+import { config } from '@phensley/cldr/lib/config';
 // import { LanguageIdValues, RegionIdValues, ScriptIdValues } from '@phensley/cldr-schema';
 import { getCLDR, typeSlice } from './utils';
 

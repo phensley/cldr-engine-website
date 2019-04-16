@@ -3,8 +3,8 @@ import * as EnglishPack from '@phensley/cldr/packs/en.json';
 
 export const getCLDR = () => {
   const framework = new CLDRFramework({
-    loader: (lang: string) => EnglishPack
-  })
+    loader: (_lang: string) => EnglishPack
+  });
   return framework.get('en');
 };
 

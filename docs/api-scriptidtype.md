@@ -91,6 +91,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Egyptian hieroglyphs
   - 'Elba'
     - Elbasan
+  - 'Elym'
+    - Elymaic
   - 'Ethi'
     - Ethiopic
   - 'Geok'
@@ -135,6 +137,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Anatolian Hieroglyphs
   - 'Hmng'
     - Pahawh Hmong
+  - 'Hmnp'
+    - Nyiakeng Puachue Hmong
   - 'Hrkt'
     - Japanese syllabaries
   - 'Hung'
@@ -231,6 +235,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Multani
   - 'Mymr'
     - Myanmar
+  - 'Nand'
+    - Nandinagari
   - 'Narb'
     - Old North Arabian
   - 'Nbat'
@@ -363,6 +369,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Visible Speech
   - 'Wara'
     - Varang Kshiti
+  - 'Wcho'
+    - Wancho
   - 'Wole'
     - Woleai
   - 'Xpeo'

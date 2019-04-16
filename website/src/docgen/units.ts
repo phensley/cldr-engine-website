@@ -1,5 +1,5 @@
 import { UnitType } from '@phensley/cldr-schema';
-import { config } from '@phensley/cldr/lib-es/config';
+import { config } from '@phensley/cldr/lib/config';
 import { typeSlice } from './utils';
 
 const UNIT_CODES = config['unit-id']!.sort();
