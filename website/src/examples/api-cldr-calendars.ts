@@ -176,6 +176,36 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 })();
 
+// resolveTimeZoneId
+{
+  console.log('resolveTimeZoneId');
+
+  let s: string | undefined;
+  const en = framework.get('en');
+  s = en.Calendars.resolveTimeZoneId('UTC');
+  console.log(s);
+
+  s = en.Calendars.resolveTimeZoneId('US/East-Indiana');
+  console.log(s);
+
+  s = en.Calendars.resolveTimeZoneId('Antarctica/McMurdo');
+  console.log(s);
+
+  console.log(SEP);
+}
+
+// timeZoneIds
+{
+  console.log('timeZoneIds');
+
+  const en = framework.get('en');
+  for (const id of en.Calendars.timeZoneIds()) {
+    console.log(id);
+  }
+
+  console.log(SEP);
+}
+
 // toBuddhistDate
 (() => {
   const cldr = framework.get('en');

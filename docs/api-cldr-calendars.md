@@ -495,14 +495,39 @@ en.Calendars.quarters();
 </pre>
 
 
-## timeZoneIds
+## resolveTimeZoneId
 
-Returns an array of timezone identifiers of type [TimeZoneType](api-timezonetype.html).
+Given a timezone id or alias, returns the canonical [tzdb (timezone database)](https://www.iana.org/time-zones) identifier.
 
 #### Syntax
 
 <pre class="syntax">
-timeZoneIds(): TimeZoneType[]
+resolveTimeZoneId(string): string;
+</pre>
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+en.Calendars.resolveTimeZoneId('UTC');
+en.Calendars.resolveTimeZoneId('US/East-Indiana');
+en.Calendars.resolveTimeZoneId('Antarctica/McMurdo');
+```
+
+<pre class="output">
+Etc/UTC
+America/Indiana/Indianapolis
+Pacific/Auckland
+</pre>
+
+## timeZoneIds
+
+Returns an array of timezone identifiers from the latest IANA [tzdb (timezone database)](https://www.iana.org/time-zones).
+
+#### Syntax
+
+<pre class="syntax">
+timeZoneIds(): string[]
 </pre>
 
 #### Example
@@ -515,10 +540,13 @@ for (const id of en.Calendars.timeZoneIds()) {
 ```
 
 <pre class="output">
-'Africa/Abidjan'
-'Africa/Accra'
-'Africa/Addis_Ababa'
-'Africa/Algiers'
+Africa/Abidjan
+Africa/Accra
+Africa/Algiers
+Africa/Bissau
+Africa/Cairo
+Africa/Casablanca
+Africa/Ceuta
 ...
 </pre>
 
