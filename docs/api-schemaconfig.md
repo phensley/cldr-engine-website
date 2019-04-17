@@ -25,6 +25,25 @@ export interface SchemaConfig {
   calendars?: string[];
 
   /**
+   * Control which skeleton date time formats are available at runtime.
+   */
+  ['gregorian-available-format']?: string[];
+  ['gregorian-plural-format']?: string[];
+  ['gregorian-interval-format']?: string[];
+
+  ['buddhist-available-format']?: string[];
+  ['buddhist-plural-format']?: string[];
+  ['buddhist-interval-format']?: string[];
+
+  ['japanese-available-format']?: string[];
+  ['japanese-plural-format']?: string[];
+  ['japanese-interval-format']?: string[];
+
+  ['persian-available-format']?: string[];
+  ['persian-plural-format']?: string[];
+  ['persian-interval-format']?: string[];
+
+  /**
    * Currency codes to include.
    *
    * Ex: ['USD', 'EUR', 'GBP', 'JPY', 'CAD', ... ]
