@@ -170,6 +170,9 @@
       "api-unitformatoptions": {
         "title": "UnitFormatOptions"
       },
+      "api-unitformatstyletype": {
+        "title": "UnitFormatStyleType"
+      },
       "api-unitlength": {
         "title": "UnitLength"
       },

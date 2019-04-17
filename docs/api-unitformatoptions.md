@@ -24,11 +24,11 @@ object {
 ### Properties
   - <code class="def">length?: <span>[UnitLength](api-unitlength.html)</span></code>
     - Length of the unit indicator
-  - <code class="def">style?: <span>[DecimalFormatStyleType](api-decimalformatstyletype.html)</span></code>
+  - <code class="def">style?: <span>[UnitFormatStyleType](api-unitformatstyletype.html)</span></code>
     - Style used to format the number.
   - <code class="def">group?: <span>boolean</span></code>
     - Enable grouping of digits.
-  - <code class="def">round?: <span>RoundingModeType</span></code>
+  - <code class="def">round?: <span>[RoundingModeType](api-roundingmodetype.html)</span></code>
     - Mode used to round numbers during formatting.
   - <code class="def">divisor?: <span>number</span></code>
     - Specify an explicit divisor when formatting a compact style. Should be a round power of 10, e.g. `1000`, `10000`, etc.

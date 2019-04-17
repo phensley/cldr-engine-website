@@ -93,6 +93,7 @@
     "Units": [
       "api-quantity",
       "api-unitformatoptions",
+      "api-unitformatstyletype",
       "api-unitlength",
       "api-unittype"
     ]
