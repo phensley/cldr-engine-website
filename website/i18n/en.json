@@ -338,6 +338,39 @@
       "version-0.13.7/version-0.13.7-api-unitformatoptions": {
         "title": "UnitFormatOptions"
       },
+      "version-0.14.1/version-0.14.1-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-0.14.1/version-0.14.1-api-currencyformatoptions": {
+        "title": "CurrencyFormatOptions"
+      },
+      "version-0.14.1/version-0.14.1-api-currencysymbolwidthtype": {
+        "title": "CurrencySymbolWidthType"
+      },
+      "version-0.14.1/version-0.14.1-api-decimalformatoptions": {
+        "title": "DecimalFormatOptions"
+      },
+      "version-0.14.1/version-0.14.1-api-regionidtype": {
+        "title": "RegionIdType"
+      },
+      "version-0.14.1/version-0.14.1-api-schemaconfig": {
+        "title": "SchemaConfig"
+      },
+      "version-0.14.1/version-0.14.1-api-scriptidtype": {
+        "title": "ScriptIdType"
+      },
+      "version-0.14.1/version-0.14.1-api-timezonetype": {
+        "title": "TimeZoneType"
+      },
+      "version-0.14.1/version-0.14.1-api-unitformatoptions": {
+        "title": "UnitFormatOptions"
+      },
+      "version-0.14.1/version-0.14.1-api-unitformatstyletype": {
+        "title": "UnitFormatStyleType"
+      },
+      "version-0.14.1/version-0.14.1-api-unittype": {
+        "title": "UnitType"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
