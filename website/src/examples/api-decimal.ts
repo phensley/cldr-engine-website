@@ -4,13 +4,17 @@ import { RoundingModeType } from '../../node_modules/@phensley/decimal';
 const SEP = '-------------------------------\n';
 
 // constructor
-(() => {
+{
   const s = Number.MAX_SAFE_INTEGER;
   const n = new Decimal(`${s}${s}.${s}`);
   console.log(n);
 
+  for (const num of ['-10', 0, '123', Infinity, -Infinity, NaN]) {
+    const d = new Decimal(num);
+    console.log(d.toString());
+  }
   console.log(SEP);
-})();
+}
 
 // abs
 (() => {

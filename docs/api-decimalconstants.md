@@ -14,7 +14,10 @@ object {
   ONE,
   TWO,
   PI,
-  E
+  E,
+  NAN,
+  POSITIVE_INFINITY,
+  NEGATIVE_INFINITY
 }
 </pre>
 
@@ -30,3 +33,9 @@ object {
     - [first 105 digits of pi](https://oeis.org/A000796/constant)
   - <code class="def">E: <span>Decimal</span></code>
     - [first 105 digits of e](https://oeis.org/A001113/constant)
+  - <code class="def">NAN: <span>Decimal</span></code>
+    - IEEE 754-2008 NaN
+  - <code class="def">POSITIVE_INFINITY: <span>Decimal</span></code>
+    - IEEE 754-2008 infinity
+  - <code class="def">NEGATIVE_INFINITY: <span>Decimal</span></code>
+    - IEEE 754-2008 negative infinity

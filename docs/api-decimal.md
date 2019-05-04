@@ -43,6 +43,21 @@ console.log(n.toString());
 90071992547409919007199254740991.9007199254740991
 </pre>
 
+```typescript
+for (const num of ['-10', 0, '123', Infinity, -Infinity, NaN]) {
+  const d = new Decimal(num);
+  console.log(d.toString());
+}
+```
+
+<pre class="output">
+-10
+0
+123
+Infinity
+-Infinity
+NaN
+</pre>
 
 ## abs
 
