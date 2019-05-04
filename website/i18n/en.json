@@ -371,6 +371,12 @@
       "version-0.14.1/version-0.14.1-api-unittype": {
         "title": "UnitType"
       },
+      "version-0.14.5/version-0.14.5-api-decimal": {
+        "title": "Decimal"
+      },
+      "version-0.14.5/version-0.14.5-api-decimalconstants": {
+        "title": "DecimalConstants"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
