@@ -1,6 +1,7 @@
 ---
-id: doc-faq
+id: version-0.15.1-doc-faq
 title: Rationale
+original_id: doc-faq
 ---
 
 ### Why create this project?
