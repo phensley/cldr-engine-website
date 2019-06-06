@@ -380,6 +380,168 @@
       "version-0.15.1/version-0.15.1-doc-faq": {
         "title": "Rationale"
       },
+      "version-0.15.3/version-0.15.3-api-buddhistdate": {
+        "title": "BuddhistDate"
+      },
+      "version-0.15.3/version-0.15.3-api-bundle": {
+        "title": "Bundle"
+      },
+      "version-0.15.3/version-0.15.3-api-calendardate": {
+        "title": "CalendarDate"
+      },
+      "version-0.15.3/version-0.15.3-api-calendardatefields": {
+        "title": "CalendarDateFields"
+      },
+      "version-0.15.3/version-0.15.3-api-calendarfieldoptions": {
+        "title": "CalendarFieldOptions"
+      },
+      "version-0.15.3/version-0.15.3-api-calendartype": {
+        "title": "CalendarType"
+      },
+      "version-0.15.3/version-0.15.3-api-cldr-numbers": {
+        "title": "CLDR.Numbers"
+      },
+      "version-0.15.3/version-0.15.3-api-cldroptions": {
+        "title": "CLDROptions"
+      },
+      "version-0.15.3/version-0.15.3-api-contexttype": {
+        "title": "ContextType"
+      },
+      "version-0.15.3/version-0.15.3-api-currencyformatoptions": {
+        "title": "CurrencyFormatOptions"
+      },
+      "version-0.15.3/version-0.15.3-api-currencyformatstyletype": {
+        "title": "CurrencyFormatStyleType"
+      },
+      "version-0.15.3/version-0.15.3-api-currencysymbolwidthtype": {
+        "title": "CurrencySymbolWidthType"
+      },
+      "version-0.15.3/version-0.15.3-api-currencytype": {
+        "title": "CurrencyType"
+      },
+      "version-0.15.3/version-0.15.3-api-dateformatoptions": {
+        "title": "DateFormatOptions"
+      },
+      "version-0.15.3/version-0.15.3-api-dateintervalformatoptions": {
+        "title": "DateIntervalFormatOptions"
+      },
+      "version-0.15.3/version-0.15.3-api-daterawformatoptions": {
+        "title": "DateRawFormatOptions"
+      },
+      "version-0.15.3/version-0.15.3-api-dateskeleton": {
+        "title": "DateSkeleton"
+      },
+      "version-0.15.3/version-0.15.3-api-datetimepatternfieldtype": {
+        "title": "DateTimePatternFieldType"
+      },
+      "version-0.15.3/version-0.15.3-api-decimal": {
+        "title": "Decimal"
+      },
+      "version-0.15.3/version-0.15.3-api-decimalconstants": {
+        "title": "DecimalConstants"
+      },
+      "version-0.15.3/version-0.15.3-api-decimalformatoptions": {
+        "title": "DecimalFormatOptions"
+      },
+      "version-0.15.3/version-0.15.3-api-decimalformatstyletype": {
+        "title": "DecimalFormatStyleType"
+      },
+      "version-0.15.3/version-0.15.3-api-erafieldoptions": {
+        "title": "EraFieldOptions"
+      },
+      "version-0.15.3/version-0.15.3-api-erawidthtype": {
+        "title": "EraWidthType"
+      },
+      "version-0.15.3/version-0.15.3-api-exemplarcity": {
+        "title": "ExemplarCity"
+      },
+      "version-0.15.3/version-0.15.3-api-fieldwidthtype": {
+        "title": "FieldWidthType"
+      },
+      "version-0.15.3/version-0.15.3-api-formatwidthtype": {
+        "title": "FormatWidthType"
+      },
+      "version-0.15.3/version-0.15.3-api-gregoriandate": {
+        "title": "GregorianDate"
+      },
+      "version-0.15.3/version-0.15.3-api-iso8601date": {
+        "title": "ISO8601Date"
+      },
+      "version-0.15.3/version-0.15.3-api-japanesedate": {
+        "title": "JapaneseDate"
+      },
+      "version-0.15.3/version-0.15.3-api-languageidtype": {
+        "title": "LanguageIdType"
+      },
+      "version-0.15.3/version-0.15.3-api-languagetag": {
+        "title": "LanguageTag"
+      },
+      "version-0.15.3/version-0.15.3-api-listpatterntype": {
+        "title": "ListPatternType"
+      },
+      "version-0.15.3/version-0.15.3-api-locale": {
+        "title": "Locale"
+      },
+      "version-0.15.3/version-0.15.3-api-localematcher": {
+        "title": "LocaleMatcher"
+      },
+      "version-0.15.3/version-0.15.3-api-mathcontext": {
+        "title": "MathContext"
+      },
+      "version-0.15.3/version-0.15.3-api-measurementcategory": {
+        "title": "MeasurementCategory"
+      },
+      "version-0.15.3/version-0.15.3-api-measurementsystem": {
+        "title": "MeasurementSystem"
+      },
+      "version-0.15.3/version-0.15.3-api-numberformaterrortype": {
+        "title": "NumberFormatErrorType"
+      },
+      "version-0.15.3/version-0.15.3-api-numbersystemtype": {
+        "title": "NumberSystemType"
+      },
+      "version-0.15.3/version-0.15.3-api-persiandate": {
+        "title": "PersianDate"
+      },
+      "version-0.15.3/version-0.15.3-api-quantity": {
+        "title": "Quantity"
+      },
+      "version-0.15.3/version-0.15.3-api-regionidtype": {
+        "title": "RegionIdType"
+      },
+      "version-0.15.3/version-0.15.3-api-relativetimeformatoptions": {
+        "title": "RelativeTimeFormatOptions"
+      },
+      "version-0.15.3/version-0.15.3-api-roundingmodetype": {
+        "title": "RoundingModeType"
+      },
+      "version-0.15.3/version-0.15.3-api-schemaconfig": {
+        "title": "SchemaConfig"
+      },
+      "version-0.15.3/version-0.15.3-api-scriptidtype": {
+        "title": "ScriptIdType"
+      },
+      "version-0.15.3/version-0.15.3-api-timezoneinfo": {
+        "title": "TimeZoneInfo"
+      },
+      "version-0.15.3/version-0.15.3-api-timezonetype": {
+        "title": "TimeZoneType"
+      },
+      "version-0.15.3/version-0.15.3-api-unitformatoptions": {
+        "title": "UnitFormatOptions"
+      },
+      "version-0.15.3/version-0.15.3-api-unitformatstyletype": {
+        "title": "UnitFormatStyleType"
+      },
+      "version-0.15.3/version-0.15.3-api-unitlength": {
+        "title": "UnitLength"
+      },
+      "version-0.15.3/version-0.15.3-api-unittype": {
+        "title": "UnitType"
+      },
+      "version-0.15.3/version-0.15.3-api-zoneddatetime": {
+        "title": "ZonedDateTime"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
