@@ -273,3 +273,5 @@ Latn
 ## toString
 
 Equivalent of [compact()](#compact).
+
+{%refs LanguageTag}

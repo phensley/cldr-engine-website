@@ -24,5 +24,4 @@ object {
   - <code class="def">tag: <span>[LanguageTag](api-languagetag.html)</span></code>
     - Parsed and resolved language tag, allowing the library internals to access individual properties, e.g. language, script, region, extensions.
 
-#### See Also
-  * [CLDRFramework.resolveLocale](api-cldrframework.html#resolvelocale)
+{%refs Locale}

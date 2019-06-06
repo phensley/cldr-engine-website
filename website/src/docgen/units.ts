@@ -18,6 +18,8 @@ ${typeSlice(UNIT_CODES, 3)}
 ### Values
 
 ${UNITS_DESC}
+
+{%refs UnitType}
 `;
 
 const MAP = {

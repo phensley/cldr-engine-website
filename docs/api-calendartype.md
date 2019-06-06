@@ -22,3 +22,5 @@ Identifiers for support calendars.
     - Japanese calendar
   - `"persian"`
     - Persian calendar
+
+{%refs CalendarType}

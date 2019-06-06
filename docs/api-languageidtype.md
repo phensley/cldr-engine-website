@@ -1209,3 +1209,5 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - No linguistic content
   - 'zza'
     - Zaza
+
+{%refs LanguageIdType}

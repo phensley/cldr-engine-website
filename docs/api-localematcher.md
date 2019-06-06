@@ -68,3 +68,5 @@ es-419 distance 4
 en-GB distance 3
 es distance 0
 </pre>
+
+{%refs LocaleMatcher}

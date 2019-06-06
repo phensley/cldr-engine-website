@@ -8,3 +8,5 @@ title: EraWidthType
 <pre class="syntax">
 'narrow' | 'names' | 'abbr'
 </pre>
+
+{%refs EraWidthType}

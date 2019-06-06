@@ -100,3 +100,5 @@ cldr.Numbers.formatDecimal('0.0000098765', { style: 'scientific', minimumSignifi
 9.876E-6
 </pre>
 
+
+{%refs DecimalFormatStyleType}

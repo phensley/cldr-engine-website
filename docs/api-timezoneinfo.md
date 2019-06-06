@@ -43,3 +43,5 @@ for (const info of en.Calendars.timeZoneInfo()) {
 { id: 'Africa/Bissau', city: { name: 'Bissau' } }
 ...
 </pre>
+
+{%refs TimeZoneInfo}

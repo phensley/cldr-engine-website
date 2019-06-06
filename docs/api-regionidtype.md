@@ -604,3 +604,5 @@ or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) identifier for a region.
     - Zimbabwe
   - 'ZZ'
     - Unknown Region
+
+{%refs RegionIdType}

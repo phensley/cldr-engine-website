@@ -36,3 +36,5 @@ type NumberSystemName = 'adlm' | 'ahom' | 'arab' | 'arabext' |
 'takr' | 'talu' | 'tamldec' | 'telu' | 'thai' | 'tibt' | 'tirh' |
 'vaii' | 'wara';
 ```
+
+{%refs NumberSystemType}

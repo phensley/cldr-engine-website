@@ -65,3 +65,5 @@ for (const opt of opts) {
 17 in
 17″
 </pre>
+
+{%refs UnitFormatOptions}

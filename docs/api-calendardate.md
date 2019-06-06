@@ -1033,3 +1033,5 @@ January 3, 2016  2016-2
 January 4, 2016  2016-2
 January 5, 2016  2016-2
 </pre>
+
+{%refs CalendarDate}

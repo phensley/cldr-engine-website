@@ -108,3 +108,6 @@ cldr.Calendars.formatDate({ date, zoneId }, opts);
 <pre class="output">
 Wednesday, June 27, 2561 BE
 </pre>
+
+
+{%refs DateFormatOptions}

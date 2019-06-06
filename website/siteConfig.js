@@ -56,6 +56,11 @@ const siteConfig = {
       const { parse, render } = require('./markdown/include');
       md.inline.ruler.push('include', parse(__dirname));
       md.renderer.rules.include = render(md);
+    },
+    function refs(md) {
+      const { parse, render } = require('./markdown/refs');
+      md.inline.ruler.push('refs', parse(`${__dirname}/../docs`));
+      md.renderer.rules.refs = render(md, `${__dirname}/crossref.json`);
     }
   ]
 };

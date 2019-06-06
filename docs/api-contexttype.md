@@ -23,3 +23,5 @@ Species the context in which a formatted value will be displayed.
    - Capitalization appropriate to an isolated user-interface element (e.g. an isolated name on a calendar page)
  - `'ui-list-or-menu'`
    - Capitalization appropriate to a user-interface list or menu.
+
+{%refs ContextType}

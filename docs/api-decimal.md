@@ -965,3 +965,5 @@ for (const n of ['1', '1e10', '0.12300000']) {
 0
 5
 </pre>
+
+{%refs Decimal}

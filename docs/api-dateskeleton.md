@@ -12,3 +12,5 @@ For example, using the locale `en-US`:
   1. Skeleton `"yMMMEEEEd"` selects the pattern [`"E, MMM d, y"`](https://github.com/unicode-cldr/cldr-dates-modern/blob/32.0.0/main/en/ca-gregorian.json#L382) by distance
   2. The weekday field "E" has width 4, so the final pattern is altered to: `"EEEE, MMM d, y"`
   3. The pattern is used to format the date: `"Wednesday, Jun 27, 2018"`
+
+{%refs DateSkeleton}

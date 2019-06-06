@@ -26,6 +26,8 @@ ${typeSlice(CURRENCY_CODES.sort())}
 ### Values
 
 ${CURRENCIES_DESC.join('')}
+
+{%refs CurrencyType}
 `;
 
 const MAP = {

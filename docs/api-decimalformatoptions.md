@@ -86,6 +86,4 @@ cldr.Numbers.formatDecimal('1234567', opts);
 1,235 thousand
 </pre>
 
-### See Also
-  - [CLDR.Numbers.formatDecimal](api-cldr-numbers#formatdecimal)
-  - [CLDR.Numbers.formatDecimalToParts](api-cldr-numbers#formatdecimaltoparts)
+{%refs DecimalFormatOptions}

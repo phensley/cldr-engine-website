@@ -26,5 +26,4 @@ A single character representing a field in a date.
     - Second
 
 
-### See Also
-  - [CLDR.Calendars.fieldOfGreatestDifference](api-cldr-calendars.html#fieldofgreatestdifference)
+{%refs DateTimePatternFieldType}

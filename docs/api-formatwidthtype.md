@@ -34,3 +34,5 @@ cldr.Calendars.formatDate({ date, zoneId }, { date: 'full' });
 <pre class="output">
 Wednesday, June 27, 2018
 </pre>
+
+{%refs FormatWidthType}

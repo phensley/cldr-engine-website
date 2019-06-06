@@ -27,3 +27,6 @@ cldr.General.formatList(['12ft', '9in'], 'unit-short');
 <pre class="output">
 12ft, 9in
 </pre>
+
+
+{%refs ListPatternType}

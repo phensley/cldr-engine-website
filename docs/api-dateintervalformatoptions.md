@@ -79,6 +79,4 @@ zh  2018年6月27日至9月8日
 zh  2018年6月27日至2021年3月23日
 </pre>
 
-### See Also
- - [CLDR.Calendars.formatDateInterval](api-cldr-calendars.html#formatdateinterval)
- - [CLDR.Calendars.formatDateIntervalToParts](api-cldr-calendars.html#formatdateintervaltoparts)
+{%refs DateIntervalFormatOptions}

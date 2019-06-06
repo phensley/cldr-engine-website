@@ -18,6 +18,8 @@ ${typeSlice(TIMEZONE_CODES, 2)}
 ### Values
 
 ${TIMEZONES_DESC.join('\n')}
+
+{%refs TimeZoneType}
 `
 
 const MAP = {

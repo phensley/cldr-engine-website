@@ -39,3 +39,5 @@ object {
     - IEEE 754-2008 infinity
   - <code class="def">NEGATIVE_INFINITY: <span>Decimal</span></code>
     - IEEE 754-2008 negative infinity
+
+{%refs DecimalConstants}

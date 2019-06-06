@@ -329,7 +329,7 @@ getCurrencyForRegion(region): CurrencyType
   - <code class="def">region: <span>string</span></code>
     - The 2-letter ISO-3166-1 code for a region.
 
-#### REturn value
+#### Return value
   - A [CurrencyType](api-currencytype.html) value
 
 #### Example

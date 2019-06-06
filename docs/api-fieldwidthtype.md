@@ -57,3 +57,5 @@ console.log(cldr.Calendars.weekdays({ width: 'narrow' }));
   '7': 'S'
 }
 </pre>
+
+{%refs FieldWidthType}

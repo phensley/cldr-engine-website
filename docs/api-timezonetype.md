@@ -404,3 +404,5 @@ The identifier for a timezone, e.g. '`America/New_York`'.
   - 'Pacific/Wake'
   - 'Pacific/Wallis'
   - 'WET'
+
+{%refs TimeZoneType}

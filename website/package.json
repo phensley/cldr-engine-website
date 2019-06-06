@@ -6,11 +6,11 @@
   "scripts": {
     "clean": "rimraf build",
     "deploy": "yarn build && USE_SSH=true docusaurus-publish",
-    "start": "concurrently \"yarn start:docs\" \"yarn start:webpack\"",
+    "start": "node gencrossref.js && concurrently \"yarn start:docs\" \"yarn start:webpack\"",
     "start:docs": "docusaurus-start",
     "start:webpack": "node scripts/copy-packs.js && webpack-dev-server -w -d",
     "start:webpack-old": "webpack-dev-server -d --content-base ./static/",
-    "build": "yarn packs && webpack -p && docusaurus-build",
+    "build": "node gencrossref.js && yarn packs && webpack -p && docusaurus-build",
     "packs": "rimraf ./static/packs && node scripts/copy-packs.js",
     "report": "source-map-explorer --html -m ./build/cldr-engine/liveapi/liveapi.js >report.html",
     "write-translations": "docusaurus-write-translations",

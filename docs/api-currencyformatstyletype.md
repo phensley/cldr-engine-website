@@ -104,7 +104,4 @@ $1M
 -$12M
 </pre>
 
-### See Also
-
-  - [CLDR.Numbers.formatCurrency](api-cldr-numbers#formatcurrency)
-  - [CLDR.Numbers.formatCurrencyToParts](api-cldr-numbers#formatcurrencytoparts)
+{%refs CurrencyFormatStyleType}

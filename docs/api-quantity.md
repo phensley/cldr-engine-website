@@ -43,3 +43,5 @@ cldr.Units.formatQuantity(qty);
 17.989Tb/min
 30.79 kilograms per lux
 </pre>
+
+{%refs Quantity}

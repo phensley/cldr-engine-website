@@ -20,3 +20,5 @@ Styles for unit formatting.
     - Compact form, using as few digits as needed, with a long indicator of the order of magnitude.
   - `"scientific"`
     - Formats a number in scientific notation (beta)
+
+{%refs UnitFormatStyleType}

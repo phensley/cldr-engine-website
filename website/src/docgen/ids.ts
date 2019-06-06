@@ -22,6 +22,8 @@ ${typeSlice(LANGUAGE_CODES, 3)}
 ### Values
 
 ${LANGUAGE_DESC.join('\n')}
+
+{%refs LanguageIdType}
 `;
 
 const REGION_CODES = config['region-id']!.sort();
@@ -42,6 +44,8 @@ ${typeSlice(REGION_CODES, 3)}
 ### Values
 
 ${REGION_DESC.join('\n')}
+
+{%refs RegionIdType}
 `;
 
 const SCRIPT_CODES = config['script-id']!.sort();
@@ -61,6 +65,8 @@ ${typeSlice(SCRIPT_CODES, 3)}
 ### Values
 
 ${SCRIPT_DESC.join('\n')}
+
+{%refs ScriptIdType}
 `;
 
 const MAP = {

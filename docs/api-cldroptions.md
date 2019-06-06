@@ -86,3 +86,6 @@ cldr = framework.get('fr');    // from cache
 
 cldr = framework.get('en');    // from disk again, 'zh' is evicted
 ```
+
+
+{%refs CLDROptions}

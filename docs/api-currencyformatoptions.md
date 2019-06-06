@@ -114,7 +114,4 @@ CA$345.65
 CA$345.75
 </pre>
 
-### See Also
-
-  - [CLDR.Numbers.formatCurrency](api-cldr-numbers#formatcurrency)
-  - [CLDR.Numbers.formatCurrencyToParts](api-cldr-numbers#formatcurrencytoparts)
+{%refs CurrencyFormatOptions}

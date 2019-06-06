@@ -17,3 +17,5 @@ object {
 
  - <code class="def">name: <span>string</span></code>
    - Name of the city
+
+{%refs ExemplarCity}

@@ -111,3 +111,5 @@ export interface SchemaConfig {
   ['number-system-name']?: string[];
 }
 ```
+
+{%refs SchemaConfig}

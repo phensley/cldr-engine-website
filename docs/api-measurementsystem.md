@@ -21,3 +21,5 @@ cldr.General.measurementSystem('temperature');
 uk
 metric
 </pre>
+
+{%refs MeasurementSystem}

@@ -24,3 +24,5 @@ object {
     - Number of total digits (integer and decimal) to preserve in the result.
   - <code class="def">round?: <span>[RoundingModeType](api-roundingmodetype.html)</span></code>
     - Rounding mode to use, defaults to `'half-even'`
+
+{%refs MathContext}

@@ -29,3 +29,5 @@ cldr.Numbers.formatDecimal(Infinity, { errors: ['infinity'] });
 &lt;Error: Invalid argument: NaN&gt;
 &lt;Error: Invalid argument: Infinity&gt;
 </pre>
+
+{%refs NumberFormatErrorType}

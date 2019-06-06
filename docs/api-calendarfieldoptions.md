@@ -32,3 +32,5 @@ object {
 ```
 
 * Calendar system default is determined by the locale.
+
+{%refs CalendarFieldOptions}

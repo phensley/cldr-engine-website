@@ -10,3 +10,5 @@ Specifies the width of the currency symbol in [CurrencyFormatOptions](api-curren
 <pre class="syntax">
 'default' | 'narrow'
 </pre>
+
+{%refs CurrencySymbolWidthType}
