@@ -19,7 +19,7 @@ Parsing converts a locale identifier like `"en-US"` into an language tag object,
 
 The parser will also accept underscores, which appear in locale identifiers in some languages, as with Java's Locale object.
 
-In the example below we use the [`CLDRFramework.parseLanguageTag`](api-cldrfrmaework.html#parselanguagetag) function to parse several identifiers into [`LanguageTag`](api-languagetag.html) objects, and calling several methods on them.
+In the example below we use the [`CLDRFramework.parseLanguageTag`](api-cldrframework.html#parselanguagetag) function to parse several identifiers into [`LanguageTag`](api-languagetag.html) objects, and calling several methods on them.
 
 ```typescript
 import { CLDRFramework } from '@phensley/cldr';

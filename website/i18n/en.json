@@ -59,6 +59,9 @@
       "api-currencytype": {
         "title": "CurrencyType"
       },
+      "api-datefieldtype": {
+        "title": "DateFieldType"
+      },
       "api-dateformatoptions": {
         "title": "DateFormatOptions"
       },
@@ -145,6 +148,9 @@
       },
       "api-quantity": {
         "title": "Quantity"
+      },
+      "api-rational": {
+        "title": "Rational"
       },
       "api-regionidtype": {
         "title": "RegionIdType"
@@ -419,6 +425,9 @@
       "version-0.15.3/version-0.15.3-api-currencytype": {
         "title": "CurrencyType"
       },
+      "version-0.15.3/version-0.15.3-api-datefieldtype": {
+        "title": "DateFieldType"
+      },
       "version-0.15.3/version-0.15.3-api-dateformatoptions": {
         "title": "DateFormatOptions"
       },
@@ -505,6 +514,9 @@
       },
       "version-0.15.3/version-0.15.3-api-quantity": {
         "title": "Quantity"
+      },
+      "version-0.15.3/version-0.15.3-api-rational": {
+        "title": "Rational"
       },
       "version-0.15.3/version-0.15.3-api-regionidtype": {
         "title": "RegionIdType"

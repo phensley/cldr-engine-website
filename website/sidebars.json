@@ -40,6 +40,7 @@
       "api-calendardatefields",
       "api-calendarfieldoptions",
       "api-calendartype",
+      "api-datefieldtype",
       "api-dateformatoptions",
       "api-dateintervalformatoptions",
       "api-daterawformatoptions",
@@ -78,6 +79,7 @@
       "api-decimal",
       "api-decimalconstants",
       "api-mathcontext",
+      "api-rational",
       "api-roundingmodetype"
     ],
     "Numbers": [

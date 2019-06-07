@@ -713,7 +713,7 @@ shiftright(shift, round?): Decimal
 #### Parameters
   - <code class="def">shift: <span>number</span></code>
     - Number of decimal places to shift
-  - <code class="def">round?: <span>[RoundingMode](api-roundingmode.html)</span></code>
+  - <code class="def">round?: <span>[RoundingModeType](api-roundingmodetype.html)</span></code>
     - Rounding mode to use
 
 #### Example
