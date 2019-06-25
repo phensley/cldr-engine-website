@@ -557,6 +557,15 @@
       "version-0.15.3/version-0.15.3-api-zoneddatetime": {
         "title": "ZonedDateTime"
       },
+      "version-0.16.0/version-0.16.0-api-cldr-general": {
+        "title": "CLDR.General"
+      },
+      "version-0.16.0/version-0.16.0-api-displaynameoptions": {
+        "title": "DisplayNameOptions"
+      },
+      "version-0.16.0/version-0.16.0-doc-locales-parsing": {
+        "title": "Locale parsing"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
