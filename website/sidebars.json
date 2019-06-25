@@ -62,6 +62,7 @@
     ],
     "General": [
       "api-contexttype",
+      "api-displaynameoptions",
       "api-languageidtype",
       "api-listpatterntype",
       "api-measurementcategory",

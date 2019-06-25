@@ -186,13 +186,15 @@ Return the display name for a given language code.
 #### Syntax
 
 <pre class="syntax">
-getLanguageDisplayName(languageId): string
+getLanguageDisplayName(languageId, options?): string
 </pre>
 
 #### Parameters
 
-  - <code class="def">languageId: <span>[LanguageIdType](api-languageidtype.html)</span></code>
+  - <code class="def">code: <span>[LanguageIdType](api-languageidtype.html)</span></code>
     - Valid [ISO 639](https://en.wikipedia.org/wiki/ISO_639) language identifier
+  - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
+    - Options for selecting the display name
 
 #### Example
 
@@ -219,12 +221,14 @@ Return the name of a given region.
 #### Syntax
 
 <pre class="syntax">
-getRegionDisplayName(regionId): string
+getRegionDisplayName(regionId, options?): string
 </pre>
 
 #### Parameters
   - <code class="def">regionId: <span>[RegionIdType](api-regionidtype.html)</span></code>
     - Valid [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) region identifier
+  - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
+    - Options for selecting the display name
 
 #### Example
 
@@ -253,12 +257,14 @@ Return the name of a given script.
 #### Syntax
 
 <pre class="syntax">
-getScriptDisplayName(scriptId): string
+getScriptDisplayName(scriptId, options?): string
 </pre>
 
 #### Parameters
   - <code class="def">scriptId: <span>[ScriptIdType](api-scriptidtype.html)</span></code>
     - Valid [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) script identifier
+  - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
+    - Options for selecting the display name
 
 #### Example
 

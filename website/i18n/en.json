@@ -89,6 +89,9 @@
       "api-decimalformatstyletype": {
         "title": "DecimalFormatStyleType"
       },
+      "api-displaynameoptions": {
+        "title": "DisplayNameOptions"
+      },
       "api-erafieldoptions": {
         "title": "EraFieldOptions"
       },
