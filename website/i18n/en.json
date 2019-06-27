@@ -560,6 +560,9 @@
       "version-0.16.0/version-0.16.0-api-cldr-general": {
         "title": "CLDR.General"
       },
+      "version-0.16.0/version-0.16.0-api-dateskeleton": {
+        "title": "DateSkeleton"
+      },
       "version-0.16.0/version-0.16.0-api-displaynameoptions": {
         "title": "DisplayNameOptions"
       },
