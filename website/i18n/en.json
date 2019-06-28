@@ -218,8 +218,14 @@
       "doc-locales-resolution": {
         "title": "Locale resolution"
       },
+      "doc-math-example-contd-fractions": {
+        "title": "Math: continued fractions"
+      },
       "doc-math-example-factorial": {
         "title": "Example: factorial"
+      },
+      "doc-math-example-rational-approx": {
+        "title": "Math: rational approximation"
       },
       "doc-math": {
         "title": "Arbitrary Precision"

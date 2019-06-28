@@ -16,7 +16,9 @@
     ],
     "Math": [
       "doc-math",
-      "doc-math-example-factorial"
+      "doc-math-example-factorial",
+      "doc-math-example-rational-approx",
+      "doc-math-example-contd-fractions"
     ],
     "Design": [
       "doc-design-bundles",
