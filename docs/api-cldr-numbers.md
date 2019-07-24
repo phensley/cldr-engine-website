@@ -8,6 +8,35 @@ The `CLDR.Numbers` namespace allows you to:
   * Compute the plural category for cardinal and ordinal numbers
   * Get currency symbols, display name, pluralized name and fraction info.
 
+## adjustDecimal
+
+Adjust a decimal numbers integer, significant and fraction digits, and apply the given
+rounding mode.
+
+#### Syntax
+
+<pre class="syntax">
+adjustDecimal(num, options?): Decimal
+</pre>
+
+#### Parameters
+  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+    - The number to adjust.
+  - <code class="def">options?: <span>[DecimalAdjustOptions](api-decimaladjustoptions.html)</span></code>
+    - Options to control the decimal number adjustment.
+
+#### Examples
+
+```typescript
+cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0 }).toString();
+cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0, round: 'down' }).toString();
+```
+
+<pre class="output">
+2
+1
+</pre>
+
 
 ## formatCurrency
 
@@ -228,12 +257,14 @@ Get the display name for a given currency.
 #### Syntax
 
 <pre class="syntax">
-getCurrencyDisplayName(code): string
+getCurrencyDisplayName(code, options?): string
 </pre>
 
 #### Parameters
   - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
     - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
+  - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
+    - Options to adjust the display name
 
 #### Example
 
@@ -253,24 +284,24 @@ Get the pluralized name for a given currency.
 #### Syntax
 
 <pre class="syntax">
-getCurrencyPluralName(code, plural): string
+getCurrencyPluralName(num, code, options?): string
 </pre>
 
 #### Parameters
+  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+    - The number to use to compute the plural category. Note that you may want to [adjustDecimal](api-cldr-numbers.html#adjustdecimal) the number first, to ensure the number has the expected number of fraction digits, since the plural categories for `1` and `1.0` can differ.
   - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
     - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
-  - <code class="def">plural: <span>string</span></code>
-    - The plural category
+  - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
+    - Options to adjust the display name
 
 #### Example
 
 ```typescript
-let plural = cldr.Numbers.getPluralCardinal('1');
-let result = cldr.Numbers.getCurrencyPluralName('USD', plural);
+let result = cldr.Numbers.getCurrencyPluralName('1', 'USD');
 console.log(result);
 
-plural = cldr.Numbers.getPluralCardinal('17');
-result = cldr.Numbers.getCurrencyPluralName('USD', plural);
+result = cldr.Numbers.getCurrencyPluralName('17', 'USD');
 console.log(result);
 ```
 
@@ -356,12 +387,14 @@ Get the plural category for a cardinal number.
 #### Syntax
 
 <pre class="syntax">
-getPluralCardinal(num): string
+getPluralCardinal(num, options?): string
 </pre>
 
 #### Parameters
   - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
     - The cardinal number
+  - <code class="def">options?: <span>[DecimalAdjustOptions](api-decimaladjustoptions.html)</span></code>
+    - Options to control the decimal number adjustment.
 
 #### Example
 
@@ -395,12 +428,14 @@ Get the plural category for an ordinal number.
 #### Syntax
 
 <pre class="syntax">
-getPluralOrdinal(num): string
+getPluralOrdinal(num, options?): string
 </pre>
 
 #### Parameters
   - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
     - The cardinal number
+  - <code class="def">options?: <span>[DecimalAdjustOptions](api-decimaladjustoptions.html)</span></code>
+    - Options to control the decimal number adjustment.
 
 #### Example
 

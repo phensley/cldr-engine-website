@@ -80,6 +80,9 @@
       "api-decimal": {
         "title": "Decimal"
       },
+      "api-decimaladjustoptions": {
+        "title": "DecimalAdjustOptions"
+      },
       "api-decimalconstants": {
         "title": "DecimalConstants"
       },
