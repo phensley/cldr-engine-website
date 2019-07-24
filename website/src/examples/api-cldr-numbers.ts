@@ -91,12 +91,10 @@ const SEP = '\n--------------------------------\n\n';
 (() => {
   const cldr = framework.get('en');
 
-  let plural = cldr.Numbers.getPluralCardinal('1');
-  let result = cldr.Numbers.getCurrencyPluralName('USD', plural);
+  let result = cldr.Numbers.getCurrencyPluralName('1', 'USD');
   console.log(result);
 
-  plural = cldr.Numbers.getPluralCardinal('17');
-  result = cldr.Numbers.getCurrencyPluralName('USD', plural);
+  result = cldr.Numbers.getCurrencyPluralName('17', 'USD');
   console.log(result);
 
   console.log(SEP);

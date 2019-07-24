@@ -578,6 +578,18 @@
       "version-0.16.0/version-0.16.0-doc-locales-parsing": {
         "title": "Locale parsing"
       },
+      "version-0.17.0/version-0.17.0-api-cldr-numbers": {
+        "title": "CLDR.Numbers"
+      },
+      "version-0.17.0/version-0.17.0-api-decimaladjustoptions": {
+        "title": "DecimalAdjustOptions"
+      },
+      "version-0.17.0/version-0.17.0-doc-math-example-contd-fractions": {
+        "title": "Math: continued fractions"
+      },
+      "version-0.17.0/version-0.17.0-doc-math-example-rational-approx": {
+        "title": "Math: rational approximation"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
