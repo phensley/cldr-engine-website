@@ -3,26 +3,37 @@ import { CalendarDate, Decimal } from '@phensley/cldr';
 
 const SEP = '\n--------------------------------\n\n';
 
+// dateField
+{
+  for (const id of ['en', 'es', 'de', 'fr', 'zh']) {
+    const cldr = framework.get(id);
+    const s = cldr.Calendars.dateField('year', { context: 'begin-sentence' });
+    console.log(s);
+  }
+
+  console.log(SEP);
+}
+
 // dayPeriods
-(() => {
+{
   const en = framework.get('en');
   const p = en.Calendars.dayPeriods({ width: 'wide', context: 'begin-sentence' });
   console.log(p);
 
   console.log(SEP);
-})();
+}
 
 // eras
-(() => {
+{
   const en = framework.get('en');
   const p = en.Calendars.eras({ width: 'names' });
   console.log(p);
 
   console.log(SEP);
-})();
+}
 
 // fieldOfGreatestDifference
-(() => {
+{
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
@@ -39,10 +50,10 @@ const SEP = '\n--------------------------------\n\n';
   });
 
   console.log(SEP);
-})();
+}
 
 // formatDate
-(() => {
+{
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
@@ -53,10 +64,10 @@ const SEP = '\n--------------------------------\n\n';
   console.log(result);
 
   console.log(SEP);
-})();
+}
 
 // formatDateToParts
-(() => {
+{
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
@@ -67,10 +78,10 @@ const SEP = '\n--------------------------------\n\n';
   console.log(result);
 
   console.log(SEP);
-})();
+}
 
 // formatDateInterval
-(() => {
+{
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
@@ -86,10 +97,10 @@ const SEP = '\n--------------------------------\n\n';
   }
 
   console.log(SEP);
-})();
+}
 
 // formatDateIntervalToParts
-(() => {
+{
   const cldr = framework.get('en');
 
   // June 27, 2018 4:23:00 AM
@@ -103,7 +114,7 @@ const SEP = '\n--------------------------------\n\n';
   console.log(result);
 
   console.log(SEP);
-})();
+}
 
 
 // formatDateRaw
@@ -135,7 +146,7 @@ const SEP = '\n--------------------------------\n\n';
 }
 
 // formatRelativeTimeField
-(() => {
+{
   const cldr = framework.get('en');
   for (const value of ['-2', -1, '0', 1, 3, new Decimal('12.5')]) {
     const result = cldr.Calendars.formatRelativeTimeField(value, 'month', { });
@@ -143,10 +154,10 @@ const SEP = '\n--------------------------------\n\n';
   }
 
   console.log(SEP);
-})();
+}
 
 // months
-(() => {
+{
   const en = framework.get('en');
   const fr = framework.get('fr');
 
@@ -165,16 +176,16 @@ const SEP = '\n--------------------------------\n\n';
   console.log(`\nmonth is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
 
   console.log(SEP);
-})();
+}
 
 // quarters
-(() => {
+{
   const en = framework.get('en');
   const quarters = en.Calendars.quarters();
   console.log(quarters);
 
   console.log(SEP);
-})();
+}
 
 // resolveTimeZoneId
 {
@@ -207,25 +218,25 @@ const SEP = '\n--------------------------------\n\n';
 }
 
 // toBuddhistDate
-(() => {
+{
   const cldr = framework.get('en');
   const date = cldr.Calendars.toBuddhistDate({ date: 1530124872456, zoneId: 'America/New_York'});
   console.log(date.toString());
 
   console.log(SEP);
-})();
+}
 
 // toGregorianDate
-(() => {
+{
   const cldr = framework.get('en');
   const date = cldr.Calendars.toGregorianDate({ date: 1530124872456, zoneId: 'America/New_York' });
   console.log(date.toString());
 
   console.log(SEP);
-})();
+}
 
 // toGregorianDate
-(() => {
+{
   const cldr = framework.get('en');
   let date = new Date(2018, 1, 17, 12, 34, 56, 789);
   let gregorian = cldr.Calendars.toGregorianDate({ date, zoneId: 'America/New_York' });
@@ -236,7 +247,7 @@ const SEP = '\n--------------------------------\n\n';
   console.log(date.toString());
 
   console.log(SEP);
-})();
+}
 
 // toISO8601Date
 {
@@ -255,17 +266,17 @@ const SEP = '\n--------------------------------\n\n';
 }
 
 // toJapaneseDate
-(() => {
+{
   const cldr = framework.get('en');
   const date = cldr.Calendars.toJapaneseDate({ date: 1530124872456, zoneId: 'America/New_York'});
   console.log(date.toString());
   console.log(date.relatedYear());
   console.log(date.year());
   console.log(SEP);
-})();
+}
 
 // weekdays
-(() => {
+{
   const en = framework.get('en');
   const es = framework.get('es');
   const context = 'ui-list-or-menu';
@@ -273,4 +284,4 @@ const SEP = '\n--------------------------------\n\n';
   console.log(es.Calendars.weekdays({ context }));
 
   console.log(SEP);
-})();
+}

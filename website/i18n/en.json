@@ -59,6 +59,9 @@
       "api-currencytype": {
         "title": "CurrencyType"
       },
+      "api-datefieldformatoptions": {
+        "title": "DateFieldFormatOptions"
+      },
       "api-datefieldtype": {
         "title": "DateFieldType"
       },
@@ -160,6 +163,9 @@
       },
       "api-regionidtype": {
         "title": "RegionIdType"
+      },
+      "api-relativetimefieldtype": {
+        "title": "RelativeTimeFieldType"
       },
       "api-relativetimeformatoptions": {
         "title": "RelativeTimeFormatOptions"

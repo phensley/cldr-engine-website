@@ -11,6 +11,40 @@ The `CLDR.Calendars` namespace allows you to:
   * Obtain weekday and month names for a given calendar
   * Calculate the field of greatest difference between two dates
 
+## dateField
+
+Formats a date field's name.
+
+#### Syntax
+
+<pre class="syntax">
+dateField(type: DateFieldType, options?: DateFieldFormatOptions): string
+</pre>
+
+#### Parameters
+
+  - <code class="def">field: <span>[DateFieldType](api-datefieldtype.html)</span></code>
+    - Field indicating the field name to be formatter, e.g. `"month"`
+  - <code class="def">options?: <span>[DateFieldFormatOptions](api-datefieldformatoptions.html)</span></code>
+    - Options for field width, context, etc.
+
+#### Example
+
+```typescript
+for (const id of ['en', 'es', 'de', 'fr', 'zh']) {
+  const cldr = framework.get(id);
+  const s = cldr.Calendars.dateField('year', { context: 'begin-sentence' });
+  console.log(s);
+}
+```
+
+<pre class="output">
+Year
+Año
+Jahr
+Année
+年
+</pre>
 
 
 ## dayPeriods
@@ -373,7 +407,7 @@ formatRelativeTimeField(value, field, options?): string
 #### Parameters
   - <code class="def">value: <span>number | string | [Decimal](api-decimal.html)</span></code>
     - Number of units
-  - <code class="def">field: <span>[DateFieldType](api-datefieldtype.html)</span></code>
+  - <code class="def">field: <span>[RelativeTimeFieldType](api-relativetimefieldtype.html)</span></code>
     - Field indicating the unit of relative time, e.g. `"month"`
   - <code class="def">options?: <span>[RelativeTimeFormatOptions](api-relativetimeformatoptions.html)</span></code>
     - Options to control the format

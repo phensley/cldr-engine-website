@@ -3,7 +3,7 @@ id: api-datefieldtype
 title: DateFieldType
 ---
 
-Enumerated type identifying a date field, used in formatting relative times.
+Enumerated type identifying a date field, used in formatting names of date fields.
 
 ### Syntax
 
