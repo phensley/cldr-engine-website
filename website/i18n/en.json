@@ -596,6 +596,21 @@
       "version-0.17.0/version-0.17.0-doc-math-example-rational-approx": {
         "title": "Math: rational approximation"
       },
+      "version-0.17.4/version-0.17.4-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-0.17.4/version-0.17.4-api-datefieldformatoptions": {
+        "title": "DateFieldFormatOptions"
+      },
+      "version-0.17.4/version-0.17.4-api-datefieldtype": {
+        "title": "DateFieldType"
+      },
+      "version-0.17.4/version-0.17.4-api-dateintervalformatoptions": {
+        "title": "DateIntervalFormatOptions"
+      },
+      "version-0.17.4/version-0.17.4-api-relativetimefieldtype": {
+        "title": "RelativeTimeFieldType"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
