@@ -18,7 +18,7 @@ title: CalendarDate
 
 ## add
 
-Add or subtract a quantity from one or more calendar fields.
+Add a time period to the current date.
 
 #### Syntax
 
@@ -28,8 +28,8 @@ add(fields): CalendarDate
 
 
 #### Parameters
-  - <code class="def">fields: <span>[CalendarDateFields](api-calendardatefields.html)</span></code>
-    - Amounts to add or subtract from fields.
+  - <code class="def">fields: <span>[TimePeriod](api-timeperiod.html)</span></code>
+    - Amounts to add for each field.
 
 #### Example
 
@@ -49,6 +49,39 @@ Gregorian 2019-11-27 03:23:00.000 America/New_York
 Gregorian 2013-07-04 04:45:00.000 America/New_York
 </pre>
 
+
+
+## compare
+
+Compares two dates, returning an integer indicating the date is less than (`-1`), equal to (`0`), or greater than (`1`) the argument.
+
+
+#### Syntax
+
+<pre class="syntax">
+compare(date): number
+</pre>
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11) });
+for (const n of [-27, -13, -1, 0, 1, 20]) {
+  const end = date.add({ day: n });
+  const v = date.compare(end);
+  console.log(`${end.toString()}  ${v}`);
+}
+```
+
+<pre class="output">
+Gregorian 2019-02-12 00:00:00.000 Etc/UTC  1
+Gregorian 2019-02-26 00:00:00.000 Etc/UTC  1
+Gregorian 2019-03-10 00:00:00.000 Etc/UTC  1
+Gregorian 2019-03-11 00:00:00.000 Etc/UTC  0
+Gregorian 2019-03-12 00:00:00.000 Etc/UTC  -1
+Gregorian 2019-03-31 00:00:00.000 Etc/UTC  -1
+</pre>
 
 
 ## dayOfMonth
@@ -168,6 +201,68 @@ console.log(`${result} is the ${doy} day of ${date.year()}`);
 </pre>
 
 
+## difference
+
+Compute the difference between this date and the argument, returning a [TimePeriod](api-timeperiod.html) result.
+
+#### Syntax
+
+<pre class="syntax">
+difference(date, fields?): TimePeriod
+</pre>
+
+
+#### Parameters
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html)</span></code>
+    - Date to compute the difference from
+  - <code class="def">fields?: <span>[TimePeriodField](api-timeperiodfield.html)</span></code>
+    - Optional array of fields to compute the difference in terms of. If omitted all fields will be included.
+
+#### Return value
+  - A <code class="def"><span>[TimePeriod](api-timeperiod.html)</span></code> representing the difference between the two dates.
+
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const start = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11, 12), zoneId: 'UTC' });
+let end: CalendarDate;
+let t: TimePeriod;
+
+end = start.add({ year: 1.5, month: -1, day: 27.5, hour: 3 });
+
+const show = (t: TimePeriod) => Object.keys(t).map(k => [k, t[k]])
+  .filter(([k, v]) => v !== 0)
+  .map(([k, v]) => `${k}=${v}`)
+  .join(' ');
+
+console.log(start.toString());
+console.log(end.toString());
+
+t = start.difference(end, ['year', 'month', 'day']);
+console.log(show(t));
+
+t = start.difference(end, ['month', 'day']);
+console.log(show(t));
+
+t = start.difference(end, ['day', 'hour']);
+console.log(show(t));
+
+t = start.difference(end, ['day']);
+console.log(show(t));
+```
+
+<pre class="output">
+Gregorian 2019-03-11 12:00:00.000 Etc/UTC
+Gregorian 2020-09-07 03:00:00.000 Etc/UTC
+year=1 month=5 day=26.625
+month=17 day=26.625
+day=545 hour=15
+day=545.625
+</pre>
+
+
 ## era
 
 Ordinal number of the era in the date's calendar, e.g. 0 is BC and 1 is AD in the Gregorian calendar.
@@ -228,7 +323,7 @@ Jun 17, 50 BC
 </pre>
 
 
-## fieldOfGreatestDifference
+## fieldOfVisualDifference
 
 Compares the current date with another and returns the field of greatest difference.
 
@@ -238,7 +333,7 @@ Compares the current date with another and returns the field of greatest differe
 #### Syntax
 
 <pre class="syntax">
-fieldOfGreatestDifference(other): DateTimePatternFieldType
+fieldOfVisualDifference(other): DateTimePatternFieldType
 </pre>
 
 #### Parameters
@@ -254,7 +349,7 @@ const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 15) });
 
 const fmt = (d: CalendarDate) => cldr.Calendars.formatDate(d, { datetime: 'long' });
 const cmp = (d: CalendarDate, o: CalendarDate) => {
-  console.log(`${fmt(d)}  ~  ${fmt(o)}  => ${d.fieldOfGreatestDifference(o)}`);
+  console.log(`${fmt(d)}  ~  ${fmt(o)}  => ${d.fieldOfVisualDifference(o)}`);
 };
 
 cmp(date, date.add({ minute: 1 }));
@@ -738,6 +833,49 @@ Tuesday, May 7, 2019
  * [firstDayOfWeek](#firstdayofweek)
 
 
+## relativeTime
+
+Compute the relative time between two dates in terms of a single [TimePeriodField](api-timeperiodfield.html) field.
+
+#### Syntax
+
+<pre class="syntax">
+relativeTime(date, field?): [TimePeriodField, number]
+</pre>
+
+#### Parameters
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html)</span></code>
+    - Date to compute the relative time to
+  - <code class="def">field?: <span>[TimePeriodField](api-timeperiodfield.html)</span></code>
+    - Specify field to compute relative time in terms of. If omitted, the first non-zero field will be used (in descending order from `year` down).
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 8, 20) });
+let end: CalendarDate;
+let field: string;
+let value: number;
+
+end = date.add({ month: 2, day: 15 });
+
+[field, value] = date.relativeTime(end);
+console.log(`${value} ${field}`);
+
+[field, value] = date.relativeTime(end, 'day');
+console.log(`${value} ${field}`);
+
+[field, value] = date.relativeTime(end, 'hour');
+console.log(`${value} ${field}`);
+```
+
+<pre class="output">
+2.5 month
+76 day
+1824 hour
+</pre>
+
 
 ## second
 
@@ -764,6 +902,23 @@ console.log(date.second());
 41
 </pre>
 
+## subtract
+
+Subtract a time period from the current date.
+
+#### Syntax
+
+<pre class="syntax">
+subtract(fields): CalendarDate
+</pre>
+
+
+#### Parameters
+  - <code class="def">fields: <span>[TimePeriod](api-timeperiod.html)</span></code>
+    - Amounts to subtract from each field.
+
+#### See Also
+ * [add](#add)
 
 
 ## timeZoneId
@@ -966,6 +1121,36 @@ January 5, 2016  2016-2
 </pre>
 
 
+## withZone
+
+Returns a copy of this date with the specified time zone.
+
+#### Syntax
+
+<pre class="syntax">
+withZone(zoneId): CalendarDate
+</pre>
+
+#### Parameters
+  - <code class="def">zoneId: <span>[TimeZoneType](api-timezonetype.html)</span></code>
+    - Identifier for a time zone.
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 1) });
+
+console.log(date.toString());
+console.log(date.withZone('America/New_York').toString());
+console.log(date.withZone('Europe/Paris').toString());
+```
+
+<pre class="output">
+Gregorian 2019-05-01 00:00:00.000 Etc/UTC
+Gregorian 2019-04-30 20:00:00.000 America/New_York
+Gregorian 2019-05-01 02:00:00.000 Europe/Paris
+</pre>
 
 ## year
 

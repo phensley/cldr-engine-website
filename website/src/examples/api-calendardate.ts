@@ -1,5 +1,5 @@
 import { framework } from './helpers';
-import { CalendarDate, DateFormatOptions } from '@phensley/cldr';
+import { CalendarDate, DateFormatOptions, TimePeriod } from '@phensley/cldr';
 
 const SEP = '\n--------------------------------\n\n';
 
@@ -14,6 +14,21 @@ const SEP = '\n--------------------------------\n\n';
 
   console.log(SEP);
 })();
+
+// compare
+{
+  console.log('compare');
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11) });
+  for (const n of [-27, -13, -1, 0, 1, 20]) {
+    const end = date.add({ day: n });
+    const v = date.compare(end);
+    console.log(`${end.toString()}  ${v}`);
+  }
+
+  console.log(SEP);
+}
 
 // dayOfMonth
 {
@@ -82,6 +97,40 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 }
 
+// difference
+{
+  console.log('difference');
+
+  const cldr = framework.get('en');
+  const start = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11, 12), zoneId: 'UTC' });
+  let end: CalendarDate;
+  let t: TimePeriod;
+
+  end = start.add({ year: 1.5, month: -1, day: 27.5, hour: 3 });
+
+  const show = (t: TimePeriod) => Object.keys(t).map(k => [k, t[k]])
+    .filter(([k, v]) => v !== 0)
+    .map(([k, v]) => `${k}=${v}`)
+    .join(' ');
+
+  console.log(start.toString());
+  console.log(end.toString());
+
+  t = start.difference(end, ['year', 'month', 'day']);
+  console.log(show(t));
+
+  t = start.difference(end, ['month', 'day']);
+  console.log(show(t));
+
+  t = start.difference(end, ['day', 'hour']);
+  console.log(show(t));
+
+  t = start.difference(end, ['day']);
+  console.log(show(t));
+
+  console.log(SEP);
+}
+
 // era
 (() => {
   const cldr = framework.get('en');
@@ -113,16 +162,16 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 }
 
-// fieldOfGreatestDifference
+// fieldOfVisualDifference
 {
-  console.log('fieldOfGreatestDifference');
+  console.log('fieldOfVisualDifference');
 
   const cldr = framework.get('en');
   const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 15) });
 
   const fmt = (d: CalendarDate) => cldr.Calendars.formatDate(d, { datetime: 'long' });
   const cmp = (d: CalendarDate, o: CalendarDate) => {
-    console.log(`${fmt(d)}  ~  ${fmt(o)}  => ${d.fieldOfGreatestDifference(o)}`);
+    console.log(`${fmt(d)}  ~  ${fmt(o)}  => ${d.fieldOfVisualDifference(o)}`);
   };
 
   cmp(date, date.add({ minute: 1 }));
@@ -376,6 +425,30 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 }
 
+// relativeTime
+{
+  console.log('relativeTime');
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 8, 20) });
+  let end: CalendarDate;
+  let field: string;
+  let value: number;
+
+  end = date.add({ month: 2, day: 15 });
+
+  [field, value] = date.relativeTime(end);
+  console.log(`${value} ${field}`);
+
+  [field, value] = date.relativeTime(end, 'day');
+  console.log(`${value} ${field}`);
+
+  [field, value] = date.relativeTime(end, 'hour');
+  console.log(`${value} ${field}`);
+
+  console.log(SEP);
+}
+
 // second
 {
   console.log('second')
@@ -459,6 +532,20 @@ const SEP = '\n--------------------------------\n\n';
   for (let d = 0; d < 14; d++) {
     fmt(date.add({ day: d }));
   }
+
+  console.log(SEP);
+}
+
+// withZone
+{
+  console.log('withZone');
+
+  const cldr = framework.get('en');
+  const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 1) });
+
+  console.log(date.toString());
+  console.log(date.withZone('America/New_York').toString());
+  console.log(date.withZone('Europe/Paris').toString());
 
   console.log(SEP);
 }

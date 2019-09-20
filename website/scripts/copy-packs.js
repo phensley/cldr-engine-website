@@ -22,7 +22,7 @@ const main = () => {
   }
 
   const names = fs.readdirSync(src)
-    .filter(n => n.endsWith('.json.gz'))
+    .filter(n => n.endsWith('.json'))
     .map(n => join(src, n));
 
   if (names.length === 0) {
@@ -31,15 +31,14 @@ const main = () => {
   }
 
   names.forEach(path => {
-    const name = basename(path, '.json.gz');
+    const name = basename(path, '.json');
     const outpath = join(dst, `${name}-${PKGHASH}.json`);
     if (fs.existsSync(outpath) && newerThan(outpath, path)) {
       return;
     }
 
     console.warn(`copying ${outpath}..`);
-    const compressed = fs.readFileSync(path);
-    const raw = zlib.gunzipSync(compressed).toString('utf-8');
+    const raw = fs.readFileSync(path);
     fs.writeFileSync(outpath, raw);
   });
 };

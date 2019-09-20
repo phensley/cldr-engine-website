@@ -60,6 +60,9 @@
       "api-persiandate",
 			"api-relativetimefieldtype",
       "api-relativetimeformatoptions",
+      "api-relativetimefieldformatoptions",
+      "api-timeperiod",
+      "api=timeperiodfield",
       "api-timezoneinfo",
       "api-timezonetype",
       "api-zoneddatetime"

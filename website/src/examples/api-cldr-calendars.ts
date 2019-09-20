@@ -45,7 +45,7 @@ const SEP = '\n--------------------------------\n\n';
   factors.forEach(f => {
     const days = f * 86400 * 1000;
     const d2 = cldr.Calendars.toGregorianDate({ date: date + days, zoneId });
-    const field = cldr.Calendars.fieldOfGreatestDifference(d1, d2);
+    const field = cldr.Calendars.fieldOfVisualDifference(d1, d2);
     console.log(`${field} ->  ${d2.toString()}`);
   });
 
@@ -145,8 +145,26 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 }
 
+// formatRelativeTime
+{
+  console.log('formatRelativeTime');
+
+  const cldr = framework.get('en');
+  const start = cldr.Calendars.toGregorianDate({ date: new Date(2019, 6, 11) });
+  for (const month of [-2, -1, 0, 1, 3 ]) {
+    const end = start.add({ month });
+    const a = cldr.Calendars.formatRelativeTime(start, end);
+    const b = cldr.Calendars.formatRelativeTime(start, end, { field: 'day' });
+    console.log(`${a}  (${b})`);
+  }
+
+  console.log(SEP);
+}
+
 // formatRelativeTimeField
 {
+  console.log('formatRelativeTimeField');
+
   const cldr = framework.get('en');
   for (const value of ['-2', -1, '0', 1, 3, new Decimal('12.5')]) {
     const result = cldr.Calendars.formatRelativeTimeField(value, 'month', { });

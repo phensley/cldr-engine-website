@@ -109,14 +109,14 @@ en.Calendars.eras({ width: 'names' });
 </pre>
 
 
-## fieldOfGreatestDifference
+## fieldOfVisualDifference
 
-Computes the field of greatest different between two dates. Date arguments can be [CalendarDate](api-calendardate.html), [ZonedDateTime](api-zoneddatetime.html) instances, or a bare JavaScript `Date`.
+Computes the "first field of visual difference" between two dates. Date arguments can be [CalendarDate](api-calendardate.html), [ZonedDateTime](api-zoneddatetime.html) instances, or a bare JavaScript `Date`.
 
 #### Syntax
 
 <pre class="syntax">
-fieldOfGreatestDifference(a, b): DateTimePatternFieldType
+fieldOfVisualDifference(a, b): DateTimePatternFieldType
 </pre>
 
 #### Parameters
@@ -126,7 +126,7 @@ fieldOfGreatestDifference(a, b): DateTimePatternFieldType
     - Second date to compare
 
 #### Return value
-  - A [DateTimePatternFieldType](api-datetimepatternfieldtype.html) indicating the field with the greatest difference
+  - A [DateTimePatternFieldType](api-datetimepatternfieldtype.html) indicating the first field of visual difference
 
 #### Example
 
@@ -140,7 +140,7 @@ const factors = [0.0002, 0.005, 0.25, .75, 3, 50, 425, 1000];
 factors.forEach(f => {
   const days = f * 86400 * 1000;
   const d2 = cldr.Calendars.toGregorianDate({ date: epoch + days, zoneId });
-  const field = cldr.Calendars.fieldOfGreatestDifference(d1, d2);
+  const field = cldr.Calendars.fieldOfVisualDifference(d1, d2);
   console.log(`${field} ->  ${d2.toString()}`);
 });
 ```
@@ -394,6 +394,44 @@ console.log(p);
 </pre>
 
 
+## formatRelativeTime
+
+Formats the time period between two dates as a relative time.
+
+#### Syntax
+
+<pre class="syntax">
+formatRelativeTime(start, end, options?): string
+</pre>
+
+#### Parameters
+  - <code class="def">start: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
+    - Time period start date
+  - <code class="def">end: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
+    - Time period end date
+  - <code class="def">options?: <span>[RelativeTimeFormatOptions](api-relativetimeformatoptions.html)</span></code>
+    - Options for field width, context, etc.
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const start = cldr.Calendars.toGregorianDate({ date: new Date(2019, 6, 11) });
+for (const month of [-2, -1, 0, 1, 3 ]) {
+  const end = start.add({ month });
+  const a = cldr.Calendars.formatRelativeTime(start, end);
+  const b = cldr.Calendars.formatRelativeTime(start, end, { field: 'day' });
+  console.log(`${a}  (${b})`);
+}
+```
+
+<pre class="output">
+2 months ago  (61 days ago)
+last month  (30 days ago)
+now  (today)
+next month  (in 31 days)
+in 3 months  (in 92 days)
+</pre>
 
 ## formatRelativeTimeField
 
@@ -409,7 +447,7 @@ formatRelativeTimeField(value, field, options?): string
     - Number of units
   - <code class="def">field: <span>[RelativeTimeFieldType](api-relativetimefieldtype.html)</span></code>
     - Field indicating the unit of relative time, e.g. `"month"`
-  - <code class="def">options?: <span>[RelativeTimeFormatOptions](api-relativetimeformatoptions.html)</span></code>
+  - <code class="def">options?: <span>[RelativeTimeFieldFormatOptions](api-relativetimefieldformatoptions.html)</span></code>
     - Options to control the format
 
 #### Example

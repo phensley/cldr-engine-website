@@ -164,6 +164,9 @@
       "api-regionidtype": {
         "title": "RegionIdType"
       },
+      "api-relativetimefieldformatoptions": {
+        "title": "RelativeTimeFieldFormatOptions"
+      },
       "api-relativetimefieldtype": {
         "title": "RelativeTimeFieldType"
       },
@@ -178,6 +181,12 @@
       },
       "api-scriptidtype": {
         "title": "ScriptIdType"
+      },
+      "api-timeperiod": {
+        "title": "TimePeriod"
+      },
+      "api-timeperiodfield": {
+        "title": "TimePeriodField"
       },
       "api-timezoneinfo": {
         "title": "TimeZoneInfo"
