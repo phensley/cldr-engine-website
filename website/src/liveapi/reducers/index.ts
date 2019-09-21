@@ -1,11 +1,8 @@
-import * as icepick from 'icepick';
-import { combineReducers, Reducer } from 'redux';
-import { locale, LocaleState } from './locale';
+import { combineReducers } from 'redux';
+import { locale } from './locale';
 
-export interface State {
-  locale: LocaleState;
-}
-
-export const reducer: Reducer<State> = combineReducers<State>({
+export const reducer = combineReducers({
   locale
 });
+
+export type State = ReturnType<typeof reducer>

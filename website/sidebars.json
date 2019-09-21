@@ -62,7 +62,7 @@
       "api-relativetimeformatoptions",
       "api-relativetimefieldformatoptions",
       "api-timeperiod",
-      "api=timeperiodfield",
+      "api-timeperiodfield",
       "api-timezoneinfo",
       "api-timezonetype",
       "api-zoneddatetime"

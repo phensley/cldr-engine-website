@@ -15,7 +15,7 @@ const composeEnhancers = typeof window === 'object' &&
 export const setupStore = (state: State): SagaStore<State> => {
   const sagaMiddleware = createSagaMiddleware();
   const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
-  const store = createStore<State>(reducer, state, enhancer) as SagaStore<State>;
+  const store = createStore(reducer, state, enhancer) as SagaStore<State>;
   const { hot } = module as any;
   if (hot) {
     hot.accept('../reducers', () => {

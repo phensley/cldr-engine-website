@@ -38,7 +38,7 @@ const mapState = (s: State) => ({
   cldr: s.locale.cldr
 });
 
-const mapDispatch = (d: Dispatch<State>) => ({
+const mapDispatch = (d: Dispatch) => ({
   actions: bindActionCreators({ localeChange }, d)
 });
 
