@@ -223,6 +223,29 @@ const SEP = '\n--------------------------------\n\n';
   console.log(SEP);
 }
 
+// timePeriodToQuantity
+{
+  console.log('timePeriodToQuantity');
+
+  const en = framework.get('en');
+  const date = en.Calendars.toGregorianDate({ date: 1530124872456 });
+  const end = date.add({ year: 2, month: 5, day: 20, hour: 12 });
+  const t = date.difference(end, ['year', 'day']);
+  const q = en.Calendars.timePeriodToQuantity(t);
+
+  let s: string;
+  s = en.Units.formatQuantitySequence(q)
+  console.log(s);
+
+  s = en.Units.formatQuantitySequence(q, { length: 'short', maximumFractionDigits: 0 });
+  console.log(s);
+
+  s = en.Units.formatQuantitySequence(q, { length: 'narrow', maximumFractionDigits: 0 });
+  console.log(s);
+
+  console.log(SEP);
+}
+
 // timeZoneIds
 {
   console.log('timeZoneIds');

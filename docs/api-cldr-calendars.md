@@ -592,6 +592,50 @@ America/Indiana/Indianapolis
 Pacific/Auckland
 </pre>
 
+## timePeriodToQuantity
+
+Converts a [TimePeriod](api-timeperiod.html) into a [Quantity](api-quantity.html) sequence, suitable for [unit formatting](api-cldr-units.html#formatquantitysequence).
+
+#### Syntax
+
+<pre class="syntax">
+timePeriodToQuantity(period): Quantity[]
+</pre>
+
+#### Parameters
+  - <code class="def">date: <span>[TimePeriod](api-timeperiod.html)</span></code>
+    - Time period to convert
+
+#### Return value
+  - A [Quantity](api-quantity.html) array containing the unit and value pairs.
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+const date = en.Calendars.toGregorianDate({ date: 1530124872456 });
+const end = date.add({ year: 2, month: 5, day: 20, hour: 12 });
+const t = date.difference(end, ['year', 'day']);
+const q = en.Calendars.timePeriodToQuantity(t);
+
+let s: string;
+s = en.Units.formatQuantitySequence(q)
+console.log(s);
+
+s = en.Units.formatQuantitySequence(q, { length: 'short', maximumFractionDigits: 0 });
+console.log(s);
+
+s = en.Units.formatQuantitySequence(q, { length: 'narrow', maximumFractionDigits: 0 });
+console.log(s);
+```
+
+<pre class="output">
+2 years, 173.5 days
+2 yrs, 174 days
+2y 174d
+</pre>
+
+
 ## timeZoneIds
 
 Returns an array of timezone identifiers from the latest IANA [tzdb (timezone database)](https://www.iana.org/time-zones).
