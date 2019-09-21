@@ -620,6 +620,27 @@
       "version-0.17.4/version-0.17.4-api-relativetimefieldtype": {
         "title": "RelativeTimeFieldType"
       },
+      "version-0.18.0/version-0.18.0-api-calendardate": {
+        "title": "CalendarDate"
+      },
+      "version-0.18.0/version-0.18.0-api-calendardatefields": {
+        "title": "CalendarDateFields"
+      },
+      "version-0.18.0/version-0.18.0-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-0.18.0/version-0.18.0-api-relativetimefieldformatoptions": {
+        "title": "RelativeTimeFieldFormatOptions"
+      },
+      "version-0.18.0/version-0.18.0-api-relativetimeformatoptions": {
+        "title": "RelativeTimeFormatOptions"
+      },
+      "version-0.18.0/version-0.18.0-api-timeperiod": {
+        "title": "TimePeriod"
+      },
+      "version-0.18.0/version-0.18.0-api-timeperiodfield": {
+        "title": "TimePeriodField"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
