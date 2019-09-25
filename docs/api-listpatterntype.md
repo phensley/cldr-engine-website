@@ -13,20 +13,22 @@ title: ListPatternType
 ### Example
 
 ```typescript
-cldr.General.formatList(['one', 'two', 'three'], 'and');
+const cldr = framework.get('en');
+log(cldr.General.formatList(['one', 'two', 'three'], 'and'));
 ```
-
 <pre class="output">
 one, two, and three
 </pre>
 
-```typescript
-cldr.General.formatList(['12ft', '9in'], 'unit-short');
-```
 
+```typescript
+const cldr = framework.get('en');
+log(cldr.General.formatList(['12ft', '9in'], 'unit-short'));
+```
 <pre class="output">
 12ft, 9in
 </pre>
+
 
 
 {%refs ListPatternType}
