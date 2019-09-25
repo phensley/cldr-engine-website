@@ -26,22 +26,26 @@ object {
 
 ```typescript
 const en = framework.get('en');
-for (const info of en.Calendars.timeZoneInfo()) {
-  console.log(info);
+const ids = en.Calendars.timeZoneIds();
+for (const id of ids.slice(0, 10)) {
+  const info = en.Calendars.timeZoneInfo(id);
+  log(info);
 }
+log('...');
 ```
-
 <pre class="output">
 { id: 'Africa/Abidjan', city: { name: 'Abidjan' } }
 { id: 'Africa/Accra', city: { name: 'Accra' } }
-{ id: 'Africa/Addis_Ababa', city: { name: 'Addis Ababa' } }
 { id: 'Africa/Algiers', city: { name: 'Algiers' } }
-{ id: 'Africa/Asmera', city: { name: 'Asmara' } }
-{ id: 'Africa/Bamako', city: { name: 'Bamako' } }
-{ id: 'Africa/Bangui', city: { name: 'Bangui' } }
-{ id: 'Africa/Banjul', city: { name: 'Banjul' } }
 { id: 'Africa/Bissau', city: { name: 'Bissau' } }
+{ id: 'Africa/Cairo', city: { name: 'Cairo' } }
+{ id: 'Africa/Casablanca', city: { name: 'Casablanca' } }
+{ id: 'Africa/Ceuta', city: { name: 'Ceuta' } }
+{ id: 'Africa/El_Aaiun', city: { name: 'El Aaiun' } }
+{ id: 'Africa/Johannesburg', city: { name: 'Johannesburg' } }
+{ id: 'Africa/Juba', city: { name: 'Juba' } }
 ...
 </pre>
+
 
 {%refs TimeZoneInfo}
