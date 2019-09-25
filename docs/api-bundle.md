@@ -18,8 +18,8 @@ id(): string
 
 ```typescript
 const cldr = framework.get('fr-CA');
-const bundle = cldr.Locales.bundle();
-console.log(`${bundle.id()}`);
+const bundle = cldr.General.bundle();
+log(bundle.id());
 ```
 <pre class="output">
 fr-Latn-CA
@@ -41,8 +41,8 @@ language(): string
 
 ```typescript
 const cldr = framework.get('no');
-const bundle = cldr.Locales.bundle();
-console.log(`${bundle.language()}`);
+const bundle = cldr.General.bundle();
+log(bundle.language());
 ```
 <pre class="output">
 nb
@@ -63,9 +63,9 @@ region(): string
 #### Example
 
 ```typescript
-  const cldr = framework.get('pt');
-  const bundle = cldr.Locales.bundle();
-  console.log(`${bundle.region()}`);
+const cldr = framework.get('pt');
+const bundle = cldr.General.bundle();
+log(bundle.region());
 ```
 <pre class="output">
 BR
