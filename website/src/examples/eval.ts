@@ -57,7 +57,7 @@ const evaluate = (source: string): string[] => {
  * HTML output blocks. Evaluate the Typescript blocks and replace all
  * output blocks with the new output.
  */
-const process = (raw: string) => {
+const generate = (raw: string) => {
   const lines = raw.split('\n');
   let inscript = false;
   let inoutput = false;
@@ -143,9 +143,9 @@ const run = (argv: yargs.Arguments) => {
   }
 
   files.sort().forEach(path => {
-    console.log(`process ${path}`);
+    process.stderr.write(`process ${path}\n`);
     const raw = fs.readFileSync(path, { encoding: 'utf-8' }).toString();
-    const md = process(raw);
+    const md = generate(raw);
     if (argv.verbose) {
       console.log(md);
     }

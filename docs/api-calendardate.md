@@ -34,20 +34,22 @@ add(fields): CalendarDate
 #### Example
 
 ```typescript
+const cldr = framework.get('en');
+
 // Wed June 27 2018 4:23:00 AM UTC
 const date = cldr.Calendars.toGregorianDate({
   date: 1530087780000, zoneId: 'America/New_York' });
 
-console.log(date.toString());
-console.log(date.add({ year: 1, month: 5 }).toString());
-console.log(date.add({ year: -5, day: 7, minute: 22 }).toString());
+log(date.toString());
+log(date.add({ year: 1, month: 5 }).toString());
+log(date.add({ year: -5, day: 7, minute: 22 }).toString());
 ```
-
 <pre class="output">
 Gregorian 2018-06-27 04:23:00.000 America/New_York
 Gregorian 2019-11-27 03:23:00.000 America/New_York
 Gregorian 2013-07-04 04:45:00.000 America/New_York
 </pre>
+
 
 
 
@@ -70,10 +72,9 @@ const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11) });
 for (const n of [-27, -13, -1, 0, 1, 20]) {
   const end = date.add({ day: n });
   const v = date.compare(end);
-  console.log(`${end.toString()}  ${v}`);
+  log(`${end.toString()}  ${v}`);
 }
 ```
-
 <pre class="output">
 Gregorian 2019-02-12 00:00:00.000 Etc/UTC  1
 Gregorian 2019-02-26 00:00:00.000 Etc/UTC  1
@@ -82,6 +83,7 @@ Gregorian 2019-03-11 00:00:00.000 Etc/UTC  0
 Gregorian 2019-03-12 00:00:00.000 Etc/UTC  -1
 Gregorian 2019-03-31 00:00:00.000 Etc/UTC  -1
 </pre>
+
 
 
 ## dayOfMonth
@@ -100,18 +102,18 @@ dayOfMonth(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11) });
 
-console.log(cldr.Calendars.formatDate(date, { date: 'full' }));
-console.log(date.dayOfMonth());
-console.log(date.add({ day: 3 }).dayOfMonth());
-console.log(date.add({ week: 1 }).dayOfMonth());
+log(cldr.Calendars.formatDate(date, { date: 'full' }));
+log(date.dayOfMonth());
+log(date.add({ day: 3 }).dayOfMonth());
+log(date.add({ week: 1 }).dayOfMonth());
 ```
-
 <pre class="output">
 Monday, March 11, 2019
 11
 14
 18
 </pre>
+
 
 
 
@@ -133,18 +135,18 @@ const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11) });
 const weekdays = cldr.Calendars.weekdays({ width: 'wide' });
 
-console.log(cldr.Calendars.formatDate(date, { date: 'full' }));
-console.log(weekdays[date.dayOfWeek()]);
-console.log(weekdays[date.add({ day: 1 }).dayOfWeek()]);
-console.log(weekdays[date.add({ day: 5 }).dayOfWeek()]);
+log(cldr.Calendars.formatDate(date, { date: 'full' }));
+log(weekdays[date.dayOfWeek()]);
+log(weekdays[date.add({ day: 1 }).dayOfWeek()]);
+log(weekdays[date.add({ day: 5 }).dayOfWeek()]);
 ```
-
 <pre class="output">
 Monday, March 11, 2019
 Monday
 Tuesday
 Saturday
 </pre>
+
 
 
 
@@ -174,12 +176,12 @@ const month = months[date.month()];
 const year = date.year();
 const dayinmonth = date.dayOfWeekInMonth();
 
-console.log(`the ${day}${ord(day)} is the ${dayinmonth}${ord(dayinmonth)} ${weekday} in ${month}, ${year}`);
+log(`the ${day}${ord(day)} is the ${dayinmonth}${ord(dayinmonth)} ${weekday} in ${month}, ${year}`);
 ```
-
 <pre class="output">
 the 11th is the 2nd Sunday in August, 2019
 </pre>
+
 
 ## dayOfYear
 
@@ -193,12 +195,12 @@ const zoneId = 'America/New_York';
 const date = cldr.Calendars.toGregorianDate({ date: 1565550489000, zoneId });
 const result = cldr.Calendars.formatDate(date, { date: 'short' });
 const doy = date.dayOfYear();
-console.log(`${result} is the ${doy} day of ${date.year()}`);
+log(`${result} is the ${doy} day of ${date.year()}`);
 ```
-
 <pre class="output">
 8/11/19 is the 223 day of 2019
 </pre>
+
 
 
 ## difference
@@ -237,22 +239,21 @@ const show = (t: TimePeriod) => Object.keys(t).map(k => [k, t[k]])
   .map(([k, v]) => `${k}=${v}`)
   .join(' ');
 
-console.log(start.toString());
-console.log(end.toString());
+log(start.toString());
+log(end.toString());
 
 t = start.difference(end, ['year', 'month', 'day']);
-console.log(show(t));
+log(show(t));
 
 t = start.difference(end, ['month', 'day']);
-console.log(show(t));
+log(show(t));
 
 t = start.difference(end, ['day', 'hour']);
-console.log(show(t));
+log(show(t));
 
 t = start.difference(end, ['day']);
-console.log(show(t));
+log(show(t));
 ```
-
 <pre class="output">
 Gregorian 2019-03-11 12:00:00.000 Etc/UTC
 Gregorian 2020-09-07 03:00:00.000 Etc/UTC
@@ -261,6 +262,7 @@ month=17 day=26.625
 day=545 hour=15
 day=545.625
 </pre>
+
 
 
 ## era
@@ -277,22 +279,21 @@ era(): number
 
 ```typescript
 const cldr = framework.get('en');
-const zoneId = 'America/New_York';
 const eras = cldr.Calendars.eras({ width: 'names' });
 
-let date = cldr.Calendars.toGregorianDate({ date: -66222222200000, zoneId });
+let date = cldr.Calendars.toGregorianDate({ date: -66222255838000 });
 let s = cldr.Calendars.formatDate(date, { date: 'full' });
-console.log(`${s} era is ${eras[date.era()]}`);
+log(`${s} era is ${eras[date.era()]}`);
 
 date = date.add({ year: 2100 });
 s = cldr.Calendars.formatDate(date, { date: 'full' });
-console.log(`${s} era is ${eras[date.era()]}`);
+log(`${s} era is ${eras[date.era()]}`);
 ```
-
 <pre class="output">
 Sunday, July 5, 130 era is Before Christ
 Monday, July 5, 1971 era is Anno Domini
 </pre>
+
 
 
 
@@ -313,14 +314,14 @@ extendedYear(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(-49, 5, 15) });
 
-console.log(cldr.Calendars.formatDate(date, { skeleton: 'GyMMMd' }));
-console.log(date.extendedYear());
+log(cldr.Calendars.formatDate(date, { skeleton: 'GyMMMd' }));
+log(date.extendedYear());
 ```
-
 <pre class="output">
 Jun 17, 50 BC
 -49
 </pre>
+
 
 
 ## fieldOfVisualDifference
@@ -349,7 +350,7 @@ const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 15) });
 
 const fmt = (d: CalendarDate) => cldr.Calendars.formatDate(d, { datetime: 'long' });
 const cmp = (d: CalendarDate, o: CalendarDate) => {
-  console.log(`${fmt(d)}  ~  ${fmt(o)}  => ${d.fieldOfVisualDifference(o)}`);
+  log(`${fmt(d)}  ~  ${fmt(o)}  => ${d.fieldOfVisualDifference(o)}`);
 };
 
 cmp(date, date.add({ minute: 1 }));
@@ -358,7 +359,6 @@ cmp(date, date.add({ day: 9 }));
 cmp(date, date.add({ month: 7 }));
 cmp(date, date.add({ year: 23 }));
 ```
-
 <pre class="output">
 May 15, 2019 at 12:00:00 AM GMT  ~  May 15, 2019 at 12:01:00 AM GMT  => m
 May 15, 2019 at 12:00:00 AM GMT  ~  May 15, 2019 at 3:00:00 AM GMT  => H
@@ -366,6 +366,7 @@ May 15, 2019 at 12:00:00 AM GMT  ~  May 24, 2019 at 12:00:00 AM GMT  => d
 May 15, 2019 at 12:00:00 AM GMT  ~  December 15, 2019 at 12:00:00 AM GMT  => M
 May 15, 2019 at 12:00:00 AM GMT  ~  May 15, 2042 at 12:00:00 AM GMT  => y
 </pre>
+
 
 
 ## firstDayOfWeek
@@ -387,14 +388,14 @@ const endate = us.Calendars.toGregorianDate({ date: new Date(-49, 5, 15) });
 const frdate = fr.Calendars.toGregorianDate(endate);
 const weekdays = us.Calendars.weekdays({ width: 'wide' });
 
-console.log(`en-US first day of week: ${weekdays[endate.firstDayOfWeek()]}`);
-console.log(`fr-FR first day of week: ${weekdays[frdate.firstDayOfWeek()]}`);
+log(`en-US first day of week: ${weekdays[endate.firstDayOfWeek()]}`);
+log(`fr-FR first day of week: ${weekdays[frdate.firstDayOfWeek()]}`);
 ```
-
 <pre class="output">
 en-US first day of week: Sunday
 fr-FR first day of week: Monday
 </pre>
+
 
 
 ## hour
@@ -414,14 +415,14 @@ hour(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 10, 20) });
 
-console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
-console.log(date.hour());
+log(cldr.Calendars.formatDate(date, { time: 'long' }));
+log(date.hour());
 ```
-
 <pre class="output">
 12:10:20 PM GMT
 0
 </pre>
+
 
 
 ## hourOfDay
@@ -440,14 +441,14 @@ hourOfDay(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 10, 20) });
 
-console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
-console.log(date.hourOfDay());
+log(cldr.Calendars.formatDate(date, { time: 'long' }));
+log(date.hourOfDay());
 ```
-
 <pre class="output">
 12:10:20 PM GMT
 12
 </pre>
+
 
 
 
@@ -469,7 +470,7 @@ const zoneId = 'America/New_York';
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 0, 10, 12, 0, 0), zoneId });
 
 const dst = (d: CalendarDate) =>
-  console.log(
+  log(
     `${cldr.Calendars.formatDate(d, { datetime: 'long' })} ` +
     `daylight savings: ${d.isDaylightSavings()}`);
 
@@ -477,12 +478,12 @@ dst(date);
 dst(date.add({ day: 58 }));
 dst(date.add({ day: 61 }));
 ```
-
 <pre class="output">
 January 10, 2019 at 7:00:00 AM EST daylight savings: false
 March 9, 2019 at 7:00:00 AM EST daylight savings: false
 March 12, 2019 at 8:00:00 AM EDT daylight savings: true
 </pre>
+
 
 
 ## isAM
@@ -503,7 +504,7 @@ const zoneId = 'America/New_York';
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 0, 10, 13, 0, 0), zoneId });
 
 const isam = (d: CalendarDate) =>
-  console.log(
+  log(
     `${cldr.Calendars.formatDate(d, { datetime: 'long' })} ` +
     `is AM: ${d.isAM()}`);
 
@@ -512,12 +513,12 @@ isam(date);
 isam(date.add({ minute: 239 }));
 isam(date.add({ minute: 241 }));
 ```
-
 <pre class="output">
 January 10, 2019 at 8:00:00 AM EST is AM: true
 January 10, 2019 at 11:59:00 AM EST is AM: true
 January 10, 2019 at 12:01:00 PM EST is AM: false
 </pre>
+
 
 
 ## isLeapYear
@@ -537,7 +538,7 @@ const zoneId = 'America/New_York';
 const date = cldr.Calendars.toGregorianDate({ date: new Date(1895, 0, 10, 13, 0, 0), zoneId });
 
 const isleap = (d: CalendarDate) =>
-  console.log(
+  log(
     `${cldr.Calendars.formatDate(d, { skeleton: 'y' })} ` +
     `is leap year ${d.isLeapYear()}`);
 
@@ -545,7 +546,6 @@ for (let y = 0; y < 11; y++) {
   isleap(date.add({ year: y }));
 }
 ```
-
 <pre class="output">
 1895 is leap year false
 1896 is leap year true
@@ -559,6 +559,7 @@ for (let y = 0; y < 11; y++) {
 1904 is leap year true
 1905 is leap year false
 </pre>
+
 
 
 
@@ -581,16 +582,16 @@ julianDay(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(1970, 0, 1 )});
 
-console.log(date.julianDay());
-console.log(date.add({ year: -10 }).julianDay());
-console.log(date.add({ year: -100 }).julianDay());
+log(date.julianDay());
+log(date.add({ year: -10 }).julianDay());
+log(date.add({ year: -100 }).julianDay());
 ```
-
 <pre class="output">
 2440587.5
 2436934.5
 2404063.5
 </pre>
+
 
 
 ## metaZoneId
@@ -610,12 +611,12 @@ const cldr = framework.get('en');
 const zoneId = 'America/New_York';
 const date = cldr.Calendars.toGregorianDate({ date: new Date(1990, 0, 1), zoneId });
 
-console.log(date.metaZoneId());
+log(date.metaZoneId());
 ```
-
 <pre class="output">
 America_Eastern
 </pre>
+
 
 
 
@@ -634,12 +635,12 @@ milliseconds(): number
 ```typescript
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: 1560602096987 });
-console.log(date.milliseconds());
+log(date.milliseconds());
 ```
-
 <pre class="output">
 987
 </pre>
+
 
 
 
@@ -661,18 +662,18 @@ const zoneId = 'America/New_York';
 let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 10, 6, 59, 59), zoneId });
 
 const fmt = (d: CalendarDate) =>
-  console.log(`${cldr.Calendars.formatDate(d, { datetime: 'long' })}  ${d.millisecondsInDay()}`);
+  log(`${cldr.Calendars.formatDate(d, { datetime: 'long' })}  ${d.millisecondsInDay()}`);
 
 fmt(date);
 fmt(date.add({ minute: 1 }));
 fmt(date.add({ minute: 2 }));
 ```
-
 <pre class="output">
 March 10, 2019 at 1:59:59 AM EST  7199000
 March 10, 2019 at 3:00:59 AM EDT  10859000
 March 10, 2019 at 3:01:59 AM EDT  10919000
 </pre>
+
 
 
 
@@ -692,16 +693,16 @@ minDaysInFirstWeek(): number
 const cldr = framework.get('en');
 
 let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 5, 1) });
-console.log(date.minDaysInFirstWeek());
+log(date.minDaysInFirstWeek());
 
 date = cldr.Calendars.toISO8601Date(date);
-console.log(date.minDaysInFirstWeek());
+log(date.minDaysInFirstWeek());
 ```
-
 <pre class="output">
 1
 4
 </pre>
+
 
 
 
@@ -721,14 +722,14 @@ minute(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
 
-console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
-console.log(date.minute());
+log(cldr.Calendars.formatDate(date, { time: 'long' }));
+log(date.minute());
 ```
-
 <pre class="output">
 12:27:41 PM GMT
 27
 </pre>
+
 
 
 ## modifiedJulianDay
@@ -750,16 +751,16 @@ modifiedJulianDay(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(1970, 0, 1 )});
 
-console.log(date.modifiedJulianDay());
-console.log(date.add({ year: -10 }).modifiedJulianDay());
-console.log(date.add({ year: -100 }).modifiedJulianDay());
+log(date.modifiedJulianDay());
+log(date.add({ year: -10 }).modifiedJulianDay());
+log(date.add({ year: -100 }).modifiedJulianDay());
 ```
-
 <pre class="output">
 2440588
 2436935
 2404064
 </pre>
+
 
 
 ## month
@@ -778,14 +779,14 @@ month(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10) });
 
-console.log(cldr.Calendars.formatDate(date, { date: 'long' }));
-console.log(date.month());
+log(cldr.Calendars.formatDate(date, { date: 'long' }));
+log(date.month());
 ```
-
 <pre class="output">
 May 10, 2019
 5
 </pre>
+
 
 
 
@@ -810,22 +811,22 @@ const usdate = us.Calendars.toGregorianDate({ date: new Date(2019, 4, 7 )});
 const frdate = fr.Calendars.toGregorianDate(usdate);
 let cat: string;
 
-console.log(us.Calendars.formatDate(usdate));
+log(us.Calendars.formatDate(usdate));
 
 let day = frdate.ordinalDayOfWeek();
 cat = us.Numbers.getPluralOrdinal(day);
-console.log(` .. in fr-FR is the ${day}${suffixes[cat]} day of the week`);
+log(` .. in fr-FR is the ${day}${suffixes[cat]} day of the week`);
 
 day = usdate.ordinalDayOfWeek();
 cat = us.Numbers.getPluralOrdinal(day);
-console.log(` .. in en-US is the ${day}${suffixes[cat]} day of the week`);
+log(` .. in en-US is the ${day}${suffixes[cat]} day of the week`);
 ```
-
 <pre class="output">
 Tuesday, May 7, 2019
  .. in fr-FR is the 2nd day of the week
  .. in en-US is the 3rd day of the week
 </pre>
+
 
 
 
@@ -861,20 +862,20 @@ let value: number;
 end = date.add({ month: 2, day: 15 });
 
 [field, value] = date.relativeTime(end);
-console.log(`${value} ${field}`);
+log(`${value} ${field}`);
 
 [field, value] = date.relativeTime(end, 'day');
-console.log(`${value} ${field}`);
+log(`${value} ${field}`);
 
 [field, value] = date.relativeTime(end, 'hour');
-console.log(`${value} ${field}`);
+log(`${value} ${field}`);
 ```
-
 <pre class="output">
 2.5 month
 76 day
 1824 hour
 </pre>
+
 
 
 ## second
@@ -893,14 +894,14 @@ second(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
 
-console.log(cldr.Calendars.formatDate(date, { time: 'long' }));
-console.log(date.second());
+log(cldr.Calendars.formatDate(date, { time: 'long' }));
+log(date.second());
 ```
-
 <pre class="output">
 12:27:41 PM GMT
 41
 </pre>
+
 
 ## subtract
 
@@ -938,16 +939,16 @@ const cldr = framework.get('en');
 const zoneId = 'America/New_York';
 
 let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
-console.log(date.timeZoneId());
+log(date.timeZoneId());
 
 date = cldr.Calendars.toGregorianDate({ date: date.unixEpoch(), zoneId });
-console.log(date.timeZoneId());
+log(date.timeZoneId());
 ```
-
 <pre class="output">
 Etc/UTC
 America/New_York
 </pre>
+
 
 
 ## timeZoneOffset
@@ -968,15 +969,15 @@ const epoch = new Date(2019, 4, 10, 12, 27, 41);
 for (const zoneId of [undefined, 'America/New_York', 'Europe/Zurich']) {
   const date = cldr.Calendars.toGregorianDate({ date: epoch, zoneId });
   const s = cldr.Calendars.formatDate(date, { datetime: 'full' });
-  console.log(`${s} has offset ${date.timeZoneOffset()}`);
+  log(`${s} has offset ${date.timeZoneOffset()}`);
 }
 ```
-
 <pre class="output">
 Friday, May 10, 2019 at 12:27:41 PM Greenwich Mean Time has offset 0
 Friday, May 10, 2019 at 8:27:41 AM Eastern Daylight Time has offset -14400000
 Friday, May 10, 2019 at 2:27:41 PM Central European Summer Time has offset 7200000
 </pre>
+
 
 
 ## type
@@ -998,16 +999,16 @@ type(): CalendarType
 const cldr = framework.get('en');
 
 let date = cldr.Calendars.toGregorianDate({ date: new Date() });
-console.log(date.type());
+log(date.type());
 
 date = cldr.Calendars.toJapaneseDate(date);
-console.log(date.type());
+log(date.type());
 ```
-
 <pre class="output">
 gregory
 japanese
 </pre>
+
 
 
 
@@ -1026,12 +1027,12 @@ unixEpoch(): number
 ```typescript
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: 1560602096987 });
-console.log(date.unixEpoch());
+log(date.unixEpoch());
 ```
-
 <pre class="output">
 1560602096987
 </pre>
+
 
 
 ## weekOfMonth
@@ -1051,13 +1052,12 @@ const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 1) });
 
 const fmt = (d: CalendarDate) =>
-  console.log(`${cldr.Calendars.formatDate(d, { date: 'long' })} is in week ${d.weekOfMonth()}`);
+  log(`${cldr.Calendars.formatDate(d, { date: 'long' })} is in week ${d.weekOfMonth()}`);
 
 for (let d = 0; d < 14; d++) {
   fmt(date.add({ day: d }));
 }
 ```
-
 <pre class="output">
 May 1, 2019 is in week 1
 May 2, 2019 is in week 1
@@ -1074,6 +1074,7 @@ May 12, 2019 is in week 3
 May 13, 2019 is in week 3
 May 14, 2019 is in week 3
 </pre>
+
 
 
 ## weekOfYear
@@ -1100,10 +1101,9 @@ const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), 
 for (let d = 0; d < 13; d++) {
   const date = base.add({ day: d });
   const str = `${cldr.Calendars.formatDate(date, opt)}`;
-  console.log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
+  log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
 }
 ```
-
 <pre class="output">
 December 24, 2015  2015-52
 December 25, 2015  2015-52
@@ -1119,6 +1119,7 @@ January 3, 2016  2016-2
 January 4, 2016  2016-2
 January 5, 2016  2016-2
 </pre>
+
 
 
 ## withZone
@@ -1141,16 +1142,16 @@ withZone(zoneId): CalendarDate
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 1) });
 
-console.log(date.toString());
-console.log(date.withZone('America/New_York').toString());
-console.log(date.withZone('Europe/Paris').toString());
+log(date.toString());
+log(date.withZone('America/New_York').toString());
+log(date.withZone('Europe/Paris').toString());
 ```
-
 <pre class="output">
 Gregorian 2019-05-01 00:00:00.000 Etc/UTC
 Gregorian 2019-04-30 20:00:00.000 America/New_York
 Gregorian 2019-05-01 02:00:00.000 Europe/Paris
 </pre>
+
 
 ## year
 
@@ -1168,14 +1169,14 @@ year(): number
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 15) });
 
-console.log(cldr.Calendars.formatDate(date, { date: 'long' }));
-console.log(date.year());
+log(cldr.Calendars.formatDate(date, { date: 'long' }));
+log(date.year());
 ```
-
 <pre class="output">
 March 15, 2019
 2019
 </pre>
+
 
 ## yearOfWeekofYear
 
@@ -1199,10 +1200,9 @@ const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), 
 for (let d = 0; d < 13; d++) {
   const date = base.add({ day: d });
   const str = `${cldr.Calendars.formatDate(date, opt)}`;
-  console.log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
+  log(`${str}  ${date.yearOfWeekOfYear()}-${date.weekOfYear()}`);
 }
 ```
-
 <pre class="output">
 December 24, 2015  2015-52
 December 25, 2015  2015-52
@@ -1218,5 +1218,6 @@ January 3, 2016  2016-2
 January 4, 2016  2016-2
 January 5, 2016  2016-2
 </pre>
+
 
 {%refs CalendarDate}
