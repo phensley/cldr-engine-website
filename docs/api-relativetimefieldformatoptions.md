@@ -23,7 +23,7 @@ object {
 
 ### Defaults
 
-```typescript
+```javascript
 {
   context: 'middle-of-text'
 }
@@ -35,10 +35,9 @@ object {
 const cldr = framework.get('en');
 const opts: RelativeTimeFieldFormatOptions = { width: 'wide' };
 for (const n of [-5, -2, -1, 0, 1, 2, 5]) {
-  console.log(cldr.Calendars.formatRelativeTimeField(n, 'day', opts));
+  log(cldr.Calendars.formatRelativeTimeField(n, 'day', opts));
 }
 ```
-
 <pre class="output">
 5 days ago
 2 days ago
@@ -48,5 +47,6 @@ tomorrow
 in 2 days
 in 5 days
 </pre>
+
 
 {%refs RelativeTimeFieldFormatOptions}
