@@ -54,7 +54,7 @@ object {
 
 ### Defaults
 
-```typescript
+<pre class="syntax">
 {
   style: 'symbol',
   group: true,
@@ -62,7 +62,7 @@ object {
   cash: false,
   symbolWidth: 'default'
 }
-```
+</pre>
 
 * Integer and fraction option defaults are determined by the selected number pattern.
 * Options for significant digits default to `undefined`.
@@ -71,47 +71,50 @@ object {
 ### Examples
 
 ```typescript
-cldr.Numbers.formatCurrency('12345.6789', 'EUR', { group: true });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatCurrency('12345.6789', 'EUR'));
 ```
-
 <pre class="output">
 €12,345.68
 </pre>
 
+
 Using a compact style with an explicit fixed divisor.
 
 ```typescript
+const cldr = framework.get('en');
 const opts = { style: 'short', divisor: 1000 };
-cldr.Numbers.formatCurrency('100', 'USD', opts);
-cldr.Numbers.formatCurrency('1234567', 'USD', opts);
+log(cldr.Numbers.formatCurrency('100', 'USD', opts));
+log(cldr.Numbers.formatCurrency('1234567', 'USD', opts));
 ```
-
 <pre class="output">
 $0.1K
 $1,235K
 </pre>
+
 
 The `cash` option activates rounding to the smallest cash unit available for the given currency. For example, if the penny were eliminated in the United States, the nickel (`$0.05`) would become the smallest cash unit available. See [the CLDR currency data](https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/currencyData.json) for the most recent list.
 
 Note: the `round` rounding mode still takes effect; only the rounding increment is changed.
 
 ```typescript
+const cldr = framework.get('en');
 const opts = { cash: true };
 
 // The smallest cash unit for the Danish Krone is 0.50
-cldr.Numbers.formatCurrency('345.67', 'DKK', opts);
-cldr.Numbers.formatCurrency('345.76', 'DKK', opts);
+log(cldr.Numbers.formatCurrency('345.67', 'DKK', opts));
+log(cldr.Numbers.formatCurrency('345.76', 'DKK', opts));
 
 // The smallest cash unit for the Canadian Dollar is 0.05
-cldr.Numbers.formatCurrency('345.67', 'CAD', opts);
-cldr.Numbers.formatCurrency('345.76', 'CAD', opts);
+log(cldr.Numbers.formatCurrency('345.67', 'CAD', opts));
+log(cldr.Numbers.formatCurrency('345.76', 'CAD', opts));
 ```
-
 <pre class="output">
 DKK 345.50
 DKK 346.00
 CA$345.65
 CA$345.75
 </pre>
+
 
 {%refs CurrencyFormatOptions}
