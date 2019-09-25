@@ -22,14 +22,15 @@ Indicates which format style to use when formatting currencies.
   - `"short"`
     - Compact form, using as few digits as needed, and indicating order of magnitude. In en-US K=thousands, M=millions, etc.
 
-### Example
+### Examples
 
 ```typescript
+const cldr = framework.get('en');
 const nums = ['1.25', '-3456.789', '999900.00', '-12345678.00'];
-nums.map(n =>
-  cldr.Numbers.formatCurrency(n, 'USD', { style: 'symbol' })).join('\n');
+for (const n of nums) {
+  log(cldr.Numbers.formatCurrency(n, 'USD', { style: 'symbol' }));
+}
 ```
-
 <pre class="output">
 $1.25
 -$3,456.79
@@ -37,10 +38,14 @@ $999,900.00
 -$12,345,678.00
 </pre>
 
-```typescript
-.. { style: 'symbol', group: false })).join('\n');
-```
 
+```typescript
+const cldr = framework.get('en');
+const nums = ['1.25', '-3456.789', '999900.00', '-12345678.00'];
+for (const n of nums) {
+  log(cldr.Numbers.formatCurrency(n, 'USD', { style: 'symbol', group: false }));
+}
+```
 <pre class="output">
 $1.25
 -$3456.79
@@ -49,10 +54,14 @@ $999900.00
 </pre>
 
 
-```typescript
-.. { style: 'accounting' }
-```
 
+```typescript
+const cldr = framework.get('en');
+const nums = ['1.25', '-3456.789', '999900.00', '-12345678.00'];
+for (const n of nums) {
+  log(cldr.Numbers.formatCurrency(n, 'USD', { style: 'accounting' }));
+}
+```
 <pre class="output">
 $1.25
 ($3,456.79)
@@ -60,10 +69,14 @@ $999,900.00
 ($12,345,678.00)
 </pre>
 
-```typescript
-.. { style: 'code' }
-```
 
+```typescript
+const cldr = framework.get('en');
+const nums = ['1.25', '-3456.789', '999900.00', '-12345678.00'];
+for (const n of nums) {
+  log(cldr.Numbers.formatCurrency(n, 'USD', { style: 'code' }));
+}
+```
 <pre class="output">
 1.25 USD
 -3,456.79 USD
@@ -71,10 +84,14 @@ $999,900.00
 -12,345,678.00 USD
 </pre>
 
-```typescript
-.. { style: 'name' }
-```
 
+```typescript
+const cldr = framework.get('en');
+const nums = ['1.25', '-3456.789', '999900.00', '-12345678.00'];
+for (const n of nums) {
+  log(cldr.Numbers.formatCurrency(n, 'USD', { style: 'name' }));
+}
+```
 <pre class="output">
 1.25 US dollars
 -3,456.79 US dollars
@@ -82,10 +99,14 @@ $999,900.00
 -12,345,678.00 US dollars
 </pre>
 
-```typescript
-.. { style: 'name', maximumFractionDigits: 0 }
-```
 
+```typescript
+const cldr = framework.get('en');
+const nums = ['1.25', '-3456.789', '999900.00', '-12345678.00'];
+for (const n of nums) {
+  log(cldr.Numbers.formatCurrency(n, 'USD', { style: 'name', maximumFractionDigits: 0 }));
+}
+```
 <pre class="output">
 1 US dollar
 -3,457 US dollars
@@ -93,15 +114,20 @@ $999,900.00
 -12,345,678 US dollars
 </pre>
 
-```typescript
-.. { style: 'short' }
-```
 
+```typescript
+const cldr = framework.get('en');
+const nums = ['1.25', '-3456.789', '999900.00', '-12345678.00'];
+for (const n of nums) {
+  log(cldr.Numbers.formatCurrency(n, 'USD', { style: 'short' }));
+}
+```
 <pre class="output">
 $1.2
 -$3.5K
 $1M
 -$12M
 </pre>
+
 
 {%refs CurrencyFormatStyleType}
