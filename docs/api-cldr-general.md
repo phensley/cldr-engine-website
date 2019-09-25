@@ -19,16 +19,16 @@ bundle(): Bundle
 for (const locale of ['en', 'fr', 'ja', 'ar']) {
   const cldr = framework.get(locale);
   const b = cldr.General.bundle();
-  console.log(`${b.id()}  ${b.language()}  ${b.region()}`);
+  log(`${b.id()}  ${b.language()}  ${b.region()}`);
 }
 ```
-
 <pre class="output">
 en-Latn-US  en  US
 fr-Latn-FR  fr  FR
 ja-Jpan-JP  ja  JP
 ar-Arab-EG  ar  EG
 </pre>
+
 
 
 ## characterOrder
@@ -80,16 +80,16 @@ locale(): Locale
 for (const locale of ['en', 'fr', 'ja', 'ar']) {
   const cldr = framework.get(locale);
   const { tag } = cldr.General.locale();
-  console.log(tag.expanded());
+  log(tag.expanded());
 }
 ```
-
 <pre class="output">
 en-Latn-US
 fr-Latn-FR
 ja-Jpan-JP
 ar-Arab-EG
 </pre>
+
 
 
 ## formatList
@@ -111,23 +111,15 @@ formatList(items, type?): string
 #### Example
 
 ```typescript
+const cldr = framework.get('en');
 const items = ['one', 'two', 'three', 'four', 'five'];
-cldr.General.formatList(items.slice(0, 2), 'and');
+log(cldr.General.formatList(items.slice(0, 2), 'and'));
+log(cldr.General.formatList(items, 'or'));
 ```
-
 <pre class="output">
 one and two
-</pre>
-
-```typescript
-cldr.General.formatList(items, 'or');
-```
-
-<pre class="output">
 one, two, three, four, or five
 </pre>
-
-
 
 ## formatListToParts
 
@@ -148,25 +140,16 @@ formatList(items, type?): Part[]
 #### Example
 
 ```typescript
+const cldr = framework.get('en');
 const items = ['one', 'two', 'three', 'four', 'five'];
-cldr.General.formatListToParts(items.slice(0, 2), 'and');
+log(cldr.General.formatListToParts(items.slice(0, 2), 'and'));
+log(cldr.General.formatListToParts(items, 'or'));
 ```
-
 <pre class="output">
-[
-  { type: 'item', value: 'one' },
+[ { type: 'item', value: 'one' },
   { type: 'literal', value: ' and ' },
-  { type: 'item', value: 'two' }
-]
-</pre>
-
-```typescript
-cldr.General.formatListToParts(items, 'or');
-```
-
-<pre class="output">
-[
-  { type: 'item', value: 'one' },
+  { type: 'item', value: 'two' } ]
+[ { type: 'item', value: 'one' },
   { type: 'literal', value: ', ' },
   { type: 'item', value: 'two' },
   { type: 'literal', value: ', ' },
@@ -174,8 +157,7 @@ cldr.General.formatListToParts(items, 'or');
   { type: 'literal', value: ', ' },
   { type: 'item', value: 'four' },
   { type: 'literal', value: ', or ' },
-  { type: 'item', value: 'five' }
-]
+  { type: 'item', value: 'five' } ]
 </pre>
 
 
@@ -200,16 +182,11 @@ getLanguageDisplayName(languageId, options?): string
 
 ```typescript
 const en = framework.get('en');
-en.General.getScriptDisplayName('fr');
+log(en.General.getLanguageDisplayName('fr'));
+log(en.General.getLanguageDisplayName('ko'));
 ```
 <pre class="output">
 French
-</pre>
-
-```typescript
-en.General.getScriptDisplayName('ko');
-```
-<pre class="output">
 Korean
 </pre>
 
@@ -239,7 +216,7 @@ const ids: RegionIdType[] = ['US', 'CA', 'BE', 'ZA'];
 for (const id of ids) {
   const a = en.General.getRegionDisplayName(id);
   const b = fr.General.getRegionDisplayName(id);
-  console.log(`en=${a} fr=${b}`);
+  log(`en=${a} fr=${b}`);
 }
 ```
 <pre class="output">
@@ -270,27 +247,17 @@ getScriptDisplayName(scriptId, options?): string
 
 ```typescript
 const en = framework.get('en');
-en.General.getScriptDisplayName('Latn');
+log(en.General.getScriptDisplayName('Latn'));
+log(en.General.getScriptDisplayName('Egyp'));
+
+const de = framework.get('de');
+log(de.General.getScriptDisplayName('Latn'));
 ```
 <pre class="output">
 Latin
-</pre>
-
-```typescript
-en.General.getScriptDisplayName('Egyp');
-```
-<pre class="output">
 Egyptian hieroglyphs
-</pre>
-
-```typescript
-const de = framework.get('de');
-de.General.getScriptDisplayName('Latn');
-```
-<pre class="output">
 Lateinisch
 </pre>
-
 
 
 ## measurementSystem
@@ -313,15 +280,15 @@ measurementSystem(category?: MeasurementCategory): MeasurementSystem
 #### Example
 
 ```typescript
-let cldr = framework.get('es-PR');
-cldr.General.measurementSystem();
-cldr.General.measurementSystem('temperature');
+const cldr = framework.get('es-PR');
+log(cldr.General.measurementSystem());
+log(cldr.General.measurementSystem('temperature'));
 ```
-
 <pre class="output">
 metric
 us
 </pre>
+
 
 
 ## parseLanguageTag
@@ -341,14 +308,15 @@ parseLanguageTag(tag: string): LanguageTag
 #### Example
 
 ```typescript
-cldr.General.parseLanguageTag('fr-AU').expanded();
-cldr.General.parseLanguageTag('en').expanded();
+const cldr = framework.get('en');
+log(cldr.General.parseLanguageTag('fr-AU').expanded());
+log(cldr.General.parseLanguageTag('en').expanded());
 ```
-
 <pre class="output">
 fr-Zzzz-AU
-en-Zzzz-US
+en-Zzzz-ZZ
 </pre>
+
 
 
 ## resolveLocale
@@ -373,6 +341,7 @@ resolveLocale(tag): Locale
 #### Example
 
 ```typescript
+const cldr = framework.get('en');
 const ids = [
   'en_CA',
   'ko',
@@ -382,10 +351,9 @@ const ids = [
 ];
 for (const id of ids) {
   const { tag } = cldr.General.resolveLocale(id);
-  console.log(`${tag.language()}  ${tag.script()}  ${tag.region()}`);
+  log(`${tag.language()}  ${tag.script()}  ${tag.region()}`);
 }
 ```
-
 <pre class="output">
 en  Latn  CA
 ko  Kore  KR
@@ -393,3 +361,4 @@ ru  Cyrl  RU
 fr  Latn  FR
 zh  Hans  CN
 </pre>
+
