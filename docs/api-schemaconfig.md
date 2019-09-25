@@ -29,7 +29,6 @@ Of course if your project provides the CLDR transitively to other applications, 
 
 #### Syntax
 
-
 ```typescript
 export interface SchemaConfig {
   /**
