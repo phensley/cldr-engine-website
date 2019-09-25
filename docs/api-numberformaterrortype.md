@@ -12,22 +12,33 @@ title: NumberFormatErrorType
 ### Example
 
 ```typescript
-cldr.Numbers.formatDecimal(NaN);
-cldr.Numbers.formatDecimal(Infinity);
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal(NaN));
+log(cldr.Numbers.formatDecimal(Infinity));
 ```
 <pre class="output">
-nan
+NaN
 ∞
 </pre>
 
 ```typescript
-cldr.Numbers.formatDecimal(NaN, { errors: ['nan'] });
-cldr.Numbers.formatDecimal(Infinity, { errors: ['infinity'] });
-```
+const cldr = framework.get('en');
+try {
+  cldr.Numbers.formatDecimal(NaN, { errors: ['nan'] });
+} catch (e) {
+  log(e.toString());
+}
 
+try {
+  cldr.Numbers.formatDecimal(Infinity, { errors: ['infinity'] });
+} catch (e) {
+  log(e.toString());
+}
+```
 <pre class="output">
-&lt;Error: Invalid argument: NaN&gt;
-&lt;Error: Invalid argument: Infinity&gt;
+Error: Invalid argument: NaN
+Error: Invalid argument: Infinity
 </pre>
+
 
 {%refs NumberFormatErrorType}
