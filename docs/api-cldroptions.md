@@ -7,14 +7,14 @@ Options to configure a [CLDRFramework](api-cldrframework.html) instance.
 
 #### Syntax
 
-```typescript
+<pre class="syntax">
 object {
   loader?,
   asyncLoader?,
   packCacheSize?,
   patternCacheSize?
 }
-```
+</pre>
 
 #### Properties
   - <code class="def">loader?: <span>(language: string) => string | object</span></code>
@@ -38,33 +38,41 @@ If `CLDROptions` is imported via the `@phensley/cldr-core` package, additional p
 
 **Asynchronous loader**
 
-```typescript
-import { ungzip } from 'pako';
-import { CLDROptions } from '@phensley/cldr';
+```javascript
+import { CLDRFramework, LocaleMatcher } from "@phensley/cldr";
+import pkg from "./package.json";
 
+// Get exact version of @phensley/cldr dependency
+const version = pkg.dependencies["@phensley/cldr"];
+
+const packurl = `https://cdn.jsdelivr.net/npm/@phensley/cldr@${version}/packs`;
+
+// Fetch the language resource pack for this version.
 const asyncLoader = language =>
-  fetch(`https://unpkg.com/@phensley/cldr@${version}/packs/${language}.json.gz`)
-    .then(r => r.arrayBuffer())
-    .then(b => JSON.parse(ungzip(b, { to: "string" })))
+  fetch(`${packurl}/${language}.json`)
+    .then(r => r.json())
     .catch(err => console.log(err));
 
-const options: CLDROptions = { asyncLoader };
+export const framework = new CLDRFramework({ asyncLoader });
 ```
 
 **Synchronous loader, 3 resource packs cached**
+
 ```typescript
 import * as fs from 'fs';
 import { join } from 'path';
 import * as zlib from 'zlib';
 
+import { CLDRFramework, LocaleMatcher } from "@phensley/cldr";
+
 // Construct path to compressed resource bundles on disk
-const packPath = (language: string) => join(__dirname, 'packs', `${language}.json.gz`);
+const packPath = (language: string) => join(__dirname,
+  '../../node_modules/@phensley/cldr/packs', `${language}.json`);
 
 // Synchronous loader
 const loader = (language: string): any => {
   const path = packPath(language);
-  const compressed = fs.readFileSync(path);
-  return zlib.gunzipSync(compressed).toString('utf-8');
+  return fs.readFileSync(path).toString('utf-8');
 };
 
 const options: CLDROptions = {
