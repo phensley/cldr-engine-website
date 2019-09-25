@@ -49,6 +49,7 @@ object {
 ### Example
 
 ```typescript
+const cldr = framework.get('en');
 const qty: Quantity = { value: '17', unit: 'inch' };
 const opts: UnitFormatOptions[] = [
   { length: 'long' },
@@ -57,7 +58,7 @@ const opts: UnitFormatOptions[] = [
 ];
 for (const opt of opts) {
   const result = cldr.Units.formatQuantity(qty, opt);
-  console.log(result);
+  log(result);
 }
 ```
 <pre class="output">
