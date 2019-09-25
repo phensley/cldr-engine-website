@@ -26,22 +26,23 @@ object {
 ### Example
 
 ```typescript
+const cldr = framework.get('en');
 let qty: Quantity = { value: '123.57399', unit: 'meter-per-second' };
-cldr.Units.formatQuantity(qty, { length: 'narrow' });
+log(cldr.Units.formatQuantity(qty, { length: 'narrow' }));
 
 qty = { value: '17.9887', unit: 'terabit', per: 'minute' };
-cldr.Units.formatQuantity(qty);
-cldr.Units.formatQuantity(qrt, { length: 'narrow' });
+log(cldr.Units.formatQuantity(qty));
+log(cldr.Units.formatQuantity(qty, { length: 'narrow' }));
 
 qty = { value: '30.7899', unit: 'kilogram', per: 'lux' };
-cldr.Units.formatQuantity(qty);
+log(cldr.Units.formatQuantity(qty));
 ```
-
 <pre class="output">
 123.574m/s
 17.989 terabits per minute
 17.989Tb/min
 30.79 kilograms per lux
 </pre>
+
 
 {%refs Quantity}
