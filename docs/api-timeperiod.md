@@ -53,13 +53,14 @@ const deltas: TimePeriod[] = [
 
 const base = { date: new Date(2018, 6, 1, 14, 15, 16), zoneId };
 const date = cldr.Calendars.toGregorianDate(base);
-console.log(cldr.Calendars.formatDate(date, opts));
+log(cldr.Calendars.formatDate(date, opts));
 for (const delta of deltas) {
   const result = cldr.Calendars.formatDate(date.add(delta), opts);
-  console.log(`\n${inspect(delta)}\n${result}`);
+  log();
+  log(delta);
+  log(result);
 }
 ```
-
 <pre class="output">
 July 1, 2018 at 10:15:16 AM EDT
 &nbsp;
@@ -72,5 +73,6 @@ July 18, 2023 at 5:15:16 AM EDT
 { year: -10, month: 2 }
 September 1, 2008 at 10:15:16 AM EDT
 </pre>
+
 
 {%refs TimePeriod}
