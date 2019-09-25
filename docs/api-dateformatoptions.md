@@ -38,12 +38,12 @@ object {
 
 ### Defaults
 
-```typescript
+<pre class="syntax">
 {
   date: 'full',
   context: 'middle-of-text'
 }
-```
+</pre>
 
 * Numbering system default is determined by the locale.
 * Calendar system default is determined by the locale.
@@ -51,63 +51,38 @@ object {
 ### Example
 
 ```typescript
+let cldr = framework.get('en');
 const date = 1530087780000;
 const zoneId = 'America/New_York';
-const opts: DateFormatOptions = { skeleton: 'yMMMEEEEdhm' };
-cldr.Calendars.formatDate({ date, zoneId }, opts);
-```
+let opts: DateFormatOptions;
 
+opts = { skeleton: 'yMMMEEEEdhm' };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+
+opts = { time: 'long' };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+
+opts = { date: 'short' };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+
+opts = { datetime: 'full', ca: 'japanese' };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+
+cldr = framework.get('ar');
+opts = { datetime: 'full' };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+
+cldr = framework.get('en-u-ca-buddhist');
+opts = { date: 'full' };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+```
 <pre class="output">
 Wednesday, Jun 27, 2018, 4:23 AM
-</pre>
-
-```typescript
-const opts: DateFormatOptions = { time: 'long' };
-cldr.Calendars.formatDate({ date, zoneId }, opts);
-```
-
-<pre class="output">
 4:23:00 AM EDT
-</pre>
-
-```typescript
-const opts: DateFormatOptions = { date: 'short' };
-cldr.Calendars.formatDate({ date, zoneId }, opts);
-```
-
-<pre class="output">
 6/27/18
-</pre>
-
-```typescript
-const opts: DateFormatOptions = { datetime: 'full', ca: 'japanese' };
-cldr.Calendars.formatDate({ date, zoneId }, opts);
-```
-
-<pre class="output">
 Wednesday, June 27, 30 Heisei at 4:23:00 AM Eastern Daylight Time
-</pre>
-
-```typescript
-const cldr = framework.get('ar');
-const opts: DateFormatOptions = { datetime: 'full' };
-cldr.Calendars.formatDate({ date, zoneId }, opts);
-```
-
-<pre class="output">
 الأربعاء، ٢٧ يونيو ٢٠١٨ ٤:٢٣:٠٠ ص التوقيت الصيفي الشرقي لأمريكا الشمالية
-</pre>
-
-
-```typescript
-const cldr = framework.get('en-u-ca-buddhist');
-const opts: DateFormatOptions = { date: 'full' };
-cldr.Calendars.formatDate({ date, zoneId }, opts);
-```
-
-<pre class="output">
 Wednesday, June 27, 2561 BE
 </pre>
-
 
 {%refs DateFormatOptions}
