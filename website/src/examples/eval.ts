@@ -27,12 +27,14 @@ const evaluate = (source: string): string[] => {
     exports: {},
     require,
     framework,
+    __dirname,
     log: (...args: any[]) => lines.push(args.map(convert)),
   };
 
   const js = ts.transpileModule(source, {
     compilerOptions: {
       module: ts.ModuleKind.CommonJS,
+      target: ts.ScriptTarget.ES5
     }
   });
 
