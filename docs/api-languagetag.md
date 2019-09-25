@@ -43,15 +43,16 @@ new LanguageTag(
 #### Example
 
 ```typescript
+import { LanguageTag } from '@phensley/cldr';
 const tag = new LanguageTag(undefined, 'Latn', undefined);
-console.log(tag.compact());
-console.log(tag.expanded());
+log(tag.compact());
+log(tag.expanded());
 ```
-
 <pre class="output">
 und-Latn
 und-Latn-ZZ
 </pre>
+
 
 ## compact
 
@@ -66,13 +67,14 @@ compact(): string
 #### Example
 
 ```typescript
+import { LanguageTag } from '@phensley/cldr';
 const tag = new LanguageTag(undefined, undefined, 'US');
-console.log(tag.compact());
+log(tag.compact());
 ```
-
 <pre class="output">
 und-US
 </pre>
+
 
 
 ## expanded
@@ -88,13 +90,14 @@ expanded(): string
 #### Example
 
 ```typescript
+import { LanguageTag } from '@phensley/cldr';
 const tag = new LanguageTag(undefined, undefined, 'US');
-console.log(tag.expanded());
+log(tag.expanded());
 ```
-
 <pre class="output">
 und-Zzzz-US
 </pre>
+
 
 
 ## extensions
@@ -110,15 +113,16 @@ extensions(): { [x: string]: string[] }
 #### Example
 
 ```typescript
+import { LanguageTag } from '@phensley/cldr';
 const tag = new LanguageTag('en', '', 'US', '', { u: ['ca-gregory'] });
-console.log(tag.expanded());
-console.log(tag.extensions());
+log(tag.expanded());
+log(tag.extensions());
 ```
-
 <pre class="output">
 en-Zzzz-US-u-ca-gregory
 { u: [ 'ca-gregory' ] }
 </pre>
+
 
 
 ## hasLanguage
@@ -134,21 +138,22 @@ hasLanguage(): boolean
 #### Example
 
 ```typescript
+import { LanguageTag } from '@phensley/cldr';
 let tag = new LanguageTag('und');
-console.log(tag.hasLanguage());
+log(tag.hasLanguage());
 
 tag = new LanguageTag();
-console.log(tag.hasLanguage());
+log(tag.hasLanguage());
 
 tag = new LanguageTag('zh');
-console.log(tag.hasLanguage());
+log(tag.hasLanguage());
 ```
-
 <pre class="output">
 false
 false
 true
 </pre>
+
 
 
 ## hasRegion
@@ -184,17 +189,18 @@ language(): string
 #### Example
 
 ```typescript
+import { LanguageTag } from '@phensley/cldr';
 let tag = new LanguageTag();
-console.log(tag.language());
+log(tag.language());
 
 tag = new LanguageTag('en');
-console.log(tag.language());
+log(tag.language());
 ```
-
 <pre class="output">
 und
 en
 </pre>
+
 
 ## privateUse
 
@@ -209,15 +215,16 @@ privateUse(): string
 #### Example
 
 ```typescript
+import { LanguageTag } from '@phensley/cldr';
 const tag = new LanguageTag('en', 'Latn', 'US', undefined, undefined, 'x-nothing');
-console.log(tag.expanded());
-console.log(tag.privateUse());
+log(tag.expanded());
+log(tag.privateUse());
 ```
-
 <pre class="output">
 en-Latn-US-x-nothing
 x-nothing
 </pre>
+
 
 ## region
 
@@ -232,17 +239,18 @@ region(): string
 #### Example
 
 ```typescript
+import { LanguageTag } from '@phensley/cldr';
 let tag = new LanguageTag('en', 'Latn');
-console.log(tag.region());
+log(tag.region());
 
 tag = new LanguageTag('en', 'Latn', 'US');
-console.log(tag.region());
+log(tag.region());
 ```
-
 <pre class="output">
 ZZ
 US
 </pre>
+
 
 ## script
 
@@ -257,17 +265,18 @@ script(): string
 #### Example
 
 ```typescript
+import { LanguageTag } from '@phensley/cldr';
 let tag = new LanguageTag('en');
-console.log(tag.script());
+log(tag.script());
 
 tag = new LanguageTag('en', 'latn');
-console.log(tag.script());
+log(tag.script());
 ```
-
 <pre class="output">
 Zzzz
 Latn
 </pre>
+
 
 
 ## toString
