@@ -50,7 +50,7 @@ object {
 
 ### Defaults
 
-```typescript
+```javascript
 {
   style: 'decimal',
   group: true,
@@ -66,24 +66,26 @@ object {
 ### Examples
 
 ```typescript
-cldr.Numbers.formatDecimal('12345.6789', { group: true });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('12345.6789', { group: true }));
 ```
-
 <pre class="output">
 12,345.679
 </pre>
 
+
 Using a compact style with an explicit fixed divisor.
 
 ```typescript
+const cldr = framework.get('en');
 const opts = { style: 'long', divisor: 1000 };
-cldr.Numbers.formatDecimal('100', opts);
-cldr.Numbers.formatDecimal('1234567', opts);
+log(cldr.Numbers.formatDecimal('100', opts));
+log(cldr.Numbers.formatDecimal('1234567', opts));
 ```
-
 <pre class="output">
 0.1 thousand
 1,235 thousand
 </pre>
+
 
 {%refs DecimalFormatOptions}
