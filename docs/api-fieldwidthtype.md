@@ -13,10 +13,10 @@ title: FieldWidthType
 
 ```typescript
 const cldr = framework.get('en');
-console.log(cldr.Calendars.weekdays({ width: 'wide' }));
-console.log(cldr.Calendars.weekdays({ width: 'abbreviated' }));
-console.log(cldr.Calendars.weekdays({ width: 'short' }));
-console.log(cldr.Calendars.weekdays({ width: 'narrow' }));
+log(cldr.Calendars.weekdays({ width: 'wide' }));
+log(cldr.Calendars.weekdays({ width: 'abbreviated' }));
+log(cldr.Calendars.weekdays({ width: 'short' }));
+log(cldr.Calendars.weekdays({ width: 'narrow' }));
 ```
 
 <pre class="output">
