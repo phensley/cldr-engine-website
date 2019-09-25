@@ -24,6 +24,8 @@ const OUTPUT_END = '</pre>';
 const evaluate = (source: string): string[] => {
   const lines: any[] = [];
   const sandbox = {
+    exports: {},
+    require,
     framework,
     log: (...args: any[]) => lines.push(args.map(convert)),
   };
