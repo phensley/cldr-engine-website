@@ -49,7 +49,7 @@ object {
 
 ### Defaults
 
-```typescript
+```javascript
 {
   context: 'middle-of-text'
 }
@@ -60,15 +60,14 @@ object {
 ```typescript
 const cldr = framework.get('en');
 const opts: RelativeTimeFormatOptions = { width: 'wide' };
-const start = cldr.Calendars.toGregorianDate(new Date(2019, 6, 11));
+const start = cldr.Calendars.toGregorianDate({ date: new Date(2019, 6, 11) });
 for (const n of [-5, -2, -1, 0, 1, 2, 5]) {
   const end = start.add({ month: n });
   let a = cldr.Calendars.formatRelativeTime(start, end, opts);
   let b = cldr.Calendars.formatRelativeTime(start, end, { field: 'day', ...opts });
-  console.log(`${a}  (${b})`);
+  log(`${a}  (${b})`);
 }
 ```
-
 <pre class="output">
 5 months ago  (150 days ago)
 2 months ago  (61 days ago)
@@ -78,5 +77,6 @@ next month  (in 31 days)
 in 2 months  (in 62 days)
 in 5 months  (in 153 days)
 </pre>
+
 
 {%refs RelativeTimeFormatOptions}
