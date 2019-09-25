@@ -13,13 +13,13 @@ title: MeasurementSystem
 
 ```typescript
 const cldr = framework.get('und-GB');
-cldr.General.measurementSystem();
-cldr.General.measurementSystem('temperature');
+log(cldr.General.measurementSystem());
+log(cldr.General.measurementSystem('temperature'));
 ```
-
 <pre class="output">
 uk
 metric
 </pre>
+
 
 {%refs MeasurementSystem}
