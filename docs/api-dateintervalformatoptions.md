@@ -28,7 +28,7 @@ object {
 
 ### Defaults
 
-```typescript
+```javascript
 {
   skeleton: 'yMd',
   context: 'middle-of-text'
@@ -41,6 +41,8 @@ object {
 ### Example
 
 ```typescript
+const cldr = framework.get('en');
+
 // June 27, 2018 4:23:00 AM
 const epoch = 1530087780000;
 const zoneId = 'America/New_York';
@@ -53,12 +55,11 @@ for (const locale of ['en', 'de', 'zh']) {
   for (const days of [1.2, 3, 17, 73, 1000]) {
     const end = { date: epoch + (days * day), zoneId };
     const result = cldr.Calendars.formatDateInterval(start, end, { skeleton: 'yMMMMd' });
-    console.log(`${locale}  ${result}`);
+    log(`${locale}  ${result}`);
   }
-  console.log();
+  log();
 }
 ```
-
 <pre class="output">
 en  June 27 – 28, 2018
 en  June 27 – 30, 2018
@@ -77,6 +78,8 @@ zh  2018年6月27日至30日
 zh  2018年6月27日至7月14日
 zh  2018年6月27日至9月8日
 zh  2018年6月27日至2021年3月23日
+&nbsp;
 </pre>
+
 
 {%refs DateIntervalFormatOptions}

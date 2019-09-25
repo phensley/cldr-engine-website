@@ -38,12 +38,12 @@ object {
 
 ### Defaults
 
-<pre class="syntax">
+```javascript
 {
   date: 'full',
   context: 'middle-of-text'
 }
-</pre>
+```
 
 * Numbering system default is determined by the locale.
 * Calendar system default is determined by the locale.

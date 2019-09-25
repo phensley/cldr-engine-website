@@ -34,18 +34,19 @@ for (const locale of locales) {
     cldr.Calendars.formatDate({ date, zoneId },
       { context: 'standalone', skeleton });
 
-  console.log(`Locale: ${locale}\n`);
+  log(`Locale: ${locale}`);
+  log();
+
   for (const skeleton of skeletons) {
     const res = format(skeleton);
-    console.log(`${pad(skeleton)}  ${res}`);
+    log(`${pad(skeleton)}  ${res}`);
   }
-  console.log();
+  log();
 }
 ```
-
-```text
+<pre class="output">
 Locale: en
-
+&nbsp;
          y  2018
         yM  6/2018
        yMM  06/2018
@@ -65,9 +66,9 @@ Locale: en
       Hmsz  04:23:00 EDT
    Hmszzzz  04:23:00 Eastern Daylight Time
   yMMMMEdB  Wed, June 27, 2018 at 4 at night
-
+&nbsp;
 Locale: de
-
+&nbsp;
          y  2018
         yM  6.2018
        yMM  06.2018
@@ -87,9 +88,9 @@ Locale: de
       Hmsz  04:23:00 GMT-4
    Hmszzzz  04:23:00 Nordamerikanische Ostküsten-Sommerzeit
   yMMMMEdB  Mi., 27. Juni 2018 um 4 nachts
-
+&nbsp;
 Locale: es
-
+&nbsp;
          y  2018
         yM  6/2018
        yMM  06/2018
@@ -109,6 +110,8 @@ Locale: es
       Hmsz  4:23:00 GMT-4
    Hmszzzz  4:23:00 hora de verano oriental
   yMMMMEdB  Mié., 27 de junio de 2018, 4 de la madrugada
-```
+&nbsp;
+</pre>
+
 
 {%refs DateSkeleton}

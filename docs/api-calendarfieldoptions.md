@@ -24,7 +24,7 @@ object {
 
 ### Defaults
 
-```typescript
+```javascript
 {
   width: 'wide',
   context: 'middle-of-text'

@@ -54,7 +54,7 @@ object {
 
 ### Defaults
 
-<pre class="syntax">
+```javascript
 {
   style: 'symbol',
   group: true,
@@ -62,7 +62,7 @@ object {
   cash: false,
   symbolWidth: 'default'
 }
-</pre>
+```
 
 * Integer and fraction option defaults are determined by the selected number pattern.
 * Options for significant digits default to `undefined`.

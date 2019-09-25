@@ -3,6 +3,10 @@ id: api-daterawformatoptions
 title: DateRawFormatOptions
 ---
 
+Format a date directly using a raw format.
+
+**WARNING:** For date formatting, consider this this only as last resort. Try [formatDate](api-cldr-calendars#formatdate) with a skeleton.
+
 ### Syntax
 
 <pre class="syntax">
@@ -27,7 +31,7 @@ object {
 
 ### Defaults
 
-```typescript
+```javascript
 {
   pattern: ''
 }
@@ -39,16 +43,17 @@ object {
 ### Example
 
 ```typescript
+const cldr = framework.get('en');
 // June 27, 2018 4:23:00 AM
 const date = 1530087780000;
 const zoneId = 'America/New_York';
 
 const s = cldr.Calendars.formatDateRaw({ date, zoneId }, { pattern: 'EEE MMM y, d' });
-console.log(s);
+log(s);
 ```
-
 <pre class="output">
 Wed Jun 2018, 27
 </pre>
+
 
 {%refs DateRawFormatOptions}
