@@ -12,6 +12,7 @@
       "doc-locales-matching"
     ],
     "Calendars": [
+      "doc-calendar-overview",
       "doc-calendar-examples"
     ],
     "Math": [

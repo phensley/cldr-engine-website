@@ -212,6 +212,9 @@
       "doc-calendar-examples": {
         "title": "Example: date formatting"
       },
+      "doc-calendar-overview": {
+        "title": "Calendar Overview"
+      },
       "doc-design-bundles": {
         "title": "Resource bundles"
       },

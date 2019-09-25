@@ -32,6 +32,8 @@ const siteConfig = {
     baseFont: ['Source Sans Pro', 'Segoe UI', 'Helvetica Neue', 'sans-serif']
   },
   copyright: 'Copyright © ' + new Date().getFullYear() +' Patrick Hensley',
+  enableUpdateTime: true,
+  cleanUrl: true,
   stylesheets: [
     'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300italic'
   ],

@@ -838,6 +838,15 @@ Japanese 2018-06-27 14:41:12.456 America/New_York
 
 ## toPersianDate
 
+Converts a date to a [PersianDate](api-persiandate.html) instance.
+
+<pre class="syntax">
+toPersianDate(date): PersianDate
+</pre>
+
+#### Parameters
+  - <code class="def">date: <span>[CalendarDate](api-calendardate.html) | [ZonedDateTime](api-zoneddatetime.html) | Date</span></code>
+    - Date or timestamp to convert
 
 
 ## weekdays
