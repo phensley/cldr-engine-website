@@ -31,74 +31,83 @@ Indicates which format style to use when formatting decimal numbers.
 ### Example
 
 ```typescript
-cldr.Numbers.formatDecimal('123456.6789', { style: 'decimal' });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('123456.6789', { style: 'decimal' }));
 ```
-
 <pre class="output">
 123,456.679
 </pre>
 
-```typescript
-cldr.Numbers.formatDecimal('123456.6789', { style: 'decimal', group: false });
-```
 
+```typescript
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('123456.6789', { style: 'decimal', group: false }));
+```
 <pre class="output">
 123456.679
 </pre>
 
-```typescript
-cldr.Numbers.formatDecimal('123456.6789', { style: 'short' });
-```
 
+```typescript
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('123456.6789', { style: 'short' }));
+```
 <pre class="output">
 123K
 </pre>
 
-```typescript
-cldr.Numbers.formatDecimal('123456.6789', { style: 'long' });
-```
 
+```typescript
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('123456.6789', { style: 'long' }));
+```
 <pre class="output">
 123 thousand
 </pre>
 
+
 ```typescript
-cldr.Numbers.formatDecimal('12.3456', { style: 'percent' });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('12.3456', { style: 'percent' }));
 ```
 <pre class="output">
 1,235%
 </pre>
 
 ```typescript
-cldr.Numbers.formatDecimal('12.3456', { style: 'percent-scaled' });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('12.3456', { style: 'percent-scaled' }));
 ```
 <pre class="output">
 12%
 </pre>
 
 ```typescript
-cldr.Numbers.formatDecimal('12.3456', { style: 'permille' });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('12.3456', { style: 'permille' }));
 ```
 <pre class="output">
 12,346‰
 </pre>
 
 ```typescript
-cldr.Numbers.formatDecimal('12.3456', { style: 'permille-scaled' });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('12.3456', { style: 'permille-scaled' }));
 ```
 <pre class="output">
 12‰
 </pre>
 
 ```typescript
-cldr.Numbers.formatDecimal('1234.56789', { style: 'scientific', minimumSignificantDigits: 4 });
-cldr.Numbers.formatDecimal('0.0000098765', { style: 'scientific', minimumSignificantDigits: 4 });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('1234.56789', { style: 'scientific', minimumSignificantDigits: 4 }));
+log(cldr.Numbers.formatDecimal('0.0000098765', { style: 'scientific', minimumSignificantDigits: 4 }));
 ```
-
 <pre class="output">
 1.235E+3
 9.876E-6
 </pre>
+
 
 
 {%refs DecimalFormatStyleType}
