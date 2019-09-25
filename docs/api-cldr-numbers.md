@@ -28,14 +28,15 @@ adjustDecimal(num, options?): Decimal
 #### Examples
 
 ```typescript
-cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0 }).toString();
-cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0, round: 'down' }).toString();
+const cldr = framework.get('en');
+log(cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0 }));
+log(cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0, round: 'down' }));
 ```
-
 <pre class="output">
 2
 1
 </pre>
+
 
 
 ## formatCurrency
@@ -62,48 +63,51 @@ formatCurrency(num, code, options?): string
 #### Example
 
 ```typescript
-cldr.Numbers.formatCurrency('12345.6789', 'EUR', { group: true });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatCurrency('12345.6789', 'EUR'));
 ```
-
 <pre class="output">
 €12,345.68
 </pre>
 
+
 Using a compact style with an explicit fixed divisor.
 
 ```typescript
+const cldr = framework.get('en');
 const opts = { style: 'short', divisor: 1000 };
-cldr.Numbers.formatCurrency('100', 'USD', opts);
-cldr.Numbers.formatCurrency('1234567', 'USD', opts);
+log(cldr.Numbers.formatCurrency('100', 'USD', opts));
+log(cldr.Numbers.formatCurrency('1234567', 'USD', opts));
 ```
-
 <pre class="output">
 $0.1K
 $1,235K
 </pre>
+
 
 The `cash` option activates rounding to the smallest cash unit available for the given currency. For example, if the penny were eliminated in the United States, the nickel (`$0.05`) would become the smallest cash unit available. See [the CLDR currency data](https://github.com/unicode-cldr/cldr-core/blob/master/supplemental/currencyData.json) for the most recent list.
 
 Note: the `round` rounding mode still takes effect; only the rounding increment is changed.
 
 ```typescript
+const cldr = framework.get('en');
 const opts = { cash: true };
 
 // The smallest cash unit for the Danish Krone is 0.50
-cldr.Numbers.formatCurrency('345.67', 'DKK', opts);
-cldr.Numbers.formatCurrency('345.76', 'DKK', opts);
+log(cldr.Numbers.formatCurrency('345.67', 'DKK', opts));
+log(cldr.Numbers.formatCurrency('345.76', 'DKK', opts));
 
 // The smallest cash unit for the Canadian Dollar is 0.05
-cldr.Numbers.formatCurrency('345.67', 'CAD', opts);
-cldr.Numbers.formatCurrency('345.76', 'CAD', opts);
+log(cldr.Numbers.formatCurrency('345.67', 'CAD', opts));
+log(cldr.Numbers.formatCurrency('345.76', 'CAD', opts));
 ```
-
 <pre class="output">
 DKK 345.50
 DKK 346.00
 CA$345.65
 CA$345.75
 </pre>
+
 
 ## formatCurrencyToParts
 
@@ -129,19 +133,18 @@ formatCurrencyToParts(num, code, options?): Part[]
 #### Example
 
 ```typescript
-cldr.Numbers.formatCurrencyToParts('12345.6789', 'EUR', { group: true });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatCurrencyToParts('12345.6789', 'EUR'));
 ```
-
 <pre class="output">
-[
-  { type: 'currency', value: '€' },
+[ { type: 'currency', value: '€' },
   { type: 'integer', value: '12' },
   { type: 'group', value: ',' },
   { type: 'integer', value: '345' },
   { type: 'decimal', value: '.' },
-  { type: 'fraction', value: '68' }
-]
+  { type: 'fraction', value: '68' } ]
 </pre>
+
 
 ## formatDecimal
 
@@ -165,25 +168,27 @@ formatDecimal(num, options?): string
 #### Example
 
 ```typescript
-cldr.Numbers.formatDecimal('12345.6789', { group: true });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimal('12345.6789', { group: true }));
 ```
-
 <pre class="output">
 12,345.679
 </pre>
 
+
 Using a compact style with an explicit fixed divisor.
 
 ```typescript
+const cldr = framework.get('en');
 const opts = { style: 'long', divisor: 1000 };
-cldr.Numbers.formatDecimal('100', opts);
-cldr.Numbers.formatDecimal('1234567', opts);
+log(cldr.Numbers.formatDecimal('100', opts));
+log(cldr.Numbers.formatDecimal('1234567', opts));
 ```
-
 <pre class="output">
 0.1 thousand
 1,235 thousand
 </pre>
+
 
 ## formatDecimalToParts
 
@@ -207,18 +212,17 @@ formatDecimalToParts(num, options?): Part[]
 #### Example
 
 ```typescript
-cldr.Numbers.formatDecimalToParts('12345.6789', { group: true });
+const cldr = framework.get('en');
+log(cldr.Numbers.formatDecimalToParts('12345.6789', { group: true }));
 ```
-
 <pre class="output">
-[
-  { type: 'integer', value: '12' },
+[ { type: 'integer', value: '12' },
   { type: 'group', value: ',' },
   { type: 'integer', value: '345' },
   { type: 'decimal', value: '.' },
-  { type: 'fraction', value: '679' }
-]
+  { type: 'fraction', value: '679' } ]
 </pre>
+
 
 
 ## getCurrencySymbol
@@ -241,12 +245,13 @@ getCurrencySymbol(code, width?): string
 #### Example
 
 ```typescript
-cldr.Numbers.getCurrencySymbol('GBP');
+const cldr = framework.get('en');
+log(cldr.Numbers.getCurrencySymbol('GBP'));
 ```
-
 <pre class="output">
 £
 </pre>
+
 
 
 
@@ -269,12 +274,13 @@ getCurrencyDisplayName(code, options?): string
 #### Example
 
 ```typescript
-cldr.Numbers.getCurrencyDisplayName('MXN');
+const cldr = framework.get('en');
+log(cldr.Numbers.getCurrencyDisplayName('MXN'));
 ```
-
 <pre class="output">
 Mexican Peso
 </pre>
+
 
 
 ## getCurrencyPluralName
@@ -298,17 +304,15 @@ getCurrencyPluralName(num, code, options?): string
 #### Example
 
 ```typescript
-let result = cldr.Numbers.getCurrencyPluralName('1', 'USD');
-console.log(result);
-
-result = cldr.Numbers.getCurrencyPluralName('17', 'USD');
-console.log(result);
+const cldr = framework.get('en');
+log(cldr.Numbers.getCurrencyPluralName('1', 'USD'));
+log(cldr.Numbers.getCurrencyPluralName('17', 'USD'));
 ```
-
 <pre class="output">
 US dollar
 US dollars
 </pre>
+
 
 
 ## getCurrencyFractions
@@ -332,18 +336,15 @@ getCurrencyFractions(code): CurrencyFractions
 #### Example
 
 ```typescript
-let fractions = cldr.Numbers.getCurrencyFractions('USD');
-console.log(fractions);
-
-fractions = cldr.Numbers.getCurrencyFractions('JPY');
-console.log(fractions);
-
+const cldr = framework.get('en');
+log(cldr.Numbers.getCurrencyFractions('USD'));
+log(cldr.Numbers.getCurrencyFractions('JPY'));
 ```
-
 <pre class="output">
 { digits: 2, rounding: 0, cashDigits: 2, cashRounding: 0 }
 { digits: 0, rounding: 0, cashDigits: 0, cashRounding: 0 }
 </pre>
+
 
 
 ## getCurrencyForRegion
@@ -366,18 +367,16 @@ getCurrencyForRegion(region): CurrencyType
 #### Example
 
 ```typescript
-let currency = cldr.Numbers.getCurrencyForRegion('ME');
-console.log(currency);
-
-currency = cldr.Numbers.getCurrencyForRegion('CH');
-console.log(currency);
+const cldr = framework.get('en');
+log(cldr.Numbers.getCurrencyForRegion('ME'));
+log(cldr.Numbers.getCurrencyForRegion('CH'));
 ```
-
-
 <pre class="output">
 EUR
 CHF
 </pre>
+
+
 
 
 ## getPluralCardinal
@@ -409,17 +408,17 @@ for (const n of nums) {
     const cldr = framework.get(id);
     return `${id}=${cldr.Numbers.getPluralCardinal(n)}`;
   }).map(w).join(' ');
-  console.log(`${' '.repeat(4 - n.length)}${n}   ${res}`);
+  log(`${' '.repeat(4 - n.length)}${n}   ${res}`);
 }
 ```
-
 <pre class="output">
-   0   en-US=other  fr-FR=one    pl-PL=many   lt-LT=other
-   1   en-US=one    fr-FR=one    pl-PL=one    lt-LT=one
- 1.0   en-US=other  fr-FR=one    pl-PL=other  lt-LT=one
-   2   en-US=other  fr-FR=other  pl-PL=few    lt-LT=few
-   6   en-US=other  fr-FR=other  pl-PL=many   lt-LT=few
+   0   en-US=other  fr-FR=one    pl-PL=many   lt-LT=other 
+   1   en-US=one    fr-FR=one    pl-PL=one    lt-LT=one   
+ 1.0   en-US=other  fr-FR=one    pl-PL=other  lt-LT=one   
+   2   en-US=other  fr-FR=other  pl-PL=few    lt-LT=few   
+   6   en-US=other  fr-FR=other  pl-PL=many   lt-LT=few   
 </pre>
+
 
 ## getPluralOrdinal
 
@@ -453,11 +452,11 @@ Object.keys(endings).forEach(id => {
     const cat = cldr.Numbers.getPluralOrdinal(n);
     return `${n}${endings[id][cat]}`;
   }).join(' ');
-  console.log(`${id}: ${res}`);
+  log(`${id}: ${res}`);
 });
 ````
-
 <pre class="output">
 fr: 1re 2e 3e 4e 5e
 en: 1st 2nd 3rd 4th 5th
 </pre>
+
