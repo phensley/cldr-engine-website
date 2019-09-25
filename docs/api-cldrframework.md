@@ -22,17 +22,18 @@ new CLDRFramework(options)
 #### Example
 
 ```javascript
-import { ungzip } from 'pako';
-import { CLDRFramework } from '@phensley/cldr';
+import { CLDRFramework, LocaleMatcher } from "@phensley/cldr";
 import pkg from "./package.json";
 
 // Get exact version of @phensley/cldr dependency
 const version = pkg.dependencies["@phensley/cldr"];
 
+const packurl = `https://cdn.jsdelivr.net/npm/@phensley/cldr@${version}/packs`;
+
+// Fetch the language resource pack for this version.
 const asyncLoader = language =>
-  fetch(`https://unpkg.com/@phensley/cldr@${version}/packs/${language}.json.gz`)
-    .then(r => r.arrayBuffer())
-    .then(b => JSON.parse(ungzip(b, { to: "string" })))
+  fetch(`${packurl}/${language}.json`)
+    .then(r => r.json())
     .catch(err => console.log(err));
 
 export const framework = new CLDRFramework({ asyncLoader });
@@ -51,25 +52,27 @@ static availableLocales(): Locale[]
 
 ```typescript
 import { CLDRFramework } from '@phensley/cldr';
-for (const locale of CLDRFramework.availableLocales()) {
+const locales = CLDRFramework.availableLocales();
+for (const locale of locales.slice(0, 10)) {
   const { id, tag } = locale;
-  console.log(`${tag.language()}-${tag.script()}-${tag.region()}    ${id}`);
+  log(`${tag.language()}-${tag.script()}-${tag.region()}    ${id}`);
 }
+log('...');
 ```
-
 <pre class="output">
-af-Latn-ZA     af
-af-Latn-NA     af-NA
-am-Ethi-ET     am
-ar-Arab-EG     ar
-ar-Arab-AE     ar-AE
-ar-Arab-BH     ar-BH
-ar-Arab-DJ     ar-DJ
-ar-Arab-DZ     ar-DZ
-ar-Arab-EG     ar-EG
-ar-Arab-EH     ar-EH
+af-Latn-ZA    af
+af-Latn-NA    af-NA
+am-Ethi-ET    am
+ar-Arab-EG    ar
+ar-Arab-AE    ar-AE
+ar-Arab-BH    ar-BH
+ar-Arab-DJ    ar-DJ
+ar-Arab-DZ    ar-DZ
+ar-Arab-EG    ar-EG
+ar-Arab-EH    ar-EH
 ...
 </pre>
+
 
 #### See Also
   - [Locale](api-locale.html)
@@ -156,13 +159,13 @@ const ids = [
 for (const id of ids) {
   const tag = parseLanguageTag(id);
 
-  console.log(tag.language());
-  console.log(tag.script());
-  console.log(tag.region());
-  console.log(tag.compact());
-  console.log(tag.expanded());
-  console.log(inspect(tag.extensions()));
-  console.log();
+  log(tag.language());
+  log(tag.script());
+  log(tag.region());
+  log(tag.compact());
+  log(tag.expanded());
+  log(tag.extensions());
+  log();
 }
 ```
 <pre class="output">
@@ -193,6 +196,7 @@ GB
 no-GB-u-ca-gregory-nu-mathmono
 no-Zzzz-GB-u-ca-gregory-nu-mathmono
 { u: [ 'ca-gregory', 'nu-mathmono' ] }
+&nbsp;
 </pre>
 
 #### See Also
@@ -221,15 +225,15 @@ import { CLDRFramework } from '@phensley/cldr';
 const { resolveLocale } = CLDRFramework;
 for (const str of ['en_US', 'zh', 'fr-CA-u-ca-persian-u-nu-mathmono']) {
   const { id, tag } = resolveLocale(str);
-  console.log(`${tag.expanded()}`);
+  log(`${tag.expanded()}`);
 }
 ```
-
 <pre class="output">
 en-Latn-US
 zh-Hans-CN
 fr-Latn-CA-u-ca-persian-nu-mathmono
 </pre>
+
 
 ```typescript
 import { CLDRFramework } from '@phensley/cldr';
@@ -237,14 +241,14 @@ const { parseLanguageTag, resolveLocale } = CLDRFramework;
 for (const s of ['und-US', 'fr']) {
   const parsed = parseLanguageTag(s);
   const resolved = resolveLocale(parsed);
-  console.log(`${parsed.expanded()}  ${resolved.tag.compact()}`);
+  log(`${parsed.expanded()}  ${resolved.tag.compact()}`);
 }
 ```
-
 <pre class="output">
 und-Zzzz-US  en-Latn-US
 fr-Zzzz-ZZ  fr-Latn-FR
 </pre>
+
 
 #### See Also
   - [Locale](api-locale.html)
