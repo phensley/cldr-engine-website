@@ -20,30 +20,32 @@ object {
 ### Example
 
 ```typescript
+const cldr = framework.get('en');
 let time: ZonedDateTime = { date: -6105991722000, zoneId: 'America/New_York' };
-cldr.Calendars.formatDate(time, { date: 'full' });
+log(cldr.Calendars.formatDate(time, { date: 'full' }));
 ```
-
 <pre class="output">
 Thursday, July 4, 1776
 </pre>
 
+
 ```typescript
+const cldr = framework.get('en');
 const day = 86400 * 1000;
 const epoch = -12219223722000;
 
 let time: ZonedDateTime = { date: epoch - day, zoneId: 'Europe/Rome' };
 let result = cldr.Calendars.formatDate(time, { date: 'full' });
-console.log(result);
+log(result);
 
-time = { date, zoneId: 'Europe/Rome' };
+time = { date: epoch, zoneId: 'Europe/Rome' };
 result = cldr.Calendars.formatDate(time, { date: 'full' });
-console.log(result);
+log(result);
 ```
-
 <pre class="output">
 Thursday, October 4, 1582
 Friday, October 15, 1582
 </pre>
+
 
 {%refs ZonedDateTime}
