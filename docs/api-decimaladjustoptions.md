@@ -33,7 +33,7 @@ object {
 
 ### Defaults
 
-```typescript
+```javascript
 {
   round: 'half-even',
   minimumIntegerDigits: 1,
@@ -45,13 +45,14 @@ object {
 ### Examples
 
 ```typescript
-cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0 }).toString();
-cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0, round: 'down' }).toString();
+const cldr = framework.get('en');
+log(cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0 }));
+log(cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0, round: 'down' }));
 ```
-
 <pre class="output">
 2
 1
 </pre>
+
 
 {%refs DecimalAdjustOptions}
