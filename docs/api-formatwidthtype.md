@@ -18,21 +18,25 @@ A "`full`" date might contain all relevant date fields in their widest represent
 ### Example
 
 ```typescript
+const cldr = framework.get('en');
 const date = 1530087780000;
 const zoneId = 'America/New_York';
-cldr.Calendars.formatDate({ date, zoneId }, { date: 'short' });
+log(cldr.Calendars.formatDate({ date, zoneId }, { date: 'short' }));
 ```
-
 <pre class="output">
 6/27/18
 </pre>
 
-```typescript
-cldr.Calendars.formatDate({ date, zoneId }, { date: 'full' });
-```
 
+```typescript
+const cldr = framework.get('en');
+const date = 1530087780000;
+const zoneId = 'America/New_York';
+log(cldr.Calendars.formatDate({ date, zoneId }, { date: 'full' }));
+```
 <pre class="output">
 Wednesday, June 27, 2018
 </pre>
+
 
 {%refs FormatWidthType}
