@@ -31,7 +31,9 @@ const evaluate = (source: string): string[] => {
   };
 
   const js = ts.transpileModule(source, {
-    compilerOptions: { module: ts.ModuleKind.CommonJS }
+    compilerOptions: {
+      module: ts.ModuleKind.CommonJS,
+    }
   });
 
   const script = new vm.Script(js.outputText);
