@@ -13,13 +13,13 @@ title: MeasurementCategory
 
 ```typescript
 const cldr = framework.get('es-PR');
-cldr.General.measurementSystem();
-cldr.General.measurementSystem('temperature');
+log(cldr.General.measurementSystem());
+log(cldr.General.measurementSystem('temperature'));
 ```
-
 <pre class="output">
 metric
 us
 </pre>
+
 
 {%refs MeasurementCategory}
