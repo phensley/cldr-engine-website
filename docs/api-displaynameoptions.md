@@ -21,7 +21,7 @@ object {
 
 ### Defaults
 
-```typescript
+```javascript
 {
   type: 'none',
   context: 'begin-sentence'
