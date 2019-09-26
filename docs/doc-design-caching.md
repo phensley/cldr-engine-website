@@ -1,6 +1,7 @@
 ---
 id: doc-design-caching
 title: Caching
+noeval: true
 ---
 
 Inside the library there are several structures that are in a dormant state, only becoming activated when needed.
@@ -36,7 +37,7 @@ for (const locale of locales) {
 
 **Runtime pseudocode:**
 
-```javascript
+```typescript
 import { numberFormatter } from 'my-library';
 
 // Must go upstream to modify build process and cut a new release when
@@ -62,7 +63,7 @@ We do the expensive operations at runtime in the builder function, which returns
 
 **Runtime pseudocode:**
 
-```javascript
+```typescript
 const formatter = library.makeNumberFormatter({ style: 'short' });
 const result = formatter(12345);
 ```

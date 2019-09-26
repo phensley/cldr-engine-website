@@ -85,6 +85,24 @@ const evaluate = (source: string, context: vm.Context, sandbox: Sandbox): string
   return res;
 };
 
+const getheader = (lines: string[]): any => {
+  let start = -1;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.startsWith('---')) {
+      if (start !== -1) {
+        return lines.slice(start, i).map(l => l.split(':')).reduce((p: any, c: string[]) => {
+          const [k, v] = c;
+          p[k.trim()] = v.trim();
+          return p;
+        }, {} as any);
+      }
+      start = i + 1;
+    }
+  }
+  return {};
+};
+
 /**
  * Process a Markdown source file looking for embedded Typescript and
  * HTML output blocks. Evaluate the Typescript blocks and replace all
@@ -92,6 +110,12 @@ const evaluate = (source: string, context: vm.Context, sandbox: Sandbox): string
  */
 const generate = (raw: string, context: vm.Context, sandbox: Sandbox) => {
   const lines = raw.split('\n');
+
+  const header = getheader(lines);
+  if (header['noeval'] === 'true') {
+    return raw;
+  }
+
   let inscript = false;
   let inoutput = false;
 

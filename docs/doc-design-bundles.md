@@ -1,6 +1,7 @@
 ---
 id: doc-design-bundles
 title: Resource bundles
+noeval: true
 ---
 
 This document goes into detail on the rationale for the design of the [resource bundle file format](https://unpkg.com/@phensley/cldr@0.6.3/packs/) and how field values are encoded and later retrieved at runtime.
