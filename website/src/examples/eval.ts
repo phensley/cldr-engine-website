@@ -19,23 +19,45 @@ const TYPESCRIPT_END = '```';
 const OUTPUT_START = '<pre class="output">';
 const OUTPUT_END = '</pre>';
 
-/**
- * Evaluate a Typescript script and return its output as a series of lines.
- */
-const evaluate = (source: string): string[] => {
-  let complete = false;
-  const lines: any[] = [];
+interface Sandbox {
+  imports: string[],
+  lines: string[][];
+  complete: boolean;
+}
+
+// Execution context for the script
+const makeSandbox = (): Sandbox => {
+  const lines: string[][] = [];
   const sandbox = {
+    imports: [],
+    lines,
+    complete: false,
     exports: {},
     require,
     framework,
     __dirname,
-    wait: () => deasync.loopWhile(() => !complete),
-    done: () => complete = true,
-    log: (...args: any[]) => lines.push(args.map(convert)),
+    wait: () => deasync.loopWhile(() => !sandbox.complete),
+    done: () => sandbox.complete = true,
+    log: (...args: any[]) => sandbox.lines.push(args.map(convert)),
     debug: (...args: any[]) => console.log(...args),
   };
+  return sandbox;
+};
 
+/**
+ * Evaluate a Typescript script and return its output as a series of lines.
+ */
+const evaluate = (source: string, context: vm.Context, sandbox: Sandbox): string[] => {
+  // Reset sandbox state
+  sandbox.lines = [];
+  sandbox.complete = false;
+
+  const { imports } = sandbox;
+
+  // A bit funky, but since we have to use CommonJS module format, we need
+  // to prepend all imports to the file in order.
+
+  source = imports.join('\n') + '\n' + source;
   const js = ts.transpileModule(source, {
     compilerOptions: {
       module: ts.ModuleKind.CommonJS,
@@ -44,13 +66,13 @@ const evaluate = (source: string): string[] => {
   });
 
   const script = new vm.Script(js.outputText);
-  const context = vm.createContext(sandbox);
-  script.runInContext(context);
+  script.runInContext(context, { filename: 'example.mjs' });
 
   const res: string[] = [];
 
   // hack: check if output was all whitespace before processing
   // individual lines
+  const { lines } = sandbox;
   const tmp = lines.map(line => line.join('')).join('').trim();
 
   if (tmp.length) {
@@ -68,7 +90,7 @@ const evaluate = (source: string): string[] => {
  * HTML output blocks. Evaluate the Typescript blocks and replace all
  * output blocks with the new output.
  */
-const generate = (raw: string) => {
+const generate = (raw: string, context: vm.Context, sandbox: Sandbox) => {
   const lines = raw.split('\n');
   let inscript = false;
   let inoutput = false;
@@ -95,14 +117,19 @@ const generate = (raw: string) => {
         inscript = false;
 
         // Evaluate script and emit new output lines
-        const out = evaluate(script.join('\n'));
+        const out = evaluate(script.join('\n'), context, sandbox);
         if (out.length) {
           res.push(OUTPUT_START);
           res = res.concat(out);
           res.push(OUTPUT_END);
         }
       } else {
-        script.push(line);
+        // Collect imports so we can prepend them to all scripts in the same doc
+        if (line.startsWith('import')) {
+          sandbox.imports.push(line);
+        } else {
+          script.push(line);
+        }
       }
       continue;
 
@@ -154,9 +181,14 @@ const run = (argv: yargs.Arguments) => {
   }
 
   files.sort().forEach(path => {
+    // Reuse the same context for all script executions on a single page
+    // This lets us reuse definitions
+    const sandbox = makeSandbox();
+    const context = vm.createContext(sandbox);
+
     process.stderr.write(`process ${path}\n`);
     const raw = fs.readFileSync(path, { encoding: 'utf-8' }).toString();
-    const md = generate(raw);
+    const md = generate(raw, context, sandbox);
     if (argv.verbose) {
       console.log(md);
     }

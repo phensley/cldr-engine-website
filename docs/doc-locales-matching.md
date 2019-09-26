@@ -18,8 +18,12 @@ import { LocaleMatcher } from '@phensley/cldr';
 
 const matcher = new LocaleMatcher('en, es-419, en-GB, pt-BR, es');
 
-const { distance, locale } = matcher.match('pt');
-console.log(`${locale.id} distance ${distance}`);
+const match = (s: string) => {
+  const { distance, locale } = matcher.match(s);
+  log(`${locale.id} distance ${distance}`);
+};
+
+match('pt');
 ```
 <pre class="output">
 pt-BR distance 0
@@ -28,7 +32,7 @@ pt-BR distance 0
 If a user selects `es-MX` there is no supported locale that is an exact match. This is where the distance-based algorithm can provide a better result than simply truncating the locale id to `es`. Using language distance, it finds that `es-419` (Latin American Spanish) is a better match.
 
 ```typescript
-matcher.match('es-MX');
+match('es-MX'));
 ```
 <pre class="output">
 es-419 distance 4
@@ -37,7 +41,7 @@ es-419 distance 4
 Similarly the algorithm matches `en-ZA` (South African English) is a closer match to `en-GB` (Great British English) than `en` (American English).
 
 ```typescript
-matcher.match('en-ZA');
+match('en-ZA');
 ```
 <pre class="output">
 en-GB distance 3
@@ -46,17 +50,17 @@ en-GB distance 3
 If a user speaks both `en-ZA` and `es` the algorithm will return `es` since it is closer.
 
 ```typescript
-matcher.match('en-ZA, es');
+match('en-ZA, es');
 ```
-
 <pre class="output">
 es distance 0
 </pre>
 
+
 A language that has no match within a given threshold will return the default locale with maximum distance of 100.
 
 ```typescript
-matcher.match('zh');
+match('zh');
 ```
 <pre class="output">
 en distance 100
@@ -65,7 +69,7 @@ en distance 100
 Likewise an undefined tag will match the default locale with maximum distance.
 
 ```typescript
-matcher.match('und');
+match('und');
 ```
 <pre class="output">
 en distance 100
@@ -78,9 +82,9 @@ The default distance threshold is 50. You can pass in your own desired threshold
 This ensures we always resolve to a valid, best-fit supported locale. We sort English to the front so it becomes the default locale, and will be returned when a match fails to meet the distance threshold.
 
 ```typescript
-import { availableLocales, LocaleMatcher } from '@phensley/cldr';
+import { CLDRFramework, LocaleMatcher } from '@phensley/cldr';
 
-const allLocales = availableLocales();
+const allLocales = CLDRFramework.availableLocales();
 
 const supported = allLocales.sort(
   l => l.tag.expanded() === 'en-Latn-US' ? -1 : 1
@@ -90,12 +94,12 @@ const cldrMatcher = new LocaleMatcher(supported);
 
 // We don't support Klingon, unfortunately
 const { distance, locale } = cldrMatcher.match('i-klingon');
-console.log(`${locale.id} distance ${distance}`);
+log(`${locale.id} distance ${distance}`);
 ```
-
 <pre class="output">
-en-Latn-US distance 10
+en distance 10
 </pre>
+
 
 
 ## Separate matchers for messages and formats
@@ -114,13 +118,13 @@ const messageMatcher = new LocaleMatcher(appLocales);
 const userLocale = 'es-MX';
 
 const messageMatch = messageMatcher.match(userLocale);
-console.log(`messages: ${messageMatch.locale.tag.expanded()} distance ${messageMatch.distance}`);
+log(`messages: ${messageMatch.locale.tag.expanded()} distance ${messageMatch.distance}`);
 
 const cldrMatch = cldrMatcher.match(userLocale);
-console.log(`    cldr: ${cldrMatch.locale.tag.expanded()} distance ${cldrMatch.distance}`);
+log(`    cldr: ${cldrMatch.locale.tag.expanded()} distance ${cldrMatch.distance}`);
 ```
-
 <pre class="output">
 messages: es-Latn-419 distance 4
     cldr: es-Latn-MX distance 0
 </pre>
+
