@@ -36,13 +36,13 @@ const ids = [
 for (const id of ids) {
   const tag = parseLanguageTag(id);
 
-  console.log(tag.language());
-  console.log(tag.script());
-  console.log(tag.region());
-  console.log(tag.compact());
-  console.log(tag.expanded());
-  console.log(inspect(tag.extensions()));
-  console.log();
+  log(tag.language());
+  log(tag.script());
+  log(tag.region());
+  log(tag.compact());
+  log(tag.expanded());
+  log(tag.extensions());
+  log();
 }
 ```
 <pre class="output">
@@ -73,5 +73,6 @@ GB
 no-GB-u-ca-gregory-nu-mathmono
 no-Zzzz-GB-u-ca-gregory-nu-mathmono
 { u: [ 'ca-gregory', 'nu-mathmono' ] }
+&nbsp;
 </pre>
 
