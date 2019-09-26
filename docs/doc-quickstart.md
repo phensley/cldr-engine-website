@@ -82,13 +82,11 @@ Once you have a framework instance you can start using it. This is an over-simpl
 
 #### Synchronous
 
-This is probably only useful in a real application for loading a statically-imported resource pack, as in the `EnglishPack` example above, or for loading multiple locales in a server application on startup. The call to `framework.get(locale)` will block execution while the resource pack loads.
+The synchronous loader is useful for pre-loading multiple resource packs in a server-side application on startup, or a statically-imported pack in a web application, e.g. the `EnglishPack` example above. The call to `framework.get(locale)` will block execution while the resource pack loads.
 
 ```typescript
-import { framework } from '../locale';
-
 const cldr = framework.get('de');
-console.log(cldr.Numbers.formatCurrency('12345.678', 'CAD', { group: true }));
+log(cldr.Numbers.formatCurrency('12345.678', 'CAD', { group: true }));
 ```
 <pre class="output">
 12.345,68 CA$
@@ -96,14 +94,15 @@ console.log(cldr.Numbers.formatCurrency('12345.678', 'CAD', { group: true }));
 
 #### Asynchronous
 
-This is closer to what you'd find in a web application.
+THe asynchronous loader returns a promise which, when resolved, could populate an application's state store.
 
 ```typescript
-import { framework } from '../locale';
-
 framework.getAsync('und-CA').then((cldr) => {
-  console.log(cldr.Numbers.formatCurrency('12345.678', 'CAD', { group: true }));
-});
+  // use cldr
+  log(cldr.Numbers.formatCurrency('12345.678', 'CAD'));
+}).then(done);
+
+wait();
 ```
 <pre class="output">
 $12,345.68
@@ -115,7 +114,8 @@ $12,345.68
 In this example we use Redux and Redux Saga, although it should be straightforward to adapt this to your state container of choice.
 
 **Redux store containing the locale state**
-```typescript
+
+```javascript
 import { CLDR } from '@phensley/cldr';
 import { LocaleAction } from '../actions';
 import { English } from '../locale';
@@ -142,7 +142,7 @@ export const locale: Reducer<LocaleState> =
 ```
 
 **Saga to watch for locale changes**
-```typescript
+```javascript
 import { Locale } from '@phensley/cldr';
 import { call, put, takeEvery } from 'redux-saga/effects';
 import { Action, ActionType } from '../actions';

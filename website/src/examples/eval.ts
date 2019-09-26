@@ -3,6 +3,7 @@ import * as filepath from 'path';
 import * as util from 'util';
 import * as vm from 'vm';
 
+import * as deasync from 'deasync';
 import * as ts from 'typescript';
 import * as yargs from 'yargs';
 
@@ -22,13 +23,17 @@ const OUTPUT_END = '</pre>';
  * Evaluate a Typescript script and return its output as a series of lines.
  */
 const evaluate = (source: string): string[] => {
+  let complete = false;
   const lines: any[] = [];
   const sandbox = {
     exports: {},
     require,
     framework,
     __dirname,
+    wait: () => deasync.loopWhile(() => !complete),
+    done: () => complete = true,
     log: (...args: any[]) => lines.push(args.map(convert)),
+    debug: (...args: any[]) => console.log(...args),
   };
 
   const js = ts.transpileModule(source, {
