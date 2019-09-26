@@ -644,6 +644,138 @@
       "version-0.18.0/version-0.18.0-api-timeperiodfield": {
         "title": "TimePeriodField"
       },
+      "version-0.18.2/version-0.18.2-api-bundle": {
+        "title": "Bundle"
+      },
+      "version-0.18.2/version-0.18.2-api-calendardate": {
+        "title": "CalendarDate"
+      },
+      "version-0.18.2/version-0.18.2-api-calendarfieldoptions": {
+        "title": "CalendarFieldOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-0.18.2/version-0.18.2-api-cldr-general": {
+        "title": "CLDR.General"
+      },
+      "version-0.18.2/version-0.18.2-api-cldr-numbers": {
+        "title": "CLDR.Numbers"
+      },
+      "version-0.18.2/version-0.18.2-api-cldr-units": {
+        "title": "CLDR.Units"
+      },
+      "version-0.18.2/version-0.18.2-api-cldrframework": {
+        "title": "CLDRFramework"
+      },
+      "version-0.18.2/version-0.18.2-api-cldroptions": {
+        "title": "CLDROptions"
+      },
+      "version-0.18.2/version-0.18.2-api-currencyformatoptions": {
+        "title": "CurrencyFormatOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-currencyformatstyletype": {
+        "title": "CurrencyFormatStyleType"
+      },
+      "version-0.18.2/version-0.18.2-api-dateformatoptions": {
+        "title": "DateFormatOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-dateintervalformatoptions": {
+        "title": "DateIntervalFormatOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-daterawformatoptions": {
+        "title": "DateRawFormatOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-dateskeleton": {
+        "title": "DateSkeleton"
+      },
+      "version-0.18.2/version-0.18.2-api-decimal": {
+        "title": "Decimal"
+      },
+      "version-0.18.2/version-0.18.2-api-decimaladjustoptions": {
+        "title": "DecimalAdjustOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-decimalformatoptions": {
+        "title": "DecimalFormatOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-decimalformatstyletype": {
+        "title": "DecimalFormatStyleType"
+      },
+      "version-0.18.2/version-0.18.2-api-displaynameoptions": {
+        "title": "DisplayNameOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-erafieldoptions": {
+        "title": "EraFieldOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-fieldwidthtype": {
+        "title": "FieldWidthType"
+      },
+      "version-0.18.2/version-0.18.2-api-formatwidthtype": {
+        "title": "FormatWidthType"
+      },
+      "version-0.18.2/version-0.18.2-api-gregoriandate": {
+        "title": "GregorianDate"
+      },
+      "version-0.18.2/version-0.18.2-api-languagetag": {
+        "title": "LanguageTag"
+      },
+      "version-0.18.2/version-0.18.2-api-listpatterntype": {
+        "title": "ListPatternType"
+      },
+      "version-0.18.2/version-0.18.2-api-localematcher": {
+        "title": "LocaleMatcher"
+      },
+      "version-0.18.2/version-0.18.2-api-measurementcategory": {
+        "title": "MeasurementCategory"
+      },
+      "version-0.18.2/version-0.18.2-api-measurementsystem": {
+        "title": "MeasurementSystem"
+      },
+      "version-0.18.2/version-0.18.2-api-numberformaterrortype": {
+        "title": "NumberFormatErrorType"
+      },
+      "version-0.18.2/version-0.18.2-api-quantity": {
+        "title": "Quantity"
+      },
+      "version-0.18.2/version-0.18.2-api-relativetimefieldformatoptions": {
+        "title": "RelativeTimeFieldFormatOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-relativetimeformatoptions": {
+        "title": "RelativeTimeFormatOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-schemaconfig": {
+        "title": "SchemaConfig"
+      },
+      "version-0.18.2/version-0.18.2-api-timeperiod": {
+        "title": "TimePeriod"
+      },
+      "version-0.18.2/version-0.18.2-api-timezoneinfo": {
+        "title": "TimeZoneInfo"
+      },
+      "version-0.18.2/version-0.18.2-api-unitformatoptions": {
+        "title": "UnitFormatOptions"
+      },
+      "version-0.18.2/version-0.18.2-api-zoneddatetime": {
+        "title": "ZonedDateTime"
+      },
+      "version-0.18.2/version-0.18.2-doc-calendar-overview": {
+        "title": "Calendar Overview"
+      },
+      "version-0.18.2/version-0.18.2-doc-design-caching": {
+        "title": "Caching"
+      },
+      "version-0.18.2/version-0.18.2-doc-locales-matching": {
+        "title": "Language matching"
+      },
+      "version-0.18.2/version-0.18.2-doc-locales-parsing": {
+        "title": "Locale parsing"
+      },
+      "version-0.18.2/version-0.18.2-doc-locales-resolution": {
+        "title": "Locale resolution"
+      },
+      "version-0.18.2/version-0.18.2-doc-quickstart": {
+        "title": "Quick start"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
