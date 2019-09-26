@@ -17,8 +17,8 @@ In the example below, the identifier `"und-US"` uses the undefined language subt
 import { CLDRFramework } from '@phensley/cldr';
 
 let { id, tag } = CLDRFramework.resolveLocale('und-US');
-console.log(id);
-console.log(tag.expanded());
+log(id);
+log(tag.expanded());
 ```
 <pre class="output">
 und-US
@@ -29,7 +29,7 @@ In other cases a subtag is aliased to a preferred value that should be used. Res
 
 ```typescript
 const { id, tag } = CLDRFramework.resolveLocale('cmn-TW');
-console.log(tag.compact());
+log(tag.compact());
 ```
 <pre class="output">
 zh-Hant-TW
@@ -39,7 +39,7 @@ Irregular or grandfathered tags are mapped directly to a replacement value.
 
 ```typescript
 const { id, tag } = CLDRFramework.resolveLocale('i-klingon');
-console.log(tag.language());
+log(tag.language());
 ```
 <pre class="output">
 tlh
