@@ -11,7 +11,6 @@ object {
   width?,
   nu?,
   context?,
-  style?,
   group?,
   round?,
   minimumIntegerDigits?,
