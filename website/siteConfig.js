@@ -8,11 +8,13 @@ const users = [
   }
 ];
 
+const baseUrl = '/cldr-engine/';
+
 const siteConfig = {
   title: '@phensley/cldr',
   tagline: 'CLDR internationalization and localization in Typescript, batteries-included',
   url: 'https://phensley.github.io',
-  baseUrl: '/cldr-engine/',
+  baseUrl,
   projectName: 'cldr-engine',
   organizationName: 'phensley',
   gaTrackingId: 'UA-121435304-1',
@@ -40,7 +42,8 @@ const siteConfig = {
     'static/liveapi-css'
   ],
   scripts: [
-    'https://buttons.github.io/buttons.js'
+    'https://buttons.github.io/buttons.js',
+    baseUrl + 'js/sidenav.js'
   ],
   onPageNav: 'separate',
   ogImage: 'img/cldr-engine-logo-bw.png',
