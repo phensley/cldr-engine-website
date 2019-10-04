@@ -78,8 +78,9 @@ function Versions(props) {
           <table className="versions">
             <tbody>
               {versions.map(
-                (version, i) =>
-                  version !== latestVersion && (
+                (version, i) => {
+                  const prevVersion = versions[i - 1];
+                  return version !== latestVersion && (
                     <tr key={i}>
                       <th>{version}</th>
                       <td>
@@ -88,10 +89,13 @@ function Versions(props) {
                           }/${version}/doc-index`}>Documentation</a>
                       </td>
                       <td>
-                  <a href={`${repoUrl}/releases/tag/v${version}`}>Release Notes</a>
-                </td>
+                        <a href={`${repoUrl}/releases/tag/v${version}`}>Release Notes</a>
+                      </td>
+                      <td>
+                        {prevVersion && <a href={`${repoUrl}/compare/v${version}...v${prevVersion}`}>Changes</a>}
+                      </td>
                     </tr>
-                  ),
+                )}
               )}
             </tbody>
           </table>
