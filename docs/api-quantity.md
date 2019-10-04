@@ -11,7 +11,8 @@ A number representing a quantity of a given unit.
 object {
   value,
   unit?,
-  per?
+  per?,
+  times?
 }
 </pre>
 
@@ -21,7 +22,9 @@ object {
   - <code class="def">unit?: <span>[UnitType](api-unittype.html)</span></code>
     - Units the quantity is measured in
   - <code class="def">per?: <span>[UnitType](api-unittype.html)</span></code>
-    - Optional denominator unit
+    - Optional "per" denominator unit
+  - <code class="def">times?: <span>[UnitType](api-unittype.html)</span></code>
+    - Optional "times" denominator unit
 
 ### Example
 
@@ -36,12 +39,20 @@ log(cldr.Units.formatQuantity(qty, { length: 'narrow' }));
 
 qty = { value: '30.7899', unit: 'kilogram', per: 'lux' };
 log(cldr.Units.formatQuantity(qty));
+
+qty = { value: '1', unit: 'foot', 'times': 'pound' };
+log(cldr.Units.formatQuantity(qty));
+
+qty = { value: '5', unit: 'newton', times: 'meter' };
+log(cldr.Units.formatQuantity(qty));
 ```
 <pre class="output">
 123.574m/s
 17.989 terabits per minute
 17.989Tb/min
 30.79 kilograms per lux
+1 foot⋅pound
+5 newton⋅meters
 </pre>
 
 
