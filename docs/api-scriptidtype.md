@@ -282,7 +282,7 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
   - 'Prti'
     - Inscriptional Parthian
   - 'Qaag'
-    - Qaag
+    - Zawgyi
   - 'Rjng'
     - Rejang
   - 'Rohg'

@@ -215,6 +215,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Cherokee
   - 'chy'
     - Cheyenne
+  - 'cic'
+    - Chickasaw
   - 'ckb'
     - Central Kurdish
   - 'co'
@@ -728,7 +730,7 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
   - 'mul'
     - Multiple languages
   - 'mus'
-    - Creek
+    - Muscogee
   - 'mwl'
     - Mirandese
   - 'mwr'
