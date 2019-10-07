@@ -23,6 +23,10 @@ object {
 ### Properties
   - <code class="def">width?: <span>RelativeTimeWidthType</span></code>
     - Width of the unit of relative time: `'short' | 'narrow' | 'wide'`
+  - <code class="def">numericOnly?: <span>boolean</span></code>
+    - Always use a format that includes a number, e.g. `"1 day ago"` instead of `"Yesterday"`.
+  - <code class="def">alwaysNow?: <span>boolean</span></code>
+    - In `numericOnly` mode, if the value to be formatted is exactly zero, use the "now" format instead of a numeric format, e.g. `"Today"` instead of `"In 0 days"`.
   - <code class="def">nu?: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
     - Override the numbering system
   - <code class="def">context?: <span>[ContextType](api-contexttype.html)</span></code>
@@ -80,5 +84,10 @@ in 4 days
 in 3.8 days
 </pre>
 
+```typescript
+for (const n of [-5, -2, -1, 0, 1, 2, 5]) {
+  log(cldr.Calendars.formatRelativeTimeField(n, 'day', { numericOnly: true });
+}
+```
 
 {%refs RelativeTimeFieldFormatOptions}
