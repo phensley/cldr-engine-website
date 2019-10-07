@@ -788,6 +788,15 @@
       "version-0.19.1/version-0.19.1-api-quantity": {
         "title": "Quantity"
       },
+      "version-0.19.2/version-0.19.2-api-quantity": {
+        "title": "Quantity"
+      },
+      "version-0.19.2/version-0.19.2-api-relativetimefieldformatoptions": {
+        "title": "RelativeTimeFieldFormatOptions"
+      },
+      "version-0.19.2/version-0.19.2-api-relativetimeformatoptions": {
+        "title": "RelativeTimeFormatOptions"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
