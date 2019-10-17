@@ -42,6 +42,9 @@ function Versions(props) {
                 <td>
                   <a href={`${repoUrl}/releases/tag/v${latestVersion}`}>Release Notes</a>
                 </td>
+                <td>
+                <a href={`${repoUrl}/compare/v${versions[1]}...v${latestVersion}`}>Changes</a>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -79,8 +82,12 @@ function Versions(props) {
             <tbody>
               {versions.map(
                 (version, i) => {
-                  const prevVersion = versions[i - 1];
-                  return version !== latestVersion && (
+                  if (i === 0) {
+                    return null;
+                  }
+
+                  const prevVersion = versions[i + 1];
+                  return (
                     <tr key={i}>
                       <th>{version}</th>
                       <td>
@@ -92,7 +99,7 @@ function Versions(props) {
                         <a href={`${repoUrl}/releases/tag/v${version}`}>Release Notes</a>
                       </td>
                       <td>
-                        {prevVersion && <a href={`${repoUrl}/compare/v${version}...v${prevVersion}`}>Changes</a>}
+                        {prevVersion && <a href={`${repoUrl}/compare/v${prevVersion}...v${version}`}>Changes</a>}
                       </td>
                     </tr>
                 )}
