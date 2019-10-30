@@ -58,6 +58,7 @@ const evaluate = (source: string, context: vm.Context, sandbox: Sandbox): string
   // to prepend all imports to the file in order.
 
   source = imports.join('\n') + '\n' + source;
+
   const js = ts.transpileModule(source, {
     compilerOptions: {
       module: ts.ModuleKind.CommonJS,
@@ -123,7 +124,7 @@ const generate = (raw: string, context: vm.Context, sandbox: Sandbox) => {
   let script: string[] = [];
 
   for (let i = 0; i < lines.length; i++) {
-    const line = lines[i];
+    let line = lines[i];
     if (inoutput) {
       if (line.startsWith(OUTPUT_END)) {
         inoutput = false;
@@ -134,11 +135,10 @@ const generate = (raw: string, context: vm.Context, sandbox: Sandbox) => {
       continue;
     }
 
-    res.push(line);
-
     if (inscript) {
       if (line.startsWith(TYPESCRIPT_END)) {
         inscript = false;
+        res.push(line);
 
         // Evaluate script and emit new output lines
         const out = evaluate(script.join('\n'), context, sandbox);
@@ -150,16 +150,28 @@ const generate = (raw: string, context: vm.Context, sandbox: Sandbox) => {
       } else {
         // Collect imports so we can prepend them to all scripts in the same doc
         if (line.startsWith('import')) {
-          sandbox.imports.push(line);
+          let tmp = '';
+          while (i < lines.length) {
+            tmp += lines[i];
+            res.push(lines[i]);
+            if (lines[i].trim().endsWith(';')) {
+              break;
+            }
+            i++;
+          }
+          sandbox.imports.push(tmp);
         } else {
           script.push(line);
+          res.push(line);
         }
       }
-      continue;
 
     } else if (line.startsWith(TYPESCRIPT_START)) {
       inscript = true;
       script = [];
+      res.push(line);
+    } else {
+      res.push(line);
     }
   }
   return res.join('\n');

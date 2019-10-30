@@ -21,6 +21,9 @@
       "doc-math-example-rational-approx",
       "doc-math-example-contd-fractions"
     ],
+    "Message Formatting": [
+      "doc-messageformatting"
+    ],
     "Design": [
       "doc-design-bundles",
       "doc-design-caching"
