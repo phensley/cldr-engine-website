@@ -4,7 +4,7 @@ title: Customization
 original_id: doc-messageformatting-custom
 ---
 
-The `@phensley/cldr` package does not currently define any i18n-specific message foramatter functions. In the meantime you can easily hook up custom i18n formatters for your types using any formatter names you wish.
+The `@phensley/cldr` package does not currently define any i18n-specific message formatter functions. In the meantime you can easily hook up custom i18n formatters for your types using any formatter names you wish.
 
 Below is an example of defining custom formatting functions that use a [`CLDR`](api-cldr.html) instance with options to control which format is rendered.
 
