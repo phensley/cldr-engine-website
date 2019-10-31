@@ -251,8 +251,11 @@
       "doc-math": {
         "title": "Arbitrary Precision"
       },
+      "doc-messageformatting-custom": {
+        "title": "Customization"
+      },
       "doc-messageformatting": {
-        "title": "Examples"
+        "title": "Usage"
       },
       "doc-quickstart": {
         "title": "Quick start"
@@ -802,6 +805,9 @@
       },
       "version-0.20.1/version-0.20.1-doc-messageformatting": {
         "title": "Examples"
+      },
+      "version-0.20.2/version-0.20.2-doc-messageformatting-custom": {
+        "title": "Customization"
       },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"

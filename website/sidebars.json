@@ -22,7 +22,8 @@
       "doc-math-example-contd-fractions"
     ],
     "Message Formatting": [
-      "doc-messageformatting"
+      "doc-messageformatting",
+      "doc-messageformatting-custom"
     ],
     "Design": [
       "doc-design-bundles",

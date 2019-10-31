@@ -1,6 +1,6 @@
 ---
 id: doc-messageformatting
-title: Examples
+title: Usage
 ---
 
 Fast, compact, and extensible ICU message formatting.
