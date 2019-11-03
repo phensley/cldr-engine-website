@@ -809,6 +809,12 @@
       "version-0.20.2/version-0.20.2-doc-messageformatting-custom": {
         "title": "Customization"
       },
+      "version-0.21.0/version-0.21.0-doc-messageformatting-custom": {
+        "title": "Customization"
+      },
+      "version-0.21.0/version-0.21.0-doc-messageformatting": {
+        "title": "Usage"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },

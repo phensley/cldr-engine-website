@@ -1,4 +1,4 @@
-import { CurrencyType } from '@phensley/cldr-schema';
+import { CurrencyType } from '@phensley/cldr';
 import { config } from '@phensley/cldr/lib/config';
 import { getCLDR, typeSlice } from './utils';
 

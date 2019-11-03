@@ -1,6 +1,7 @@
 ---
-id: doc-messageformatting
+id: version-0.21.0-doc-messageformatting
 title: Usage
+original_id: doc-messageformatting
 ---
 
 Fast, compact, and extensible ICU message formatting.

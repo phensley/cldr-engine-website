@@ -1,4 +1,3 @@
-import { UnitType } from '@phensley/cldr-schema';
 import { config } from '@phensley/cldr/lib/config';
 import { typeSlice } from './utils';
 
