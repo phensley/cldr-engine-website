@@ -28,6 +28,11 @@ body {
   max-width: 100%;
 }
 
+.toc .toggleNav ul li.navListItemActive a {
+  color: darkblue;
+  font-weight: bold;
+}
+
 code {
   font-size: 14px;
   background-color: white;
