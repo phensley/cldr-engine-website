@@ -38,6 +38,7 @@ const makeSandbox = (): Sandbox => {
     __dirname,
     wait: () => deasync.loopWhile(() => !sandbox.complete),
     done: () => sandbox.complete = true,
+    json: (arg: any) => sandbox.lines.push([JSON.stringify(arg)]),
     log: (...args: any[]) => sandbox.lines.push(args.map(convert)),
     debug: (...args: any[]) => console.log(...args),
   };

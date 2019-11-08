@@ -95,6 +95,14 @@
       "api-rational",
       "api-roundingmodetype"
     ],
+    "Messages": [
+      "api-buildmessagematcher",
+      "api-parsemessagepattern",
+      "api-messagecode",
+      "api-messageengine",
+      "api-messageformatfuncmap",
+      "api-messagematcher"
+    ],
     "Numbers": [
       "api-currencyformatoptions",
       "api-currencyformatstyletype",

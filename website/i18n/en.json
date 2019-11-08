@@ -8,6 +8,9 @@
       "api-buddhistdate": {
         "title": "BuddhistDate"
       },
+      "api-buildmessagematcher": {
+        "title": "buildMessageMatcher"
+      },
       "api-bundle": {
         "title": "Bundle"
       },
@@ -146,11 +149,26 @@
       "api-measurementsystem": {
         "title": "MeasurementSystem"
       },
+      "api-messagecode": {
+        "title": "MessageCode"
+      },
+      "api-messageengine": {
+        "title": "MessageEngine"
+      },
+      "api-messageformatfuncmap": {
+        "title": "MessageFormatFuncMap"
+      },
+      "api-messagematcher": {
+        "title": "MessageMatcher"
+      },
       "api-numberformaterrortype": {
         "title": "NumberFormatErrorType"
       },
       "api-numbersystemtype": {
         "title": "NumberSystemType"
+      },
+      "api-parsemessagepattern": {
+        "title": "parseMessagePattern"
       },
       "api-persiandate": {
         "title": "PersianDate"
@@ -1042,6 +1060,7 @@
       "Design": "Design",
       "API": "API",
       "General": "General",
+      "Messages": "Messages",
       "Numbers": "Numbers",
       "Units": "Units"
     }
