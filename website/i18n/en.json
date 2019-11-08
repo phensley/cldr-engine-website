@@ -833,6 +833,24 @@
       "version-0.21.0/version-0.21.0-doc-messageformatting": {
         "title": "Usage"
       },
+      "version-0.22.0/version-0.22.0-api-buildmessagematcher": {
+        "title": "buildMessageMatcher"
+      },
+      "version-0.22.0/version-0.22.0-api-messagecode": {
+        "title": "MessageCode"
+      },
+      "version-0.22.0/version-0.22.0-api-messageengine": {
+        "title": "MessageEngine"
+      },
+      "version-0.22.0/version-0.22.0-api-messageformatfuncmap": {
+        "title": "MessageFormatFuncMap"
+      },
+      "version-0.22.0/version-0.22.0-api-messagematcher": {
+        "title": "MessageMatcher"
+      },
+      "version-0.22.0/version-0.22.0-api-parsemessagepattern": {
+        "title": "parseMessagePattern"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
