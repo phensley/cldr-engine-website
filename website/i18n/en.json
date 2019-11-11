@@ -857,6 +857,15 @@
       "version-0.22.0/version-0.22.0-api-parsemessagepattern": {
         "title": "parseMessagePattern"
       },
+      "version-0.22.3/version-0.22.3-api-cldr-general": {
+        "title": "CLDR.General"
+      },
+      "version-0.22.3/version-0.22.3-api-messageformatter": {
+        "title": "MessageFormatter"
+      },
+      "version-0.22.3/version-0.22.3-api-messageformatteroptions": {
+        "title": "MessageFormatterOptions"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
