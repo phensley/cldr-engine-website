@@ -101,6 +101,8 @@
       "api-messagecode",
       "api-messageengine",
       "api-messageformatfuncmap",
+      "api-messageformatter",
+      "api-messageformatteroptions",
       "api-messagematcher"
     ],
     "Numbers": [

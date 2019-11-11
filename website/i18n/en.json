@@ -158,6 +158,12 @@
       "api-messageformatfuncmap": {
         "title": "MessageFormatFuncMap"
       },
+      "api-messageformatter": {
+        "title": "MessageFormatter"
+      },
+      "api-messageformatteroptions": {
+        "title": "MessageFormatterOptions"
+      },
       "api-messagematcher": {
         "title": "MessageMatcher"
       },

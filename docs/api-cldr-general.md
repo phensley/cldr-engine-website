@@ -290,6 +290,16 @@ us
 </pre>
 
 
+## messageFormatter
+
+Returns an extensible message formatter for the current locale. See [MessageFormatter](api-messageformatter)
+
+#### Syntax
+
+<pre class="syntax">
+messageFormatter(options?: MessageFormatterOptions): MessageFormatter
+</pre>
+
 
 ## parseLanguageTag
 
