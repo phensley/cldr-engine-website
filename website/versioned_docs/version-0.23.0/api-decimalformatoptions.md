@@ -1,6 +1,7 @@
 ---
-id: api-decimalformatoptions
+id: version-0.23.0-api-decimalformatoptions
 title: DecimalFormatOptions
+original_id: api-decimalformatoptions
 ---
 
 Object expressing options for decimal formatting methods.
