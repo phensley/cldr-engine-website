@@ -217,7 +217,7 @@ difference(date, fields?): TimePeriod
 #### Parameters
   - <code class="def">date: <span>[CalendarDate](api-calendardate.html)</span></code>
     - Date to compute the difference from
-  - <code class="def">fields?: <span>[TimePeriodField](api-timeperiodfield.html)</span></code>
+  - <code class="def">fields?: <span>[TimePeriodField[]](api-timeperiodfield.html)</span></code>
     - Optional array of fields to compute the difference in terms of. If omitted all fields will be included.
 
 #### Return value
