@@ -875,6 +875,30 @@
       "version-0.23.0/version-0.23.0-api-relativetimeformatoptions": {
         "title": "RelativeTimeFormatOptions"
       },
+      "version-0.24.0/version-0.24.0-api-bundle": {
+        "title": "Bundle"
+      },
+      "version-0.24.0/version-0.24.0-api-cldr-general": {
+        "title": "CLDR.General"
+      },
+      "version-0.24.0/version-0.24.0-api-messageengine": {
+        "title": "MessageEngine"
+      },
+      "version-0.24.0/version-0.24.0-api-messageformatter": {
+        "title": "MessageFormatter"
+      },
+      "version-0.24.0/version-0.24.0-api-messageformatteroptions": {
+        "title": "MessageFormatterOptions"
+      },
+      "version-0.24.0/version-0.24.0-api-pluralrules": {
+        "title": "PluralRules"
+      },
+      "version-0.24.0/version-0.24.0-doc-messageformatting-custom": {
+        "title": "Customization"
+      },
+      "version-0.24.0/version-0.24.0-doc-messageformatting": {
+        "title": "Usage"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
