@@ -13,9 +13,11 @@ The message formatter can be used independent of the bulk of the library via the
 import {
   buildMessageMatcher,
   parseMessagePattern,
+  pluralRules,
   MessageArg,
   MessageEngine,
-  MessageNamedArgs
+  MessageNamedArgs,
+  PluralRules
 } from '@phensley/cldr';
 
 const FORMATTERS = {
@@ -27,13 +29,15 @@ const FORMATTER_NAMES = Object.keys(FORMATTERS);
 
 const MATCHER = buildMessageMatcher(FORMATTER_NAMES);
 
+const PLURALS = pluralRules.get('en');
+
 const parse = (message: string) => parseMessagePattern(message, MATCHER);
 
 const dump = (message: string) =>
   log(JSON.stringify(parse(message)));
 
 const format = (message: string, positional: MessageArg[], named: MessageNamedArgs = {}) => {
-  const engine = new MessageEngine('en', FORMATTERS, parse(message));
+  const engine = new MessageEngine(PLURALS, FORMATTERS, parse(message));
   log(engine.evaluate(positional, named));
 };
 

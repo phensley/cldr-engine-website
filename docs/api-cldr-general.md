@@ -300,6 +300,20 @@ Returns an extensible message formatter for the current locale. See [MessageForm
 messageFormatter(options?: MessageFormatterOptions): MessageFormatter
 </pre>
 
+#### Example
+
+```typescript
+const formatters = {
+  emphatic: (args: MessageArg[], options: string[]) => args[0].toUpperCase() + '!'
+};
+const cldr = framework.get('pt-PT');
+const formatter = cldr.General.messageFormatter({ formatters });
+log(formatter.format('Hi, {thing emphatic}', [], { thing: 'computer' }));
+```
+<pre class="output">
+Hi, COMPUTER!
+</pre>
+
 
 ## parseLanguageTag
 

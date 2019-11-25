@@ -179,6 +179,9 @@
       "api-persiandate": {
         "title": "PersianDate"
       },
+      "api-pluralrules": {
+        "title": "PluralRules"
+      },
       "api-quantity": {
         "title": "Quantity"
       },

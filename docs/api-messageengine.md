@@ -12,13 +12,13 @@ Constructs a new message engine.
 #### Syntax
 
 <pre class="syntax">
-new MessageEngine(language: string, formatters: MessageFormatFuncMap, code: MessageCode)
+new MessageEngine(plurals: PluralRules, formatters: MessageFormatFuncMap, code: MessageCode)
 </pre>
 
 #### Parameters
 
-  - <code class="def">language: <span>string</span></code>
-    - An ISO 639 language identifier
+  - <code class="def">plurals: <span>[PluralRules](api-pluralrules)</span></code>
+    - A set of plural rules for a given locale
   - <code class="def">formatters: <span>[MessageFormatFuncMap](api-messageformatfuncmap.html)</span></code>
     - An object whose properties are message format functions.
   - <code class="def">code: <span>[MessageCode](api-messagecode.html)</span></code>

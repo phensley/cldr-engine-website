@@ -49,6 +49,26 @@ nb
 </pre>
 
 
+## plurals
+
+The set of [PluralRules](api-pluralrules) used for this locale.
+
+
+#### Syntax
+
+<pre class="syntax">
+plurals(): PluralRules
+</pre>
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const plurals = cldr.General.bundle().plurals();
+for (const n of [0, 1, '1.0']) {
+  log(n, plurals.cardinal(n));
+}
+```
 
 ## region
 

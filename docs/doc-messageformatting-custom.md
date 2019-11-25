@@ -11,6 +11,7 @@ Below is an example of defining custom formatting functions that use a [`CLDR`](
 import {
   buildMessageMatcher,
   parseMessagePattern,
+  pluralRules,
   CLDR,
   CurrencyFormatStyleType,
   CurrencyType,
@@ -22,6 +23,7 @@ import {
   MessageNamedArgs,
   MessageEngine,
   MessageFormatFuncMap,
+  PluralRules,
   ZonedDateTime,
 } from '@phensley/cldr';
 
@@ -55,43 +57,47 @@ const MATCHER = buildMessageMatcher(FORMATTER_NAMES);
 
 const parse = (message: string) => parseMessagePattern(message, MATCHER);
 
-const format = (formatters: MessageFormatFuncMap, message: string, positional: MessageArg[], named: MessageNamedArgs = {}) => {
-  const engine = new MessageEngine('en', formatters, parse(message));
+const format = (plurals: PluralRules, formatters: MessageFormatFuncMap, message: string, positional: MessageArg[], named: MessageNamedArgs = {}) => {
+  const engine = new MessageEngine(plurals, formatters, parse(message));
   return engine.evaluate(positional, named);
 };
 
 const ENGLISH = framework.get('en');
 for (const id of ['en', 'es', 'ko']) {
   const cldr = framework.get(id);
+
+  // Fetch the PluralRules instance for the current locale
+  const plurals = cldr.General.bundle().plurals();
+
   log(ENGLISH.General.getLanguageDisplayName(id));
 
   // Build our map of custom formatters once whenever the locale changes
   const formatters = formatter(cldr);
 
   let msg = '  "{0 decimal}"  "{0 decimal short}"  "{0 decimal long}"';
-  let s = format(formatters, msg, ['12535.99']);
+  let s = format(plurals, formatters, msg, ['12535.99']);
   log(s);
 
   msg = '  "{0 datetime short}"  "{0 datetime long}"';
-  s = format(formatters, msg, [{ date: new Date(), zoneId: 'America/Los_Angeles' }]);
+  s = format(plurals, formatters, msg, [{ date: new Date(), zoneId: 'America/Los_Angeles' }]);
   log(s);
 
   msg = '  "{0 currency name}"  "{0 currency}"  "{0 currency short}"';
-  s = format(formatters, msg, [{ amount: '12351330' , currencyCode: 'EUR' }]);
+  s = format(plurals, formatters, msg, [{ amount: '12351330' , currencyCode: 'EUR' }]);
   log(s);
 }
 ```
 <pre class="output">
 English
   "12,535.99"  "13K"  "13 thousand"
-  "11/3/19, 1:21 AM"  "November 3, 2019 at 1:21:29 AM PST"
+  "11/25/19, 6:28 AM"  "November 25, 2019 at 6:28:37 AM PST"
   "12,351,330.00 euros"  "€12,351,330.00"  "€12M"
 Spanish
   "12.535,99"  "13 mil"  "13 mil"
-  "3/11/19 1:21"  "3 de noviembre de 2019, 1:21:29 GMT-8"
+  "25/11/19 6:28"  "25 de noviembre de 2019, 6:28:37 GMT-8"
   "12.351.330,00 euros"  "12.351.330,00 €"  "12 M€"
 Korean
   "12,535.99"  "1.3만"  "1.3만"
-  "19. 11. 3. AM 1:21"  "2019년 11월 3일 AM 1시 21분 29초 GMT-8"
+  "19. 11. 25. AM 6:28"  "2019년 11월 25일 AM 6시 28분 37초 GMT-8"
   "12,351,330.00 유로"  "€12,351,330.00"  "€1,235만"
 </pre>

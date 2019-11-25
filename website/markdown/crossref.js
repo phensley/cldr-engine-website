@@ -50,15 +50,19 @@ const process = (filename, lines, types) => {
     }
 
     let m = null;
-    const ref_re = /\[([^\]]+)\]\(([^\)]+)\)/g
+    const ref_re = /\[(.+(\[\])?)\]\(([^\)]+)\)/g
     while (m = ref_re.exec(lines[i])) {
-      const typepath = filepath.basename(m[2], '.html');
+      const typepath = filepath.basename(m[3], '.html');
       if (typepath === base) {
         continue;
       }
 
-      const type = m[1];
+      let type = m[1];
+      if (type.endsWith('[]')) {
+        type = type.substring(0, type.length - 2);
+      }
       if (!types.has(type)) {
+        console.log('skipping', base, type);
         continue;
       }
 

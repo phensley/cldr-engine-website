@@ -12,14 +12,12 @@ Constructs a new message formatter.
 #### Syntax
 
 <pre class="syntax">
-new MessageFormatter(language: string, options: MessageFormatterOptions)
+new MessageFormatter(options: MessageFormatterOptions)
 </pre>
 
 #### Parameters
 
-  - <code class="def">language: <span>string</span></code>
-    - An ISO 639 language identifier
-  - <code class="def">options: <span>MessageFormatterOptions</span></code>
+  - <code class="def">options: <span>[MessageFormatterOptions](api-messageformatteroptions)</span></code>
     - Options, including custom formatter functions, cache size, etc.
 
 ## format
@@ -50,7 +48,7 @@ const formatters = {
     options[0] === 'upper' ? args[0].toUpperCase() : args[0].toLowerCase()
 };
 
-const formatter = new MessageFormatter('en', { formatters });
+const formatter = new MessageFormatter({ language: 'en', formatters });
 log(formatter.format('{0}', ['Hello'], {}));
 log(formatter.format('{0 foo upper}', ['Hello'], {}));
 log(formatter.format('{0 foo lower}', ['Hello'], {}));
