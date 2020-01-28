@@ -168,13 +168,13 @@ Return the display name for a given language code.
 #### Syntax
 
 <pre class="syntax">
-getLanguageDisplayName(languageId, options?): string
+getLanguageDisplayName(code, options?): string
 </pre>
 
 #### Parameters
 
-  - <code class="def">code: <span>[LanguageIdType](api-languageidtype.html)</span></code>
-    - Valid [ISO 639](https://en.wikipedia.org/wiki/ISO_639) language identifier
+  - <code class="def">code: <span>string | [LanguageTag](api-languagetag.html)</span></code>
+    - Valid [ISO 639](https://en.wikipedia.org/wiki/ISO_639) language identifier, a [LanguageTag](api-languagetag.html) instance or parseable string
   - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
     - Options for selecting the display name
 
@@ -182,14 +182,35 @@ getLanguageDisplayName(languageId, options?): string
 
 ```typescript
 const en = framework.get('en');
-log(en.General.getLanguageDisplayName('fr'));
-log(en.General.getLanguageDisplayName('ko'));
+const ids = ['fr', 'ko', 'en', 'und-US', 'en-GB', 'zh-CN', 'zh-TW'];
+for (const id of ids) {
+    log(en.General.getLanguageDisplayName(id));
+}
 ```
 <pre class="output">
 French
 Korean
+English
+American English
+British English
+Simplified Chinese
+Traditional Chinese
 </pre>
 
+You can also pass in a [`LanguageTag`](api-languagetag.html) instance.
+
+```typescript
+const en = framework.get('en');
+for (const id of ['en', 'und', 'und-GB']) {
+  const tag = en.General.parseLanguageTag(id);
+  log(en.General.getLanguageDisplayName(tag));
+}
+```
+<pre class="output">
+English
+Unknown language
+British English
+</pre>
 
 ## getRegionDisplayName
 
@@ -198,12 +219,12 @@ Return the name of a given region.
 #### Syntax
 
 <pre class="syntax">
-getRegionDisplayName(regionId, options?): string
+getRegionDisplayName(code, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">regionId: <span>[RegionIdType](api-regionidtype.html)</span></code>
-    - Valid [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) region identifier
+  - <code class="def">code: <span>string | [LanguageTag](api-languagetag.html)</span></code>
+    - Valid [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) region identifier, a [LanguageTag](api-languagetag.html) instance or parseable string
   - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
     - Options for selecting the display name
 
@@ -212,7 +233,7 @@ getRegionDisplayName(regionId, options?): string
 ```typescript
 const en = framework.get('en');
 const fr = framework.get('fr');
-const ids: RegionIdType[] = ['US', 'CA', 'BE', 'ZA'];
+const ids: string[] = ['US', 'CA', 'BE', 'ZA', 'ZZ', 'en-ZZ'];
 for (const id of ids) {
   const a = en.General.getRegionDisplayName(id);
   const b = fr.General.getRegionDisplayName(id);
@@ -224,6 +245,8 @@ en=United States fr=États-Unis
 en=Canada fr=Canada
 en=Belgium fr=Belgique
 en=South Africa fr=Afrique du Sud
+en=Unknown Region fr=région indéterminée
+en=United States fr=États-Unis
 </pre>
 
 
@@ -234,12 +257,12 @@ Return the name of a given script.
 #### Syntax
 
 <pre class="syntax">
-getScriptDisplayName(scriptId, options?): string
+getScriptDisplayName(code, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">scriptId: <span>[ScriptIdType](api-scriptidtype.html)</span></code>
-    - Valid [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) script identifier
+  - <code class="def">code: <span>string | [LanguageTag](api-languagetag.html)</span></code>
+    - Valid [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) script identifier, a [LanguageTag](api-languagetag.html) instance or parseable string
   - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
     - Options for selecting the display name
 
@@ -247,16 +270,23 @@ getScriptDisplayName(scriptId, options?): string
 
 ```typescript
 const en = framework.get('en');
-log(en.General.getScriptDisplayName('Latn'));
-log(en.General.getScriptDisplayName('Egyp'));
-
 const de = framework.get('de');
-log(de.General.getScriptDisplayName('Latn'));
+
+const ids: string[] = ['Latn', 'Egyp', 'Cyrl', 'Zzzz', 'en', 'zh-CN', 'zh-TW'];
+for (const id of ids) {
+  const a = en.General.getScriptDisplayName(id);
+  const b = de.General.getScriptDisplayName(id);
+  log(`en=${a} de=${b}`);
+}
 ```
 <pre class="output">
-Latin
-Egyptian hieroglyphs
-Lateinisch
+en=Latin de=Lateinisch
+en=Egyptian hieroglyphs de=Ägyptische Hieroglyphen
+en=Cyrillic de=Kyrillisch
+en=Unknown Script de=Unbekannte Schrift
+en=Latin de=Lateinisch
+en=Simplified de=Vereinfacht
+en=Traditional de=Traditionell
 </pre>
 
 

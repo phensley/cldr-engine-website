@@ -61,6 +61,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Angika
   - 'ar'
     - Arabic
+  - 'ar-001'
+    - Modern Standard Arabic
   - 'arc'
     - Aramaic
   - 'arn'
@@ -96,6 +98,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
   - 'ay'
     - Aymara
   - 'az'
+    - Azerbaijani
+  - 'az-Arab'
     - Azerbaijani
   - 'ba'
     - Bashkir
@@ -251,6 +255,10 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Taita
   - 'de'
     - German
+  - 'de-AT'
+    - Austrian German
+  - 'de-CH'
+    - Swiss High German
   - 'del'
     - Delaware
   - 'den'
@@ -299,12 +307,26 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Elamite
   - 'en'
     - English
+  - 'en-AU'
+    - Australian English
+  - 'en-CA'
+    - Canadian English
+  - 'en-GB'
+    - British English
+  - 'en-US'
+    - American English
   - 'enm'
     - Middle English
   - 'eo'
     - Esperanto
   - 'es'
     - Spanish
+  - 'es-419'
+    - Latin American Spanish
+  - 'es-ES'
+    - European Spanish
+  - 'es-MX'
+    - Mexican Spanish
   - 'esu'
     - Central Yupik
   - 'et'
@@ -317,6 +339,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Extremaduran
   - 'fa'
     - Persian
+  - 'fa-AF'
+    - Dari
   - 'fan'
     - Fang
   - 'fat'
@@ -337,6 +361,10 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Fon
   - 'fr'
     - French
+  - 'fr-CA'
+    - Canadian French
+  - 'fr-CH'
+    - Swiss French
   - 'frc'
     - Cajun French
   - 'frm'
@@ -759,6 +787,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - North Ndebele
   - 'nds'
     - Low German
+  - 'nds-NL'
+    - Low Saxon
   - 'ne'
     - Nepali
   - 'new'
@@ -773,6 +803,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Ao Naga
   - 'nl'
     - Dutch
+  - 'nl-BE'
+    - Flemish
   - 'nmg'
     - Kwasio
   - 'nn'
@@ -867,6 +899,10 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Pashto
   - 'pt'
     - Portuguese
+  - 'pt-BR'
+    - Brazilian Portuguese
+  - 'pt-PT'
+    - European Portuguese
   - 'qu'
     - Quechua
   - 'quc'
@@ -889,6 +925,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Rundi
   - 'ro'
     - Romanian
+  - 'ro-MD'
+    - Moldavian
   - 'rof'
     - Rombo
   - 'rom'
@@ -1001,6 +1039,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Albanian
   - 'sr'
     - Serbian
+  - 'sr-ME'
+    - Montenegrin
   - 'srn'
     - Sranan Tongo
   - 'srr'
@@ -1025,6 +1065,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Swedish
   - 'sw'
     - Swahili
+  - 'sw-CD'
+    - Congo Swahili
   - 'swb'
     - Comorian
   - 'syc'
@@ -1203,6 +1245,10 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Standard Moroccan Tamazight
   - 'zh'
     - Chinese
+  - 'zh-Hans'
+    - Simplified Chinese
+  - 'zh-Hant'
+    - Traditional Chinese
   - 'zu'
     - Zulu
   - 'zun'
