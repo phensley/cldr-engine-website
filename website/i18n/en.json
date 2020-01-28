@@ -899,6 +899,12 @@
       "version-0.24.0/version-0.24.0-doc-messageformatting": {
         "title": "Usage"
       },
+      "version-0.25.3/version-0.25.3-api-cldr-general": {
+        "title": "CLDR.General"
+      },
+      "version-0.25.3/version-0.25.3-api-languageidtype": {
+        "title": "LanguageIdType"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
