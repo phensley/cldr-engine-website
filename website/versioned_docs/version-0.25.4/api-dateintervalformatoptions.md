@@ -1,6 +1,7 @@
 ---
-id: api-dateintervalformatoptions
+id: version-0.25.4-api-dateintervalformatoptions
 title: DateIntervalFormatOptions
+original_id: api-dateintervalformatoptions
 ---
 
 Options used for date interval formatting.
@@ -40,7 +41,6 @@ object {
 }
 ```
 
-* If no skeleton is provided, a reasonable default will be automatically selected based on whether the interval is greater- or less-than one day.
 * Numbering system default is determined by the locale.
 * Calendar system default is determined by the locale.
 
@@ -84,9 +84,6 @@ zh  2018年6月27日至9月8日
 zh  2018年6月27日至2021年3月23日
 &nbsp;
 </pre>
-
-Provide 2 skeletons, one to use if the field of visual difference is greater-
- or less-than one day:
 
 ```typescript
 const cldr = framework.get('en');

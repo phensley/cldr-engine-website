@@ -905,6 +905,9 @@
       "version-0.25.3/version-0.25.3-api-languageidtype": {
         "title": "LanguageIdType"
       },
+      "version-0.25.4/version-0.25.4-api-dateintervalformatoptions": {
+        "title": "DateIntervalFormatOptions"
+      },
       "version-0.8.17/version-0.8.17-api-buddhistdate": {
         "title": "BuddhistDate"
       },
