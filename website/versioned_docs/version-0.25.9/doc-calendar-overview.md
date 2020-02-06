@@ -1,6 +1,7 @@
 ---
-id: doc-calendar-overview
+id: version-0.25.9-doc-calendar-overview
 title: Calendar Overview
+original_id: doc-calendar-overview
 ---
 
 This section attempts to provide a complete overview of the features of the calendar-related APIs. The goal is to give a concise description of each feature and let examples speak for themselves.

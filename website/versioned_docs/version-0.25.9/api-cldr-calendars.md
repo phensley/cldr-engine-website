@@ -1,6 +1,7 @@
 ---
-id: api-cldr-calendars
+id: version-0.25.9-api-cldr-calendars
 title: CLDR.Calendars
+original_id: api-cldr-calendars
 ---
 
 The `CLDR.Calendars` namespace allows you to:

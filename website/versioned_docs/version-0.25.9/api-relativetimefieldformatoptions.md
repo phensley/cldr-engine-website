@@ -1,6 +1,7 @@
 ---
-id: api-relativetimefieldformatoptions
+id: version-0.25.9-api-relativetimefieldformatoptions
 title: RelativeTimeFieldFormatOptions
+original_id: api-relativetimefieldformatoptions
 ---
 
 ### Syntax

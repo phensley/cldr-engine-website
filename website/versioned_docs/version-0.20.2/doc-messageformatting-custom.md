@@ -75,7 +75,7 @@ for (const id of ['en', 'es', 'ko']) {
   log(s);
 
   msg = '  "{0 datetime short}"  "{0 datetime long}"';
-  s = format(formatters, msg, [{ date: new Date(), zoneId: 'America/Los_Angeles' }]);
+  s = format(formatters, msg, [{ date: new Date(1581004130000), zoneId: 'America/Los_Angeles' }]);
   log(s);
 
   msg = '  "{0 currency name}"  "{0 currency}"  "{0 currency short}"';
