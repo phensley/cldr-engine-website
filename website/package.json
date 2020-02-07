@@ -18,7 +18,7 @@
     "rename-version": "docusaurus-rename-version"
   },
   "dependencies": {
-    "@phensley/cldr": "0.25.9",
+    "@phensley/cldr": "0.25.10",
     "@types/react-router-dom": "4.3.5",
     "emotion": "9.2.4",
     "icepick": "2.3.0",
