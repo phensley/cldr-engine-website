@@ -899,6 +899,9 @@
       "version-0.24.0/version-0.24.0-doc-messageformatting": {
         "title": "Usage"
       },
+      "version-0.25.12/version-0.25.12-doc-messageformatting-custom": {
+        "title": "Customization"
+      },
       "version-0.25.3/version-0.25.3-api-cldr-general": {
         "title": "CLDR.General"
       },

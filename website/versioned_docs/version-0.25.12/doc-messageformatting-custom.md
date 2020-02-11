@@ -1,6 +1,7 @@
 ---
-id: doc-messageformatting-custom
+id: version-0.25.12-doc-messageformatting-custom
 title: Customization
+original_id: doc-messageformatting-custom
 ---
 
 The `@phensley/cldr` package does not currently define any i18n-specific message formatter functions. In the meantime you can easily hook up custom i18n formatters for your types using any formatter names you wish.
