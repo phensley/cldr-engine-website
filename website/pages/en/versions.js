@@ -16,11 +16,11 @@ const CWD = process.cwd();
 const versions = require(`${CWD}/versions.json`);
 
 function Versions(props) {
-  const {config: siteConfig} = props;
+  const { config: siteConfig } = props;
   const latestVersion = versions[0];
   const repoUrl = `https://github.com/${siteConfig.organizationName}/${
     siteConfig.projectName
-  }`;
+    }`;
   return (
     <div className="docMainWrapper wrapper">
       <Container className="mainContainer versionsContainer">
@@ -36,15 +36,15 @@ function Versions(props) {
                 <th>{latestVersion}</th>
                 <td>
                   <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
-                      props.language
+                    props.language
                     }/doc-index`}>Documentation</a>
                 </td>
                 <td>
                   <a href={`${repoUrl}/releases/tag/v${latestVersion}`}>Release Notes</a>
                 </td>
-                <td>
-                <a href={`${repoUrl}/compare/v${versions[1]}...v${latestVersion}`}>Changes</a>
-                </td>
+                {versions[1] && <td>
+                  <a href={`${repoUrl}/compare/v${versions[1]}...v${latestVersion}`}>Changes</a>
+                </td>}
               </tr>
             </tbody>
           </table>
@@ -63,7 +63,7 @@ function Versions(props) {
                   <a
                     href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
                       props.language
-                    }/next/doc-index`}>
+                      }/next/doc-index`}>
                     Documentation
                   </a>
                 </td>
@@ -92,7 +92,7 @@ function Versions(props) {
                       <th>{version}</th>
                       <td>
                         <a href={`${siteConfig.baseUrl}${siteConfig.docsUrl}/${
-                            props.language
+                          props.language
                           }/${version}/doc-index`}>Documentation</a>
                       </td>
                       <td>
@@ -102,7 +102,8 @@ function Versions(props) {
                         {prevVersion && <a href={`${repoUrl}/compare/v${prevVersion}...v${version}`}>Changes</a>}
                       </td>
                     </tr>
-                )}
+                  )
+                }
               )}
             </tbody>
           </table>
