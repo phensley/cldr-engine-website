@@ -98,6 +98,8 @@
     "Messages": [
       "api-buildmessagematcher",
       "api-parsemessagepattern",
+      "api-defaultmessageargconverter",
+      "api-messageargconverter",
       "api-messagecode",
       "api-messageengine",
       "api-messageformatfuncmap",
