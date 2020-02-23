@@ -1,6 +1,7 @@
 ---
-id: api-defaultmessageargconverter
+id: version-0.25.21-api-defaultmessageargconverter
 title: DefaultMessageArgConverter
+original_id: api-defaultmessageargconverter
 ---
 
 Converts basic types to `Decimal` and `string`.

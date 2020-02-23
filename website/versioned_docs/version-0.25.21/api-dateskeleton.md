@@ -1,6 +1,7 @@
 ---
-id: api-dateskeleton
+id: version-0.25.21-api-dateskeleton
 title: DateSkeleton
+original_id: api-dateskeleton
 ---
 
 A date skeleton is a string containing fields that should appear in a formatted date. It acts like a query, selecting the best-fit pattern among the available patterns for a given locale. It is also used to adjust a pattern to have the desired field width.

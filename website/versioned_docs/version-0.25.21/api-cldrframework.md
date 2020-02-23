@@ -1,6 +1,7 @@
 ---
-id: api-cldrframework
+id: version-0.25.21-api-cldrframework
 title: CLDRFramework
+original_id: api-cldrframework
 ---
 
 Constructs instances of [CLDR](api-cldr.html) for a given locale.
