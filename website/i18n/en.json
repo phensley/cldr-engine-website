@@ -293,292 +293,292 @@
       "doc-quickstart": {
         "title": "Quick start"
       },
-      "version-1.0.0/version-1.0.0-api-buddhistdate": {
+      "version-1.0.1/version-1.0.1-api-buddhistdate": {
         "title": "BuddhistDate"
       },
-      "version-1.0.0/version-1.0.0-api-buildmessagematcher": {
+      "version-1.0.1/version-1.0.1-api-buildmessagematcher": {
         "title": "buildMessageMatcher"
       },
-      "version-1.0.0/version-1.0.0-api-bundle": {
+      "version-1.0.1/version-1.0.1-api-bundle": {
         "title": "Bundle"
       },
-      "version-1.0.0/version-1.0.0-api-calendardate": {
+      "version-1.0.1/version-1.0.1-api-calendardate": {
         "title": "CalendarDate"
       },
-      "version-1.0.0/version-1.0.0-api-calendardatefields": {
+      "version-1.0.1/version-1.0.1-api-calendardatefields": {
         "title": "CalendarDateFields"
       },
-      "version-1.0.0/version-1.0.0-api-calendarfieldoptions": {
+      "version-1.0.1/version-1.0.1-api-calendarfieldoptions": {
         "title": "CalendarFieldOptions"
       },
-      "version-1.0.0/version-1.0.0-api-calendartype": {
+      "version-1.0.1/version-1.0.1-api-calendartype": {
         "title": "CalendarType"
       },
-      "version-1.0.0/version-1.0.0-api-cldr-calendars": {
+      "version-1.0.1/version-1.0.1-api-cldr-calendars": {
         "title": "CLDR.Calendars"
       },
-      "version-1.0.0/version-1.0.0-api-cldr-general": {
+      "version-1.0.1/version-1.0.1-api-cldr-general": {
         "title": "CLDR.General"
       },
-      "version-1.0.0/version-1.0.0-api-cldr-numbers": {
+      "version-1.0.1/version-1.0.1-api-cldr-numbers": {
         "title": "CLDR.Numbers"
       },
-      "version-1.0.0/version-1.0.0-api-cldr-units": {
+      "version-1.0.1/version-1.0.1-api-cldr-units": {
         "title": "CLDR.Units"
       },
-      "version-1.0.0/version-1.0.0-api-cldr": {
+      "version-1.0.1/version-1.0.1-api-cldr": {
         "title": "CLDR"
       },
-      "version-1.0.0/version-1.0.0-api-cldrframework": {
+      "version-1.0.1/version-1.0.1-api-cldrframework": {
         "title": "CLDRFramework"
       },
-      "version-1.0.0/version-1.0.0-api-cldroptions": {
+      "version-1.0.1/version-1.0.1-api-cldroptions": {
         "title": "CLDROptions"
       },
-      "version-1.0.0/version-1.0.0-api-contexttype": {
+      "version-1.0.1/version-1.0.1-api-contexttype": {
         "title": "ContextType"
       },
-      "version-1.0.0/version-1.0.0-api-currencyformatoptions": {
+      "version-1.0.1/version-1.0.1-api-currencyformatoptions": {
         "title": "CurrencyFormatOptions"
       },
-      "version-1.0.0/version-1.0.0-api-currencyformatstyletype": {
+      "version-1.0.1/version-1.0.1-api-currencyformatstyletype": {
         "title": "CurrencyFormatStyleType"
       },
-      "version-1.0.0/version-1.0.0-api-currencysymbolwidthtype": {
+      "version-1.0.1/version-1.0.1-api-currencysymbolwidthtype": {
         "title": "CurrencySymbolWidthType"
       },
-      "version-1.0.0/version-1.0.0-api-currencytype": {
+      "version-1.0.1/version-1.0.1-api-currencytype": {
         "title": "CurrencyType"
       },
-      "version-1.0.0/version-1.0.0-api-datefieldformatoptions": {
+      "version-1.0.1/version-1.0.1-api-datefieldformatoptions": {
         "title": "DateFieldFormatOptions"
       },
-      "version-1.0.0/version-1.0.0-api-datefieldtype": {
+      "version-1.0.1/version-1.0.1-api-datefieldtype": {
         "title": "DateFieldType"
       },
-      "version-1.0.0/version-1.0.0-api-dateformatoptions": {
+      "version-1.0.1/version-1.0.1-api-dateformatoptions": {
         "title": "DateFormatOptions"
       },
-      "version-1.0.0/version-1.0.0-api-dateintervalformatoptions": {
+      "version-1.0.1/version-1.0.1-api-dateintervalformatoptions": {
         "title": "DateIntervalFormatOptions"
       },
-      "version-1.0.0/version-1.0.0-api-daterawformatoptions": {
+      "version-1.0.1/version-1.0.1-api-daterawformatoptions": {
         "title": "DateRawFormatOptions"
       },
-      "version-1.0.0/version-1.0.0-api-dateskeleton": {
+      "version-1.0.1/version-1.0.1-api-dateskeleton": {
         "title": "DateSkeleton"
       },
-      "version-1.0.0/version-1.0.0-api-datetimepatternfieldtype": {
+      "version-1.0.1/version-1.0.1-api-datetimepatternfieldtype": {
         "title": "DateTimePatternFieldType"
       },
-      "version-1.0.0/version-1.0.0-api-decimal": {
+      "version-1.0.1/version-1.0.1-api-decimal": {
         "title": "Decimal"
       },
-      "version-1.0.0/version-1.0.0-api-decimaladjustoptions": {
+      "version-1.0.1/version-1.0.1-api-decimaladjustoptions": {
         "title": "DecimalAdjustOptions"
       },
-      "version-1.0.0/version-1.0.0-api-decimalconstants": {
+      "version-1.0.1/version-1.0.1-api-decimalconstants": {
         "title": "DecimalConstants"
       },
-      "version-1.0.0/version-1.0.0-api-decimalformatoptions": {
+      "version-1.0.1/version-1.0.1-api-decimalformatoptions": {
         "title": "DecimalFormatOptions"
       },
-      "version-1.0.0/version-1.0.0-api-decimalformatstyletype": {
+      "version-1.0.1/version-1.0.1-api-decimalformatstyletype": {
         "title": "DecimalFormatStyleType"
       },
-      "version-1.0.0/version-1.0.0-api-defaultmessageargconverter": {
+      "version-1.0.1/version-1.0.1-api-defaultmessageargconverter": {
         "title": "DefaultMessageArgConverter"
       },
-      "version-1.0.0/version-1.0.0-api-displaynameoptions": {
+      "version-1.0.1/version-1.0.1-api-displaynameoptions": {
         "title": "DisplayNameOptions"
       },
-      "version-1.0.0/version-1.0.0-api-erafieldoptions": {
+      "version-1.0.1/version-1.0.1-api-erafieldoptions": {
         "title": "EraFieldOptions"
       },
-      "version-1.0.0/version-1.0.0-api-erawidthtype": {
+      "version-1.0.1/version-1.0.1-api-erawidthtype": {
         "title": "EraWidthType"
       },
-      "version-1.0.0/version-1.0.0-api-exemplarcity": {
+      "version-1.0.1/version-1.0.1-api-exemplarcity": {
         "title": "ExemplarCity"
       },
-      "version-1.0.0/version-1.0.0-api-fieldwidthtype": {
+      "version-1.0.1/version-1.0.1-api-fieldwidthtype": {
         "title": "FieldWidthType"
       },
-      "version-1.0.0/version-1.0.0-api-formatwidthtype": {
+      "version-1.0.1/version-1.0.1-api-formatwidthtype": {
         "title": "FormatWidthType"
       },
-      "version-1.0.0/version-1.0.0-api-gregoriandate": {
+      "version-1.0.1/version-1.0.1-api-gregoriandate": {
         "title": "GregorianDate"
       },
-      "version-1.0.0/version-1.0.0-api-iso8601date": {
+      "version-1.0.1/version-1.0.1-api-iso8601date": {
         "title": "ISO8601Date"
       },
-      "version-1.0.0/version-1.0.0-api-japanesedate": {
+      "version-1.0.1/version-1.0.1-api-japanesedate": {
         "title": "JapaneseDate"
       },
-      "version-1.0.0/version-1.0.0-api-languageidtype": {
+      "version-1.0.1/version-1.0.1-api-languageidtype": {
         "title": "LanguageIdType"
       },
-      "version-1.0.0/version-1.0.0-api-languagetag": {
+      "version-1.0.1/version-1.0.1-api-languagetag": {
         "title": "LanguageTag"
       },
-      "version-1.0.0/version-1.0.0-api-listpatterntype": {
+      "version-1.0.1/version-1.0.1-api-listpatterntype": {
         "title": "ListPatternType"
       },
-      "version-1.0.0/version-1.0.0-api-locale": {
+      "version-1.0.1/version-1.0.1-api-locale": {
         "title": "Locale"
       },
-      "version-1.0.0/version-1.0.0-api-localematcher": {
+      "version-1.0.1/version-1.0.1-api-localematcher": {
         "title": "LocaleMatcher"
       },
-      "version-1.0.0/version-1.0.0-api-mathcontext": {
+      "version-1.0.1/version-1.0.1-api-mathcontext": {
         "title": "MathContext"
       },
-      "version-1.0.0/version-1.0.0-api-measurementcategory": {
+      "version-1.0.1/version-1.0.1-api-measurementcategory": {
         "title": "MeasurementCategory"
       },
-      "version-1.0.0/version-1.0.0-api-measurementsystem": {
+      "version-1.0.1/version-1.0.1-api-measurementsystem": {
         "title": "MeasurementSystem"
       },
-      "version-1.0.0/version-1.0.0-api-messageargconverter": {
+      "version-1.0.1/version-1.0.1-api-messageargconverter": {
         "title": "MessageArgConverter"
       },
-      "version-1.0.0/version-1.0.0-api-messagecode": {
+      "version-1.0.1/version-1.0.1-api-messagecode": {
         "title": "MessageCode"
       },
-      "version-1.0.0/version-1.0.0-api-messageengine": {
+      "version-1.0.1/version-1.0.1-api-messageengine": {
         "title": "MessageEngine"
       },
-      "version-1.0.0/version-1.0.0-api-messageformatfuncmap": {
+      "version-1.0.1/version-1.0.1-api-messageformatfuncmap": {
         "title": "MessageFormatFuncMap"
       },
-      "version-1.0.0/version-1.0.0-api-messageformatter": {
+      "version-1.0.1/version-1.0.1-api-messageformatter": {
         "title": "MessageFormatter"
       },
-      "version-1.0.0/version-1.0.0-api-messageformatteroptions": {
+      "version-1.0.1/version-1.0.1-api-messageformatteroptions": {
         "title": "MessageFormatterOptions"
       },
-      "version-1.0.0/version-1.0.0-api-messagematcher": {
+      "version-1.0.1/version-1.0.1-api-messagematcher": {
         "title": "MessageMatcher"
       },
-      "version-1.0.0/version-1.0.0-api-numberformaterrortype": {
+      "version-1.0.1/version-1.0.1-api-numberformaterrortype": {
         "title": "NumberFormatErrorType"
       },
-      "version-1.0.0/version-1.0.0-api-numbersystemtype": {
+      "version-1.0.1/version-1.0.1-api-numbersystemtype": {
         "title": "NumberSystemType"
       },
-      "version-1.0.0/version-1.0.0-api-parsemessagepattern": {
+      "version-1.0.1/version-1.0.1-api-parsemessagepattern": {
         "title": "parseMessagePattern"
       },
-      "version-1.0.0/version-1.0.0-api-persiandate": {
+      "version-1.0.1/version-1.0.1-api-persiandate": {
         "title": "PersianDate"
       },
-      "version-1.0.0/version-1.0.0-api-pluralrules": {
+      "version-1.0.1/version-1.0.1-api-pluralrules": {
         "title": "PluralRules"
       },
-      "version-1.0.0/version-1.0.0-api-quantity": {
+      "version-1.0.1/version-1.0.1-api-quantity": {
         "title": "Quantity"
       },
-      "version-1.0.0/version-1.0.0-api-rational": {
+      "version-1.0.1/version-1.0.1-api-rational": {
         "title": "Rational"
       },
-      "version-1.0.0/version-1.0.0-api-regionidtype": {
+      "version-1.0.1/version-1.0.1-api-regionidtype": {
         "title": "RegionIdType"
       },
-      "version-1.0.0/version-1.0.0-api-relativetimefieldformatoptions": {
+      "version-1.0.1/version-1.0.1-api-relativetimefieldformatoptions": {
         "title": "RelativeTimeFieldFormatOptions"
       },
-      "version-1.0.0/version-1.0.0-api-relativetimefieldtype": {
+      "version-1.0.1/version-1.0.1-api-relativetimefieldtype": {
         "title": "RelativeTimeFieldType"
       },
-      "version-1.0.0/version-1.0.0-api-relativetimeformatoptions": {
+      "version-1.0.1/version-1.0.1-api-relativetimeformatoptions": {
         "title": "RelativeTimeFormatOptions"
       },
-      "version-1.0.0/version-1.0.0-api-roundingmodetype": {
+      "version-1.0.1/version-1.0.1-api-roundingmodetype": {
         "title": "RoundingModeType"
       },
-      "version-1.0.0/version-1.0.0-api-schemaconfig": {
+      "version-1.0.1/version-1.0.1-api-schemaconfig": {
         "title": "SchemaConfig"
       },
-      "version-1.0.0/version-1.0.0-api-scriptidtype": {
+      "version-1.0.1/version-1.0.1-api-scriptidtype": {
         "title": "ScriptIdType"
       },
-      "version-1.0.0/version-1.0.0-api-timeperiod": {
+      "version-1.0.1/version-1.0.1-api-timeperiod": {
         "title": "TimePeriod"
       },
-      "version-1.0.0/version-1.0.0-api-timeperiodfield": {
+      "version-1.0.1/version-1.0.1-api-timeperiodfield": {
         "title": "TimePeriodField"
       },
-      "version-1.0.0/version-1.0.0-api-timezoneinfo": {
+      "version-1.0.1/version-1.0.1-api-timezoneinfo": {
         "title": "TimeZoneInfo"
       },
-      "version-1.0.0/version-1.0.0-api-timezonetype": {
+      "version-1.0.1/version-1.0.1-api-timezonetype": {
         "title": "TimeZoneType"
       },
-      "version-1.0.0/version-1.0.0-api-unitformatoptions": {
+      "version-1.0.1/version-1.0.1-api-unitformatoptions": {
         "title": "UnitFormatOptions"
       },
-      "version-1.0.0/version-1.0.0-api-unitformatstyletype": {
+      "version-1.0.1/version-1.0.1-api-unitformatstyletype": {
         "title": "UnitFormatStyleType"
       },
-      "version-1.0.0/version-1.0.0-api-unitlength": {
+      "version-1.0.1/version-1.0.1-api-unitlength": {
         "title": "UnitLength"
       },
-      "version-1.0.0/version-1.0.0-api-unittype": {
+      "version-1.0.1/version-1.0.1-api-unittype": {
         "title": "UnitType"
       },
-      "version-1.0.0/version-1.0.0-api-zoneddatetime": {
+      "version-1.0.1/version-1.0.1-api-zoneddatetime": {
         "title": "ZonedDateTime"
       },
-      "version-1.0.0/version-1.0.0-doc-calendar-examples": {
+      "version-1.0.1/version-1.0.1-doc-calendar-examples": {
         "title": "Example: date formatting"
       },
-      "version-1.0.0/version-1.0.0-doc-calendar-overview": {
+      "version-1.0.1/version-1.0.1-doc-calendar-overview": {
         "title": "Calendar Overview"
       },
-      "version-1.0.0/version-1.0.0-doc-design-bundles": {
+      "version-1.0.1/version-1.0.1-doc-design-bundles": {
         "title": "Resource bundles"
       },
-      "version-1.0.0/version-1.0.0-doc-design-caching": {
+      "version-1.0.1/version-1.0.1-doc-design-caching": {
         "title": "Caching"
       },
-      "version-1.0.0/version-1.0.0-doc-faq": {
+      "version-1.0.1/version-1.0.1-doc-faq": {
         "title": "Rationale"
       },
-      "version-1.0.0/version-1.0.0-doc-goals": {
+      "version-1.0.1/version-1.0.1-doc-goals": {
         "title": "Goals"
       },
-      "version-1.0.0/version-1.0.0-doc-index": {
+      "version-1.0.1/version-1.0.1-doc-index": {
         "title": "Overview"
       },
-      "version-1.0.0/version-1.0.0-doc-locales-matching": {
+      "version-1.0.1/version-1.0.1-doc-locales-matching": {
         "title": "Language matching"
       },
-      "version-1.0.0/version-1.0.0-doc-locales-parsing": {
+      "version-1.0.1/version-1.0.1-doc-locales-parsing": {
         "title": "Locale parsing"
       },
-      "version-1.0.0/version-1.0.0-doc-locales-resolution": {
+      "version-1.0.1/version-1.0.1-doc-locales-resolution": {
         "title": "Locale resolution"
       },
-      "version-1.0.0/version-1.0.0-doc-math-example-contd-fractions": {
+      "version-1.0.1/version-1.0.1-doc-math-example-contd-fractions": {
         "title": "Math: continued fractions"
       },
-      "version-1.0.0/version-1.0.0-doc-math-example-factorial": {
+      "version-1.0.1/version-1.0.1-doc-math-example-factorial": {
         "title": "Example: factorial"
       },
-      "version-1.0.0/version-1.0.0-doc-math-example-rational-approx": {
+      "version-1.0.1/version-1.0.1-doc-math-example-rational-approx": {
         "title": "Math: rational approximation"
       },
-      "version-1.0.0/version-1.0.0-doc-math": {
+      "version-1.0.1/version-1.0.1-doc-math": {
         "title": "Arbitrary Precision"
       },
-      "version-1.0.0/version-1.0.0-doc-messageformatting-custom": {
+      "version-1.0.1/version-1.0.1-doc-messageformatting-custom": {
         "title": "Customization"
       },
-      "version-1.0.0/version-1.0.0-doc-messageformatting": {
+      "version-1.0.1/version-1.0.1-doc-messageformatting": {
         "title": "Usage"
       },
-      "version-1.0.0/version-1.0.0-doc-quickstart": {
+      "version-1.0.1/version-1.0.1-doc-quickstart": {
         "title": "Quick start"
       }
     },

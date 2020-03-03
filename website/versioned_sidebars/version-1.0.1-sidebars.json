@@ -1,0 +1,129 @@
+{
+  "version-1.0.1-docs": {
+    "Introduction": [
+      "version-1.0.1-doc-index",
+      "version-1.0.1-doc-goals",
+      "version-1.0.1-doc-faq",
+      "version-1.0.1-doc-quickstart"
+    ],
+    "Locales": [
+      "version-1.0.1-doc-locales-parsing",
+      "version-1.0.1-doc-locales-resolution",
+      "version-1.0.1-doc-locales-matching"
+    ],
+    "Calendars": [
+      "version-1.0.1-doc-calendar-overview",
+      "version-1.0.1-doc-calendar-examples"
+    ],
+    "Math": [
+      "version-1.0.1-doc-math",
+      "version-1.0.1-doc-math-example-factorial",
+      "version-1.0.1-doc-math-example-rational-approx",
+      "version-1.0.1-doc-math-example-contd-fractions"
+    ],
+    "Message Formatting": [
+      "version-1.0.1-doc-messageformatting",
+      "version-1.0.1-doc-messageformatting-custom"
+    ],
+    "Design": [
+      "version-1.0.1-doc-design-bundles",
+      "version-1.0.1-doc-design-caching"
+    ]
+  },
+  "version-1.0.1-reference": {
+    "API": [
+      "version-1.0.1-api-cldrframework",
+      "version-1.0.1-api-cldroptions",
+      "version-1.0.1-api-cldr",
+      "version-1.0.1-api-cldr-calendars",
+      "version-1.0.1-api-cldr-general",
+      "version-1.0.1-api-cldr-numbers",
+      "version-1.0.1-api-cldr-units",
+      "version-1.0.1-api-schemaconfig"
+    ],
+    "Calendars": [
+      "version-1.0.1-api-buddhistdate",
+      "version-1.0.1-api-calendardate",
+      "version-1.0.1-api-calendardatefields",
+      "version-1.0.1-api-calendarfieldoptions",
+      "version-1.0.1-api-calendartype",
+      "version-1.0.1-api-datefieldtype",
+      "version-1.0.1-api-datefieldformatoptions",
+      "version-1.0.1-api-dateformatoptions",
+      "version-1.0.1-api-dateintervalformatoptions",
+      "version-1.0.1-api-daterawformatoptions",
+      "version-1.0.1-api-dateskeleton",
+      "version-1.0.1-api-datetimepatternfieldtype",
+      "version-1.0.1-api-erafieldoptions",
+      "version-1.0.1-api-erawidthtype",
+      "version-1.0.1-api-exemplarcity",
+      "version-1.0.1-api-fieldwidthtype",
+      "version-1.0.1-api-formatwidthtype",
+      "version-1.0.1-api-gregoriandate",
+      "version-1.0.1-api-iso8601date",
+      "version-1.0.1-api-japanesedate",
+      "version-1.0.1-api-persiandate",
+      "version-1.0.1-api-relativetimefieldtype",
+      "version-1.0.1-api-relativetimeformatoptions",
+      "version-1.0.1-api-relativetimefieldformatoptions",
+      "version-1.0.1-api-timeperiod",
+      "version-1.0.1-api-timeperiodfield",
+      "version-1.0.1-api-timezoneinfo",
+      "version-1.0.1-api-timezonetype",
+      "version-1.0.1-api-zoneddatetime"
+    ],
+    "General": [
+      "version-1.0.1-api-contexttype",
+      "version-1.0.1-api-displaynameoptions",
+      "version-1.0.1-api-languageidtype",
+      "version-1.0.1-api-listpatterntype",
+      "version-1.0.1-api-measurementcategory",
+      "version-1.0.1-api-measurementsystem",
+      "version-1.0.1-api-regionidtype",
+      "version-1.0.1-api-scriptidtype"
+    ],
+    "Locales": [
+      "version-1.0.1-api-bundle",
+      "version-1.0.1-api-languagetag",
+      "version-1.0.1-api-locale",
+      "version-1.0.1-api-localematcher"
+    ],
+    "Math": [
+      "version-1.0.1-api-decimal",
+      "version-1.0.1-api-decimalconstants",
+      "version-1.0.1-api-mathcontext",
+      "version-1.0.1-api-rational",
+      "version-1.0.1-api-roundingmodetype"
+    ],
+    "Messages": [
+      "version-1.0.1-api-buildmessagematcher",
+      "version-1.0.1-api-parsemessagepattern",
+      "version-1.0.1-api-defaultmessageargconverter",
+      "version-1.0.1-api-messageargconverter",
+      "version-1.0.1-api-messagecode",
+      "version-1.0.1-api-messageengine",
+      "version-1.0.1-api-messageformatfuncmap",
+      "version-1.0.1-api-messageformatter",
+      "version-1.0.1-api-messageformatteroptions",
+      "version-1.0.1-api-messagematcher"
+    ],
+    "Numbers": [
+      "version-1.0.1-api-currencyformatoptions",
+      "version-1.0.1-api-currencyformatstyletype",
+      "version-1.0.1-api-currencysymbolwidthtype",
+      "version-1.0.1-api-currencytype",
+      "version-1.0.1-api-decimaladjustoptions",
+      "version-1.0.1-api-decimalformatoptions",
+      "version-1.0.1-api-decimalformatstyletype",
+      "version-1.0.1-api-numberformaterrortype",
+      "version-1.0.1-api-numbersystemtype"
+    ],
+    "Units": [
+      "version-1.0.1-api-quantity",
+      "version-1.0.1-api-unitformatoptions",
+      "version-1.0.1-api-unitformatstyletype",
+      "version-1.0.1-api-unitlength",
+      "version-1.0.1-api-unittype"
+    ]
+  }
+}
