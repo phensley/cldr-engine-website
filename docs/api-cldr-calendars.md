@@ -779,8 +779,8 @@ d = cldr.Calendars.toGregorianDate({ date, zoneId });
 log(d);
 ```
 <pre class="output">
-Gregorian 2018-02-17 07:34:56.789 America/New_York
-Gregorian 2018-07-17 08:34:56.789 America/New_York
+Gregorian 2018-02-17 12:34:56.789 America/New_York
+Gregorian 2018-07-17 12:34:56.789 America/New_York
 </pre>
 
 

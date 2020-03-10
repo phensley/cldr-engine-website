@@ -17,16 +17,16 @@ new LocaleMatcher(supported)
 
 #### Parameters
 
-  - <code class="def">supported: <span>string | string[]</span></code>
-    - Array of space and or comma-separated locale identifiers, in order of most- to least-supported. The first identifier will be used as the default.
+- <code class="def">supported: <span>string | string[]</span></code>
+  - Array of space and or comma-separated locale identifiers, in order of most- to least-supported. The first identifier will be used as the default.
 
 #### Example
+
 ```typescript
 import { LocaleMatcher } from '@phensley/cldr';
 
 const localeMatcher = new LocaleMatcher('en, es-419, en-GB, pt-BR, es');
 ```
-
 
 ## match
 
@@ -35,12 +35,15 @@ Matches on or more desired locales against the list of supported locales, return
 #### Syntax
 
 <pre class="syntax">
-match(desired): LanguageMatch
+match(desired, options?): LanguageMatch
 </pre>
 
 #### Parameters
-  - <code class="def">desired: <span>string | string[]</span></code>
-    - Array of space and or comma-separated locale identifiers to match, in order of most- to least-desired.
+
+- <code class="def">desired: <span>string | (Locale | LanguageTag | string)[]</span></code>
+  - Array of space and or comma-separated locale identifiers to match, in order of most- to least-desired.
+- <code class="def">options: <span>LocaleMatcherOptions</span></code>
+  - Options for the matcher
 
 #### Example
 

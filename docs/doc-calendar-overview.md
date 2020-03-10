@@ -22,7 +22,7 @@ log(b);
 ```
 <pre class="output">
 Gregorian 2019-09-15 12:34:56.000 Etc/UTC
-Japanese 2019-09-15 12:34:56.000 Etc/UTC
+Japanese 2019-09-15 16:34:56.000 Etc/UTC
 </pre>
 
 
@@ -38,7 +38,7 @@ const japanese = cldr.Calendars.toJapaneseDate(gregorian);
 log(japanese.toString());
 ```
 <pre class="output">
-Japanese 2019-09-15 00:00:00.000 Etc/UTC
+Japanese 2019-09-15 04:00:00.000 Etc/UTC
 </pre>
 
 #### See

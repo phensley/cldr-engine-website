@@ -62,16 +62,16 @@ for (const delta of deltas) {
 }
 ```
 <pre class="output">
-July 1, 2018 at 10:15:16 AM EDT
+July 1, 2018 at 2:15:16 PM EDT
 &nbsp;
 { year: 1, month: -2 }
-May 1, 2019 at 10:15:16 AM EDT
+May 1, 2019 at 2:15:16 PM EDT
 &nbsp;
 { year: 5, day: 17, hour: -5 }
-July 18, 2023 at 5:15:16 AM EDT
+July 18, 2023 at 9:15:16 AM EDT
 &nbsp;
 { year: -10, month: 2 }
-September 1, 2008 at 10:15:16 AM EDT
+September 1, 2008 at 2:15:16 PM EDT
 </pre>
 
 

@@ -143,6 +143,9 @@
       "api-localematcher": {
         "title": "LocaleMatcher"
       },
+      "api-localematcheroptions": {
+        "title": "LocaleMatcherOptions"
+      },
       "api-mathcontext": {
         "title": "MathContext"
       },

@@ -86,7 +86,8 @@
       "api-bundle",
       "api-languagetag",
       "api-locale",
-      "api-localematcher"
+      "api-localematcher",
+      "api-localematcheroptions"
     ],
     "Math": [
       "api-decimal",
