@@ -1,6 +1,7 @@
 ---
-id: api-localematcheroptions
+id: version-1.0.6-api-localematcheroptions
 title: LocaleMatcherOptions
+original_id: api-localematcheroptions
 ---
 
 Options for a [LocaleMatcher](api-localematcher).

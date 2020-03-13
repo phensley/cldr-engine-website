@@ -1,6 +1,7 @@
 ---
-id: api-localematcher
+id: version-1.0.6-api-localematcher
 title: LocaleMatcher
+original_id: api-localematcher
 ---
 
 Distance-based matching of a user's desired locales against a sorted list of application supported locales.

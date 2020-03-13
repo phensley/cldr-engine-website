@@ -1,6 +1,7 @@
 ---
-id: doc-messageformatting-custom
+id: version-1.0.6-doc-messageformatting-custom
 title: Customization
+original_id: doc-messageformatting-custom
 ---
 
 The `@phensley/cldr` package does not currently define any i18n-specific message formatter functions. In the meantime you can easily hook up custom i18n formatters for your types using any formatter names you wish.
@@ -110,15 +111,15 @@ for (const id of ['en', 'es', 'ko']) {
 <pre class="output">
 English
   "12,535.99"  "13K"  "13 thousand"
-  "3/13/20, 10:48 AM"  "March 13, 2020 at 10:48:04 AM PDT"
+  "3/13/20, 10:43 AM"  "March 13, 2020 at 10:43:51 AM PDT"
   "12,351,330.00 euros"  "€12,351,330.00"  "€12M"
 Spanish
   "12.535,99"  "13 mil"  "13 mil"
-  "13/3/20 10:48"  "13 de marzo de 2020, 10:48:04 GMT-7"
+  "13/3/20 10:43"  "13 de marzo de 2020, 10:43:51 GMT-7"
   "12.351.330,00 euros"  "12.351.330,00 €"  "12 M€"
 Korean
   "12,535.99"  "1.3만"  "1.3만"
-  "20. 3. 13. AM 10:48"  "2020년 3월 13일 AM 10시 48분 4초 GMT-7"
+  "20. 3. 13. AM 10:43"  "2020년 3월 13일 AM 10시 43분 51초 GMT-7"
   "12,351,330.00 유로"  "€12,351,330.00"  "€1,235만"
 </pre>
 

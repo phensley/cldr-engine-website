@@ -1,6 +1,7 @@
 ---
-id: api-calendartype
+id: version-1.0.6-api-calendartype
 title: CalendarType
+original_id: api-calendartype
 ---
 
 Identifiers for support calendars.
