@@ -1,6 +1,7 @@
 ---
-id: api-calendardate
+id: version-1.0.7-api-calendardate
 title: CalendarDate
+original_id: api-calendardate
 ---
 
 `CalendarDate` is the abstract base class for specific calendar implementations:
