@@ -1,6 +1,7 @@
 ---
-id: api-cldr-numbers
+id: version-1.0.9-api-cldr-numbers
 title: CLDR.Numbers
+original_id: api-cldr-numbers
 ---
 
 The `CLDR.Numbers` namespace allows you to:

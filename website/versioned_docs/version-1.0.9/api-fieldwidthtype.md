@@ -1,6 +1,7 @@
 ---
-id: api-fieldwidthtype
+id: version-1.0.9-api-fieldwidthtype
 title: FieldWidthType
+original_id: api-fieldwidthtype
 ---
 
 ### Syntax

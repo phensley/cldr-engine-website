@@ -1,6 +1,7 @@
 ---
-id: api-decimal
+id: version-1.0.9-api-decimal
 title: Decimal
+original_id: api-decimal
 ---
 
 Arbitrary precision decimal math. Add, subtract, multiply, divide numbers, shift digits left and right, with control over rounding and precision or scale of the result.

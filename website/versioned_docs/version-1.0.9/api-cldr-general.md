@@ -1,6 +1,7 @@
 ---
-id: api-cldr-general
+id: version-1.0.9-api-cldr-general
 title: CLDR.General
+original_id: api-cldr-general
 ---
 
 ## bundle
