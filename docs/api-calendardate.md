@@ -5,16 +5,16 @@ title: CalendarDate
 
 `CalendarDate` is the abstract base class for specific calendar implementations:
 
-  - [BuddhistDate](api-buddhistdate.html)
-    - A date in the Buddhist calendar
-  - [GregorianDate](api-gregoriandate.html)
-    - A date in the Gregorian calendar
-  - [ISO8601Date](api-iso8601date.html)
-    - A date in the ISO-8601 calendar
-  - [PersianDate](api-persiandate.html)
-    - A date in the Persian calendar
-  - [JapaneseDate](api-japanesedate.html)
-    - A date in the Japanese calendar
+- [BuddhistDate](api-buddhistdate.html)
+  - A date in the Buddhist calendar
+- [GregorianDate](api-gregoriandate.html)
+  - A date in the Gregorian calendar
+- [ISO8601Date](api-iso8601date.html)
+  - A date in the ISO-8601 calendar
+- [PersianDate](api-persiandate.html)
+  - A date in the Persian calendar
+- [JapaneseDate](api-japanesedate.html)
+  - A date in the Japanese calendar
 
 ## add
 
@@ -26,10 +26,10 @@ Add a time period to the current date.
 add(fields): CalendarDate
 </pre>
 
-
 #### Parameters
-  - <code class="def">fields: <span>[TimePeriod](api-timeperiod.html)</span></code>
-    - Amounts to add for each field.
+
+- <code class="def">fields: <span>[TimePeriod](api-timeperiod.html)</span></code>
+  - Amounts to add for each field.
 
 #### Example
 
@@ -38,7 +38,9 @@ const cldr = framework.get('en');
 
 // Wed June 27 2018 4:23:00 AM UTC
 const date = cldr.Calendars.toGregorianDate({
-  date: 1530087780000, zoneId: 'America/New_York' });
+  date: 1530087780000,
+  zoneId: 'America/New_York',
+});
 
 log(date.toString());
 log(date.add({ year: 1, month: 5 }).toString());
@@ -51,12 +53,9 @@ Gregorian 2013-07-04 04:45:00.000 America/New_York
 </pre>
 
 
-
-
 ## compare
 
 Compares two dates, returning an integer indicating the date is less than (`-1`), equal to (`0`), or greater than (`1`) the argument.
-
 
 #### Syntax
 
@@ -83,7 +82,6 @@ Gregorian 2019-03-11 04:00:00.000 Etc/UTC  0
 Gregorian 2019-03-12 04:00:00.000 Etc/UTC  -1
 Gregorian 2019-03-31 04:00:00.000 Etc/UTC  -1
 </pre>
-
 
 
 ## dayOfMonth
@@ -115,8 +113,6 @@ Monday, March 11, 2019
 </pre>
 
 
-
-
 ## dayOfWeek
 
 Returns the day of the week, where 1 = SUNDAY, 2 = MONDAY, ..., 7 = SATURDAY
@@ -126,7 +122,6 @@ Returns the day of the week, where 1 = SUNDAY, 2 = MONDAY, ..., 7 = SATURDAY
 <pre class="syntax">
 dayOfWeek(): number
 </pre>
-
 
 #### Example
 
@@ -146,8 +141,6 @@ Monday
 Tuesday
 Saturday
 </pre>
-
-
 
 
 ## dayOfWeekInMonth
@@ -176,7 +169,11 @@ const month = months[date.month()];
 const year = date.year();
 const dayinmonth = date.dayOfWeekInMonth();
 
-log(`the ${day}${ord(day)} is the ${dayinmonth}${ord(dayinmonth)} ${weekday} in ${month}, ${year}`);
+log(
+  `the ${day}${ord(day)} is the ${dayinmonth}${ord(
+    dayinmonth
+  )} ${weekday} in ${month}, ${year}`
+);
 ```
 <pre class="output">
 the 11th is the 2nd Sunday in August, 2019
@@ -202,7 +199,6 @@ log(`${result} is the ${doy} day of ${date.year()}`);
 </pre>
 
 
-
 ## difference
 
 Compute the difference between this date and the argument, returning a [TimePeriod](api-timeperiod.html) result.
@@ -213,31 +209,36 @@ Compute the difference between this date and the argument, returning a [TimePeri
 difference(date, fields?): TimePeriod
 </pre>
 
-
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html)</span></code>
-    - Date to compute the difference from
-  - <code class="def">fields?: <span>[TimePeriodField[]](api-timeperiodfield.html)</span></code>
-    - Optional array of fields to compute the difference in terms of. If omitted all fields will be included.
+
+- <code class="def">date: <span>[CalendarDate](api-calendardate.html)</span></code>
+  - Date to compute the difference from
+- <code class="def">fields?: <span>[TimePeriodField[]](api-timeperiodfield.html)</span></code>
+  - Optional array of fields to compute the difference in terms of. If omitted all fields will be included.
 
 #### Return value
-  - A <code class="def"><span>[TimePeriod](api-timeperiod.html)</span></code> representing the difference between the two dates.
 
+- A <code class="def"><span>[TimePeriod](api-timeperiod.html)</span></code> representing the difference between the two dates.
 
 #### Example
 
 ```typescript
 const cldr = framework.get('en');
-const start = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 11, 12), zoneId: 'UTC' });
+const start = cldr.Calendars.toGregorianDate({
+  date: new Date(2019, 2, 11, 12),
+  zoneId: 'UTC',
+});
 let end: CalendarDate;
 let t: TimePeriod;
 
 end = start.add({ year: 1.5, month: -1, day: 27.5, hour: 3 });
 
-const show = (t: TimePeriod) => Object.keys(t).map(k => [k, t[k]])
-  .filter(([k, v]) => v !== 0)
-  .map(([k, v]) => `${k}=${v}`)
-  .join(' ');
+const show = (t: TimePeriod) =>
+  Object.keys(t)
+    .map((k) => [k, t[k]])
+    .filter(([k, v]) => v !== 0)
+    .map(([k, v]) => `${k}=${v}`)
+    .join(' ');
 
 log(start.toString());
 log(end.toString());
@@ -262,7 +263,6 @@ month=17 day=26.625
 day=545 hour=15
 day=545.625
 </pre>
-
 
 
 ## era
@@ -290,11 +290,9 @@ s = cldr.Calendars.formatDate(date, { date: 'full' });
 log(`${s} era is ${eras[date.era()]}`);
 ```
 <pre class="output">
-Sunday, July 5, 130 era is Before Christ
-Monday, July 5, 1971 era is Anno Domini
+Sunday, July 5, 130 era is [object Object]
+Monday, July 5, 1971 era is [object Object]
 </pre>
-
-
 
 
 ## extendedYear
@@ -323,13 +321,11 @@ Jun 17, 50 BC
 </pre>
 
 
-
 ## fieldOfVisualDifference
 
 Compares the current date with another and returns the field of greatest difference.
 
 **Note**: This assumes the dates are of the same type and have the same timezone offset.
-
 
 #### Syntax
 
@@ -338,9 +334,9 @@ fieldOfVisualDifference(other): DateTimePatternFieldType
 </pre>
 
 #### Parameters
-  - <code class="def">other: <span>[CalendarDate](api-calendardate.html)</span></code>
-    - Date to compare the this date against.
 
+- <code class="def">other: <span>[CalendarDate](api-calendardate.html)</span></code>
+  - Date to compare the this date against.
 
 #### Example
 
@@ -348,7 +344,8 @@ fieldOfVisualDifference(other): DateTimePatternFieldType
 const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 15) });
 
-const fmt = (d: CalendarDate) => cldr.Calendars.formatDate(d, { datetime: 'long' });
+const fmt = (d: CalendarDate) =>
+  cldr.Calendars.formatDate(d, { datetime: 'long' });
 const cmp = (d: CalendarDate, o: CalendarDate) => {
   log(`${fmt(d)}  ~  ${fmt(o)}  => ${d.fieldOfVisualDifference(o)}`);
 };
@@ -367,6 +364,47 @@ May 15, 2019 at 4:00:00 AM GMT  ~  December 15, 2019 at 4:00:00 AM GMT  => M
 May 15, 2019 at 4:00:00 AM GMT  ~  May 15, 2042 at 4:00:00 AM GMT  => y
 </pre>
 
+
+## fields
+
+Returns the date and time-related fields as a [`CalendarDateFields`](api-calendardatefields) object.
+
+#### Syntax
+
+<pre class="syntax">
+fields(): CalendarDateFields
+</pre>
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.newGregorianDate({
+  year: 2020,
+  month: 5,
+  day: 17,
+  hour: 15,
+  minute: 43,
+  second: 22,
+  millis: 123,
+  zoneId: 'America/New_York',
+});
+log(date.toString());
+log(date.fields());
+```
+<pre class="output">
+Gregorian 2020-05-17 15:43:22.123 America/New_York
+{
+  year: 2020,
+  month: 5,
+  day: 17,
+  hour: 15,
+  minute: 43,
+  second: 22,
+  millis: 123,
+  zoneId: 'America/New_York'
+}
+</pre>
 
 
 ## firstDayOfWeek
@@ -397,7 +435,6 @@ fr-FR first day of week: Monday
 </pre>
 
 
-
 ## hour
 
 Indicates the hour of the morning or afternoon, used for the 12-hour clock (0 - 11). Noon and midnight are 0 not 12.
@@ -408,12 +445,13 @@ Indicates the hour of the morning or afternoon, used for the 12-hour clock (0 - 
 hour(): number
 </pre>
 
-
 #### Example
 
 ```typescript
 const cldr = framework.get('en');
-const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 10, 20) });
+const date = cldr.Calendars.toGregorianDate({
+  date: new Date(2019, 4, 10, 12, 10, 20),
+});
 
 log(cldr.Calendars.formatDate(date, { time: 'long' }));
 log(date.hour());
@@ -422,7 +460,6 @@ log(date.hour());
 4:10:20 PM GMT
 4
 </pre>
-
 
 
 ## hourOfDay
@@ -439,7 +476,9 @@ hourOfDay(): number
 
 ```typescript
 const cldr = framework.get('en');
-const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 10, 20) });
+const date = cldr.Calendars.toGregorianDate({
+  date: new Date(2019, 4, 10, 12, 10, 20),
+});
 
 log(cldr.Calendars.formatDate(date, { time: 'long' }));
 log(date.hourOfDay());
@@ -448,8 +487,6 @@ log(date.hourOfDay());
 4:10:20 PM GMT
 16
 </pre>
-
-
 
 
 ## isDaylightSavings
@@ -467,12 +504,16 @@ isDaylightSavings(): boolean
 ```typescript
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
-const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 0, 10, 12, 0, 0), zoneId });
+const date = cldr.Calendars.toGregorianDate({
+  date: new Date(2019, 0, 10, 12, 0, 0),
+  zoneId,
+});
 
 const dst = (d: CalendarDate) =>
   log(
     `${cldr.Calendars.formatDate(d, { datetime: 'long' })} ` +
-    `daylight savings: ${d.isDaylightSavings()}`);
+      `daylight savings: ${d.isDaylightSavings()}`
+  );
 
 dst(date);
 dst(date.add({ day: 58 }));
@@ -483,7 +524,6 @@ January 10, 2019 at 12:00:00 PM EST daylight savings: false
 March 9, 2019 at 12:00:00 PM EST daylight savings: false
 March 12, 2019 at 1:00:00 PM EDT daylight savings: true
 </pre>
-
 
 
 ## isAM
@@ -501,13 +541,16 @@ isAM(): boolean
 ```typescript
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
-const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 0, 10, 8, 0, 0), zoneId });
+const date = cldr.Calendars.toGregorianDate({
+  date: new Date(2019, 0, 10, 8, 0, 0),
+  zoneId,
+});
 
 const isam = (d: CalendarDate) =>
   log(
     `${cldr.Calendars.formatDate(d, { datetime: 'long' })} ` +
-    `is AM: ${d.isAM()}`);
-
+      `is AM: ${d.isAM()}`
+  );
 
 isam(date);
 isam(date.add({ minute: 239 }));
@@ -518,7 +561,6 @@ January 10, 2019 at 8:00:00 AM EST is AM: true
 January 10, 2019 at 11:59:00 AM EST is AM: true
 January 10, 2019 at 12:01:00 PM EST is AM: false
 </pre>
-
 
 
 ## isLeapYear
@@ -532,15 +574,20 @@ isLeapYear(): boolean
 </pre>
 
 #### Example
+
 ```typescript
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
-const date = cldr.Calendars.toGregorianDate({ date: new Date(1895, 0, 10, 13, 0, 0), zoneId });
+const date = cldr.Calendars.toGregorianDate({
+  date: new Date(1895, 0, 10, 13, 0, 0),
+  zoneId,
+});
 
 const isleap = (d: CalendarDate) =>
   log(
     `${cldr.Calendars.formatDate(d, { skeleton: 'y' })} ` +
-    `is leap year ${d.isLeapYear()}`);
+      `is leap year ${d.isLeapYear()}`
+  );
 
 for (let y = 0; y < 11; y++) {
   isleap(date.add({ year: y }));
@@ -561,8 +608,6 @@ for (let y = 0; y < 11; y++) {
 </pre>
 
 
-
-
 ## julianDay
 
 Returns the julian day.
@@ -580,7 +625,7 @@ julianDay(): number
 
 ```typescript
 const cldr = framework.get('en');
-const date = cldr.Calendars.toGregorianDate({ date: new Date(1970, 0, 1 )});
+const date = cldr.Calendars.toGregorianDate({ date: new Date(1970, 0, 1) });
 
 log(date.julianDay());
 log(date.add({ year: -10 }).julianDay());
@@ -591,7 +636,6 @@ log(date.add({ year: -100 }).julianDay());
 2436934.7083333335
 2404063.7083333335
 </pre>
-
 
 
 ## metaZoneId
@@ -609,15 +653,16 @@ metaZoneId(): string
 ```typescript
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
-const date = cldr.Calendars.toGregorianDate({ date: new Date(1990, 0, 1), zoneId });
+const date = cldr.Calendars.toGregorianDate({
+  date: new Date(1990, 0, 1),
+  zoneId,
+});
 
 log(date.metaZoneId());
 ```
 <pre class="output">
 America_Eastern
 </pre>
-
-
 
 
 ## milliseconds
@@ -642,8 +687,6 @@ log(date.milliseconds());
 </pre>
 
 
-
-
 ## millisecondsInDay
 
 Returns a composite of all time-related fields: hours, minutes, seconds and milliseconds.
@@ -659,10 +702,17 @@ millisecondsInDay(): number
 ```typescript
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
-let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 2, 10, 6, 59, 59), zoneId });
+let date = cldr.Calendars.toGregorianDate({
+  date: new Date(2019, 2, 10, 6, 59, 59),
+  zoneId,
+});
 
 const fmt = (d: CalendarDate) =>
-  log(`${cldr.Calendars.formatDate(d, { datetime: 'long' })}  ${d.millisecondsInDay()}`);
+  log(
+    `${cldr.Calendars.formatDate(d, {
+      datetime: 'long',
+    })}  ${d.millisecondsInDay()}`
+  );
 
 fmt(date);
 fmt(date.add({ minute: 1 }));
@@ -673,8 +723,6 @@ March 10, 2019 at 6:59:59 AM EDT  25199000
 March 10, 2019 at 7:00:59 AM EDT  25259000
 March 10, 2019 at 7:01:59 AM EDT  25319000
 </pre>
-
-
 
 
 ## minDaysInFirstWeek
@@ -704,8 +752,6 @@ log(date.minDaysInFirstWeek());
 </pre>
 
 
-
-
 ## minute
 
 Indicates the minute of the hour (0 - 59).
@@ -720,7 +766,9 @@ minute(): number
 
 ```typescript
 const cldr = framework.get('en');
-const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
+const date = cldr.Calendars.toGregorianDate({
+  date: new Date(2019, 4, 10, 12, 27, 41),
+});
 
 log(cldr.Calendars.formatDate(date, { time: 'long' }));
 log(date.minute());
@@ -731,13 +779,11 @@ log(date.minute());
 </pre>
 
 
-
 ## modifiedJulianDay
 
 Returns the modified julian day.
 
 Modified julian day is used internally for date calculations, and changes it to midnight-based by adding +0.5 to the Julian day.
-
 
 #### Syntax
 
@@ -749,7 +795,7 @@ modifiedJulianDay(): number
 
 ```typescript
 const cldr = framework.get('en');
-const date = cldr.Calendars.toGregorianDate({ date: new Date(1970, 0, 1 )});
+const date = cldr.Calendars.toGregorianDate({ date: new Date(1970, 0, 1) });
 
 log(date.modifiedJulianDay());
 log(date.add({ year: -10 }).modifiedJulianDay());
@@ -760,7 +806,6 @@ log(date.add({ year: -100 }).modifiedJulianDay());
 2436935
 2404064
 </pre>
-
 
 
 ## month
@@ -788,8 +833,6 @@ May 10, 2019
 </pre>
 
 
-
-
 ## ordinalDayOfWeek
 
 Ordinal day of the week. 1 if this is the 1st day of the week, 2 if the 2nd, etc. Depends on the locale's starting day of the week.
@@ -806,8 +849,8 @@ ordinalDayOfWeek(): number
 const us = framework.get('en-US');
 const fr = framework.get('fr-FR');
 
-const suffixes = { 'one': 'st', 'two': 'nd', 'few': 'rd', 'other': 'th' };
-const usdate = us.Calendars.toGregorianDate({ date: new Date(2019, 4, 7 )});
+const suffixes = { one: 'st', two: 'nd', few: 'rd', other: 'th' };
+const usdate = us.Calendars.toGregorianDate({ date: new Date(2019, 4, 7) });
 const frdate = fr.Calendars.toGregorianDate(usdate);
 let cat: string;
 
@@ -828,11 +871,9 @@ Tuesday, May 7, 2019
 </pre>
 
 
-
-
 #### See Also
- * [firstDayOfWeek](#firstdayofweek)
 
+- [firstDayOfWeek](#firstdayofweek)
 
 ## relativeTime
 
@@ -845,10 +886,11 @@ relativeTime(date, field?): [TimePeriodField, number]
 </pre>
 
 #### Parameters
-  - <code class="def">date: <span>[CalendarDate](api-calendardate.html)</span></code>
-    - Date to compute the relative time to
-  - <code class="def">field?: <span>[TimePeriodField](api-timeperiodfield.html)</span></code>
-    - Specify field to compute relative time in terms of. If omitted, the first non-zero field will be used (in descending order from `year` down).
+
+- <code class="def">date: <span>[CalendarDate](api-calendardate.html)</span></code>
+  - Date to compute the relative time to
+- <code class="def">field?: <span>[TimePeriodField](api-timeperiodfield.html)</span></code>
+  - Specify field to compute relative time in terms of. If omitted, the first non-zero field will be used (in descending order from `year` down).
 
 #### Example
 
@@ -877,7 +919,6 @@ log(`${value} ${field}`);
 </pre>
 
 
-
 ## second
 
 Indicates the second of the minute (0 - 59).
@@ -892,7 +933,9 @@ second(): number
 
 ```typescript
 const cldr = framework.get('en');
-const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
+const date = cldr.Calendars.toGregorianDate({
+  date: new Date(2019, 4, 10, 12, 27, 41),
+});
 
 log(cldr.Calendars.formatDate(date, { time: 'long' }));
 log(date.second());
@@ -900,6 +943,41 @@ log(date.second());
 <pre class="output">
 4:27:41 PM GMT
 41
+</pre>
+
+
+## set
+
+Set one or more fields, returning a new date.
+
+#### Syntax
+
+<pre class="syntax">
+set(fields): CalendarDate
+</pre>
+
+#### Parameters
+
+- <code class="def">fields: <span>[CalendarDateFields](api-calendardatefields)</span></code>
+  - Fields to set on this date instance.
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+let date = cldr.Calendars.newGregorianDate({ zoneId: 'America/New_York' });
+log(date.toString());
+date = date.set({
+  year: 2020,
+  month: 7,
+  minute: 33,
+  zoneId: 'America/Los_Angeles',
+});
+log(date.toString());
+```
+<pre class="output">
+Gregorian 1970-01-01 00:00:00.000 America/New_York
+Gregorian 2020-07-01 00:33:00.000 America/Los_Angeles
 </pre>
 
 
@@ -913,14 +991,14 @@ Subtract a time period from the current date.
 subtract(fields): CalendarDate
 </pre>
 
-
 #### Parameters
-  - <code class="def">fields: <span>[TimePeriod](api-timeperiod.html)</span></code>
-    - Amounts to subtract from each field.
+
+- <code class="def">fields: <span>[TimePeriod](api-timeperiod.html)</span></code>
+  - Amounts to subtract from each field.
 
 #### See Also
- * [add](#add)
 
+- [add](#add)
 
 ## timeZoneId
 
@@ -938,7 +1016,9 @@ timeZoneId(): string
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
 
-let date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 10, 12, 27, 41) });
+let date = cldr.Calendars.toGregorianDate({
+  date: new Date(2019, 4, 10, 12, 27, 41),
+});
 log(date.timeZoneId());
 
 date = cldr.Calendars.toGregorianDate({ date: date.unixEpoch(), zoneId });
@@ -948,7 +1028,6 @@ log(date.timeZoneId());
 Etc/UTC
 America/New_York
 </pre>
-
 
 
 ## timeZoneOffset
@@ -979,6 +1058,99 @@ Friday, May 10, 2019 at 6:27:41 PM Central European Summer Time has offset 72000
 </pre>
 
 
+## toString
+
+Return a string representation of this date. The year field is the "extended year" represented by an integer.
+For example the extended year 0 is 1 B.C. in the Gregorian calendar.
+
+#### Syntax
+
+<pre class="syntax">
+toString(): string
+</pre>
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+log(
+  cldr.Calendars.newGregorianDate({
+    year: 2020,
+    month: 6,
+    day: 15,
+    hour: 15,
+    minute: 20,
+    second: 30,
+    zoneId: 'Europe/Amsterdam',
+  })
+);
+```
+<pre class="output">
+Gregorian 2020-06-15 15:20:30.000 Europe/Amsterdam
+</pre>
+
+
+## toISOString
+
+Returns an ISO-8601 standard representation of this date as UTC. Per the standard the calendar will always be Gregorian.
+
+#### Syntax
+
+<pre class="syntax">
+toISOString(): string
+</pre>
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+log(
+  cldr.Calendars.newGregorianDate({
+    year: 2020,
+    month: 6,
+    day: 15,
+    hour: 15,
+    minute: 20,
+    second: 30,
+    zoneId: 'Europe/Amsterdam',
+  }).toISOString()
+);
+```
+<pre class="output">
+2020-06-15T13:20:30.000Z
+</pre>
+
+
+## toLocaleISOString
+
+Returns an ISO-8601 standard representation of this date local to its timezone. Per the standard the calendar will always be Gregorian.
+
+#### Syntax
+
+<pre class="syntax">
+toLocalISOString(): string
+</pre>
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+log(
+  cldr.Calendars.newGregorianDate({
+    year: 2020,
+    month: 6,
+    day: 15,
+    hour: 15,
+    minute: 20,
+    second: 30,
+    zoneId: 'Europe/Amsterdam',
+  }).toLocalISOString()
+);
+```
+<pre class="output">
+2020-06-15T15:20:30.000+02:00
+</pre>
+
 
 ## type
 
@@ -991,7 +1163,8 @@ type(): CalendarType
 </pre>
 
 #### Return value
-  - A <code class="def"><span>[CalendarType](api-calendartype.html)</span></code> indicating the calendar for this date uses.
+
+- A <code class="def"><span>[CalendarType](api-calendartype.html)</span></code> indicating the calendar for this date uses.
 
 #### Example
 
@@ -1008,8 +1181,6 @@ log(date.type());
 gregory
 japanese
 </pre>
-
-
 
 
 ## unixEpoch
@@ -1034,7 +1205,6 @@ log(date.unixEpoch());
 </pre>
 
 
-
 ## weekOfMonth
 
 Returns the week of the month computed using the locale's [firstDayOfWeek](#firstdayofweek) and [minDaysInFirstWeek](#mindaysinfirstweek).
@@ -1052,7 +1222,11 @@ const cldr = framework.get('en');
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2019, 4, 1) });
 
 const fmt = (d: CalendarDate) =>
-  log(`${cldr.Calendars.formatDate(d, { date: 'long' })} is in week ${d.weekOfMonth()}`);
+  log(
+    `${cldr.Calendars.formatDate(d, {
+      date: 'long',
+    })} is in week ${d.weekOfMonth()}`
+  );
 
 for (let d = 0; d < 14; d++) {
   fmt(date.add({ day: d }));
@@ -1076,12 +1250,10 @@ May 14, 2019 is in week 3
 </pre>
 
 
-
 ## weekOfYear
 
 Indicates the ordinal number of the week of the year. The first week of the month or year,
 as defined by [firstDayOfWeek](#firstdayofweek) and [minDaysInFirstWeek](#mindaysinfirstweek) has value 1.
-
 
 #### Syntax
 
@@ -1097,7 +1269,10 @@ weekOfYear(): number
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
 const opt: DateFormatOptions = { date: 'long' };
-const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), zoneId })
+const base = cldr.Calendars.toGregorianDate({
+  date: new Date(2015, 11, 24, 12),
+  zoneId,
+});
 for (let d = 0; d < 13; d++) {
   const date = base.add({ day: d });
   const str = `${cldr.Calendars.formatDate(date, opt)}`;
@@ -1121,7 +1296,6 @@ January 5, 2016  2016-2
 </pre>
 
 
-
 ## withZone
 
 Returns a copy of this date with the specified time zone.
@@ -1133,8 +1307,9 @@ withZone(zoneId): CalendarDate
 </pre>
 
 #### Parameters
-  - <code class="def">zoneId: <span>[TimeZoneType](api-timezonetype.html)</span></code>
-    - Identifier for a time zone.
+
+- <code class="def">zoneId: <span>[TimeZoneType](api-timezonetype.html)</span></code>
+  - Identifier for a time zone.
 
 #### Example
 
@@ -1196,7 +1371,10 @@ yearOfWeekOfYear(): number
 const cldr = framework.get('en');
 const zoneId = 'America/New_York';
 const opt: DateFormatOptions = { date: 'long' };
-const base = cldr.Calendars.toGregorianDate({ date: new Date(2015, 11, 24, 12), zoneId })
+const base = cldr.Calendars.toGregorianDate({
+  date: new Date(2015, 11, 24, 12),
+  zoneId,
+});
 for (let d = 0; d < 13; d++) {
   const date = base.add({ day: d });
   const str = `${cldr.Calendars.formatDate(date, opt)}`;

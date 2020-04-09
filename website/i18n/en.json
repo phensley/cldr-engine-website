@@ -68,6 +68,9 @@
       "api-datefieldtype": {
         "title": "DateFieldType"
       },
+      "api-dateformataltoptions": {
+        "title": "DateFormatAltOptions"
+      },
       "api-dateformatoptions": {
         "title": "DateFormatOptions"
       },
@@ -82,6 +85,9 @@
       },
       "api-datetimepatternfieldtype": {
         "title": "DateTimePatternFieldType"
+      },
+      "api-dayperiodalttype": {
+        "title": "DayPeriodAltType"
       },
       "api-decimal": {
         "title": "Decimal"
@@ -103,6 +109,9 @@
       },
       "api-displaynameoptions": {
         "title": "DisplayNameOptions"
+      },
+      "api-eraalttype": {
+        "title": "EraAltType"
       },
       "api-erafieldoptions": {
         "title": "EraFieldOptions"

@@ -15,7 +15,9 @@
     "report": "source-map-explorer --html -m ./build/cldr-engine/liveapi/liveapi.js >report.html",
     "write-translations": "docusaurus-write-translations",
     "version": "docusaurus-version",
-    "rename-version": "docusaurus-rename-version"
+    "rename-version": "docusaurus-rename-version",
+		"link-all": "ls --color=none node_modules/@phensley | xargs -I % yarn link @phensley/%",
+		"unlink-all": "ls --color=none node_modules/@phensley | xargs -I % yarn unlink @phensley/%"
   },
   "dependencies": {
     "@phensley/cldr": "1.0.9",

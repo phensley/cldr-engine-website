@@ -14,35 +14,39 @@ object {
   time?,
   ca?,
   nu?,
-  context?
+  context?,
+  alt?
 }
 </pre>
 
 ### Properties
-  - <code class="def">skeleton: <span>string ([DateSkeleton](api-dateskeleton.html))</span></code>
-    - Skeleton used to build the interval format pattern
-  - <code class="def">date: <span>string ([DateSkeleton](api-dateskeleton.html))</span></code>
-    - Skeleton to use when difference between start and end dates is >= 1 day
-  - <code class="def">time: <span>string ([DateSkeleton](api-dateskeleton.html))</span></code>
-    - Skeleton to use when difference between start and end dates is < 1 day
-  - <code class="def">ca: <span>[CalendarType](api-calendartype.html)</span></code>
-    - Override the calendar to use
-  - <code class="def">nu: <span>[NumberSystemType](api-numbersystemtype.html)</span></code>
-    - Override the numbering system
-  - <code class="def">context?: <span>[ContextType](api-contexttype.html)</span></code>
-    - Specify the context in which the string will be displayed
+
+- <code class="def">skeleton: <span>string ([DateSkeleton](api-dateskeleton))</span></code>
+  - Skeleton used to build the interval format pattern
+- <code class="def">date: <span>string ([DateSkeleton](api-dateskeleton))</span></code>
+  - Skeleton to use when difference between start and end dates is >= 1 day
+- <code class="def">time: <span>string ([DateSkeleton](api-dateskeleton))</span></code>
+  - Skeleton to use when difference between start and end dates is < 1 day
+- <code class="def">ca: <span>[CalendarType](api-calendartype)</span></code>
+  - Override the calendar to use
+- <code class="def">nu: <span>[NumberSystemType](api-numbersystemtype)</span></code>
+  - Override the numbering system
+- <code class="def">context?: <span>[ContextType](api-contexttype)</span></code>
+  - Specify the context in which the string will be displayed
+- <code class="def">alt?: <span>[DateFormatAltOptions](api-dateformataltoptions)</span></code>
+  - Specify options for alternate field values.
 
 ### Defaults
 
 ```javascript
 {
-  context: 'middle-of-text'
+  context: 'middle-of-text';
 }
 ```
 
-* If no skeleton is provided, a reasonable default will be automatically selected based on whether the interval is greater- or less-than one day.
-* Numbering system default is determined by the locale.
-* Calendar system default is determined by the locale.
+- If no skeleton is provided, a reasonable default will be automatically selected based on whether the interval is greater- or less-than one day.
+- Numbering system default is determined by the locale.
+- Calendar system default is determined by the locale.
 
 ### Example
 
@@ -57,13 +61,16 @@ const start = { date: epoch, zoneId };
 for (const locale of ['en', 'de', 'zh']) {
   const cldr = framework.get(locale);
   for (const days of [1.2, 3, 17, 73, 1000]) {
-    const end = { date: epoch + (days * day), zoneId };
-    const result = cldr.Calendars.formatDateInterval(start, end, { skeleton: 'yMMMMd' });
+    const end = { date: epoch + days * day, zoneId };
+    const result = cldr.Calendars.formatDateInterval(start, end, {
+      skeleton: 'yMMMMd',
+    });
     log(`${locale}  ${result}`);
   }
   log();
 }
 ```
+
 <pre class="output">
 en  June 27 – 28, 2018
 en  June 27 – 30, 2018
@@ -86,7 +93,7 @@ zh  2018年6月27日至2021年3月23日
 </pre>
 
 Provide 2 skeletons, one to use if the field of visual difference is greater-
- or less-than one day:
+or less-than one day:
 
 ```typescript
 const cldr = framework.get('en');
@@ -109,6 +116,7 @@ fmt(start.add({ day: 1.5 }));
 fmt(start.add({ week: 1.5 });
 fmt(start.add({ month: 1.5 }));
 ```
+
 <pre class="output">
 4:23 – 4:24 AM
 4:23 – 5:53 AM
