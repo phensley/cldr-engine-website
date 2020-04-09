@@ -64,7 +64,6 @@ date = cldr.Calendars.newGregorianDate({
 });
 log(date.fields());
 ```
-
 <pre class="output">
 Gregorian 1994-01-17 00:00:00.000 America/New_York
 Gregorian 2020-01-01 15:00:33.000 Etc/UTC
@@ -82,5 +81,6 @@ Gregorian 1970-01-01 00:00:00.555 Etc/UTC
   zoneId: 'America/New_York'
 }
 </pre>
+
 
 {%refs CalendarDateFields}

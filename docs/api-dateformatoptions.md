@@ -83,7 +83,6 @@ cldr = framework.get('en-u-ca-buddhist');
 opts = { date: 'full' };
 log(cldr.Calendars.formatDate({ date, zoneId }, opts));
 ```
-
 <pre class="output">
 Wednesday, Jun 27, 2018, 4:23 AM
 Jun 27, 2018 Common Era
@@ -93,5 +92,6 @@ Wednesday, June 27, 30 Heisei at 4:23:00 AM Eastern Daylight Time
 الأربعاء، ٢٧ يونيو ٢٠١٨ ٤:٢٣:٠٠ ص التوقيت الصيفي الشرقي لأمريكا الشمالية
 Wednesday, June 27, 2561 BE
 </pre>
+
 
 {%refs DateFormatOptions}

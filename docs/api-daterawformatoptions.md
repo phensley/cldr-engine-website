@@ -57,9 +57,9 @@ const s = cldr.Calendars.formatDateRaw(
 );
 log(s);
 ```
-
 <pre class="output">
 Wed Jun 2018, 27 Common Era
 </pre>
+
 
 {%refs DateRawFormatOptions}

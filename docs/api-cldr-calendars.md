@@ -38,7 +38,6 @@ for (const id of ['en', 'es', 'de', 'fr', 'zh']) {
   log(s);
 }
 ```
-
 <pre class="output">
 Year
 Año
@@ -46,6 +45,7 @@ Jahr
 Année
 年
 </pre>
+
 
 ## dayPeriods
 
@@ -68,7 +68,6 @@ dayPeriods(options?): any
 const en = framework.get('en');
 log(en.Calendars.dayPeriods({ width: 'wide', context: 'begin-sentence' }));
 ```
-
 <pre class="output">
 {
   noon: { none: 'Noon' },
@@ -85,6 +84,7 @@ log(en.Calendars.dayPeriods({ width: 'wide', context: 'begin-sentence' }));
   night2: {}
 }
 </pre>
+
 
 ## eras
 
@@ -107,13 +107,13 @@ eras(options?): any
 const en = framework.get('en');
 log(en.Calendars.eras({ width: 'names' }));
 ```
-
 <pre class="output">
 {
   '0': { none: 'Before Christ', sensitive: 'Before Common Era' },
   '1': { none: 'Anno Domini', sensitive: 'Common Era' }
 }
 </pre>
+
 
 ## fieldOfVisualDifference
 
@@ -154,7 +154,6 @@ factors.forEach((f) => {
   log(`${field} ->  ${d2.toString()}`);
 });
 ```
-
 <pre class="output">
 s ->  Gregorian 2018-06-27 04:23:17.280 America/New_York
 m ->  Gregorian 2018-06-27 04:30:12.000 America/New_York
@@ -165,6 +164,7 @@ M ->  Gregorian 2018-08-16 04:23:00.000 America/New_York
 y ->  Gregorian 2019-08-26 04:23:00.000 America/New_York
 y ->  Gregorian 2021-03-23 04:23:00.000 America/New_York
 </pre>
+
 
 ## formatDate
 
@@ -191,10 +191,10 @@ const date = 1530087780000;
 const zoneId = 'America/New_York';
 log(cldr.Calendars.formatDate({ date, zoneId }, { datetime: 'full' }));
 ```
-
 <pre class="output">
 Wednesday, June 27, 2018 at 4:23:00 AM Eastern Daylight Time
 </pre>
+
 
 ## formatDateToParts
 
@@ -222,7 +222,6 @@ const date = 1530087780000;
 const zoneId = 'America/New_York';
 log(cldr.Calendars.formatDateToParts({ date, zoneId }, { datetime: 'short' }));
 ```
-
 <pre class="output">
 [
   { type: 'month', value: '6' },
@@ -238,6 +237,7 @@ log(cldr.Calendars.formatDateToParts({ date, zoneId }, { datetime: 'short' }));
   { type: 'dayperiod', value: 'AM' }
 ]
 </pre>
+
 
 ## formatDateInterval
 
@@ -277,7 +277,6 @@ for (const days of [1.2, 3, 17, 73, 1000]) {
   log(result);
 }
 ```
-
 <pre class="output">
 Jun 27 – 28, 2018
 Jun 27 – 30, 2018
@@ -285,6 +284,7 @@ Jun 27 – Jul 14, 2018
 Jun 27 – Sep 8, 2018
 Jun 27, 2018 – Mar 23, 2021
 </pre>
+
 
 ## formatDateIntervalToParts
 
@@ -321,7 +321,6 @@ log(
   cldr.Calendars.formatDateIntervalToParts(start, end, { skeleton: 'yMMMd' })
 );
 ```
-
 <pre class="output">
 [
   { type: 'month', value: 'Jun' },
@@ -335,6 +334,7 @@ log(
   { type: 'year', value: '2018' }
 ]
 </pre>
+
 
 ## formatDateRaw
 
@@ -370,10 +370,10 @@ const s = cldr.Calendars.formatDateRaw(
 );
 log(s);
 ```
-
 <pre class="output">
 Wed Jun 2018, 27
 </pre>
+
 
 ## formatDateRawToParts
 
@@ -409,7 +409,6 @@ const p = cldr.Calendars.formatDateRawToParts(
 );
 log(p);
 ```
-
 <pre class="output">
 [
   { type: 'weekday', value: 'Wed' },
@@ -421,6 +420,7 @@ log(p);
   { type: 'day', value: '27' }
 ]
 </pre>
+
 
 ## formatRelativeTime
 
@@ -453,7 +453,6 @@ for (const month of [-2, -1, 0, 1, 3]) {
   log(`${a}  (${b})`);
 }
 ```
-
 <pre class="output">
 2 months ago  (61 days ago)
 last month  (30 days ago)
@@ -461,6 +460,7 @@ now  (today)
 next month  (in 31 days)
 in 3 months  (in 92 days)
 </pre>
+
 
 ## formatRelativeTimeField
 
@@ -491,7 +491,6 @@ for (const value of ['-2', -1, '0', 1, 3, new Decimal('12.5')]) {
   log(result);
 }
 ```
-
 <pre class="output">
 2 months ago
 last month
@@ -500,6 +499,7 @@ next month
 in 3 months
 in 12 months
 </pre>
+
 
 ## months
 
@@ -536,7 +536,6 @@ const date = en.Calendars.toGregorianDate({
 
 log(`month is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
 ```
-
 <pre class="output">
 {
   '1': 'January',
@@ -568,6 +567,7 @@ log(`month is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
 }
 month is June / Juin
 </pre>
+
 
 ## newBuddhistDate
 
@@ -613,10 +613,10 @@ log(
   })
 );
 ```
-
 <pre class="output">
 Gregorian 2020-01-15 17:45:00.000 America/New_York
 </pre>
+
 
 ## newISO8601Date
 
@@ -694,7 +694,6 @@ quarters(options?): any
 const en = framework.get('en');
 log(en.Calendars.quarters());
 ```
-
 <pre class="output">
 {
   '1': '1st quarter',
@@ -703,6 +702,7 @@ log(en.Calendars.quarters());
   '4': '4th quarter'
 }
 </pre>
+
 
 ## resolveTimeZoneId
 
@@ -722,12 +722,12 @@ log(en.Calendars.resolveTimeZoneId('UTC'));
 log(en.Calendars.resolveTimeZoneId('US/East-Indiana'));
 log(en.Calendars.resolveTimeZoneId('Antarctica/McMurdo'));
 ```
-
 <pre class="output">
 Etc/UTC
 America/Indiana/Indianapolis
 Pacific/Auckland
 </pre>
+
 
 ## timePeriodToQuantity
 
@@ -773,12 +773,12 @@ s = en.Units.formatQuantitySequence(q, {
 });
 log(s);
 ```
-
 <pre class="output">
 2 years, 173.5 days
 2 yrs, 174 days
 2y 174d
 </pre>
+
 
 ## timeZoneIds
 
@@ -800,7 +800,6 @@ for (const id of ids.slice(0, 10)) {
 }
 log('...');
 ```
-
 <pre class="output">
 Africa/Abidjan
 Africa/Accra
@@ -814,6 +813,7 @@ Africa/Johannesburg
 Africa/Juba
 ...
 </pre>
+
 
 ## timeZoneInfo
 
@@ -835,7 +835,6 @@ for (const id of ids.slice(0, 10)) {
 }
 log('...');
 ```
-
 <pre class="output">
 { id: 'Africa/Abidjan', city: { name: 'Abidjan' } }
 { id: 'Africa/Accra', city: { name: 'Accra' } }
@@ -849,6 +848,7 @@ log('...');
 { id: 'Africa/Juba', city: { name: 'Juba' } }
 ...
 </pre>
+
 
 ## toBuddhistDate
 
@@ -876,10 +876,10 @@ log(
   })
 );
 ```
-
 <pre class="output">
 Buddhist 2018-06-27 14:41:12.456 America/New_York
 </pre>
+
 
 ## toGregorianDate
 
@@ -907,10 +907,10 @@ log(
   })
 );
 ```
-
 <pre class="output">
 Gregorian 2018-06-27 14:41:12.456 America/New_York
 </pre>
+
 
 ```typescript
 const cldr = framework.get('en');
@@ -926,11 +926,11 @@ date = new Date(2018, 6, 17, 12, 34, 56, 789);
 d = cldr.Calendars.toGregorianDate({ date, zoneId });
 log(d);
 ```
-
 <pre class="output">
 Gregorian 2018-02-17 12:34:56.789 America/New_York
 Gregorian 2018-07-17 12:34:56.789 America/New_York
 </pre>
+
 
 ## toISO8601Date
 
@@ -961,11 +961,11 @@ const woy = (d: CalendarDate) =>
 log(`gregorian ${wk(date)}, ${woy(date)}`);
 log(` iso-8601 ${wk(iso)}, ${woy(iso)}`);
 ```
-
 <pre class="output">
 gregorian week starts on Sunday, week of year: 2017-1
  iso-8601 week starts on Monday, week of year: 2016-52
 </pre>
+
 
 ## toJapaneseDate
 
@@ -992,12 +992,12 @@ log(date);
 log(date.relatedYear());
 log(date.year());
 ```
-
 <pre class="output">
 Japanese 2018-06-27 14:41:12.456 America/New_York
 2018
 30
 </pre>
+
 
 ## toPersianDate
 
@@ -1037,7 +1037,6 @@ const context = 'ui-list-or-menu';
 log(en.Calendars.weekdays({ context }));
 log(es.Calendars.weekdays({ context }));
 ```
-
 <pre class="output">
 {
   '1': 'Sunday',
@@ -1058,3 +1057,4 @@ log(es.Calendars.weekdays({ context }));
   '7': 'Sábado'
 }
 </pre>
+

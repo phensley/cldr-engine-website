@@ -70,7 +70,6 @@ for (const locale of ['en', 'de', 'zh']) {
   log();
 }
 ```
-
 <pre class="output">
 en  June 27 – 28, 2018
 en  June 27 – 30, 2018
@@ -91,6 +90,7 @@ zh  2018年6月27日至9月8日
 zh  2018年6月27日至2021年3月23日
 &nbsp;
 </pre>
+
 
 Provide 2 skeletons, one to use if the field of visual difference is greater-
 or less-than one day:
@@ -116,7 +116,6 @@ fmt(start.add({ day: 1.5 }));
 fmt(start.add({ week: 1.5 });
 fmt(start.add({ month: 1.5 }));
 ```
-
 <pre class="output">
 4:23 – 4:24 AM
 4:23 – 5:53 AM
@@ -125,5 +124,6 @@ Wed, Jun 27 – Thu, Jun 28, 2018
 Wed, Jun 27 – Sat, Jul 7, 2018
 Wed, Jun 27 – Sat, Aug 11, 2018
 </pre>
+
 
 {%refs DateIntervalFormatOptions}
