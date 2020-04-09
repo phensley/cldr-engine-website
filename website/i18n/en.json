@@ -86,6 +86,9 @@
       "api-datetimepatternfieldtype": {
         "title": "DateTimePatternFieldType"
       },
+      "api-datewrapperformatoptions": {
+        "title": "DateWrapperFormatOptions"
+      },
       "api-dayperiodalttype": {
         "title": "DayPeriodAltType"
       },

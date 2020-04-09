@@ -422,6 +422,98 @@ log(p);
 </pre>
 
 
+## formatDateWrapper
+
+Formats a date and time string together using a wrapper format of the given width. This can be
+used when you need to format a date and time string separately and join them together.
+
+#### Syntax
+
+<pre class="syntax">
+formatDateWrapper(date, time, options?): string
+</pre>
+
+#### Parameters
+
+- <code class="def">date: <span>string</span></code>
+  - A formatted date string
+- <code class="def">time: <span>string</span></code>
+  - A formatted time string
+- <code class="def">options?: <span>[DateWrapperFormatOptions](api-datewrapperformatoptions)</span></code>
+  - Options to control the calendar and width of the format
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.formatRelativeTimeField(1, 'wed', {
+  context: 'begin-sentence',
+});
+const time = cldr.Calendars.formatDate(cldr.Calendars.now(), {
+  time: 'medium',
+});
+log(cldr.Calendars.formatDateWrapper(date, time, { width: 'full' }));
+```
+<pre class="output">
+Next Wednesday at 4:01:50 PM
+</pre>
+
+
+## formatDateWrapperToParts
+
+Formats a date and time `Part[]` together using a wrapper format of the given width. This can be
+used when you need to format a date and time string separately and join them together.
+
+#### Syntax
+
+<pre class="syntax">
+formatDateWrapper(date, time, options?): Part[]
+</pre>
+
+#### Parameters
+
+- <code class="def">date: <span>[Part](api-part)</span></code>
+  - A formatted date `Part[]`
+- <code class="def">time: <span>[Part](api-part)</span></code>
+  - A formatted time `Part[]`
+- <code class="def">options?: <span>[DateWrapperFormatOptions](api-datewrapperformatoptions)</span></code>
+  - Options to control the calendar and width of the format
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const date = cldr.Calendars.formatRelativeTimeField(1, 'wed', {
+  context: 'begin-sentence',
+});
+const time = cldr.Calendars.formatDateToParts(cldr.Calendars.now(), {
+  time: 'medium',
+});
+log(
+  cldr.Calendars.formatDateWrapperToParts(
+    [{ type: 'reldate', value: date }],
+    time,
+    {
+      width: 'full',
+    }
+  )
+);
+```
+<pre class="output">
+[
+  { type: 'reldate', value: 'Next Wednesday' },
+  { type: 'literal', value: ' at ' },
+  { type: 'hour', value: '4' },
+  { type: 'literal', value: ':' },
+  { type: 'minute', value: '01' },
+  { type: 'literal', value: ':' },
+  { type: 'second', value: '50' },
+  { type: 'literal', value: ' ' },
+  { type: 'dayperiod', value: 'PM' }
+]
+</pre>
+
+
 ## formatRelativeTime
 
 Formats the time period between two dates as a relative time.
@@ -672,6 +764,162 @@ Construct a date in the ISO8601 calendar from one or more fields.
 <pre class="syntax">
 newISO8601Date(fields): ISO8601Date
 </pre>
+
+## now
+
+Construct a date in the Gregorian calendar representing the current date and time.
+Alias for [nowGregorian](#nowgregorian)
+
+#### Syntax
+
+<pre class="syntax">
+now(zoneId?): GregorianDate
+</pre>
+
+#### Parameters
+
+- <code class="def">zoneId?: <span>string</span></code>
+  - Timezone id. Defaults to `'Etc/UTC'`
+
+## nowBuddhist
+
+Construct a date in the Buddhist calendar representing the current date and time.
+
+#### Syntax
+
+<pre class="syntax">
+nowBuddhist(zoneId?): BuddhistDate
+</pre>
+
+#### Parameters
+
+- <code class="def">zoneId?: <span>string</span></code>
+  - Timezone id. Defaults to `'Etc/UTC'`
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+log(en.Calendars.nowBuddhist());
+log(en.Calendars.nowBuddhist('America/Los_Angeles'));
+```
+<pre class="output">
+Buddhist 2020-04-09 16:01:50.122 Etc/UTC
+Buddhist 2020-04-09 09:01:50.123 America/Los_Angeles
+</pre>
+
+
+## nowGregorian
+
+Construct a date in the Gregorian calendar representing the current date and time.
+
+#### Syntax
+
+<pre class="syntax">
+nowGregorian(zoneId?): GregorianDate
+</pre>
+
+#### Parameters
+
+- <code class="def">zoneId?: <span>string</span></code>
+  - Timezone id. Defaults to `'Etc/UTC'`
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+log(en.Calendars.nowGregorian());
+log(en.Calendars.nowGregorian('America/Los_Angeles'));
+```
+<pre class="output">
+Gregorian 2020-04-09 16:01:50.126 Etc/UTC
+Gregorian 2020-04-09 09:01:50.126 America/Los_Angeles
+</pre>
+
+
+## nowISO8601
+
+Construct a date in the ISO8601 calendar representing the current date and time.
+
+#### Syntax
+
+<pre class="syntax">
+nowISO8601(zoneId?): ISO8601Date
+</pre>
+
+#### Parameters
+
+- <code class="def">zoneId?: <span>string</span></code>
+  - Timezone id. Defaults to `'Etc/UTC'`
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+log(en.Calendars.nowISO8601());
+log(en.Calendars.nowISO8601('America/Los_Angeles'));
+```
+<pre class="output">
+ISO8601 2020-04-09 16:01:50.129 Etc/UTC
+ISO8601 2020-04-09 09:01:50.129 America/Los_Angeles
+</pre>
+
+
+## nowJapanese
+
+Construct a date in the Japanese calendar representing the current date and time.
+
+#### Syntax
+
+<pre class="syntax">
+nowJapanese(zoneId?): JapaneseDate
+</pre>
+
+#### Parameters
+
+- <code class="def">zoneId?: <span>string</span></code>
+  - Timezone id. Defaults to `'Etc/UTC'`
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+log(en.Calendars.nowJapanese());
+log(en.Calendars.nowJapanese('America/Los_Angeles'));
+```
+<pre class="output">
+Japanese 2020-04-09 16:01:50.132 Etc/UTC
+Japanese 2020-04-09 09:01:50.132 America/Los_Angeles
+</pre>
+
+
+## nowPersian
+
+Construct a date in the Persian calendar representing the current date and time.
+
+#### Syntax
+
+<pre class="syntax">
+nowPersian(zoneId?): PersianDate
+</pre>
+
+#### Parameters
+
+- <code class="def">zoneId?: <span>string</span></code>
+  - Timezone id. Defaults to `'Etc/UTC'`
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+log(en.Calendars.nowPersian());
+log(en.Calendars.nowPersian('America/Los_Angeles'));
+```
+<pre class="output">
+Persian 1399-01-21 16:01:50.135 Etc/UTC
+Persian 1399-01-21 09:01:50.135 America/Los_Angeles
+</pre>
+
 
 ## quarters
 
