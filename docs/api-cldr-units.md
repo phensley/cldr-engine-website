@@ -65,9 +65,6 @@ const cldr = framework.get('en');
 const qty: Quantity = { value: '123.3799', unit: 'meter-per-second-squared' };
 log(cldr.Units.formatQuantity(qty, { length: 'narrow', maximumFractionDigits: 2 }));
 ```
-<pre class="output">
-123.38m/s²
-</pre>
 
 
 

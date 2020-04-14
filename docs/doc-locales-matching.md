@@ -97,7 +97,7 @@ const { distance, locale } = cldrMatcher.match('i-klingon');
 log(`${locale.id} distance ${distance}`);
 ```
 <pre class="output">
-en distance 10
+en distance 30
 </pre>
 
 

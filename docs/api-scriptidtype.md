@@ -25,6 +25,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Ahom
   - 'Arab'
     - Arabic
+  - 'Aran'
+    - Nastaliq
   - 'Armi'
     - Imperial Aramaic
   - 'Armn'
@@ -65,6 +67,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Cham
   - 'Cher'
     - Cherokee
+  - 'Chrs'
+    - Chorasmian
   - 'Cirt'
     - Cirth
   - 'Copt'
@@ -77,6 +81,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Old Church Slavonic Cyrillic
   - 'Deva'
     - Devanagari
+  - 'Diak'
+    - Dives Akuru
   - 'Dogr'
     - Dogra
   - 'Dsrt'
@@ -165,6 +171,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Khmer
   - 'Khoj'
     - Khojki
+  - 'Kits'
+    - Khitan small script
   - 'Knda'
     - Kannada
   - 'Kore'
@@ -377,6 +385,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Old Persian
   - 'Xsux'
     - Sumero-Akkadian Cuneiform
+  - 'Yezi'
+    - Yezidi
   - 'Yiii'
     - Yi
   - 'Zanb'
