@@ -20,7 +20,7 @@
 		"unlink-all": "ls --color=none node_modules/@phensley | xargs -I % yarn unlink @phensley/%"
   },
   "dependencies": {
-    "@phensley/cldr": "1.1.0",
+    "@phensley/cldr": "1.1.1",
     "@types/react-router-dom": "4.3.5",
     "emotion": "9.2.4",
     "icepick": "2.3.0",
