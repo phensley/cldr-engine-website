@@ -8,6 +8,7 @@ Represents the primary date and time fields of a [CalendarDate](api-calendardate
 ### Syntax
 
 <pre class="syntax">
+{
   year,
   month,
   day,
@@ -16,6 +17,7 @@ Represents the primary date and time fields of a [CalendarDate](api-calendardate
   second,
   millis,
   zoneId
+}
 </pre>
 
 ### Properties
@@ -34,6 +36,8 @@ Represents the primary date and time fields of a [CalendarDate](api-calendardate
   - Second 0-59
 - <code class="def">millis: <span>number</span></code>
   - Milliseconds 0-999
+- <code class="def">zoneId: <span>string</span></code>
+  - Timezone identifier
 
 ### Example
 

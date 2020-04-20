@@ -166,6 +166,31 @@ y ->  Gregorian 2021-03-23 04:23:00.000 America/New_York
 </pre>
 
 
+## firstDayOfWeek
+
+Returns the weekday that starts the week in the date's locale, where 1 = SUNDAY, 2 = MONDAY, ..., 7 = SATURDAY
+
+#### Syntax
+
+<pre class="syntax">
+firstDayOfWeek(): number
+</pre>
+
+#### Example
+
+```typescript
+let cldr = framework.get('en-US');
+log(cldr.Calendars.firstDayOfWeek());
+
+cldr = framework.get('und-EG');
+log(cldr.Calendars.firstDayOfWeek());
+```
+<pre class="output">
+1
+7
+</pre>
+
+
 ## formatDate
 
 Format a date to a string.
@@ -455,7 +480,7 @@ const time = cldr.Calendars.formatDate(cldr.Calendars.now(), {
 log(cldr.Calendars.formatDateWrapper(date, time, { width: 'full' }));
 ```
 <pre class="output">
-Next Wednesday at 8:21:09 PM
+Next Wednesday at 3:00:03 PM
 </pre>
 
 
@@ -503,11 +528,11 @@ log(
 [
   { type: 'reldate', value: 'Next Wednesday' },
   { type: 'literal', value: ' at ' },
-  { type: 'hour', value: '8' },
+  { type: 'hour', value: '3' },
   { type: 'literal', value: ':' },
-  { type: 'minute', value: '21' },
+  { type: 'minute', value: '00' },
   { type: 'literal', value: ':' },
-  { type: 'second', value: '09' },
+  { type: 'second', value: '03' },
   { type: 'literal', value: ' ' },
   { type: 'dayperiod', value: 'PM' }
 ]
@@ -590,6 +615,31 @@ this month
 next month
 in 3 months
 in 12 months
+</pre>
+
+
+## minDaysInFirstWeek
+
+Minimum number of days in a week to count as the first week of the year.
+
+#### Syntax
+
+<pre class="syntax">
+minDaysInFirstWeek(): number
+</pre>
+
+#### Example
+
+```typescript
+let cldr = framework.get('en');
+log(cldr.Calendars.minDaysInFirstWeek());
+
+cldr = framework.get('en-DE');
+log(cldr.Calendars.minDaysInFirstWeek());
+```
+<pre class="output">
+1
+4
 </pre>
 
 
@@ -804,8 +854,8 @@ log(en.Calendars.nowBuddhist());
 log(en.Calendars.nowBuddhist('America/Los_Angeles'));
 ```
 <pre class="output">
-Buddhist 2020-04-15 20:21:09.527 Etc/UTC
-Buddhist 2020-04-15 13:21:09.528 America/Los_Angeles
+Buddhist 2020-04-20 15:00:03.798 Etc/UTC
+Buddhist 2020-04-20 08:00:03.798 America/Los_Angeles
 </pre>
 
 
@@ -832,8 +882,8 @@ log(en.Calendars.nowGregorian());
 log(en.Calendars.nowGregorian('America/Los_Angeles'));
 ```
 <pre class="output">
-Gregorian 2020-04-15 20:21:09.531 Etc/UTC
-Gregorian 2020-04-15 13:21:09.531 America/Los_Angeles
+Gregorian 2020-04-20 15:00:03.801 Etc/UTC
+Gregorian 2020-04-20 08:00:03.801 America/Los_Angeles
 </pre>
 
 
@@ -860,8 +910,8 @@ log(en.Calendars.nowISO8601());
 log(en.Calendars.nowISO8601('America/Los_Angeles'));
 ```
 <pre class="output">
-ISO8601 2020-04-15 20:21:09.533 Etc/UTC
-ISO8601 2020-04-15 13:21:09.534 America/Los_Angeles
+ISO8601 2020-04-20 15:00:03.804 Etc/UTC
+ISO8601 2020-04-20 08:00:03.804 America/Los_Angeles
 </pre>
 
 
@@ -888,8 +938,8 @@ log(en.Calendars.nowJapanese());
 log(en.Calendars.nowJapanese('America/Los_Angeles'));
 ```
 <pre class="output">
-Japanese 2020-04-15 20:21:09.538 Etc/UTC
-Japanese 2020-04-15 13:21:09.538 America/Los_Angeles
+Japanese 2020-04-20 15:00:03.806 Etc/UTC
+Japanese 2020-04-20 08:00:03.806 America/Los_Angeles
 </pre>
 
 
@@ -916,8 +966,8 @@ log(en.Calendars.nowPersian());
 log(en.Calendars.nowPersian('America/Los_Angeles'));
 ```
 <pre class="output">
-Persian 1399-01-27 20:21:09.541 Etc/UTC
-Persian 1399-01-27 13:21:09.541 America/Los_Angeles
+Persian 1399-02-01 15:00:03.809 Etc/UTC
+Persian 1399-02-01 08:00:03.809 America/Los_Angeles
 </pre>
 
 
@@ -989,7 +1039,7 @@ timePeriodToQuantity(period): Quantity[]
 
 #### Parameters
 
-- <code class="def">date: <span>[TimePeriod](api-timeperiod.html)</span></code>
+- <code class="def">date: <span>Partial&lt;[TimePeriod](api-timeperiod.html)&gt;</span></code>
   - Time period to convert
 
 #### Return value
@@ -1070,8 +1120,13 @@ Returns an array of `TimeZoneInfo` objects, including the exemplar city for each
 #### Syntax
 
 <pre class="syntax">
-timeZoneInfo(): TimeZoneInfo[]
+timeZoneInfo(id): TimeZoneInfo[]
 </pre>
+
+#### Parameters
+
+- <code class="def">id: <span>string</span></code>
+  - Time zone identifier.
 
 #### Example
 

@@ -28,7 +28,7 @@ add(fields): CalendarDate
 
 #### Parameters
 
-- <code class="def">fields: <span>[TimePeriod](api-timeperiod.html)</span></code>
+- <code class="def">fields: <span>Partial&lt;[TimePeriod](api-timeperiod.html)&gt;</span></code>
   - Amounts to add for each field.
 
 #### Example
@@ -300,6 +300,36 @@ year=1 month=5 day=26.625
 month=17 day=26.625
 day=545 hour=15
 day=545.625
+</pre>
+
+
+## differenceSigned
+
+Same as [difference](#difference) but fields are signed.
+
+#### Example
+
+```typescript
+const cldr = framework.get('en');
+const start = cldr.Calendars.newGregorianDate({
+  year: 2020,
+  month: 6,
+  day: 15,
+});
+const end = start.subtract({ month: 1.5 });
+log(start.differenceSigned(end));
+```
+<pre class="output">
+{
+  year: 0,
+  month: -1,
+  week: -2,
+  day: -2,
+  hour: 0,
+  minute: 0,
+  second: 0,
+  millis: 0
+}
 </pre>
 
 
@@ -996,7 +1026,7 @@ set(fields): CalendarDate
 
 #### Parameters
 
-- <code class="def">fields: <span>[CalendarDateFields](api-calendardatefields)</span></code>
+- <code class="def">fields: <span>Partial&lt;[CalendarDateFields](api-calendardatefields)&gt;</span></code>
   - Fields to set on this date instance.
 
 #### Example
@@ -1031,7 +1061,7 @@ subtract(fields): CalendarDate
 
 #### Parameters
 
-- <code class="def">fields: <span>[TimePeriod](api-timeperiod.html)</span></code>
+- <code class="def">fields: <span>Partial&lt;[TimePeriod](api-timeperiod.html)&gt;</span></code>
   - Amounts to subtract from each field.
 
 #### See Also
@@ -1159,7 +1189,7 @@ log(
 </pre>
 
 
-## toLocaleISOString
+## toLocalISOString
 
 Returns an ISO-8601 standard representation of this date local to its timezone. Per the standard the calendar will always be Gregorian.
 

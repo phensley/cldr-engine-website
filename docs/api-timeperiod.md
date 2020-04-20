@@ -9,35 +9,35 @@ Represents a time period composed of several date and time fields. Can be used t
 
 <pre class="syntax">
 object {
-  year?,
-  month?,
-  week?,
-  day?,
-  hour?,
-  minute?,
-  second?,
-  millis?
+  year,
+  month,
+  week,
+  day,
+  hour,
+  minute,
+  second,
+  millis
 }
 </pre>
 
 ### Properties
 
-  - <code class="def">year?: <span>number</span></code>
-    - Positive or negative years
-  - <code class="def">month?: <span>number</span></code>
-    - Positive or negative months
-  - <code class="def">week?: <span>number</span></code>
-    - Positive or negative weeks
-  - <code class="def">day?: <span>number</span></code>
-    - Positive or negative days
-  - <code class="def">hour?: <span>number</span></code>
-    - Positive or negative hours
-  - <code class="def">minute?: <span>number</span></code>
-    - Positive or negative minutes
-  - <code class="def">second?: <span>number</span></code>
-    - Positive or negative seconds
-  - <code class="def">millis?: <span>number</span></code>
-    - Positive or negative milliseconds
+- <code class="def">year: <span>number</span></code>
+  - Positive or negative years
+- <code class="def">month: <span>number</span></code>
+  - Positive or negative months
+- <code class="def">week: <span>number</span></code>
+  - Positive or negative weeks
+- <code class="def">day: <span>number</span></code>
+  - Positive or negative days
+- <code class="def">hour: <span>number</span></code>
+  - Positive or negative hours
+- <code class="def">minute: <span>number</span></code>
+  - Positive or negative minutes
+- <code class="def">second: <span>number</span></code>
+  - Positive or negative seconds
+- <code class="def">millis: <span>number</span></code>
+  - Positive or negative milliseconds
 
 ### Example
 
