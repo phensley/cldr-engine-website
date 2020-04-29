@@ -480,7 +480,7 @@ const time = cldr.Calendars.formatDate(cldr.Calendars.now(), {
 log(cldr.Calendars.formatDateWrapper(date, time, { width: 'full' }));
 ```
 <pre class="output">
-Next Wednesday at 12:22:42 PM
+Next Wednesday at 12:40:22 PM
 </pre>
 
 
@@ -530,9 +530,9 @@ log(
   { type: 'literal', value: ' at ' },
   { type: 'hour', value: '12' },
   { type: 'literal', value: ':' },
-  { type: 'minute', value: '22' },
+  { type: 'minute', value: '40' },
   { type: 'literal', value: ':' },
-  { type: 'second', value: '42' },
+  { type: 'second', value: '22' },
   { type: 'literal', value: ' ' },
   { type: 'dayperiod', value: 'PM' }
 ]
@@ -854,8 +854,8 @@ log(en.Calendars.nowBuddhist());
 log(en.Calendars.nowBuddhist('America/Los_Angeles'));
 ```
 <pre class="output">
-Buddhist 2020-04-29 12:22:42.587 Etc/UTC
-Buddhist 2020-04-29 05:22:42.588 America/Los_Angeles
+Buddhist 2020-04-29 12:40:22.300 Etc/UTC
+Buddhist 2020-04-29 05:40:22.300 America/Los_Angeles
 </pre>
 
 
@@ -882,8 +882,8 @@ log(en.Calendars.nowGregorian());
 log(en.Calendars.nowGregorian('America/Los_Angeles'));
 ```
 <pre class="output">
-Gregorian 2020-04-29 12:22:42.591 Etc/UTC
-Gregorian 2020-04-29 05:22:42.591 America/Los_Angeles
+Gregorian 2020-04-29 12:40:22.306 Etc/UTC
+Gregorian 2020-04-29 05:40:22.306 America/Los_Angeles
 </pre>
 
 
@@ -910,8 +910,8 @@ log(en.Calendars.nowISO8601());
 log(en.Calendars.nowISO8601('America/Los_Angeles'));
 ```
 <pre class="output">
-ISO8601 2020-04-29 12:22:42.593 Etc/UTC
-ISO8601 2020-04-29 05:22:42.593 America/Los_Angeles
+ISO8601 2020-04-29 12:40:22.313 Etc/UTC
+ISO8601 2020-04-29 05:40:22.313 America/Los_Angeles
 </pre>
 
 
@@ -938,8 +938,8 @@ log(en.Calendars.nowJapanese());
 log(en.Calendars.nowJapanese('America/Los_Angeles'));
 ```
 <pre class="output">
-Japanese 2020-04-29 12:22:42.596 Etc/UTC
-Japanese 2020-04-29 05:22:42.596 America/Los_Angeles
+Japanese 2020-04-29 12:40:22.318 Etc/UTC
+Japanese 2020-04-29 05:40:22.318 America/Los_Angeles
 </pre>
 
 
@@ -966,8 +966,8 @@ log(en.Calendars.nowPersian());
 log(en.Calendars.nowPersian('America/Los_Angeles'));
 ```
 <pre class="output">
-Persian 1399-02-10 12:22:42.599 Etc/UTC
-Persian 1399-02-10 05:22:42.599 America/Los_Angeles
+Persian 1399-02-10 12:40:22.322 Etc/UTC
+Persian 1399-02-10 05:40:22.323 America/Los_Angeles
 </pre>
 
 
