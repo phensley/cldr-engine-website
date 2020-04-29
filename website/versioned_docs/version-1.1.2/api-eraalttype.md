@@ -1,5 +1,5 @@
 ---
-id: version-1.1.1-api-eraalttype
+id: version-1.1.2-api-eraalttype
 title: EraAltType
 original_id: api-eraalttype
 ---

@@ -1,5 +1,5 @@
 ---
-id: version-1.1.1-api-calendardate
+id: version-1.1.2-api-calendardate
 title: CalendarDate
 original_id: api-calendardate
 ---

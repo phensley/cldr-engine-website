@@ -1,5 +1,5 @@
 ---
-id: version-1.1.1-api-dayperiodalttype
+id: version-1.1.2-api-dayperiodalttype
 title: DayPeriodAltType
 original_id: api-dayperiodalttype
 ---

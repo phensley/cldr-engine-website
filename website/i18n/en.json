@@ -599,55 +599,58 @@
       "version-1.0.9/version-1.0.9-doc-quickstart": {
         "title": "Quick start"
       },
-      "version-1.1.1/version-1.1.1-api-calendardate": {
+      "version-1.1.2/version-1.1.2-api-calendardate": {
         "title": "CalendarDate"
       },
-      "version-1.1.1/version-1.1.1-api-calendardatefields": {
+      "version-1.1.2/version-1.1.2-api-calendardatefields": {
         "title": "CalendarDateFields"
       },
-      "version-1.1.1/version-1.1.1-api-cldr-calendars": {
+      "version-1.1.2/version-1.1.2-api-cldr-calendars": {
         "title": "CLDR.Calendars"
       },
-      "version-1.1.1/version-1.1.1-api-cldr-units": {
+      "version-1.1.2/version-1.1.2-api-cldr-numbers": {
+        "title": "CLDR.Numbers"
+      },
+      "version-1.1.2/version-1.1.2-api-cldr-units": {
         "title": "CLDR.Units"
       },
-      "version-1.1.1/version-1.1.1-api-currencyformatoptions": {
+      "version-1.1.2/version-1.1.2-api-currencyformatoptions": {
         "title": "CurrencyFormatOptions"
       },
-      "version-1.1.1/version-1.1.1-api-dateformataltoptions": {
+      "version-1.1.2/version-1.1.2-api-dateformataltoptions": {
         "title": "DateFormatAltOptions"
       },
-      "version-1.1.1/version-1.1.1-api-dateformatoptions": {
+      "version-1.1.2/version-1.1.2-api-dateformatoptions": {
         "title": "DateFormatOptions"
       },
-      "version-1.1.1/version-1.1.1-api-dateintervalformatoptions": {
+      "version-1.1.2/version-1.1.2-api-dateintervalformatoptions": {
         "title": "DateIntervalFormatOptions"
       },
-      "version-1.1.1/version-1.1.1-api-daterawformatoptions": {
+      "version-1.1.2/version-1.1.2-api-daterawformatoptions": {
         "title": "DateRawFormatOptions"
       },
-      "version-1.1.1/version-1.1.1-api-datewrapperformatoptions": {
+      "version-1.1.2/version-1.1.2-api-datewrapperformatoptions": {
         "title": "DateWrapperFormatOptions"
       },
-      "version-1.1.1/version-1.1.1-api-dayperiodalttype": {
+      "version-1.1.2/version-1.1.2-api-dayperiodalttype": {
         "title": "DayPeriodAltType"
       },
-      "version-1.1.1/version-1.1.1-api-eraalttype": {
+      "version-1.1.2/version-1.1.2-api-eraalttype": {
         "title": "EraAltType"
       },
-      "version-1.1.1/version-1.1.1-api-scriptidtype": {
+      "version-1.1.2/version-1.1.2-api-scriptidtype": {
         "title": "ScriptIdType"
       },
-      "version-1.1.1/version-1.1.1-api-timeperiod": {
+      "version-1.1.2/version-1.1.2-api-timeperiod": {
         "title": "TimePeriod"
       },
-      "version-1.1.1/version-1.1.1-api-unittype": {
+      "version-1.1.2/version-1.1.2-api-unittype": {
         "title": "UnitType"
       },
-      "version-1.1.1/version-1.1.1-doc-locales-matching": {
+      "version-1.1.2/version-1.1.2-doc-locales-matching": {
         "title": "Language matching"
       },
-      "version-1.1.1/version-1.1.1-doc-messageformatting-custom": {
+      "version-1.1.2/version-1.1.2-doc-messageformatting-custom": {
         "title": "Customization"
       }
     },

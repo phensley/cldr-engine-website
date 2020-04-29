@@ -1,5 +1,5 @@
 ---
-id: version-1.1.1-api-currencyformatoptions
+id: version-1.1.2-api-currencyformatoptions
 title: CurrencyFormatOptions
 original_id: api-currencyformatoptions
 ---

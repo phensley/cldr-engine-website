@@ -1,5 +1,5 @@
 ---
-id: version-1.1.1-api-datewrapperformatoptions
+id: version-1.1.2-api-datewrapperformatoptions
 title: DateWrapperFormatOptions
 original_id: api-datewrapperformatoptions
 ---

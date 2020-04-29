@@ -1,5 +1,5 @@
 ---
-id: version-1.1.1-doc-locales-matching
+id: version-1.1.2-doc-locales-matching
 title: Language matching
 original_id: doc-locales-matching
 ---

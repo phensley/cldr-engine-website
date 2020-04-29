@@ -1,5 +1,5 @@
 ---
-id: version-1.1.1-api-cldr-units
+id: version-1.1.2-api-cldr-units
 title: CLDR.Units
 original_id: api-cldr-units
 ---

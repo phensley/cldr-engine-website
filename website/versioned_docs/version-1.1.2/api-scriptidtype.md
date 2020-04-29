@@ -1,5 +1,5 @@
 ---
-id: version-1.1.1-api-scriptidtype
+id: version-1.1.2-api-scriptidtype
 title: ScriptIdType
 original_id: api-scriptidtype
 ---
