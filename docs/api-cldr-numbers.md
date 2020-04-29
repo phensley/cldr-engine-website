@@ -4,9 +4,10 @@ title: CLDR.Numbers
 ---
 
 The `CLDR.Numbers` namespace allows you to:
-  * Format decimal numbers and currencies
-  * Compute the plural category for cardinal and ordinal numbers
-  * Get currency symbols, display name, pluralized name and fraction info.
+
+- Format decimal numbers and currencies
+- Compute the plural category for cardinal and ordinal numbers
+- Get currency symbols, display name, pluralized name and fraction info.
 
 ## adjustDecimal
 
@@ -20,23 +21,25 @@ adjustDecimal(num, options?): Decimal
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
-    - The number to adjust.
-  - <code class="def">options?: <span>[DecimalAdjustOptions](api-decimaladjustoptions.html)</span></code>
-    - Options to control the decimal number adjustment.
+
+- <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+  - The number to adjust.
+- <code class="def">options?: <span>[DecimalAdjustOptions](api-decimaladjustoptions.html)</span></code>
+  - Options to control the decimal number adjustment.
 
 #### Examples
 
 ```typescript
 const cldr = framework.get('en');
 log(cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0 }));
-log(cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0, round: 'down' }));
+log(
+  cldr.Numbers.adjustDecimal('1.5', { maximumFractionDigits: 0, round: 'down' })
+);
 ```
 <pre class="output">
 2
 1
 </pre>
-
 
 
 ## formatCurrency
@@ -50,15 +53,17 @@ formatCurrency(num, code, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
-    - The currency amount to format.
-  - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
-    - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
-  - <code class="def">options?: <span>[CurrencyFormatOptions](api-currencyformatoptions.html)</span></code>
-    - Options to control the currency formatting.
+
+- <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+  - The currency amount to format.
+- <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
+  - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
+- <code class="def">options?: <span>[CurrencyFormatOptions](api-currencyformatoptions.html)</span></code>
+  - Options to control the currency formatting.
 
 #### Return value
-  - A <code class="def"><span>string</span></code> containing the formatted currency value.
+
+- A <code class="def"><span>string</span></code> containing the formatted currency value.
 
 #### Example
 
@@ -120,15 +125,17 @@ formatCurrencyToParts(num, code, options?): Part[]
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
-    - The currency amount to format.
-  - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
-    - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
-  - <code class="def">options?: <span>[CurrencyFormatOptions](api-currencyformatoptions.html)</span></code>
-    - Options to control the currency formatting.
+
+- <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+  - The currency amount to format.
+- <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
+  - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
+- <code class="def">options?: <span>[CurrencyFormatOptions](api-currencyformatoptions.html)</span></code>
+  - Options to control the currency formatting.
 
 #### Return value
-  - An array containing the formatted parts.
+
+- An array containing the formatted parts.
 
 #### Example
 
@@ -159,13 +166,15 @@ formatDecimal(num, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
-    - The number to format.
-  - <code class="def">options?: <span>[DecimalFormatOptions](api-decimalformatoptions.html)</span></code>
-    - Options to control the decimal formatting
+
+- <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+  - The number to format.
+- <code class="def">options?: <span>[DecimalFormatOptions](api-decimalformatoptions.html)</span></code>
+  - Options to control the decimal formatting
 
 #### Return value
-  - A string containing the formatted number
+
+- A string containing the formatted number
 
 #### Example
 
@@ -203,13 +212,15 @@ formatDecimalToParts(num, options?): Part[]
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
-    - The number to format.
-  - <code class="def">options?: <span>[DecimalFormatOptions](api-decimalformatoptions.html)</span></code>
-    - Options to control the decimal formatting
+
+- <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+  - The number to format.
+- <code class="def">options?: <span>[DecimalFormatOptions](api-decimalformatoptions.html)</span></code>
+  - Options to control the decimal formatting
 
 #### Return value
-  - An array containing a list of the formatted parts.
+
+- An array containing a list of the formatted parts.
 
 #### Example
 
@@ -228,11 +239,9 @@ log(cldr.Numbers.formatDecimalToParts('12345.6789', { group: true }));
 </pre>
 
 
-
 ## getCurrencySymbol
 
 Get the display symbol for a given currency.
-
 
 #### Syntax
 
@@ -241,10 +250,11 @@ getCurrencySymbol(code, width?): string
 </pre>
 
 #### Parameters
-  - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
-    - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
-  - <code class="def">width: <span>[CurrencySymbolWidthType](api-currencysymbolwidthtype.html)</span></code>
-    - Hint indicating you prefer the narrowest symbol.
+
+- <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
+  - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
+- <code class="def">width: <span>[CurrencySymbolWidthType](api-currencysymbolwidthtype.html)</span></code>
+  - Hint indicating you prefer the narrowest symbol.
 
 #### Example
 
@@ -255,8 +265,6 @@ log(cldr.Numbers.getCurrencySymbol('GBP'));
 <pre class="output">
 £
 </pre>
-
-
 
 
 ## getCurrencyDisplayName
@@ -270,10 +278,11 @@ getCurrencyDisplayName(code, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
-    - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
-  - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
-    - Options to adjust the display name
+
+- <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
+  - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
+- <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
+  - Options to adjust the display name
 
 #### Example
 
@@ -284,7 +293,6 @@ log(cldr.Numbers.getCurrencyDisplayName('MXN'));
 <pre class="output">
 Mexican Peso
 </pre>
-
 
 
 ## getCurrencyPluralName
@@ -298,12 +306,13 @@ getCurrencyPluralName(num, code, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
-    - The number to use to compute the plural category. Note that you may want to [adjustDecimal](api-cldr-numbers.html#adjustdecimal) the number first, to ensure the number has the expected number of fraction digits, since the plural categories for `1` and `1.0` can differ.
-  - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
-    - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
-  - <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
-    - Options to adjust the display name
+
+- <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+  - The number to use to compute the plural category. Note that you may want to [adjustDecimal](api-cldr-numbers.html#adjustdecimal) the number first, to ensure the number has the expected number of fraction digits, since the plural categories for `1` and `1.0` can differ.
+- <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
+  - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
+- <code class="def">options?: <span>[DisplayNameOptions](api-displaynameoptions.html)</span></code>
+  - Options to adjust the display name
 
 #### Example
 
@@ -318,7 +327,6 @@ US dollars
 </pre>
 
 
-
 ## getCurrencyFractions
 
 Get the fraction info for a given currency.
@@ -330,12 +338,13 @@ getCurrencyFractions(code): CurrencyFractions
 </pre>
 
 #### Parameters
-  - <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
-    - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
+
+- <code class="def">code: <span>[CurrencyType](api-currencytype.html)</span></code>
+  - The 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for the currency.
 
 #### Return value
-  - A `CurrencyFractions` object
 
+- A `CurrencyFractions` object
 
 #### Example
 
@@ -350,7 +359,6 @@ log(cldr.Numbers.getCurrencyFractions('JPY'));
 </pre>
 
 
-
 ## getCurrencyForRegion
 
 Get the currency code for a given region code.
@@ -362,11 +370,13 @@ getCurrencyForRegion(region): CurrencyType
 </pre>
 
 #### Parameters
-  - <code class="def">region: <span>string</span></code>
-    - The 2-letter ISO-3166-1 code for a region.
+
+- <code class="def">region: <span>string</span></code>
+  - The 2-letter ISO-3166-1 code for a region.
 
 #### Return value
-  - A [CurrencyType](api-currencytype.html) value
+
+- A [CurrencyType](api-currencytype.html) value
 
 #### Example
 
@@ -381,8 +391,6 @@ CHF
 </pre>
 
 
-
-
 ## getPluralCardinal
 
 Get the plural category for a cardinal number.
@@ -394,10 +402,11 @@ getPluralCardinal(num, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
-    - The cardinal number
-  - <code class="def">options?: <span>[DecimalAdjustOptions](api-decimaladjustoptions.html)</span></code>
-    - Options to control the decimal number adjustment.
+
+- <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+  - The cardinal number
+- <code class="def">options?: <span>[DecimalAdjustOptions](api-decimaladjustoptions.html)</span></code>
+  - Options to control the decimal number adjustment.
 
 #### Example
 
@@ -408,10 +417,13 @@ const nums = ['0', '1', '1.0', '2', '6'];
 const locales = ['en-US', 'fr-FR', 'pl-PL', 'lt-LT'];
 
 for (const n of nums) {
-  const res = locales.map(id => {
-    const cldr = framework.get(id);
-    return `${id}=${cldr.Numbers.getPluralCardinal(n)}`;
-  }).map(w).join(' ');
+  const res = locales
+    .map((id) => {
+      const cldr = framework.get(id);
+      return `${id}=${cldr.Numbers.getPluralCardinal(n)}`;
+    })
+    .map(w)
+    .join(' ');
   log(`${' '.repeat(4 - n.length)}${n}   ${res}`);
 }
 ```
@@ -435,32 +447,67 @@ getPluralOrdinal(num, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
-    - The cardinal number
-  - <code class="def">options?: <span>[DecimalAdjustOptions](api-decimaladjustoptions.html)</span></code>
-    - Options to control the decimal number adjustment.
+
+- <code class="def">num: <span>number | string | [Decimal](api-decimal.html)</span></code>
+  - The cardinal number
+- <code class="def">options?: <span>[DecimalAdjustOptions](api-decimaladjustoptions.html)</span></code>
+  - Options to control the decimal number adjustment.
 
 #### Example
 
 ```typescript
 const endings = {
   fr: { one: 're', other: 'e' },
-  en: { one: 'st', two: 'nd', few: 'rd', other: 'th' }
+  en: { one: 'st', two: 'nd', few: 'rd', other: 'th' },
 };
 
 const nums = ['1', '2', '3', '4', '5'];
 
-Object.keys(endings).forEach(id => {
+Object.keys(endings).forEach((id) => {
   const cldr = framework.get(id);
-  const res = nums.map(n => {
-    const cat = cldr.Numbers.getPluralOrdinal(n);
-    return `${n}${endings[id][cat]}`;
-  }).join(' ');
+  const res = nums
+    .map((n) => {
+      const cat = cldr.Numbers.getPluralOrdinal(n);
+      return `${n}${endings[id][cat]}`;
+    })
+    .join(' ');
   log(`${id}: ${res}`);
 });
-````
+```
 <pre class="output">
 fr: 1re 2e 3e 4e 5e
 en: 1st 2nd 3rd 4th 5th
+</pre>
+
+
+## parseDecimal
+
+Parse a string or number into a [Decimal](api-decimal) instance.
+
+#### Syntax
+
+<pre class="syntax">
+parseDecimal(n): Decimal
+</pre>
+
+#### Parameters
+
+- <code class="def">num: <span>number | string</span></code>
+  - The number to convert / parse.
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+for (const n of [0, '1.23456789', Number.MAX_SAFE_INTEGER, '1.999999e50']) {
+  const d = en.Numbers.parseDecimal(n);
+  log(d.toScientificString().padEnd(22), d.toString());
+}
+```
+<pre class="output">
+0                      0
+1.23456789             1.23456789
+9.007199254740991E+15  9007199254740991
+1.999999E+50           199999900000000000000000000000000000000000000000000
 </pre>
 

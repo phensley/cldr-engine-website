@@ -480,7 +480,7 @@ const time = cldr.Calendars.formatDate(cldr.Calendars.now(), {
 log(cldr.Calendars.formatDateWrapper(date, time, { width: 'full' }));
 ```
 <pre class="output">
-Next Wednesday at 4:13:20 PM
+Next Wednesday at 12:22:42 PM
 </pre>
 
 
@@ -528,11 +528,11 @@ log(
 [
   { type: 'reldate', value: 'Next Wednesday' },
   { type: 'literal', value: ' at ' },
-  { type: 'hour', value: '4' },
+  { type: 'hour', value: '12' },
   { type: 'literal', value: ':' },
-  { type: 'minute', value: '13' },
+  { type: 'minute', value: '22' },
   { type: 'literal', value: ':' },
-  { type: 'second', value: '20' },
+  { type: 'second', value: '42' },
   { type: 'literal', value: ' ' },
   { type: 'dayperiod', value: 'PM' }
 ]
@@ -854,8 +854,8 @@ log(en.Calendars.nowBuddhist());
 log(en.Calendars.nowBuddhist('America/Los_Angeles'));
 ```
 <pre class="output">
-Buddhist 2020-04-20 16:13:20.158 Etc/UTC
-Buddhist 2020-04-20 09:13:20.158 America/Los_Angeles
+Buddhist 2020-04-29 12:22:42.587 Etc/UTC
+Buddhist 2020-04-29 05:22:42.588 America/Los_Angeles
 </pre>
 
 
@@ -882,8 +882,8 @@ log(en.Calendars.nowGregorian());
 log(en.Calendars.nowGregorian('America/Los_Angeles'));
 ```
 <pre class="output">
-Gregorian 2020-04-20 16:13:20.161 Etc/UTC
-Gregorian 2020-04-20 09:13:20.161 America/Los_Angeles
+Gregorian 2020-04-29 12:22:42.591 Etc/UTC
+Gregorian 2020-04-29 05:22:42.591 America/Los_Angeles
 </pre>
 
 
@@ -910,8 +910,8 @@ log(en.Calendars.nowISO8601());
 log(en.Calendars.nowISO8601('America/Los_Angeles'));
 ```
 <pre class="output">
-ISO8601 2020-04-20 16:13:20.163 Etc/UTC
-ISO8601 2020-04-20 09:13:20.163 America/Los_Angeles
+ISO8601 2020-04-29 12:22:42.593 Etc/UTC
+ISO8601 2020-04-29 05:22:42.593 America/Los_Angeles
 </pre>
 
 
@@ -938,8 +938,8 @@ log(en.Calendars.nowJapanese());
 log(en.Calendars.nowJapanese('America/Los_Angeles'));
 ```
 <pre class="output">
-Japanese 2020-04-20 16:13:20.166 Etc/UTC
-Japanese 2020-04-20 09:13:20.166 America/Los_Angeles
+Japanese 2020-04-29 12:22:42.596 Etc/UTC
+Japanese 2020-04-29 05:22:42.596 America/Los_Angeles
 </pre>
 
 
@@ -966,8 +966,8 @@ log(en.Calendars.nowPersian());
 log(en.Calendars.nowPersian('America/Los_Angeles'));
 ```
 <pre class="output">
-Persian 1399-02-01 16:13:20.168 Etc/UTC
-Persian 1399-02-01 09:13:20.169 America/Los_Angeles
+Persian 1399-02-10 12:22:42.599 Etc/UTC
+Persian 1399-02-10 05:22:42.599 America/Los_Angeles
 </pre>
 
 
@@ -1110,6 +1110,86 @@ Africa/El_Aaiun
 Africa/Johannesburg
 Africa/Juba
 ...
+</pre>
+
+
+## timeZoneFromUTC
+
+Returns the timezone info in effect for a timezone at a given UTC instant.
+
+<pre class="syntax">
+timeZoneFromUTC(timestamp, zoneid): ZoneInfo
+</pre>
+
+#### Parameters
+
+- <code class="def">timestamp: <span>number</span></code>
+  - UTC timestamp in milliseconds.
+- <code class="def">id: <span>string</span></code>
+  - Time zone identifier.
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+const zoneid = 'America/New_York';
+// Sun Mar 8 2020 6:59 AM UTC
+log(en.Calendars.timeZoneFromUTC(1583650740000, zoneid));
+// 1 minute later
+log(en.Calendars.timeZoneFromUTC(1583650800000, zoneid));
+```
+<pre class="output">
+{ abbr: 'EST', dst: 0, offset: -18000000, zoneid: 'America/New_York' }
+{ abbr: 'EDT', dst: 1, offset: -14400000, zoneid: 'America/New_York' }
+</pre>
+
+
+## timeZoneFromWall
+
+Returns the timezone info in effect for a timezone at a given local "wall clock" instant. It returns a pair containing the adjusted UTC timestamp for the instant, and the timezone info.
+
+#### Syntax
+
+<pre class="syntax">
+timeZoneFromWall(timestamp, zoneid): [number, ZoneInfo]
+</pre>
+
+#### Parameters
+
+- <code class="def">timestamp: <span>number</span></code>
+  - Local "wall clock" timestamp in milliseconds.
+- <code class="def">id: <span>string</span></code>
+  - Time zone identifier.
+
+#### Example
+
+```typescript
+const en = framework.get('en');
+const zoneid = 'America/New_York';
+// Sun Mar 8 2020 1:59 AM NY time
+log(en.Calendars.timeZoneFromWall(1583632740000, zoneid));
+// 1 minute later
+log(en.Calendars.timeZoneFromWall(1583632800000, zoneid));
+```
+<pre class="output">
+[
+  1583650740000,
+  {
+    abbr: 'EST',
+    dst: 0,
+    offset: -18000000,
+    zoneid: 'America/New_York'
+  }
+]
+[
+  1583650800000,
+  {
+    abbr: 'EDT',
+    dst: 1,
+    offset: -14400000,
+    zoneid: 'America/New_York'
+  }
+]
 </pre>
 
 
