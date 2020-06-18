@@ -10,7 +10,8 @@
     "start:docs": "docusaurus-start --no-watch",
     "start:webpack": "node scripts/copy-packs.js && webpack-dev-server -w -d",
     "start:webpack-old": "webpack-dev-server -d --content-base ./static/",
-    "build": "node gencrossref.js && yarn packs && webpack -p && docusaurus-build",
+    "build": "node gencrossref.js && yarn packs && docusaurus-build",
+    "build:wp": "node gencrossref.js && yarn packs && webpack -p && docusaurus-build",
     "packs": "rimraf ./static/packs && node scripts/copy-packs.js",
     "report": "source-map-explorer --html -m ./build/cldr-engine/liveapi/liveapi.js >report.html",
     "write-translations": "docusaurus-write-translations",
@@ -20,7 +21,7 @@
 		"unlink-all": "ls --color=none node_modules/@phensley | xargs -I % yarn unlink @phensley/%"
   },
   "dependencies": {
-    "@phensley/cldr": "1.2.0",
+    "@phensley/cldr": "1.2.1",
     "@types/react-router-dom": "5.1.5",
     "emotion": "10.0.27",
     "icepick": "2.4.0",
@@ -48,7 +49,7 @@
     "concurrently": "^5.2.0",
     "deasync": "^0.1.20",
     "docusaurus": "1.14.4",
-    "html-webpack-plugin": "^4.2.1",
+    "html-webpack-plugin": "^4.3.0",
     "js-yaml": "^3.13.1",
     "source-map-explorer": "^2.4.2",
     "ts-lint": "^4.5.1",

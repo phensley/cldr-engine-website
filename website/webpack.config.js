@@ -21,7 +21,7 @@ const config = {
   },
   performance: {
     hints: 'warning'
- },
+  },
   module: {
     rules: [
       { test: /\.tsx?$/, loader: 'ts-loader' }
@@ -77,7 +77,7 @@ module.exports = (env, argv) => {
   config.plugins = [
     new webpack.EnvironmentPlugin(pluginEnv),
     new HtmlWebpackPlugin(htmlConfig),
-    new InterpolateHtmlPlugin(pluginEnv),
+    new InterpolateHtmlPlugin(HtmlWebpackPlugin, pluginEnv),
   ];
   return config;
 };
