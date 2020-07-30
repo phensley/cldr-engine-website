@@ -33,7 +33,7 @@ const siteConfig = {
   fonts: {
     baseFont: ['Source Sans Pro', 'Segoe UI', 'Helvetica Neue', 'sans-serif']
   },
-  copyright: 'Copyright © ' + new Date().getFullYear() +' Patrick Hensley',
+  copyright: 'Copyright © ' + new Date().getFullYear() + ' Patrick Hensley',
   cleanUrl: true,
   stylesheets: [
     'https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,300italic'
@@ -49,10 +49,16 @@ const siteConfig = {
   ogImage: 'img/cldr-engine-logo-bw.png',
   twitterImage: 'img/cldr-engine-logo-bw.png',
   repoUrl: 'https://github.com/phensley/cldr-engine',
+
+  algolia: {
+    apiKey: '184628c75b098ce37a1a35f1615d9410',
+    indexName: 'phensley_cldr-engine',
+  },
+
   markdownPlugins: [
     function lists(md) {
       md.block.ruler.before('list', 'list', require('./markdown/list'));
-      md.renderer.rules.list_item_open = function(tokens, idx) {
+      md.renderer.rules.list_item_open = function (tokens, idx) {
         return (tokens[idx].char === '*') ? '<li class="list">' : '<li>';
       };
     },
