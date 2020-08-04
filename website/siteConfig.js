@@ -50,10 +50,10 @@ const siteConfig = {
   twitterImage: 'img/cldr-engine-logo-bw.png',
   repoUrl: 'https://github.com/phensley/cldr-engine',
 
-  algolia: {
-    apiKey: '184628c75b098ce37a1a35f1615d9410',
-    indexName: 'phensley_cldr-engine',
-  },
+  // algolia: {
+  //   apiKey: '184628c75b098ce37a1a35f1615d9410',
+  //   indexName: 'phensley_cldr-engine',
+  // },
 
   markdownPlugins: [
     function lists(md) {
