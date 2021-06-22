@@ -653,10 +653,10 @@
       "version-1.1.2/version-1.1.2-doc-messageformatting-custom": {
         "title": "Customization"
       },
-      "version-1.2.3/version-1.2.3-api-cldr-calendars": {
+      "version-1.2.5/version-1.2.5-api-cldr-calendars": {
         "title": "CLDR.Calendars"
       },
-      "version-1.2.3/version-1.2.3-doc-messageformatting-custom": {
+      "version-1.2.5/version-1.2.5-doc-messageformatting-custom": {
         "title": "Customization"
       }
     },

@@ -42,10 +42,11 @@ characterOrder(): CharacterOrderType
 </pre>
 
 #### Return values
-  - <code class="def">"ttb"</code>
-    - Top to bottom
-  - <code class="def">"btt"</code>
-    - Bottom to top
+  - <code class="def">"ltr"</code>
+    - Left to right
+  - <code class="def">"rtl"</code>
+    - Right to left
+
 
 ## lineOrder
 
@@ -58,11 +59,10 @@ lineOrder(): LineOrderType
 </pre>
 
 #### Return values
-  - <code class="def">"ltr"</code>
-    - Left to right
-  - <code class="def">"rtl"</code>
-    - Right to left
-
+  - <code class="def">"ttb"</code>
+    - Top to bottom
+  - <code class="def">"btt"</code>
+    - Bottom to top
 
 ## locale
 
