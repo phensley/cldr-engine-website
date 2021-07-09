@@ -205,7 +205,7 @@ const run = (argv: yargs.Arguments) => {
   const files: string[] = [];
 
   for (const arg of argv._) {
-    addpath(dirs, files, arg);
+    addpath(dirs, files, arg as string);
   }
 
   // Recursively find all markdown files

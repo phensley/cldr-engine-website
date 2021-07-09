@@ -30,12 +30,12 @@ const Button = styled.button`
   border-radius: 4px;
 `;
 
-const Left = Button.extend`
+const Left = styled(Button)`
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 `;
 
-const Right = Button.extend`
+const Right = styled(Button)`
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 `;

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Bar } from './Bar';
+import styled from 'styled-components';
 
-const X = Bar.withComponent('h2').extend`
+const X = styled(Bar.withComponent('h2'))`
   line-height: 1.2;
 `;
 

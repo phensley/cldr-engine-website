@@ -6,6 +6,9 @@
       "doc-faq",
       "doc-quickstart"
     ],
+    "Customization": [
+      "doc-resource-patching"
+    ],
     "Locales": [
       "doc-locales-parsing",
       "doc-locales-resolution",

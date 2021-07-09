@@ -308,6 +308,9 @@
       "doc-quickstart": {
         "title": "Quick start"
       },
+      "doc-resource-patching": {
+        "title": "Resource Patching"
+      },
       "version-1.0.9/version-1.0.9-api-buddhistdate": {
         "title": "BuddhistDate"
       },
@@ -653,11 +656,11 @@
       "version-1.1.2/version-1.1.2-doc-messageformatting-custom": {
         "title": "Customization"
       },
-      "version-1.2.5/version-1.2.5-api-cldr-calendars": {
-        "title": "CLDR.Calendars"
+      "version-1.2.6/version-1.2.6-api-cldr-general": {
+        "title": "CLDR.General"
       },
-      "version-1.2.5/version-1.2.5-doc-messageformatting-custom": {
-        "title": "Customization"
+      "version-1.2.6/version-1.2.6-doc-resource-patching": {
+        "title": "Resource Patching"
       }
     },
     "links": {
@@ -670,6 +673,7 @@
     },
     "categories": {
       "Introduction": "Introduction",
+      "Customization": "Customization",
       "Locales": "Locales",
       "Calendars": "Calendars",
       "Math": "Math",

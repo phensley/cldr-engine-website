@@ -2,7 +2,7 @@ import * as React from 'react';
 import { HashRouter, Link, Route, RouteComponentProps  } from 'react-router-dom';
 import { English } from '../locale';
 import { Decimal, DecimalConstants, DecimalFormatOptions } from '@phensley/cldr';
-import { injectGlobal } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 import { Numbers } from './Numbers';
 import { Sidebar } from './Sidebar';
 import { Foo } from './Foo';
@@ -14,7 +14,7 @@ import { Col } from './Col';
 import { Row } from './Row';
 import { Example1 } from './Example1';
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
 html, body {
   font-size: 16px;
   margin: 0;
@@ -26,7 +26,7 @@ code {
 }
 `;
 
-const FooCol = Col.extend`
+const FooCol = styled(Col)`
   border: 1px solid gray;
 `;
 
@@ -72,6 +72,7 @@ export class App extends React.Component<any> {
     // return <div><Foo /></div>;
     return (
       <HashRouter>
+        <GlobalStyle>
         <Grid fluid>
           <Heading />
           <Row center='sm'>
@@ -107,6 +108,7 @@ export class App extends React.Component<any> {
             </Col>
           </Row>
         </Grid>
+        </GlobalStyle>
       </HashRouter>
     );
 
