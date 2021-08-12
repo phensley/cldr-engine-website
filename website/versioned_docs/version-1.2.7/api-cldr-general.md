@@ -1,5 +1,5 @@
 ---
-id: version-1.2.6-api-cldr-general
+id: version-1.2.7-api-cldr-general
 title: CLDR.General
 original_id: api-cldr-general
 ---

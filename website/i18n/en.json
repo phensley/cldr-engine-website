@@ -656,10 +656,16 @@
       "version-1.1.2/version-1.1.2-doc-messageformatting-custom": {
         "title": "Customization"
       },
-      "version-1.2.6/version-1.2.6-api-cldr-general": {
+      "version-1.2.7/version-1.2.7-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-1.2.7/version-1.2.7-api-cldr-general": {
         "title": "CLDR.General"
       },
-      "version-1.2.6/version-1.2.6-doc-resource-patching": {
+      "version-1.2.7/version-1.2.7-doc-messageformatting-custom": {
+        "title": "Customization"
+      },
+      "version-1.2.7/version-1.2.7-doc-resource-patching": {
         "title": "Resource Patching"
       }
     },
