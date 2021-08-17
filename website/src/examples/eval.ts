@@ -246,7 +246,7 @@ const main = () => {
     .option('v', { alias: 'verbose', description: 'Verbose mode' })
     .help('help')
     .option('h', { alias: 'help' })
-    .parse();
+    .parseSync();
   run(args);
 };
 
