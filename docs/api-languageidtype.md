@@ -931,8 +931,6 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Rombo
   - 'rom'
     - Romany
-  - 'root'
-    - Root
   - 'rtm'
     - Rotuman
   - 'ru'

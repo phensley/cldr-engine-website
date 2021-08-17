@@ -4,11 +4,11 @@
     "target": "es2015",
     "module": "commonjs",
     "lib": ["es6", "dom"],
-    "sourceMap": false,
+    "sourceMap": true,
+    "inlineSources": true,
     "allowJs": true,
     "jsx": "react",
     "moduleResolution": "node",
-    "rootDir": ".",
     "outDir": "lib",
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
@@ -27,7 +27,7 @@
     ]
   },
   "include": [
-    "src/**/*"
+    "src"
   ],
   "exclude": [
     "node_modules"

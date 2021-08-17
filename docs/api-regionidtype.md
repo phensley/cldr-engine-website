@@ -17,7 +17,7 @@ or [UN M.49](https://en.wikipedia.org/wiki/UN_M.49) identifier for a region.
 ### Values
 
   - '001'
-    - World
+    - world
   - '002'
     - Africa
   - '003'
