@@ -1,0 +1,137 @@
+{
+  "version-1.2.8-docs": {
+    "Introduction": [
+      "version-1.2.8-doc-index",
+      "version-1.2.8-doc-goals",
+      "version-1.2.8-doc-faq",
+      "version-1.2.8-doc-quickstart"
+    ],
+    "Customization": [
+      "version-1.2.8-doc-resource-patching"
+    ],
+    "Locales": [
+      "version-1.2.8-doc-locales-parsing",
+      "version-1.2.8-doc-locales-resolution",
+      "version-1.2.8-doc-locales-matching"
+    ],
+    "Calendars": [
+      "version-1.2.8-doc-calendar-overview",
+      "version-1.2.8-doc-calendar-examples"
+    ],
+    "Math": [
+      "version-1.2.8-doc-math",
+      "version-1.2.8-doc-math-example-factorial",
+      "version-1.2.8-doc-math-example-rational-approx",
+      "version-1.2.8-doc-math-example-contd-fractions"
+    ],
+    "Message Formatting": [
+      "version-1.2.8-doc-messageformatting",
+      "version-1.2.8-doc-messageformatting-custom"
+    ],
+    "Design": [
+      "version-1.2.8-doc-design-bundles",
+      "version-1.2.8-doc-design-caching"
+    ]
+  },
+  "version-1.2.8-reference": {
+    "API": [
+      "version-1.2.8-api-cldrframework",
+      "version-1.2.8-api-cldroptions",
+      "version-1.2.8-api-cldr",
+      "version-1.2.8-api-cldr-calendars",
+      "version-1.2.8-api-cldr-general",
+      "version-1.2.8-api-cldr-numbers",
+      "version-1.2.8-api-cldr-units",
+      "version-1.2.8-api-schemaconfig"
+    ],
+    "Calendars": [
+      "version-1.2.8-api-buddhistdate",
+      "version-1.2.8-api-calendardate",
+      "version-1.2.8-api-calendardatefields",
+      "version-1.2.8-api-calendarfieldoptions",
+      "version-1.2.8-api-calendartype",
+      "version-1.2.8-api-datefieldtype",
+      "version-1.2.8-api-datefieldformatoptions",
+      "version-1.2.8-api-dateformataltoptions",
+      "version-1.2.8-api-dateformatoptions",
+      "version-1.2.8-api-dateintervalformatoptions",
+      "version-1.2.8-api-daterawformatoptions",
+      "version-1.2.8-api-dateskeleton",
+      "version-1.2.8-api-datetimepatternfieldtype",
+      "version-1.2.8-api-datewrapperformatoptions",
+      "version-1.2.8-api-dayperiodalttype",
+      "version-1.2.8-api-eraalttype",
+      "version-1.2.8-api-erafieldoptions",
+      "version-1.2.8-api-erawidthtype",
+      "version-1.2.8-api-exemplarcity",
+      "version-1.2.8-api-fieldwidthtype",
+      "version-1.2.8-api-formatwidthtype",
+      "version-1.2.8-api-gregoriandate",
+      "version-1.2.8-api-iso8601date",
+      "version-1.2.8-api-japanesedate",
+      "version-1.2.8-api-persiandate",
+      "version-1.2.8-api-relativetimefieldtype",
+      "version-1.2.8-api-relativetimeformatoptions",
+      "version-1.2.8-api-relativetimefieldformatoptions",
+      "version-1.2.8-api-timeperiod",
+      "version-1.2.8-api-timeperiodfield",
+      "version-1.2.8-api-timezoneinfo",
+      "version-1.2.8-api-timezonetype",
+      "version-1.2.8-api-zoneddatetime"
+    ],
+    "General": [
+      "version-1.2.8-api-contexttype",
+      "version-1.2.8-api-displaynameoptions",
+      "version-1.2.8-api-languageidtype",
+      "version-1.2.8-api-listpatterntype",
+      "version-1.2.8-api-measurementcategory",
+      "version-1.2.8-api-measurementsystem",
+      "version-1.2.8-api-regionidtype",
+      "version-1.2.8-api-scriptidtype"
+    ],
+    "Locales": [
+      "version-1.2.8-api-bundle",
+      "version-1.2.8-api-languagetag",
+      "version-1.2.8-api-locale",
+      "version-1.2.8-api-localematcher",
+      "version-1.2.8-api-localematcheroptions"
+    ],
+    "Math": [
+      "version-1.2.8-api-decimal",
+      "version-1.2.8-api-decimalconstants",
+      "version-1.2.8-api-mathcontext",
+      "version-1.2.8-api-rational",
+      "version-1.2.8-api-roundingmodetype"
+    ],
+    "Messages": [
+      "version-1.2.8-api-buildmessagematcher",
+      "version-1.2.8-api-parsemessagepattern",
+      "version-1.2.8-api-defaultmessageargconverter",
+      "version-1.2.8-api-messageargconverter",
+      "version-1.2.8-api-messagecode",
+      "version-1.2.8-api-messageengine",
+      "version-1.2.8-api-messageformatfuncmap",
+      "version-1.2.8-api-messageformatter",
+      "version-1.2.8-api-messageformatteroptions",
+      "version-1.2.8-api-messagematcher"
+    ],
+    "Numbers": [
+      "version-1.2.8-api-currencyformatoptions",
+      "version-1.2.8-api-currencyformatstyletype",
+      "version-1.2.8-api-currencysymbolwidthtype",
+      "version-1.2.8-api-currencytype",
+      "version-1.2.8-api-decimaladjustoptions",
+      "version-1.2.8-api-decimalformatoptions",
+      "version-1.2.8-api-decimalformatstyletype",
+      "version-1.2.8-api-numberformaterrortype",
+      "version-1.2.8-api-numbersystemtype"
+    ],
+    "Units": [
+      "version-1.2.8-api-quantity",
+      "version-1.2.8-api-unitformatoptions",
+      "version-1.2.8-api-unitformatstyletype",
+      "version-1.2.8-api-unitlength",
+      "version-1.2.8-api-unittype"
+    ]
+  }
+}
