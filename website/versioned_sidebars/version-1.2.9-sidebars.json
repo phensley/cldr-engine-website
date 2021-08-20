@@ -1,0 +1,137 @@
+{
+  "version-1.2.9-docs": {
+    "Introduction": [
+      "version-1.2.9-doc-index",
+      "version-1.2.9-doc-goals",
+      "version-1.2.9-doc-faq",
+      "version-1.2.9-doc-quickstart"
+    ],
+    "Customization": [
+      "version-1.2.9-doc-resource-patching"
+    ],
+    "Locales": [
+      "version-1.2.9-doc-locales-parsing",
+      "version-1.2.9-doc-locales-resolution",
+      "version-1.2.9-doc-locales-matching"
+    ],
+    "Calendars": [
+      "version-1.2.9-doc-calendar-overview",
+      "version-1.2.9-doc-calendar-examples"
+    ],
+    "Math": [
+      "version-1.2.9-doc-math",
+      "version-1.2.9-doc-math-example-factorial",
+      "version-1.2.9-doc-math-example-rational-approx",
+      "version-1.2.9-doc-math-example-contd-fractions"
+    ],
+    "Message Formatting": [
+      "version-1.2.9-doc-messageformatting",
+      "version-1.2.9-doc-messageformatting-custom"
+    ],
+    "Design": [
+      "version-1.2.9-doc-design-bundles",
+      "version-1.2.9-doc-design-caching"
+    ]
+  },
+  "version-1.2.9-reference": {
+    "API": [
+      "version-1.2.9-api-cldrframework",
+      "version-1.2.9-api-cldroptions",
+      "version-1.2.9-api-cldr",
+      "version-1.2.9-api-cldr-calendars",
+      "version-1.2.9-api-cldr-general",
+      "version-1.2.9-api-cldr-numbers",
+      "version-1.2.9-api-cldr-units",
+      "version-1.2.9-api-schemaconfig"
+    ],
+    "Calendars": [
+      "version-1.2.9-api-buddhistdate",
+      "version-1.2.9-api-calendardate",
+      "version-1.2.9-api-calendardatefields",
+      "version-1.2.9-api-calendarfieldoptions",
+      "version-1.2.9-api-calendartype",
+      "version-1.2.9-api-datefieldtype",
+      "version-1.2.9-api-datefieldformatoptions",
+      "version-1.2.9-api-dateformataltoptions",
+      "version-1.2.9-api-dateformatoptions",
+      "version-1.2.9-api-dateintervalformatoptions",
+      "version-1.2.9-api-daterawformatoptions",
+      "version-1.2.9-api-dateskeleton",
+      "version-1.2.9-api-datetimepatternfieldtype",
+      "version-1.2.9-api-datewrapperformatoptions",
+      "version-1.2.9-api-dayperiodalttype",
+      "version-1.2.9-api-eraalttype",
+      "version-1.2.9-api-erafieldoptions",
+      "version-1.2.9-api-erawidthtype",
+      "version-1.2.9-api-exemplarcity",
+      "version-1.2.9-api-fieldwidthtype",
+      "version-1.2.9-api-formatwidthtype",
+      "version-1.2.9-api-gregoriandate",
+      "version-1.2.9-api-iso8601date",
+      "version-1.2.9-api-japanesedate",
+      "version-1.2.9-api-persiandate",
+      "version-1.2.9-api-relativetimefieldtype",
+      "version-1.2.9-api-relativetimeformatoptions",
+      "version-1.2.9-api-relativetimefieldformatoptions",
+      "version-1.2.9-api-timeperiod",
+      "version-1.2.9-api-timeperiodfield",
+      "version-1.2.9-api-timezoneinfo",
+      "version-1.2.9-api-timezonetype",
+      "version-1.2.9-api-zoneddatetime"
+    ],
+    "General": [
+      "version-1.2.9-api-contexttype",
+      "version-1.2.9-api-displaynameoptions",
+      "version-1.2.9-api-languageidtype",
+      "version-1.2.9-api-listpatterntype",
+      "version-1.2.9-api-measurementcategory",
+      "version-1.2.9-api-measurementsystem",
+      "version-1.2.9-api-regionidtype",
+      "version-1.2.9-api-scriptidtype"
+    ],
+    "Locales": [
+      "version-1.2.9-api-bundle",
+      "version-1.2.9-api-languagetag",
+      "version-1.2.9-api-locale",
+      "version-1.2.9-api-localematcher",
+      "version-1.2.9-api-localematcheroptions"
+    ],
+    "Math": [
+      "version-1.2.9-api-decimal",
+      "version-1.2.9-api-decimalconstants",
+      "version-1.2.9-api-mathcontext",
+      "version-1.2.9-api-rational",
+      "version-1.2.9-api-roundingmodetype"
+    ],
+    "Messages": [
+      "version-1.2.9-api-buildmessagematcher",
+      "version-1.2.9-api-parsemessagepattern",
+      "version-1.2.9-api-defaultmessageargconverter",
+      "version-1.2.9-api-messageargconverter",
+      "version-1.2.9-api-messagecode",
+      "version-1.2.9-api-messageengine",
+      "version-1.2.9-api-messageformatfuncmap",
+      "version-1.2.9-api-messageformatter",
+      "version-1.2.9-api-messageformatteroptions",
+      "version-1.2.9-api-messagematcher"
+    ],
+    "Numbers": [
+      "version-1.2.9-api-currencyformatoptions",
+      "version-1.2.9-api-currencyformatstyletype",
+      "version-1.2.9-api-currencysymbolwidthtype",
+      "version-1.2.9-api-currencytype",
+      "version-1.2.9-api-decimaladjustoptions",
+      "version-1.2.9-api-decimalformatoptions",
+      "version-1.2.9-api-decimalformatstyletype",
+      "version-1.2.9-api-numberformaterrortype",
+      "version-1.2.9-api-numbersystemtype"
+    ],
+    "Units": [
+      "version-1.2.9-api-quantity",
+      "version-1.2.9-api-unitformatoptions",
+      "version-1.2.9-api-unitformatstyletype",
+      "version-1.2.9-api-unitlength",
+      "version-1.2.9-api-unittype"
+    ]
+  }
+}

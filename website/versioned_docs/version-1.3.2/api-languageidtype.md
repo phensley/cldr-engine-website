@@ -1,5 +1,5 @@
 ---
-id: version-1.3.1-api-languageidtype
+id: version-1.3.2-api-languageidtype
 title: LanguageIdType
 original_id: api-languageidtype
 ---

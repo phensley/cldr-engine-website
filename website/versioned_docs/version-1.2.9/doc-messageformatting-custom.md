@@ -1,5 +1,5 @@
 ---
-id: version-1.2.8-doc-messageformatting-custom
+id: version-1.2.9-doc-messageformatting-custom
 title: Customization
 original_id: doc-messageformatting-custom
 ---
