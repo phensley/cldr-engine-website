@@ -1,5 +1,5 @@
 ---
-id: version-1.2.9-doc-resource-patching
+id: version-1.2.10-doc-resource-patching
 title: Resource Patching
 original_id: doc-resource-patching
 ---
