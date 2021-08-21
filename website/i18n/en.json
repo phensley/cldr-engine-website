@@ -668,16 +668,16 @@
       "version-1.2.10/version-1.2.10-doc-resource-patching": {
         "title": "Resource Patching"
       },
-      "version-1.3.2/version-1.3.2-api-languageidtype": {
+      "version-1.3.3/version-1.3.3-api-languageidtype": {
         "title": "LanguageIdType"
       },
-      "version-1.3.2/version-1.3.2-api-regionidtype": {
+      "version-1.3.3/version-1.3.3-api-regionidtype": {
         "title": "RegionIdType"
       },
-      "version-1.3.2/version-1.3.2-api-timezonetype": {
+      "version-1.3.3/version-1.3.3-api-timezonetype": {
         "title": "TimeZoneType"
       },
-      "version-1.3.2/version-1.3.2-api-unittype": {
+      "version-1.3.3/version-1.3.3-api-unittype": {
         "title": "UnitType"
       }
     },
