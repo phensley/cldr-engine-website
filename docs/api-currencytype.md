@@ -414,7 +414,7 @@ A 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for a currenc
   - 'PGK'
     - Papua New Guinean Kina
   - 'PHP'
-    - Philippine Piso
+    - Philippine Peso
   - 'PKR'
     - Pakistani Rupee
   - 'PLN'
@@ -463,6 +463,8 @@ A 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for a currenc
     - Slovenian Tolar
   - 'SKK'
     - Slovak Koruna
+  - 'SLE'
+    - Sierra Leonean New Leone
   - 'SLL'
     - Sierra Leonean Leone
   - 'SOS'
@@ -537,6 +539,8 @@ A 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for a currenc
     - Uzbekistani Som
   - 'VEB'
     - Venezuelan Bolívar (1871–2008)
+  - 'VED'
+    - Bolívar Soberano
   - 'VEF'
     - Venezuelan Bolívar (2008–2018)
   - 'VES'

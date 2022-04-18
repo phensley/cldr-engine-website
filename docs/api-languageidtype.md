@@ -89,6 +89,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - American Sign Language
   - 'ast'
     - Asturian
+  - 'atj'
+    - Atikamekw
   - 'av'
     - Avaric
   - 'avk'
@@ -149,6 +151,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Kom
   - 'bla'
     - Siksika
+  - 'blt'
+    - Tai Dam
   - 'bm'
     - Bambara
   - 'bn'
@@ -223,6 +227,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Chickasaw
   - 'ckb'
     - Central Kurdish
+  - 'clc'
+    - Chilcotin
   - 'co'
     - Corsican
   - 'cop'
@@ -231,18 +237,34 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Capiznon
   - 'cr'
     - Cree
+  - 'crg'
+    - Michif
   - 'crh'
-    - Crimean Turkish
+    - Crimean Tatar
+  - 'crj'
+    - Southern East Cree
+  - 'crk'
+    - Plains Cree
+  - 'crl'
+    - Northern East Cree
+  - 'crm'
+    - Moose Cree
+  - 'crr'
+    - Carolina Algonquian
   - 'crs'
     - Seselwa Creole French
   - 'cs'
     - Czech
   - 'csb'
     - Kashubian
+  - 'csw'
+    - Swampy Cree
   - 'cu'
     - Church Slavic
   - 'cv'
     - Chuvash
+  - 'cwd'
+    - Woods Cree
   - 'cy'
     - Welsh
   - 'da'
@@ -445,6 +467,10 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Hakka Chinese
   - 'haw'
     - Hawaiian
+  - 'hax'
+    - Southern Haida
+  - 'hdn'
+    - Northern Haida
   - 'he'
     - Hebrew
   - 'hi'
@@ -457,6 +483,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Hittite
   - 'hmn'
     - Hmong
+  - 'hnj'
+    - Hmong Njua
   - 'ho'
     - Hiri Motu
   - 'hr'
@@ -471,6 +499,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Hungarian
   - 'hup'
     - Hupa
+  - 'hur'
+    - Halkomelem
   - 'hy'
     - Armenian
   - 'hz'
@@ -491,6 +521,10 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Sichuan Yi
   - 'ik'
     - Inupiaq
+  - 'ike'
+    - Eastern Canadian Inuktitut
+  - 'ikt'
+    - Western Canadian Inuktitut
   - 'ilo'
     - Iloko
   - 'inh'
@@ -623,6 +657,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Komi
   - 'kw'
     - Cornish
+  - 'kwk'
+    - Kwakʼwala
   - 'ky'
     - Kyrgyz
   - 'la'
@@ -647,6 +683,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Limburgish
   - 'lij'
     - Ligurian
+  - 'lil'
+    - Lillooet
   - 'liv'
     - Livonian
   - 'lkt'
@@ -726,7 +764,7 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
   - 'mh'
     - Marshallese
   - 'mi'
-    - Maori
+    - Māori
   - 'mic'
     - Mi'kmaq
   - 'min'
@@ -741,6 +779,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Manchu
   - 'mni'
     - Manipuri
+  - 'moe'
+    - Innu-aimun
   - 'moh'
     - Mohawk
   - 'mos'
@@ -845,6 +885,18 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Occitan
   - 'oj'
     - Ojibwa
+  - 'ojb'
+    - Northwestern Ojibwa
+  - 'ojc'
+    - Central Ojibwa
+  - 'ojg'
+    - Eastern Ojibwa
+  - 'ojs'
+    - Oji-Cree
+  - 'ojw'
+    - Western Ojibwa
+  - 'oka'
+    - Okanagan
   - 'om'
     - Oromo
   - 'or'
@@ -891,6 +943,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Pontic
   - 'pon'
     - Pohnpeian
+  - 'pqm'
+    - Malecite
   - 'prg'
     - Prussian
   - 'pro'
@@ -917,6 +971,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Rarotongan
   - 'rgn'
     - Romagnol
+  - 'rhg'
+    - Rohingya
   - 'rif'
     - Riffian
   - 'rm'
@@ -1011,6 +1067,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Slovak
   - 'sl'
     - Slovenian
+  - 'slh'
+    - Southern Lushootseed
   - 'sli'
     - Lower Silesian
   - 'sly'
@@ -1051,6 +1109,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Southern Sotho
   - 'stq'
     - Saterland Frisian
+  - 'str'
+    - Straits Salish
   - 'su'
     - Sundanese
   - 'suk'
@@ -1075,6 +1135,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Silesian
   - 'ta'
     - Tamil
+  - 'tce'
+    - Southern Tutchone
   - 'tcy'
     - Tulu
   - 'te'
@@ -1089,8 +1151,12 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Tetum
   - 'tg'
     - Tajik
+  - 'tgx'
+    - Tagish
   - 'th'
     - Thai
+  - 'tht'
+    - Tahltan
   - 'ti'
     - Tigrinya
   - 'tig'
@@ -1127,6 +1193,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Turoyo
   - 'trv'
     - Taroko
+  - 'trw'
+    - Torwali
   - 'ts'
     - Tsonga
   - 'tsd'
@@ -1135,6 +1203,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Tsimshian
   - 'tt'
     - Tatar
+  - 'ttm'
+    - Northern Tutchone
   - 'ttt'
     - Muslim Tat
   - 'tum'

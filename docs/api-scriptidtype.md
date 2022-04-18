@@ -73,6 +73,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Cirth
   - 'Copt'
     - Coptic
+  - 'Cpmn'
+    - Cypro-Minoan
   - 'Cprt'
     - Cypriot
   - 'Cyrl'
@@ -165,6 +167,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Kayah Li
   - 'Kana'
     - Katakana
+  - 'Kawi'
+    - Kawi
   - 'Khar'
     - Kharoshthi
   - 'Khmr'
@@ -243,6 +247,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Multani
   - 'Mymr'
     - Myanmar
+  - 'Nagm'
+    - Nag Mundari
   - 'Nand'
     - Nandinagari
   - 'Narb'
@@ -269,6 +275,8 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Osage
   - 'Osma'
     - Osmanya
+  - 'Ougr'
+    - Old Uyghur
   - 'Palm'
     - Palmyrene
   - 'Pauc'
@@ -294,7 +302,7 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
   - 'Rjng'
     - Rejang
   - 'Rohg'
-    - Hanifi Rohingya
+    - Hanifi
   - 'Roro'
     - Rongorongo
   - 'Runr'
@@ -369,12 +377,18 @@ An [ISO 15924](https://en.wikipedia.org/wiki/ISO_15924) identifier for a script.
     - Tibetan
   - 'Tirh'
     - Tirhuta
+  - 'Tnsa'
+    - Tangsa
+  - 'Toto'
+    - Toto
   - 'Ugar'
     - Ugaritic
   - 'Vaii'
     - Vai
   - 'Visp'
     - Visible Speech
+  - 'Vith'
+    - Vithkuqi
   - 'Wara'
     - Varang Kshiti
   - 'Wcho'
