@@ -2,7 +2,7 @@ import { TZ } from '@phensley/timezone';
 import { typeSlice } from './utils';
 
 const TIMEZONE_CODES = TZ.zoneIds().sort();
-const TIMEZONES_DESC = TIMEZONE_CODES.map(t => `  - '${t}'`);
+const TIMEZONES_DESC = TIMEZONE_CODES.map((t) => `  - '${t}'`);
 
 const TIMEZONE_TYPE = `
 
@@ -20,10 +20,10 @@ ${typeSlice(TIMEZONE_CODES, 2)}
 ${TIMEZONES_DESC.join('\n')}
 
 {%refs TimeZoneType}
-`
+`;
 
 const MAP = {
-  'TimeZoneType': TIMEZONE_TYPE
-}
+  TimeZoneType: TIMEZONE_TYPE
+};
 
 export default MAP;
