@@ -20,7 +20,7 @@ const OUTPUT_START = '<pre class="output">';
 const OUTPUT_END = '</pre>';
 
 interface Sandbox {
-  imports: string[],
+  imports: string[];
   lines: string[][];
   complete: boolean;
 }
@@ -37,10 +37,10 @@ const makeSandbox = (): Sandbox => {
     framework,
     __dirname,
     wait: () => deasync.loopWhile(() => !sandbox.complete),
-    done: () => sandbox.complete = true,
+    done: () => (sandbox.complete = true),
     json: (arg: any) => sandbox.lines.push([JSON.stringify(arg)]),
     log: (...args: any[]) => sandbox.lines.push(args.map(convert)),
-    debug: (...args: any[]) => console.log(...args),
+    debug: (...args: any[]) => console.log(...args)
   };
   return sandbox;
 };
@@ -75,7 +75,10 @@ const evaluate = (source: string, context: vm.Context, sandbox: Sandbox): string
   // hack: check if output was all whitespace before processing
   // individual lines
   const { lines } = sandbox;
-  const tmp = lines.map(line => line.join('')).join('').trim();
+  const tmp = lines
+    .map((line) => line.join(''))
+    .join('')
+    .trim();
 
   if (tmp.length) {
     // convert empty lines into non-breaking space
@@ -93,11 +96,14 @@ const getheader = (lines: string[]): any => {
     const line = lines[i];
     if (line.startsWith('---')) {
       if (start !== -1) {
-        return lines.slice(start, i).map(l => l.split(':')).reduce((p: any, c: string[]) => {
-          const [k, v] = c;
-          p[k.trim()] = v.trim();
-          return p;
-        }, {} as any);
+        return lines
+          .slice(start, i)
+          .map((l) => l.split(':'))
+          .reduce((p: any, c: string[]) => {
+            const [k, v] = c;
+            p[k.trim()] = v.trim();
+            return p;
+          }, {} as any);
       }
       start = i + 1;
     }
@@ -147,6 +153,9 @@ const generate = (raw: string, context: vm.Context, sandbox: Sandbox) => {
           res.push(OUTPUT_START);
           res = res.concat(out);
           res.push(OUTPUT_END);
+        } else {
+          console.log('ERROR: empty output in script:');
+          console.log(script);
         }
       } else {
         // Collect imports so we can prepend them to all scripts in the same doc
@@ -166,7 +175,6 @@ const generate = (raw: string, context: vm.Context, sandbox: Sandbox) => {
           res.push(line);
         }
       }
-
     } else if (line.startsWith(TYPESCRIPT_START)) {
       inscript = true;
       script = [];
@@ -217,7 +225,7 @@ const run = (argv: yargs.Arguments) => {
     }
   }
 
-  files.sort().forEach(path => {
+  files.sort().forEach((path) => {
     // Reuse the same context for all script executions on a single page
     // This lets us reuse definitions
     const sandbox = makeSandbox();
@@ -242,7 +250,8 @@ const main = () => {
   const args = yargs
     .option('-m', {
       alias: 'modify',
-      description: 'Modify files on disk' })
+      description: 'Modify files on disk'
+    })
     .option('v', { alias: 'verbose', description: 'Verbose mode' })
     .help('help')
     .option('h', { alias: 'help' })

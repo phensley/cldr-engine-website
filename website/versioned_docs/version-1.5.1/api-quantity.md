@@ -1,6 +1,7 @@
 ---
-id: api-quantity
+id: version-1.5.1-api-quantity
 title: Quantity
+original_id: api-quantity
 ---
 
 A number representing a quantity of a given unit.

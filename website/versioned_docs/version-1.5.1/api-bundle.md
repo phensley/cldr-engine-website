@@ -1,6 +1,7 @@
 ---
-id: api-bundle
+id: version-1.5.1-api-bundle
 title: Bundle
+original_id: api-bundle
 ---
 
 Exposes properties on the loaded resource bundle. The bundle is the collection of strings and other properties for a given locale.

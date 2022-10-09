@@ -680,20 +680,47 @@
       "version-1.3.3/version-1.3.3-api-unittype": {
         "title": "UnitType"
       },
+      "version-1.5.1/version-1.5.1-api-bundle": {
+        "title": "Bundle"
+      },
+      "version-1.5.1/version-1.5.1-api-calendardate": {
+        "title": "CalendarDate"
+      },
+      "version-1.5.1/version-1.5.1-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-1.5.1/version-1.5.1-api-cldr-units": {
+        "title": "CLDR.Units"
+      },
       "version-1.5.1/version-1.5.1-api-currencytype": {
         "title": "CurrencyType"
+      },
+      "version-1.5.1/version-1.5.1-api-dateformatoptions": {
+        "title": "DateFormatOptions"
+      },
+      "version-1.5.1/version-1.5.1-api-dateskeleton": {
+        "title": "DateSkeleton"
       },
       "version-1.5.1/version-1.5.1-api-languageidtype": {
         "title": "LanguageIdType"
       },
+      "version-1.5.1/version-1.5.1-api-quantity": {
+        "title": "Quantity"
+      },
       "version-1.5.1/version-1.5.1-api-scriptidtype": {
         "title": "ScriptIdType"
+      },
+      "version-1.5.1/version-1.5.1-api-timezoneinfo": {
+        "title": "TimeZoneInfo"
       },
       "version-1.5.1/version-1.5.1-api-timezonetype": {
         "title": "TimeZoneType"
       },
       "version-1.5.1/version-1.5.1-api-unittype": {
         "title": "UnitType"
+      },
+      "version-1.5.1/version-1.5.1-doc-messageformatting-custom": {
+        "title": "Customization"
       }
     },
     "links": {
