@@ -70,7 +70,7 @@ Locale: en
 Locale: de
 &nbsp;
          y  2018
-        yM  6.2018
+        yM  6/2018
        yMM  06.2018
       yMMM  Juni 2018
      yMMMM  Juni 2018

@@ -28,8 +28,8 @@ log(
 );
 ```
 <pre class="output">
-12:23 PM
-12:23 pm
+12:23 PM
+12:23 pm
 </pre>
 
 

@@ -71,17 +71,17 @@ for (const locale of ['en', 'de', 'zh']) {
 }
 ```
 <pre class="output">
-en  June 27 – 28, 2018
-en  June 27 – 30, 2018
-en  June 27 – July 14, 2018
-en  June 27 – September 8, 2018
-en  June 27, 2018 – March 23, 2021
+en  June 27 – 28, 2018
+en  June 27 – 30, 2018
+en  June 27 – July 14, 2018
+en  June 27 – September 8, 2018
+en  June 27, 2018 – March 23, 2021
 &nbsp;
 de  27.–28. Juni 2018
 de  27.–30. Juni 2018
-de  27. Juni – 14. Juli 2018
-de  27. Juni – 8. September 2018
-de  27. Juni 2018 – 23. März 2021
+de  27. Juni – 14. Juli 2018
+de  27. Juni – 8. September 2018
+de  27. Juni 2018 – 23. März 2021
 &nbsp;
 zh  2018年6月27日至28日
 zh  2018年6月27日至30日
@@ -117,12 +117,12 @@ fmt(start.add({ week: 1.5 });
 fmt(start.add({ month: 1.5 }));
 ```
 <pre class="output">
-4:23 – 4:24 AM
-4:23 – 5:53 AM
-4:23 AM – 5:53 PM
-Wed, Jun 27 – Thu, Jun 28, 2018
-Wed, Jun 27 – Sat, Jul 7, 2018
-Wed, Jun 27 – Sat, Aug 11, 2018
+4:23 – 4:24 AM
+4:23 – 5:53 AM
+4:23 AM – 5:53 PM
+Wed, Jun 27 – Thu, Jun 28, 2018
+Wed, Jun 27 – Sat, Jul 7, 2018
+Wed, Jun 27 – Sat, Aug 11, 2018
 </pre>
 
 

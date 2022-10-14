@@ -66,20 +66,20 @@ for (const date of [utc, ny, tokyo]) {
 <pre class="output">
 Gregorian 2019-09-15 22:30:45.000 Etc/UTC
 &nbsp;
-9/15/19, 10:30 PM
-Sep 15, 2019, 10:30:45 PM
-September 15, 2019 at 10:30:45 PM GMT
-Sunday, September 15, 2019 at 10:30:45 PM Greenwich Mean Time
+9/15/19, 10:30 PM
+Sep 15, 2019, 10:30:45 PM
+September 15, 2019 at 10:30:45 PM GMT
+Sunday, September 15, 2019 at 10:30:45 PM Greenwich Mean Time
 &nbsp;
-9/15/19, 6:30 PM
-Sep 15, 2019, 6:30:45 PM
-September 15, 2019 at 6:30:45 PM EDT
-Sunday, September 15, 2019 at 6:30:45 PM Eastern Daylight Time
+9/15/19, 6:30 PM
+Sep 15, 2019, 6:30:45 PM
+September 15, 2019 at 6:30:45 PM EDT
+Sunday, September 15, 2019 at 6:30:45 PM Eastern Daylight Time
 &nbsp;
-9/16/19, 7:30 AM
-Sep 16, 2019, 7:30:45 AM
-September 16, 2019 at 7:30:45 AM GMT+9
-Monday, September 16, 2019 at 7:30:45 AM Japan Standard Time
+9/16/19, 7:30 AM
+Sep 16, 2019, 7:30:45 AM
+September 16, 2019 at 7:30:45 AM GMT+9
+Monday, September 16, 2019 at 7:30:45 AM Japan Standard Time
 &nbsp;
 </pre>
 
@@ -113,25 +113,25 @@ for (const o of options) {
 }
 ```
 <pre class="output">
-Sep 15 – 18, 2019
-Sep 15 – 29, 2019
-Sep 15, 2019 – May 12, 2020
-Sep 15, 2019 – Jan 15, 2023
+Sep 15 – 18, 2019
+Sep 15 – 29, 2019
+Sep 15, 2019 – May 12, 2020
+Sep 15, 2019 – Jan 15, 2023
 &nbsp;
-9/15/2019 – 9/18/2019
-9/15/2019 – 9/29/2019
-2019 – 2020
-2019 – 2023
+9/15/2019 – 9/18/2019
+9/15/2019 – 9/29/2019
+2019 – 2020
+2019 – 2023
 &nbsp;
-Sep 15 – 18, 2019
-Sep 15 – 29, 2019
-Sep 15, 2019 – May 12, 2020
-Sep 15, 2019 – Jan 15, 2023
+Sep 15 – 18, 2019
+Sep 15 – 29, 2019
+Sep 15, 2019 – May 12, 2020
+Sep 15, 2019 – Jan 15, 2023
 &nbsp;
-Sun, September 15 – Wed, September 18, 2019
-Sun, September 15 – Sun, September 29, 2019
-Sun, September 15, 2019 – Tue, May 12, 2020
-Sun, September 15, 2019 – Sun, January 15, 2023
+Sun, September 15 – Wed, September 18, 2019
+Sun, September 15 – Sun, September 29, 2019
+Sun, September 15, 2019 – Tue, May 12, 2020
+Sun, September 15, 2019 – Sun, January 15, 2023
 &nbsp;
 </pre>
 
@@ -163,43 +163,43 @@ for (const n of [1, 17.5]) {
 }
 ```
 <pre class="output">
-baseline: Sep 15, 2019, 10:30:45 PM
+baseline: Sep 15, 2019, 10:30:45 PM
 &nbsp;
 +1 minute difference = 1 minute
-Sep 15, 2019, 10:31:45 PM
+Sep 15, 2019, 10:31:45 PM
 &nbsp;
 +1 hour difference = 1 hour
-Sep 15, 2019, 11:30:45 PM
+Sep 15, 2019, 11:30:45 PM
 &nbsp;
 +1 day difference = 1 day
-Sep 16, 2019, 10:30:45 PM
+Sep 16, 2019, 10:30:45 PM
 &nbsp;
 +1 week difference = 1 week
-Sep 22, 2019, 10:30:45 PM
+Sep 22, 2019, 10:30:45 PM
 &nbsp;
 +1 month difference = 1 month
-Oct 15, 2019, 10:30:45 PM
+Oct 15, 2019, 10:30:45 PM
 &nbsp;
 +1 year difference = 1 year
-Sep 15, 2020, 10:30:45 PM
+Sep 15, 2020, 10:30:45 PM
 &nbsp;
 +17.5 minute difference = 17 minutes, 30 seconds
-Sep 15, 2019, 10:48:15 PM
+Sep 15, 2019, 10:48:15 PM
 &nbsp;
 +17.5 hour difference = 17 hours, 30 minutes
-Sep 16, 2019, 4:00:45 PM
+Sep 16, 2019, 4:00:45 PM
 &nbsp;
 +17.5 day difference = 2 weeks, 3 days, 12 hours
-Oct 3, 2019, 10:30:45 AM
+Oct 3, 2019, 10:30:45 AM
 &nbsp;
 +17.5 week difference = 4 months, 12 hours
-Jan 16, 2020, 10:30:45 AM
+Jan 16, 2020, 10:30:45 AM
 &nbsp;
 +17.5 month difference = 1 year, 5 months, 2 weeks
-Mar 1, 2021, 10:30:45 PM
+Mar 1, 2021, 10:30:45 PM
 &nbsp;
 +17.5 year difference = 17 years, 6 months, 2 days
-Mar 17, 2037, 10:30:45 PM
+Mar 17, 2037, 10:30:45 PM
 &nbsp;
 </pre>
 

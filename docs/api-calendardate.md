@@ -425,11 +425,11 @@ cmp(date, date.add({ month: 7 }));
 cmp(date, date.add({ year: 23 }));
 ```
 <pre class="output">
-May 15, 2019 at 4:00:00 AM GMT  ~  May 15, 2019 at 4:01:00 AM GMT  => m
-May 15, 2019 at 4:00:00 AM GMT  ~  May 15, 2019 at 7:00:00 AM GMT  => H
-May 15, 2019 at 4:00:00 AM GMT  ~  May 24, 2019 at 4:00:00 AM GMT  => d
-May 15, 2019 at 4:00:00 AM GMT  ~  December 15, 2019 at 4:00:00 AM GMT  => M
-May 15, 2019 at 4:00:00 AM GMT  ~  May 15, 2042 at 4:00:00 AM GMT  => y
+May 15, 2019 at 4:00:00 AM GMT  ~  May 15, 2019 at 4:01:00 AM GMT  => m
+May 15, 2019 at 4:00:00 AM GMT  ~  May 15, 2019 at 7:00:00 AM GMT  => H
+May 15, 2019 at 4:00:00 AM GMT  ~  May 24, 2019 at 4:00:00 AM GMT  => d
+May 15, 2019 at 4:00:00 AM GMT  ~  December 15, 2019 at 4:00:00 AM GMT  => M
+May 15, 2019 at 4:00:00 AM GMT  ~  May 15, 2042 at 4:00:00 AM GMT  => y
 </pre>
 
 
@@ -525,7 +525,7 @@ log(cldr.Calendars.formatDate(date, { time: 'long' }));
 log(date.hour());
 ```
 <pre class="output">
-4:10:20 PM GMT
+4:10:20 PM GMT
 4
 </pre>
 
@@ -552,7 +552,7 @@ log(cldr.Calendars.formatDate(date, { time: 'long' }));
 log(date.hourOfDay());
 ```
 <pre class="output">
-4:10:20 PM GMT
+4:10:20 PM GMT
 16
 </pre>
 
@@ -588,9 +588,9 @@ dst(date.add({ day: 58 }));
 dst(date.add({ day: 61 }));
 ```
 <pre class="output">
-January 10, 2019 at 12:00:00 PM EST daylight savings: false
-March 9, 2019 at 12:00:00 PM EST daylight savings: false
-March 12, 2019 at 1:00:00 PM EDT daylight savings: true
+January 10, 2019 at 12:00:00 PM EST daylight savings: false
+March 9, 2019 at 12:00:00 PM EST daylight savings: false
+March 12, 2019 at 1:00:00 PM EDT daylight savings: true
 </pre>
 
 
@@ -625,9 +625,9 @@ isam(date.add({ minute: 239 }));
 isam(date.add({ minute: 241 }));
 ```
 <pre class="output">
-January 10, 2019 at 8:00:00 AM EST is AM: true
-January 10, 2019 at 11:59:00 AM EST is AM: true
-January 10, 2019 at 12:01:00 PM EST is AM: false
+January 10, 2019 at 8:00:00 AM EST is AM: true
+January 10, 2019 at 11:59:00 AM EST is AM: true
+January 10, 2019 at 12:01:00 PM EST is AM: false
 </pre>
 
 
@@ -787,9 +787,9 @@ fmt(date.add({ minute: 1 }));
 fmt(date.add({ minute: 2 }));
 ```
 <pre class="output">
-March 10, 2019 at 6:59:59 AM EDT  25199000
-March 10, 2019 at 7:00:59 AM EDT  25259000
-March 10, 2019 at 7:01:59 AM EDT  25319000
+March 10, 2019 at 6:59:59 AM EDT  25199000
+March 10, 2019 at 7:00:59 AM EDT  25259000
+March 10, 2019 at 7:01:59 AM EDT  25319000
 </pre>
 
 
@@ -842,7 +842,7 @@ log(cldr.Calendars.formatDate(date, { time: 'long' }));
 log(date.minute());
 ```
 <pre class="output">
-4:27:41 PM GMT
+4:27:41 PM GMT
 27
 </pre>
 
@@ -1009,7 +1009,7 @@ log(cldr.Calendars.formatDate(date, { time: 'long' }));
 log(date.second());
 ```
 <pre class="output">
-4:27:41 PM GMT
+4:27:41 PM GMT
 41
 </pre>
 
@@ -1120,9 +1120,9 @@ for (const zoneId of [undefined, 'America/New_York', 'Europe/Zurich']) {
 }
 ```
 <pre class="output">
-Friday, May 10, 2019 at 4:27:41 PM Greenwich Mean Time has offset 0
-Friday, May 10, 2019 at 12:27:41 PM Eastern Daylight Time has offset -14400000
-Friday, May 10, 2019 at 6:27:41 PM Central European Summer Time has offset 7200000
+Friday, May 10, 2019 at 4:27:41 PM Greenwich Mean Time has offset 0
+Friday, May 10, 2019 at 12:27:41 PM Eastern Daylight Time has offset -14400000
+Friday, May 10, 2019 at 6:27:41 PM Central European Summer Time has offset 7200000
 </pre>
 
 

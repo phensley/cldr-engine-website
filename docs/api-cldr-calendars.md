@@ -217,7 +217,7 @@ const zoneId = 'America/New_York';
 log(cldr.Calendars.formatDate({ date, zoneId }, { datetime: 'full' }));
 ```
 <pre class="output">
-Wednesday, June 27, 2018 at 4:23:00 AM Eastern Daylight Time
+Wednesday, June 27, 2018 at 4:23:00 AM Eastern Daylight Time
 </pre>
 
 
@@ -258,7 +258,7 @@ log(cldr.Calendars.formatDateToParts({ date, zoneId }, { datetime: 'short' }));
   { type: 'hour', value: '4' },
   { type: 'literal', value: ':' },
   { type: 'minute', value: '23' },
-  { type: 'literal', value: ' ' },
+  { type: 'literal', value: ' ' },
   { type: 'dayperiod', value: 'AM' }
 ]
 </pre>
@@ -303,11 +303,11 @@ for (const days of [1.2, 3, 17, 73, 1000]) {
 }
 ```
 <pre class="output">
-Jun 27 – 28, 2018
-Jun 27 – 30, 2018
-Jun 27 – Jul 14, 2018
-Jun 27 – Sep 8, 2018
-Jun 27, 2018 – Mar 23, 2021
+Jun 27 – 28, 2018
+Jun 27 – 30, 2018
+Jun 27 – Jul 14, 2018
+Jun 27 – Sep 8, 2018
+Jun 27, 2018 – Mar 23, 2021
 </pre>
 
 
@@ -351,7 +351,7 @@ log(
   { type: 'month', value: 'Jun' },
   { type: 'literal', value: ' ' },
   { type: 'day', value: '27' },
-  { type: 'literal', value: ' – ' },
+  { type: 'literal', value: ' – ' },
   { type: 'month', value: 'Jul' },
   { type: 'literal', value: ' ' },
   { type: 'day', value: '7' },
@@ -480,7 +480,7 @@ const time = cldr.Calendars.formatDate(cldr.Calendars.now(), {
 log(cldr.Calendars.formatDateWrapper(date, time, { width: 'full' }));
 ```
 <pre class="output">
-Next Wednesday at 10:01:48 PM
+Next Wednesday at 3:40:03 PM
 </pre>
 
 
@@ -528,12 +528,12 @@ log(
 [
   { type: 'reldate', value: 'Next Wednesday' },
   { type: 'literal', value: ' at ' },
-  { type: 'hour', value: '10' },
+  { type: 'hour', value: '3' },
   { type: 'literal', value: ':' },
-  { type: 'minute', value: '01' },
+  { type: 'minute', value: '40' },
   { type: 'literal', value: ':' },
-  { type: 'second', value: '48' },
-  { type: 'literal', value: ' ' },
+  { type: 'second', value: '03' },
+  { type: 'literal', value: ' ' },
   { type: 'dayperiod', value: 'PM' }
 ]
 </pre>
@@ -854,8 +854,8 @@ log(en.Calendars.nowBuddhist());
 log(en.Calendars.nowBuddhist('America/Los_Angeles'));
 ```
 <pre class="output">
-Buddhist 2022-10-09 22:01:48.523 Etc/UTC
-Buddhist 2022-10-09 15:01:48.523 America/Los_Angeles
+Buddhist 2022-10-21 15:40:03.175 Etc/UTC
+Buddhist 2022-10-21 08:40:03.175 America/Los_Angeles
 </pre>
 
 
@@ -882,8 +882,8 @@ log(en.Calendars.nowGregorian());
 log(en.Calendars.nowGregorian('America/Los_Angeles'));
 ```
 <pre class="output">
-Gregorian 2022-10-09 22:01:48.524 Etc/UTC
-Gregorian 2022-10-09 15:01:48.524 America/Los_Angeles
+Gregorian 2022-10-21 15:40:03.176 Etc/UTC
+Gregorian 2022-10-21 08:40:03.176 America/Los_Angeles
 </pre>
 
 
@@ -910,8 +910,8 @@ log(en.Calendars.nowISO8601());
 log(en.Calendars.nowISO8601('America/Los_Angeles'));
 ```
 <pre class="output">
-ISO8601 2022-10-09 22:01:48.525 Etc/UTC
-ISO8601 2022-10-09 15:01:48.525 America/Los_Angeles
+ISO8601 2022-10-21 15:40:03.177 Etc/UTC
+ISO8601 2022-10-21 08:40:03.177 America/Los_Angeles
 </pre>
 
 
@@ -938,8 +938,8 @@ log(en.Calendars.nowJapanese());
 log(en.Calendars.nowJapanese('America/Los_Angeles'));
 ```
 <pre class="output">
-Japanese 2022-10-09 22:01:48.526 Etc/UTC
-Japanese 2022-10-09 15:01:48.526 America/Los_Angeles
+Japanese 2022-10-21 15:40:03.178 Etc/UTC
+Japanese 2022-10-21 08:40:03.178 America/Los_Angeles
 </pre>
 
 
@@ -966,8 +966,8 @@ log(en.Calendars.nowPersian());
 log(en.Calendars.nowPersian('America/Los_Angeles'));
 ```
 <pre class="output">
-Persian 1401-07-17 22:01:48.527 Etc/UTC
-Persian 1401-07-17 15:01:48.527 America/Los_Angeles
+Persian 1401-07-29 15:40:03.180 Etc/UTC
+Persian 1401-07-29 08:40:03.180 America/Los_Angeles
 </pre>
 
 

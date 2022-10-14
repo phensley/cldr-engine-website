@@ -426,7 +426,7 @@ A 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for a currenc
   - 'PYG'
     - Paraguayan Guarani
   - 'QAR'
-    - Qatari Rial
+    - Qatari Riyal
   - 'RHD'
     - Rhodesian Dollar
   - 'ROL'
@@ -464,9 +464,9 @@ A 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for a currenc
   - 'SKK'
     - Slovak Koruna
   - 'SLE'
-    - Sierra Leonean New Leone
-  - 'SLL'
     - Sierra Leonean Leone
+  - 'SLL'
+    - Sierra Leonean Leone (1964—2022)
   - 'SOS'
     - Somali Shilling
   - 'SRD'

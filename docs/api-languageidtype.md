@@ -57,6 +57,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Aragonese
   - 'ang'
     - Old English
+  - 'ann'
+    - Obolo
   - 'anp'
     - Angika
   - 'ar'
@@ -135,6 +137,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Badaga
   - 'bg'
     - Bulgarian
+  - 'bgc'
+    - Haryanvi
   - 'bgn'
     - Western Balochi
   - 'bho'
@@ -150,7 +154,7 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
   - 'bkm'
     - Kom
   - 'bla'
-    - Siksika
+    - Siksiká
   - 'blt'
     - Tai Dam
   - 'bm'
@@ -368,7 +372,7 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
   - 'fat'
     - Fanti
   - 'ff'
-    - Fulah
+    - Fula
   - 'fi'
     - Finnish
   - 'fil'
@@ -475,6 +479,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Hebrew
   - 'hi'
     - Hindi
+  - 'hi-Latn'
+    - Hindi (Latin)
   - 'hif'
     - Fiji Hindi
   - 'hil'
@@ -668,7 +674,7 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
   - 'lag'
     - Langi
   - 'lah'
-    - Lahnda
+    - Western Panjabi
   - 'lam'
     - Lamba
   - 'lb'
@@ -703,6 +709,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Lozi
   - 'lrc'
     - Northern Luri
+  - 'lsm'
+    - Saamia
   - 'lt'
     - Lithuanian
   - 'ltg'
@@ -935,6 +943,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Phoenician
   - 'pi'
     - Pali
+  - 'pis'
+    - Pijin
   - 'pl'
     - Polish
   - 'pms'
@@ -944,7 +954,7 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
   - 'pon'
     - Pohnpeian
   - 'pqm'
-    - Malecite
+    - Maliseet-Passamaquoddy
   - 'prg'
     - Prussian
   - 'pro'
@@ -1006,7 +1016,7 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
   - 'sad'
     - Sandawe
   - 'sah'
-    - Sakha
+    - Yakut
   - 'sam'
     - Samaritan Aramaic
   - 'saq'
@@ -1185,6 +1195,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Tongan
   - 'tog'
     - Nyasa Tonga
+  - 'tok'
+    - Toki Pona
   - 'tpi'
     - Tok Pisin
   - 'tr'

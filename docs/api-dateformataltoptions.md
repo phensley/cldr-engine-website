@@ -8,7 +8,8 @@ title: DateFormatAltOptions
 <pre class="syntax">
 object {
   era?,
-  dayPeriod?
+  dayPeriod?,
+  atTime?
 }
 </pre>
 
@@ -18,5 +19,7 @@ object {
   - Specify the alternate form of the ERA field, e.g. "Before Christ" vs "Before Common Era".
 - <code class="def">dayPeriod?: <span>[DayPeriodAltType](api-dayperiodalttype)</span></code>
   - Specify the alternate form of the DAY PERIOD field, e.g. "AM" vs "am".
+- <code class="def">atTime?: <span>boolean</span></code>
+  - Specify use of the "DATE at TIME" format (default `true`).
 
 {%refs DateFormatAltOptions}

@@ -15,7 +15,8 @@ object {
   ca?,
   nu?,
   context?,
-  alt?
+  alt?,
+  atTime?
 }
 </pre>
 
@@ -39,13 +40,16 @@ object {
   - Specify the context in which the string will be display
 - <code class="def">alt?: <span>[DateFormatAltOptions](api-dateformataltoptions)</span></code>
   - Specify options for alternate field values.
+- <code class="def">atTime?: <span>boolean</span></code>
+  - Specify use of the "DATE at TIME" format (default `true`).
 
 ### Defaults
 
 ```javascript
 {
   date: 'full',
-  context: 'middle-of-text'
+  context: 'middle-of-text',
+  atTime: true
 }
 ```
 
@@ -55,40 +59,59 @@ object {
 ### Example
 
 ```typescript
-let cldr = framework.get('en');
+let cldr = framework.get("en");
 const date = 1530087780000;
-const zoneId = 'America/New_York';
+const zoneId = "America/New_York";
 let opts: DateFormatOptions;
 
-opts = { skeleton: 'yMMMEEEEdhm' };
-log(cldr.Calendars.formatDate({ date, zoneId }, opts));
-
-opts = { skeleton: 'GGGGyMMMd', alt: { era: 'sensitive' } };
-log(cldr.Calendars.formatDate({ date, zoneId }, opts));
-
-opts = { time: 'long' };
-log(cldr.Calendars.formatDate({ date, zoneId }, opts));
-
-opts = { date: 'short' };
-log(cldr.Calendars.formatDate({ date, zoneId }, opts));
-
-opts = { datetime: 'full', ca: 'japanese' };
-log(cldr.Calendars.formatDate({ date, zoneId }, opts));
-
-cldr = framework.get('ar');
-opts = { datetime: 'full' };
-log(cldr.Calendars.formatDate({ date, zoneId }, opts));
-
-cldr = framework.get('en-u-ca-buddhist');
-opts = { date: 'full' };
+opts = { skeleton: "yMMMEEEEdhm" };
 log(cldr.Calendars.formatDate({ date, zoneId }, opts));
 ```
 <pre class="output">
-Wednesday, Jun 27, 2018, 4:23 AM
+Wednesday, Jun 27, 2018, 4:23 AM
+</pre>
+
+
+```typescript
+opts = { skeleton: "GGGGyMMMd", alt: { era: "sensitive" } };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+```
+<pre class="output">
 Jun 27, 2018 Common Era
-4:23:00 AM EDT
+</pre>
+
+
+```typescript
+opts = { time: "long" };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+
+opts = { date: "short" };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+
+opts = { datetime: "full", ca: "japanese" };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+
+opts = { datetime: "full", atTime: false };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+```
+<pre class="output">
+4:23:00 AM EDT
 6/27/18
-Wednesday, June 27, 30 Heisei at 4:23:00 AM Eastern Daylight Time
+Wednesday, June 27, 30 Heisei at 4:23:00 AM Eastern Daylight Time
+Wednesday, June 27, 2018, 4:23:00 AM Eastern Daylight Time
+</pre>
+
+
+```typescript
+cldr = framework.get("ar");
+opts = { datetime: "full" };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+
+cldr = framework.get("en-u-ca-buddhist");
+opts = { date: "full" };
+log(cldr.Calendars.formatDate({ date, zoneId }, opts));
+```
+<pre class="output">
 الأربعاء، ٢٧ يونيو ٢٠١٨ في ٤:٢٣:٠٠ ص التوقيت الصيفي الشرقي لأمريكا الشمالية
 Wednesday, June 27, 2561 BE
 </pre>

@@ -8,6 +8,7 @@ title: CLDR.Units
 Return an array of available units ([UnitType](api-unittype.html)).
 
 #### Syntax
+
 <pre class="syntax">
 availableUnits(): UnitType[]
 </pre>
@@ -15,12 +16,12 @@ availableUnits(): UnitType[]
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 const units = cldr.Units.availableUnits();
 for (const u of units.slice(0, 15)) {
   log(u);
 }
-log('...');
+log("...");
 ```
 <pre class="output">
 acre
@@ -42,33 +43,35 @@ candela
 </pre>
 
 
-
 ## formatQuantity
 
 Format a given unit quantity to string.
 
 #### Syntax
+
 <pre class="syntax">
 formatQuantity(qty, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">qty: <span>[Quantity](api-quantity.html)</span></code>
-    - Value to be formatted
-  - <code class="def">options?: <span>[UnitFormatOptions](api-unitformatoptions.html)</span></code>
-    - Options to control unit formatting
+
+- <code class="def">qty: <span>[Quantity](api-quantity.html)</span></code>
+  - Value to be formatted
+- <code class="def">options?: <span>[UnitFormatOptions](api-unitformatoptions.html)</span></code>
+  - Options to control unit formatting
 
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
-const qty: Quantity = { value: '123.3799', unit: 'meter-per-square-second' };
-log(cldr.Units.formatQuantity(qty, { length: 'narrow', maximumFractionDigits: 2 }));
+const cldr = framework.get("en");
+const qty: Quantity = { value: "123.3799", unit: "meter-per-square-second" };
+log(
+  cldr.Units.formatQuantity(qty, { length: "narrow", maximumFractionDigits: 2 })
+);
 ```
 <pre class="output">
 123.38m/s²
 </pre>
-
 
 
 ## formatQuantityToParts
@@ -76,22 +79,24 @@ log(cldr.Units.formatQuantity(qty, { length: 'narrow', maximumFractionDigits: 2 
 Format a given unit quantity to an array of parts.
 
 #### Syntax
+
 <pre class="syntax">
 formatQuantity(qty, options?): Part[]
 </pre>
 
 #### Parameters
-  - <code class="def">qty: <span>[Quantity](api-quantity.html)</span></code>
-    - Value to be formatted
-  - <code class="def">options?: <span>[UnitFormatOptions](api-unitformatoptions.html)</span></code>
-    - Options to control unit formatting
+
+- <code class="def">qty: <span>[Quantity](api-quantity.html)</span></code>
+  - Value to be formatted
+- <code class="def">options?: <span>[UnitFormatOptions](api-unitformatoptions.html)</span></code>
+  - Options to control unit formatting
 
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
-const qty: Quantity = { value: '1353.75999', unit: 'mile-per-hour' };
-log(cldr.Units.formatQuantityToParts(qty, { length: 'long' }));
+const cldr = framework.get("en");
+const qty: Quantity = { value: "1353.75999", unit: "mile-per-hour" };
+log(cldr.Units.formatQuantityToParts(qty, { length: "long" }));
 ```
 <pre class="output">
 [
@@ -105,7 +110,6 @@ log(cldr.Units.formatQuantityToParts(qty, { length: 'long' }));
 </pre>
 
 
-
 ## formatQuantitySequence
 
 Format a sequence of [Quantity](api-quantity.html) into a string.
@@ -117,25 +121,26 @@ formatQuantitySequence(quantities, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">quantities: <span>[Quantity[]](api-quantity.html)</span></code>
-    - Array of quantities to be formatted
-  - <code class="def">options?: <span>[UnitFormatOptions](api-unitformatoptions.html)</span></code>
-    - Options to control unit formatting
+
+- <code class="def">quantities: <span>[Quantity[]](api-quantity.html)</span></code>
+  - Array of quantities to be formatted
+- <code class="def">options?: <span>[UnitFormatOptions](api-unitformatoptions.html)</span></code>
+  - Options to control unit formatting
 
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 const qty: Quantity[] = [
-  { value: 3, unit: 'mile' },
-  { value: 1, unit: 'yard' },
-  { value: 23, unit: 'foot' },
-  { value: 9.6, unit: 'inch' }
+  { value: 3, unit: "mile" },
+  { value: 1, unit: "yard" },
+  { value: 23, unit: "foot" },
+  { value: 9.6, unit: "inch" },
 ];
 const options: UnitFormatOptions[] = [
-  { length: 'long' },
-  { length: 'short' },
-  { length: 'narrow' }
+  { length: "long" },
+  { length: "short" },
+  { length: "narrow" },
 ];
 for (const opt of options) {
   const result = cldr.Units.formatQuantitySequence(qty, opt);
@@ -160,22 +165,23 @@ formatQuantitySequenceToParts(quantities, options?): string
 </pre>
 
 #### Parameters
-  - <code class="def">quantities: <span>[Quantity[]](api-quantity.html)</span></code>
-    - Array of quantities to be formatted
-  - <code class="def">options?: <span>[UnitFormatOptions](api-unitformatoptions.html)</span></code>
-    - Options to control unit formatting
+
+- <code class="def">quantities: <span>[Quantity[]](api-quantity.html)</span></code>
+  - Array of quantities to be formatted
+- <code class="def">options?: <span>[UnitFormatOptions](api-unitformatoptions.html)</span></code>
+  - Options to control unit formatting
 
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 const qty: Quantity[] = [
-  { value: 3, unit: 'mile' },
-  { value: 1, unit: 'yard' },
-  { value: 23, unit: 'foot' },
-  { value: 9.6, unit: 'inch' }
+  { value: 3, unit: "mile" },
+  { value: 1, unit: "yard" },
+  { value: 23, unit: "foot" },
+  { value: 9.6, unit: "inch" },
 ];
-log(cldr.Units.formatQuantitySequenceToParts(qty, { length: 'short' }));
+log(cldr.Units.formatQuantitySequenceToParts(qty, { length: "short" }));
 ```
 <pre class="output">
 [
@@ -207,26 +213,27 @@ getUnitDisplayName(unit, length?): string
 </pre>
 
 #### Parameters
-  - <code class="def">name: <span>[UnitType](api-unittype.html)</span></code>
-    - Name of the unit
-  - <code class="def">length?: <span>[UnitLength](api-unitlength.html)</span></code>
-    - Length of the name, defaults to `"long"`
+
+- <code class="def">name: <span>[UnitType](api-unittype.html)</span></code>
+  - Name of the unit
+- <code class="def">length?: <span>[UnitLength](api-unitlength.html)</span></code>
+  - Length of the name, defaults to `"long"`
 
 #### Example
 
 ```typescript
-const w = (s: string) => `${s}${' '.repeat(15 - s.length)}`;
+const w = (s: string) => `${s}${" ".repeat(15 - s.length)}`;
 
-const en = framework.get('en');
-const de = framework.get('de');
-const zh = framework.get('zh');
+const en = framework.get("en");
+const de = framework.get("de");
+const zh = framework.get("zh");
 
 const units: UnitType[] = [
-  'light-year',
-  'kilogram',
-  'meter',
-  'kilowatt',
-  'hertz'
+  "light-year",
+  "kilogram",
+  "meter",
+  "kilowatt",
+  "hertz",
 ];
 for (const unit of units) {
   const a = en.Units.getUnitDisplayName(unit);
@@ -242,3 +249,4 @@ en=meters           de=Meter            zh=米
 en=kilowatts        de=Kilowatt         zh=千瓦             
 en=hertz            de=Hertz            zh=赫兹             
 </pre>
+

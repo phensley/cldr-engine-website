@@ -10,7 +10,8 @@ Options for formatting a date and time together.
 <pre class="syntax">
 object {
   ca?,
-  width?
+  width?,
+  atTime?
 }
 </pre>
 
@@ -20,5 +21,7 @@ object {
   - Optional calendar to use.
 - <code class="def">width?: <span>[FormatWidthType](api-formatwidthtype)</span></code>
   - Width of the wrapper format to use.
+- <code class="def">atTime?: <span>boolean</span></code>
+  - Specify use of the "DATE at TIME" format (default `true`).
 
 {%refs DateWrapperFormatOptions}
