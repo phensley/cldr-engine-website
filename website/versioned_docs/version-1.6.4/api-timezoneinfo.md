@@ -1,6 +1,7 @@
 ---
-id: api-timezoneinfo
+id: version-1.6.4-api-timezoneinfo
 title: TimeZoneInfo
+original_id: api-timezoneinfo
 ---
 
 Information about a time zone.

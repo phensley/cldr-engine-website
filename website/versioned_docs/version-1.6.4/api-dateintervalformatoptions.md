@@ -1,5 +1,5 @@
 ---
-id: version-1.6.0-api-dateintervalformatoptions
+id: version-1.6.4-api-dateintervalformatoptions
 title: DateIntervalFormatOptions
 original_id: api-dateintervalformatoptions
 ---

@@ -1,5 +1,5 @@
 ---
-id: version-1.6.0-api-cldr-calendars
+id: version-1.6.4-api-cldr-calendars
 title: CLDR.Calendars
 original_id: api-cldr-calendars
 ---
@@ -33,12 +33,13 @@ dateField(type: DateFieldType, options?: DateFieldFormatOptions): string
 #### Example
 
 ```typescript
-for (const id of ['en', 'es', 'de', 'fr', 'zh']) {
+for (const id of ["en", "es", "de", "fr", "zh"]) {
   const cldr = framework.get(id);
-  const s = cldr.Calendars.dateField('year', { context: 'begin-sentence' });
+  const s = cldr.Calendars.dateField("year", { context: "begin-sentence" });
   log(s);
 }
 ```
+
 <pre class="output">
 Year
 Año
@@ -46,7 +47,6 @@ Jahr
 Année
 年
 </pre>
-
 
 ## dayPeriods
 
@@ -66,9 +66,10 @@ dayPeriods(options?): any
 #### Example
 
 ```typescript
-const en = framework.get('en');
-log(en.Calendars.dayPeriods({ width: 'wide', context: 'begin-sentence' }));
+const en = framework.get("en");
+log(en.Calendars.dayPeriods({ width: "wide", context: "begin-sentence" }));
 ```
+
 <pre class="output">
 {
   noon: { none: 'Noon' },
@@ -85,7 +86,6 @@ log(en.Calendars.dayPeriods({ width: 'wide', context: 'begin-sentence' }));
   night2: {}
 }
 </pre>
-
 
 ## eras
 
@@ -105,16 +105,16 @@ eras(options?): any
 #### Example
 
 ```typescript
-const en = framework.get('en');
-log(en.Calendars.eras({ width: 'names' }));
+const en = framework.get("en");
+log(en.Calendars.eras({ width: "names" }));
 ```
+
 <pre class="output">
 {
   '0': { none: 'Before Christ', sensitive: 'Before Common Era' },
   '1': { none: 'Anno Domini', sensitive: 'Common Era' }
 }
 </pre>
-
 
 ## fieldOfVisualDifference
 
@@ -140,11 +140,11 @@ fieldOfVisualDifference(a, b): DateTimePatternFieldType
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 
 // June 27, 2018 4:23:00 AM
 const date = 1530087780000;
-const zoneId = 'America/New_York';
+const zoneId = "America/New_York";
 const d1 = cldr.Calendars.toGregorianDate({ date, zoneId });
 
 const factors = [0.0002, 0.005, 0.25, 0.75, 3, 50, 425, 1000];
@@ -155,6 +155,7 @@ factors.forEach((f) => {
   log(`${field} ->  ${d2.toString()}`);
 });
 ```
+
 <pre class="output">
 s ->  Gregorian 2018-06-27 04:23:17.280 America/New_York
 m ->  Gregorian 2018-06-27 04:30:12.000 America/New_York
@@ -165,7 +166,6 @@ M ->  Gregorian 2018-08-16 04:23:00.000 America/New_York
 y ->  Gregorian 2019-08-26 04:23:00.000 America/New_York
 y ->  Gregorian 2021-03-23 04:23:00.000 America/New_York
 </pre>
-
 
 ## firstDayOfWeek
 
@@ -180,17 +180,17 @@ firstDayOfWeek(): number
 #### Example
 
 ```typescript
-let cldr = framework.get('en-US');
+let cldr = framework.get("en-US");
 log(cldr.Calendars.firstDayOfWeek());
 
-cldr = framework.get('und-EG');
+cldr = framework.get("und-EG");
 log(cldr.Calendars.firstDayOfWeek());
 ```
+
 <pre class="output">
 1
 7
 </pre>
-
 
 ## formatDate
 
@@ -212,15 +212,15 @@ formatDate(date, options?): string
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 const date = 1530087780000;
-const zoneId = 'America/New_York';
-log(cldr.Calendars.formatDate({ date, zoneId }, { datetime: 'full' }));
+const zoneId = "America/New_York";
+log(cldr.Calendars.formatDate({ date, zoneId }, { datetime: "full" }));
 ```
+
 <pre class="output">
 Wednesday, June 27, 2018 at 4:23:00 AM Eastern Daylight Time
 </pre>
-
 
 ## formatDateToParts
 
@@ -242,12 +242,13 @@ formatDateToParts(date, options?): Part[]
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 // June 27, 2018 4:23:00 AM
 const date = 1530087780000;
-const zoneId = 'America/New_York';
-log(cldr.Calendars.formatDateToParts({ date, zoneId }, { datetime: 'short' }));
+const zoneId = "America/New_York";
+log(cldr.Calendars.formatDateToParts({ date, zoneId }, { datetime: "short" }));
 ```
+
 <pre class="output">
 [
   { type: 'month', value: '6' },
@@ -263,7 +264,6 @@ log(cldr.Calendars.formatDateToParts({ date, zoneId }, { datetime: 'short' }));
   { type: 'dayperiod', value: 'AM' }
 ]
 </pre>
-
 
 ## formatDateInterval
 
@@ -287,22 +287,23 @@ formatDateInterval(start, end, options?): string
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 
 // June 27, 2018 4:23:00 AM
 const epoch = 1530087780000;
-const zoneId = 'America/New_York';
+const zoneId = "America/New_York";
 
 const day = 86400000;
 const start = { date: epoch, zoneId };
 for (const days of [1.2, 3, 17, 73, 1000]) {
   const end = { date: epoch + days * day, zoneId };
   const result = cldr.Calendars.formatDateInterval(start, end, {
-    skeleton: 'yMMMd',
+    skeleton: "yMMMd",
   });
   log(result);
 }
 ```
+
 <pre class="output">
 Jun 27 – 28, 2018
 Jun 27 – 30, 2018
@@ -310,7 +311,6 @@ Jun 27 – Jul 14, 2018
 Jun 27 – Sep 8, 2018
 Jun 27, 2018 – Mar 23, 2021
 </pre>
-
 
 ## formatDateIntervalToParts
 
@@ -334,19 +334,20 @@ formatDateIntervalToParts(start, end, options?): Part[]
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 
 // June 27, 2018 4:23:00 AM
 const epoch = 1530087780000;
-const zoneId = 'America/New_York';
+const zoneId = "America/New_York";
 
 const day = 86400000;
 const start = { date: epoch, zoneId };
 const end = { date: epoch + day * 10, zoneId };
 log(
-  cldr.Calendars.formatDateIntervalToParts(start, end, { skeleton: 'yMMMd' })
+  cldr.Calendars.formatDateIntervalToParts(start, end, { skeleton: "yMMMd" })
 );
 ```
+
 <pre class="output">
 [
   { type: 'month', value: 'Jun' },
@@ -360,7 +361,6 @@ log(
   { type: 'year', value: '2018' }
 ]
 </pre>
-
 
 ## formatDateRaw
 
@@ -384,22 +384,22 @@ formatDateRaw(date, options?): string
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 
 // June 27, 2018 4:23:00 AM
 const date = 1530087780000;
-const zoneId = 'America/New_York';
+const zoneId = "America/New_York";
 
 const s = cldr.Calendars.formatDateRaw(
   { date, zoneId },
-  { pattern: 'EEE MMM y, d' }
+  { pattern: "EEE MMM y, d" }
 );
 log(s);
 ```
+
 <pre class="output">
 Wed Jun 2018, 27
 </pre>
-
 
 ## formatDateRawToParts
 
@@ -423,18 +423,19 @@ formatDateRawToParts(date, options?): Part[]
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 
 // June 27, 2018 4:23:00 AM
 const date = 1530087780000;
-const zoneId = 'America/New_York';
+const zoneId = "America/New_York";
 
 const p = cldr.Calendars.formatDateRawToParts(
   { date, zoneId },
-  { pattern: 'EEE MMM y, d' }
+  { pattern: "EEE MMM y, d" }
 );
 log(p);
 ```
+
 <pre class="output">
 [
   { type: 'weekday', value: 'Wed' },
@@ -446,7 +447,6 @@ log(p);
   { type: 'day', value: '27' }
 ]
 </pre>
-
 
 ## formatDateWrapper
 
@@ -471,19 +471,19 @@ formatDateWrapper(date, time, options?): string
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
-const date = cldr.Calendars.formatRelativeTimeField(1, 'wed', {
-  context: 'begin-sentence',
+const cldr = framework.get("en");
+const date = cldr.Calendars.formatRelativeTimeField(1, "wed", {
+  context: "begin-sentence",
 });
 const time = cldr.Calendars.formatDate(cldr.Calendars.now(), {
-  time: 'medium',
+  time: "medium",
 });
-log(cldr.Calendars.formatDateWrapper(date, time, { width: 'full' }));
+log(cldr.Calendars.formatDateWrapper(date, time, { width: "full" }));
 ```
-<pre class="output">
-Next Wednesday at 3:40:03 PM
-</pre>
 
+<pre class="output">
+Next Wednesday at 7:21:01 PM
+</pre>
 
 ## formatDateWrapperToParts
 
@@ -508,37 +508,37 @@ formatDateWrapper(date, time, options?): Part[]
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
-const date = cldr.Calendars.formatRelativeTimeField(1, 'wed', {
-  context: 'begin-sentence',
+const cldr = framework.get("en");
+const date = cldr.Calendars.formatRelativeTimeField(1, "wed", {
+  context: "begin-sentence",
 });
 const time = cldr.Calendars.formatDateToParts(cldr.Calendars.now(), {
-  time: 'medium',
+  time: "medium",
 });
 log(
   cldr.Calendars.formatDateWrapperToParts(
-    [{ type: 'reldate', value: date }],
+    [{ type: "reldate", value: date }],
     time,
     {
-      width: 'full',
+      width: "full",
     }
   )
 );
 ```
+
 <pre class="output">
 [
   { type: 'reldate', value: 'Next Wednesday' },
   { type: 'literal', value: ' at ' },
-  { type: 'hour', value: '3' },
+  { type: 'hour', value: '7' },
   { type: 'literal', value: ':' },
-  { type: 'minute', value: '40' },
+  { type: 'minute', value: '21' },
   { type: 'literal', value: ':' },
-  { type: 'second', value: '03' },
+  { type: 'second', value: '01' },
   { type: 'literal', value: ' ' },
   { type: 'dayperiod', value: 'PM' }
 ]
 </pre>
-
 
 ## formatRelativeTime
 
@@ -562,15 +562,16 @@ formatRelativeTime(start, end, options?): string
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 const start = cldr.Calendars.toGregorianDate({ date: new Date(2019, 6, 11) });
 for (const month of [-2, -1, 0, 1, 3]) {
   const end = start.add({ month });
   const a = cldr.Calendars.formatRelativeTime(start, end);
-  const b = cldr.Calendars.formatRelativeTime(start, end, { field: 'day' });
+  const b = cldr.Calendars.formatRelativeTime(start, end, { field: "day" });
   log(`${a}  (${b})`);
 }
 ```
+
 <pre class="output">
 2 months ago  (61 days ago)
 last month  (30 days ago)
@@ -578,7 +579,6 @@ now  (today)
 next month  (in 31 days)
 in 3 months  (in 92 days)
 </pre>
-
 
 ## formatRelativeTimeField
 
@@ -602,13 +602,14 @@ formatRelativeTimeField(value, field, options?): string
 #### Example
 
 ```typescript
-import { Decimal } from '@phensley/cldr';
-const cldr = framework.get('en');
-for (const value of ['-2', -1, '0', 1, 3, new Decimal('12.5')]) {
-  const result = cldr.Calendars.formatRelativeTimeField(value, 'month', {});
+import { Decimal } from "@phensley/cldr";
+const cldr = framework.get("en");
+for (const value of ["-2", -1, "0", 1, 3, new Decimal("12.5")]) {
+  const result = cldr.Calendars.formatRelativeTimeField(value, "month", {});
   log(result);
 }
 ```
+
 <pre class="output">
 2 months ago
 last month
@@ -617,7 +618,6 @@ next month
 in 3 months
 in 12 months
 </pre>
-
 
 ## minDaysInFirstWeek
 
@@ -632,17 +632,17 @@ minDaysInFirstWeek(): number
 #### Example
 
 ```typescript
-let cldr = framework.get('en');
+let cldr = framework.get("en");
 log(cldr.Calendars.minDaysInFirstWeek());
 
-cldr = framework.get('en-DE');
+cldr = framework.get("en-DE");
 log(cldr.Calendars.minDaysInFirstWeek());
 ```
+
 <pre class="output">
 1
 4
 </pre>
-
 
 ## months
 
@@ -662,10 +662,10 @@ months(options?): any
 #### Example
 
 ```typescript
-const en = framework.get('en');
-const fr = framework.get('fr');
+const en = framework.get("en");
+const fr = framework.get("fr");
 
-const context = 'begin-sentence';
+const context = "begin-sentence";
 const monthsEN = en.Calendars.months({ context });
 const monthsFR = fr.Calendars.months({ context });
 
@@ -674,11 +674,12 @@ log(monthsFR);
 
 const date = en.Calendars.toGregorianDate({
   date: new Date(2018, 5, 11, 12, 1, 12),
-  zoneId: 'America/New_York',
+  zoneId: "America/New_York",
 });
 
 log(`month is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
 ```
+
 <pre class="output">
 {
   '1': 'January',
@@ -710,7 +711,6 @@ log(`month is ${monthsEN[date.month()]} / ${monthsFR[date.month()]}`);
 }
 month is June / Juin
 </pre>
-
 
 ## newBuddhistDate
 
@@ -745,21 +745,21 @@ newGregorianDate(fields): GregorianDate
 #### Example
 
 ```typescript
-const en = framework.get('en');
+const en = framework.get("en");
 log(
   en.Calendars.newGregorianDate({
     year: 2020,
     day: 15,
     hour: 17,
     minute: 45,
-    zoneId: 'America/New_York',
+    zoneId: "America/New_York",
   })
 );
 ```
+
 <pre class="output">
 Gregorian 2020-01-15 17:45:00.000 America/New_York
 </pre>
-
 
 ## newISO8601Date
 
@@ -850,15 +850,15 @@ nowBuddhist(zoneId?): BuddhistDate
 #### Example
 
 ```typescript
-const en = framework.get('en');
+const en = framework.get("en");
 log(en.Calendars.nowBuddhist());
-log(en.Calendars.nowBuddhist('America/Los_Angeles'));
+log(en.Calendars.nowBuddhist("America/Los_Angeles"));
 ```
-<pre class="output">
-Buddhist 2022-10-21 15:40:03.175 Etc/UTC
-Buddhist 2022-10-21 08:40:03.175 America/Los_Angeles
-</pre>
 
+<pre class="output">
+Buddhist 2022-11-17 19:21:01.606 Etc/UTC
+Buddhist 2022-11-17 11:21:01.606 America/Los_Angeles
+</pre>
 
 ## nowGregorian
 
@@ -878,15 +878,15 @@ nowGregorian(zoneId?): GregorianDate
 #### Example
 
 ```typescript
-const en = framework.get('en');
+const en = framework.get("en");
 log(en.Calendars.nowGregorian());
-log(en.Calendars.nowGregorian('America/Los_Angeles'));
+log(en.Calendars.nowGregorian("America/Los_Angeles"));
 ```
-<pre class="output">
-Gregorian 2022-10-21 15:40:03.176 Etc/UTC
-Gregorian 2022-10-21 08:40:03.176 America/Los_Angeles
-</pre>
 
+<pre class="output">
+Gregorian 2022-11-17 19:21:01.608 Etc/UTC
+Gregorian 2022-11-17 11:21:01.608 America/Los_Angeles
+</pre>
 
 ## nowISO8601
 
@@ -906,15 +906,15 @@ nowISO8601(zoneId?): ISO8601Date
 #### Example
 
 ```typescript
-const en = framework.get('en');
+const en = framework.get("en");
 log(en.Calendars.nowISO8601());
-log(en.Calendars.nowISO8601('America/Los_Angeles'));
+log(en.Calendars.nowISO8601("America/Los_Angeles"));
 ```
-<pre class="output">
-ISO8601 2022-10-21 15:40:03.177 Etc/UTC
-ISO8601 2022-10-21 08:40:03.177 America/Los_Angeles
-</pre>
 
+<pre class="output">
+ISO8601 2022-11-17 19:21:01.609 Etc/UTC
+ISO8601 2022-11-17 11:21:01.610 America/Los_Angeles
+</pre>
 
 ## nowJapanese
 
@@ -934,15 +934,15 @@ nowJapanese(zoneId?): JapaneseDate
 #### Example
 
 ```typescript
-const en = framework.get('en');
+const en = framework.get("en");
 log(en.Calendars.nowJapanese());
-log(en.Calendars.nowJapanese('America/Los_Angeles'));
+log(en.Calendars.nowJapanese("America/Los_Angeles"));
 ```
-<pre class="output">
-Japanese 2022-10-21 15:40:03.178 Etc/UTC
-Japanese 2022-10-21 08:40:03.178 America/Los_Angeles
-</pre>
 
+<pre class="output">
+Japanese 2022-11-17 19:21:01.611 Etc/UTC
+Japanese 2022-11-17 11:21:01.611 America/Los_Angeles
+</pre>
 
 ## nowPersian
 
@@ -962,15 +962,15 @@ nowPersian(zoneId?): PersianDate
 #### Example
 
 ```typescript
-const en = framework.get('en');
+const en = framework.get("en");
 log(en.Calendars.nowPersian());
-log(en.Calendars.nowPersian('America/Los_Angeles'));
+log(en.Calendars.nowPersian("America/Los_Angeles"));
 ```
-<pre class="output">
-Persian 1401-07-29 15:40:03.180 Etc/UTC
-Persian 1401-07-29 08:40:03.180 America/Los_Angeles
-</pre>
 
+<pre class="output">
+Persian 1401-08-26 19:21:01.613 Etc/UTC
+Persian 1401-08-26 11:21:01.613 America/Los_Angeles
+</pre>
 
 ## quarters
 
@@ -990,9 +990,10 @@ quarters(options?): any
 #### Example
 
 ```typescript
-const en = framework.get('en');
+const en = framework.get("en");
 log(en.Calendars.quarters());
 ```
+
 <pre class="output">
 {
   '1': '1st quarter',
@@ -1001,7 +1002,6 @@ log(en.Calendars.quarters());
   '4': '4th quarter'
 }
 </pre>
-
 
 ## resolveTimeZoneId
 
@@ -1016,17 +1016,17 @@ resolveTimeZoneId(string): string;
 #### Example
 
 ```typescript
-const en = framework.get('en');
-log(en.Calendars.resolveTimeZoneId('UTC'));
-log(en.Calendars.resolveTimeZoneId('US/East-Indiana'));
-log(en.Calendars.resolveTimeZoneId('Antarctica/McMurdo'));
+const en = framework.get("en");
+log(en.Calendars.resolveTimeZoneId("UTC"));
+log(en.Calendars.resolveTimeZoneId("US/East-Indiana"));
+log(en.Calendars.resolveTimeZoneId("Antarctica/McMurdo"));
 ```
+
 <pre class="output">
 Etc/UTC
 America/Indiana/Indianapolis
 Pacific/Auckland
 </pre>
-
 
 ## timePeriodToQuantity
 
@@ -1050,10 +1050,10 @@ timePeriodToQuantity(period): Quantity[]
 #### Example
 
 ```typescript
-const en = framework.get('en');
+const en = framework.get("en");
 const date = en.Calendars.toGregorianDate({ date: 1530124872456 });
 const end = date.add({ year: 2, month: 5, day: 20, hour: 12 });
-const t = date.difference(end, ['year', 'day']);
+const t = date.difference(end, ["year", "day"]);
 const q = en.Calendars.timePeriodToQuantity(t);
 
 let s: string;
@@ -1061,23 +1061,23 @@ s = en.Units.formatQuantitySequence(q);
 log(s);
 
 s = en.Units.formatQuantitySequence(q, {
-  length: 'short',
+  length: "short",
   maximumFractionDigits: 0,
 });
 log(s);
 
 s = en.Units.formatQuantitySequence(q, {
-  length: 'narrow',
+  length: "narrow",
   maximumFractionDigits: 0,
 });
 log(s);
 ```
+
 <pre class="output">
 2 years, 173.5 days
 2 yrs, 174 days
 2y 174d
 </pre>
-
 
 ## timeZoneIds
 
@@ -1092,13 +1092,14 @@ timeZoneIds(): string[]
 #### Example
 
 ```typescript
-const en = framework.get('en');
+const en = framework.get("en");
 const ids = en.Calendars.timeZoneIds();
 for (const id of ids.slice(0, 10)) {
   log(id);
 }
-log('...');
+log("...");
 ```
+
 <pre class="output">
 Africa/Abidjan
 Africa/Algiers
@@ -1112,7 +1113,6 @@ Africa/Juba
 Africa/Khartoum
 ...
 </pre>
-
 
 ## timeZoneFromUTC
 
@@ -1132,18 +1132,18 @@ timeZoneFromUTC(timestamp, zoneid): ZoneInfo
 #### Example
 
 ```typescript
-const en = framework.get('en');
-const zoneid = 'America/New_York';
+const en = framework.get("en");
+const zoneid = "America/New_York";
 // Sun Mar 8 2020 6:59 AM UTC
 log(en.Calendars.timeZoneFromUTC(1583650740000, zoneid));
 // 1 minute later
 log(en.Calendars.timeZoneFromUTC(1583650800000, zoneid));
 ```
+
 <pre class="output">
 { abbr: 'EST', dst: 0, offset: -18000000, zoneid: 'America/New_York' }
 { abbr: 'EDT', dst: 1, offset: -14400000, zoneid: 'America/New_York' }
 </pre>
-
 
 ## timeZoneFromWall
 
@@ -1165,13 +1165,14 @@ timeZoneFromWall(timestamp, zoneid): [number, ZoneInfo]
 #### Example
 
 ```typescript
-const en = framework.get('en');
-const zoneid = 'America/New_York';
+const en = framework.get("en");
+const zoneid = "America/New_York";
 // Sun Mar 8 2020 1:59 AM NY time
 log(en.Calendars.timeZoneFromWall(1583632740000, zoneid));
 // 1 minute later
 log(en.Calendars.timeZoneFromWall(1583632800000, zoneid));
 ```
+
 <pre class="output">
 [
   1583650740000,
@@ -1193,6 +1194,38 @@ log(en.Calendars.timeZoneFromWall(1583632800000, zoneid));
 ]
 </pre>
 
+## timeData
+
+Returns the preferred and allowed hour cycles for the current region.
+
+#### Syntax
+
+<pre class="syntax">
+timeData(): TimeData
+</pre>
+
+#### Example
+
+```typescript
+const en = framework.get("en-US");
+const info = en.Calendars.timeData();
+log(info);
+
+const date = {
+  date: 1579633019000,
+  zoneId: "America/New_York",
+};
+log(en.Calendars.formatDate(date, { skeleton: info.preferred }));
+log(
+  info.allowed.map((skeleton) => en.Calendars.formatDate(date, { skeleton }))
+);
+```
+
+<pre class="output">
+{ preferred: 'h', allowed: [ 'h', 'hb', 'H', 'hB' ] }
+1 PM
+[ '1 PM', '1 PM', '13', '1 in the afternoon' ]
+</pre>
 
 ## timeZoneInfo
 
@@ -1212,112 +1245,90 @@ timeZoneInfo(id): TimeZoneInfo[]
 #### Example
 
 ```typescript
-const en = framework.get('en');
-const ids = en.Calendars.timeZoneIds();
-for (const id of ids.slice(0, 10)) {
+const en = framework.get("en");
+const ids = [
+  "America/New_York",
+  "Pacific/Honolulu",
+  "Europe/Berlin",
+  "Asia/Tokyo",
+];
+for (const id of ids.slice(0, 4)) {
   log(en.Calendars.timeZoneInfo(id));
 }
-log('...');
+log("...");
 ```
+
 <pre class="output">
 {
-  id: 'Africa/Abidjan',
-  city: { name: 'Abidjan' },
-  countries: [
-    'CI', 'BF', 'GH',
-    'GM', 'GN', 'IS',
-    'ML', 'MR', 'SH',
-    'SL', 'SN', 'TG'
-  ],
-  latitude: 5.316667,
-  longitude: -4.033333,
-  stdoffset: 0,
-  metazone: 'GMT'
+  id: 'America/New_York',
+  city: { name: 'New York' },
+  countries: [ 'US' ],
+  latitude: 40.714167,
+  longitude: -74.006389,
+  stdoffset: -18000000,
+  metazone: 'America_Eastern',
+  names: {
+    long: {
+      generic: 'Eastern Time',
+      standard: 'Eastern Standard Time',
+      daylight: 'Eastern Daylight Time'
+    },
+    short: { generic: 'ET', standard: 'EST', daylight: 'EDT' }
+  }
 }
 {
-  id: 'Africa/Algiers',
-  city: { name: 'Algiers' },
-  countries: [ 'DZ' ],
-  latitude: 36.783333,
-  longitude: 3.05,
+  id: 'Pacific/Honolulu',
+  city: { name: 'Unknown City' },
+  countries: [ 'US', 'UM' ],
+  latitude: 21.306944,
+  longitude: -157.858333,
+  stdoffset: -36000000,
+  metazone: 'Hawaii_Aleutian',
+  names: {
+    long: {
+      generic: 'Hawaii-Aleutian Time',
+      standard: 'Hawaii-Aleutian Standard Time',
+      daylight: 'Hawaii-Aleutian Daylight Time'
+    },
+    short: { generic: 'HAT', standard: 'HAST', daylight: 'HADT' }
+  }
+}
+{
+  id: 'Europe/Berlin',
+  city: { name: 'Berlin' },
+  countries: [ 'DE', 'DK', 'NO', 'SE', 'SJ' ],
+  latitude: 52.5,
+  longitude: 13.366667,
   stdoffset: 3600000,
-  metazone: 'Europe_Central'
+  metazone: 'Europe_Central',
+  names: {
+    long: {
+      generic: 'Central European Time',
+      standard: 'Central European Standard Time',
+      daylight: 'Central European Summer Time'
+    },
+    short: { generic: '', standard: '', daylight: '' }
+  }
 }
 {
-  id: 'Africa/Bissau',
-  city: { name: 'Bissau' },
-  countries: [ 'GW' ],
-  latitude: 11.85,
-  longitude: -15.583333,
-  stdoffset: 0,
-  metazone: 'GMT'
-}
-{
-  id: 'Africa/Cairo',
-  city: { name: 'Cairo' },
-  countries: [ 'EG' ],
-  latitude: 30.05,
-  longitude: 31.25,
-  stdoffset: 7200000,
-  metazone: 'Europe_Eastern'
-}
-{
-  id: 'Africa/Casablanca',
-  city: { name: 'Casablanca' },
-  countries: [ 'MA' ],
-  latitude: 33.65,
-  longitude: -7.583333,
-  stdoffset: 3600000,
-  metazone: 'Europe_Western'
-}
-{
-  id: 'Africa/Ceuta',
-  city: { name: 'Ceuta' },
-  countries: [ 'ES' ],
-  latitude: 35.883333,
-  longitude: -5.316667,
-  stdoffset: 3600000,
-  metazone: 'Europe_Central'
-}
-{
-  id: 'Africa/El_Aaiun',
-  city: { name: 'El Aaiun' },
-  countries: [ 'EH' ],
-  latitude: 27.15,
-  longitude: -13.2,
-  stdoffset: 3600000,
-  metazone: 'Europe_Western'
-}
-{
-  id: 'Africa/Johannesburg',
-  city: { name: 'Johannesburg' },
-  countries: [ 'ZA', 'LS', 'SZ' ],
-  latitude: -26.25,
-  longitude: 28,
-  stdoffset: 7200000,
-  metazone: 'Africa_Southern'
-}
-{
-  id: 'Africa/Juba',
-  city: { name: 'Juba' },
-  countries: [ 'SS' ],
-  latitude: 4.85,
-  longitude: 31.616667,
-  stdoffset: 7200000,
-  metazone: 'Africa_Central'
-}
-{
-  id: 'Africa/Khartoum',
-  city: { name: 'Khartoum' },
-  countries: [ 'SD' ],
-  latitude: 15.6,
-  longitude: 32.533333,
-  stdoffset: 7200000,
-  metazone: 'Africa_Central'
+  id: 'Asia/Tokyo',
+  city: { name: 'Tokyo' },
+  countries: [ 'JP' ],
+  latitude: 35.654444,
+  longitude: 139.744722,
+  stdoffset: 32400000,
+  metazone: 'Japan',
+  names: {
+    long: {
+      generic: 'Japan Time',
+      standard: 'Japan Standard Time',
+      daylight: 'Japan Daylight Time'
+    },
+    short: { generic: '', standard: '', daylight: '' }
+  }
 }
 ...
 </pre>
-
 
 ## toBuddhistDate
 
@@ -1337,18 +1348,18 @@ toBuddhistDate(date): BuddhistDate
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 log(
   cldr.Calendars.toBuddhistDate({
     date: 1530124872456,
-    zoneId: 'America/New_York',
+    zoneId: "America/New_York",
   })
 );
 ```
+
 <pre class="output">
 Buddhist 2018-06-27 14:41:12.456 America/New_York
 </pre>
-
 
 ## toGregorianDate
 
@@ -1368,25 +1379,25 @@ toGregorianDate(date): GregorianDate
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 log(
   cldr.Calendars.toGregorianDate({
     date: 1530124872456,
-    zoneId: 'America/New_York',
+    zoneId: "America/New_York",
   })
 );
 ```
+
 <pre class="output">
 Gregorian 2018-06-27 14:41:12.456 America/New_York
 </pre>
 
-
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 
 // JavaScript Date is interpreted as a UTC date time
 let date = new Date(2018, 1, 17, 12, 34, 56, 789);
-const zoneId = 'America/New_York';
+const zoneId = "America/New_York";
 
 const d = cldr.Calendars.toGregorianDate({ date, zoneId });
 log(d);
@@ -1395,11 +1406,11 @@ date = new Date(2018, 6, 17, 12, 34, 56, 789);
 d = cldr.Calendars.toGregorianDate({ date, zoneId });
 log(d);
 ```
+
 <pre class="output">
 Gregorian 2018-02-17 12:34:56.789 America/New_York
 Gregorian 2018-07-17 12:34:56.789 America/New_York
 </pre>
-
 
 ## toISO8601Date
 
@@ -1417,7 +1428,7 @@ toISO8601Date(date): ISO8601Date
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 const weekdays = cldr.Calendars.weekdays();
 const date = cldr.Calendars.toGregorianDate({ date: new Date(2017, 0, 1) });
 const iso = cldr.Calendars.toISO8601Date(date);
@@ -1430,11 +1441,11 @@ const woy = (d: CalendarDate) =>
 log(`gregorian ${wk(date)}, ${woy(date)}`);
 log(` iso-8601 ${wk(iso)}, ${woy(iso)}`);
 ```
+
 <pre class="output">
 gregorian week starts on Sunday, week of year: 2017-1
  iso-8601 week starts on Monday, week of year: 2016-52
 </pre>
-
 
 ## toJapaneseDate
 
@@ -1452,21 +1463,21 @@ toJapaneseDate(date): JapaneseDate
 #### Example
 
 ```typescript
-const cldr = framework.get('en');
+const cldr = framework.get("en");
 const date = cldr.Calendars.toJapaneseDate({
   date: 1530124872456,
-  zoneId: 'America/New_York',
+  zoneId: "America/New_York",
 });
 log(date);
 log(date.relatedYear());
 log(date.year());
 ```
+
 <pre class="output">
 Japanese 2018-06-27 14:41:12.456 America/New_York
 2018
 30
 </pre>
-
 
 ## toPersianDate
 
@@ -1499,13 +1510,14 @@ weekdays(options?): any
 #### Example
 
 ```typescript
-const en = framework.get('en');
-const es = framework.get('es');
-const context = 'ui-list-or-menu';
+const en = framework.get("en");
+const es = framework.get("es");
+const context = "ui-list-or-menu";
 
 log(en.Calendars.weekdays({ context }));
 log(es.Calendars.weekdays({ context }));
 ```
+
 <pre class="output">
 {
   '1': 'Sunday',
@@ -1526,4 +1538,3 @@ log(es.Calendars.weekdays({ context }));
   '7': 'Sábado'
 }
 </pre>
-

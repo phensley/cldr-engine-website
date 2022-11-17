@@ -721,6 +721,63 @@
       },
       "version-1.5.1/version-1.5.1-doc-messageformatting-custom": {
         "title": "Customization"
+      },
+      "version-1.6.4/version-1.6.4-api-calendardate": {
+        "title": "CalendarDate"
+      },
+      "version-1.6.4/version-1.6.4-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-1.6.4/version-1.6.4-api-cldr-units": {
+        "title": "CLDR.Units"
+      },
+      "version-1.6.4/version-1.6.4-api-cldr": {
+        "title": "CLDR"
+      },
+      "version-1.6.4/version-1.6.4-api-currencytype": {
+        "title": "CurrencyType"
+      },
+      "version-1.6.4/version-1.6.4-api-dateformataltoptions": {
+        "title": "DateFormatAltOptions"
+      },
+      "version-1.6.4/version-1.6.4-api-dateformatoptions": {
+        "title": "DateFormatOptions"
+      },
+      "version-1.6.4/version-1.6.4-api-dateintervalformatoptions": {
+        "title": "DateIntervalFormatOptions"
+      },
+      "version-1.6.4/version-1.6.4-api-dateskeleton": {
+        "title": "DateSkeleton"
+      },
+      "version-1.6.4/version-1.6.4-api-datewrapperformatoptions": {
+        "title": "DateWrapperFormatOptions"
+      },
+      "version-1.6.4/version-1.6.4-api-dayperiodalttype": {
+        "title": "DayPeriodAltType"
+      },
+      "version-1.6.4/version-1.6.4-api-languageidtype": {
+        "title": "LanguageIdType"
+      },
+      "version-1.6.4/version-1.6.4-api-timeperiod": {
+        "title": "TimePeriod"
+      },
+      "version-1.6.4/version-1.6.4-api-timezoneinfo": {
+        "title": "TimeZoneInfo"
+      },
+      "version-1.6.4/version-1.6.4-api-timezonetype": {
+        "title": "TimeZoneType"
+      },
+      "version-1.6.4/version-1.6.4-api-unittype": {
+        "title": "UnitType"
+      },
+      "version-1.6.4/version-1.6.4-doc-calendar-examples": {
+        "title": "Example: date formatting"
+      },
+      "version-1.6.4/version-1.6.4-doc-calendar-overview": {
+        "title": "Calendar Overview"
+      },
+      "version-1.6.4/version-1.6.4-doc-messageformatting-custom": {
+        "title": "Customization"
       }
     },
     "links": {

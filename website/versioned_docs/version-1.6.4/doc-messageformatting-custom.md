@@ -1,5 +1,5 @@
 ---
-id: version-1.6.0-doc-messageformatting-custom
+id: version-1.6.4-doc-messageformatting-custom
 title: Customization
 original_id: doc-messageformatting-custom
 ---
@@ -111,15 +111,15 @@ for (const id of ['en', 'es', 'ko']) {
 <pre class="output">
 English
   "12,535.99"  "13K"  "13 thousand"
-  "10/21/22, 8:40 AM"  "October 21, 2022 at 8:40:12 AM PDT"
+  "11/17/22, 11:21 AM"  "November 17, 2022 at 11:21:21 AM PST"
   "12,351,330.00 euros"  "€12,351,330.00"  "€12M"
 Spanish
   "12.535,99"  "13 mil"  "13 mil"
-  "21/10/22, 8:40"  "21 de octubre de 2022, 8:40:12 GMT-7"
+  "17/11/22, 11:21"  "17 de noviembre de 2022, 11:21:21 GMT-8"
   "12.351.330,00 euros"  "12.351.330,00 €"  "12 M€"
 Korean
   "12,535.99"  "1.3만"  "1.3만"
-  "22. 10. 21. AM 8:40"  "2022년 10월 21일 AM 8시 40분 12초 GMT-7"
+  "22. 11. 17. AM 11:21"  "2022년 11월 17일 AM 11시 21분 21초 GMT-8"
   "12,351,330.00 유로"  "€12,351,330.00"  "€1,235만"
 </pre>
 
