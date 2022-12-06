@@ -722,61 +722,61 @@
       "version-1.5.1/version-1.5.1-doc-messageformatting-custom": {
         "title": "Customization"
       },
-      "version-1.6.4/version-1.6.4-api-calendardate": {
+      "version-1.6.5/version-1.6.5-api-calendardate": {
         "title": "CalendarDate"
       },
-      "version-1.6.4/version-1.6.4-api-cldr-calendars": {
+      "version-1.6.5/version-1.6.5-api-cldr-calendars": {
         "title": "CLDR.Calendars"
       },
-      "version-1.6.4/version-1.6.4-api-cldr-units": {
+      "version-1.6.5/version-1.6.5-api-cldr-units": {
         "title": "CLDR.Units"
       },
-      "version-1.6.4/version-1.6.4-api-cldr": {
+      "version-1.6.5/version-1.6.5-api-cldr": {
         "title": "CLDR"
       },
-      "version-1.6.4/version-1.6.4-api-currencytype": {
+      "version-1.6.5/version-1.6.5-api-currencytype": {
         "title": "CurrencyType"
       },
-      "version-1.6.4/version-1.6.4-api-dateformataltoptions": {
+      "version-1.6.5/version-1.6.5-api-dateformataltoptions": {
         "title": "DateFormatAltOptions"
       },
-      "version-1.6.4/version-1.6.4-api-dateformatoptions": {
+      "version-1.6.5/version-1.6.5-api-dateformatoptions": {
         "title": "DateFormatOptions"
       },
-      "version-1.6.4/version-1.6.4-api-dateintervalformatoptions": {
+      "version-1.6.5/version-1.6.5-api-dateintervalformatoptions": {
         "title": "DateIntervalFormatOptions"
       },
-      "version-1.6.4/version-1.6.4-api-dateskeleton": {
+      "version-1.6.5/version-1.6.5-api-dateskeleton": {
         "title": "DateSkeleton"
       },
-      "version-1.6.4/version-1.6.4-api-datewrapperformatoptions": {
+      "version-1.6.5/version-1.6.5-api-datewrapperformatoptions": {
         "title": "DateWrapperFormatOptions"
       },
-      "version-1.6.4/version-1.6.4-api-dayperiodalttype": {
+      "version-1.6.5/version-1.6.5-api-dayperiodalttype": {
         "title": "DayPeriodAltType"
       },
-      "version-1.6.4/version-1.6.4-api-languageidtype": {
+      "version-1.6.5/version-1.6.5-api-languageidtype": {
         "title": "LanguageIdType"
       },
-      "version-1.6.4/version-1.6.4-api-timeperiod": {
+      "version-1.6.5/version-1.6.5-api-timeperiod": {
         "title": "TimePeriod"
       },
-      "version-1.6.4/version-1.6.4-api-timezoneinfo": {
+      "version-1.6.5/version-1.6.5-api-timezoneinfo": {
         "title": "TimeZoneInfo"
       },
-      "version-1.6.4/version-1.6.4-api-timezonetype": {
+      "version-1.6.5/version-1.6.5-api-timezonetype": {
         "title": "TimeZoneType"
       },
-      "version-1.6.4/version-1.6.4-api-unittype": {
+      "version-1.6.5/version-1.6.5-api-unittype": {
         "title": "UnitType"
       },
-      "version-1.6.4/version-1.6.4-doc-calendar-examples": {
+      "version-1.6.5/version-1.6.5-doc-calendar-examples": {
         "title": "Example: date formatting"
       },
-      "version-1.6.4/version-1.6.4-doc-calendar-overview": {
+      "version-1.6.5/version-1.6.5-doc-calendar-overview": {
         "title": "Calendar Overview"
       },
-      "version-1.6.4/version-1.6.4-doc-messageformatting-custom": {
+      "version-1.6.5/version-1.6.5-doc-messageformatting-custom": {
         "title": "Customization"
       }
     },
