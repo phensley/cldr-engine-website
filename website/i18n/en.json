@@ -778,6 +778,24 @@
       },
       "version-1.6.5/version-1.6.5-doc-messageformatting-custom": {
         "title": "Customization"
+      },
+      "version-1.7.2/version-1.7.2-api-cldr-calendars": {
+        "title": "CLDR.Calendars"
+      },
+      "version-1.7.2/version-1.7.2-api-languageidtype": {
+        "title": "LanguageIdType"
+      },
+      "version-1.7.2/version-1.7.2-api-regionidtype": {
+        "title": "RegionIdType"
+      },
+      "version-1.7.2/version-1.7.2-api-timezonetype": {
+        "title": "TimeZoneType"
+      },
+      "version-1.7.2/version-1.7.2-api-unittype": {
+        "title": "UnitType"
+      },
+      "version-1.7.2/version-1.7.2-doc-messageformatting-custom": {
+        "title": "Customization"
       }
     },
     "links": {

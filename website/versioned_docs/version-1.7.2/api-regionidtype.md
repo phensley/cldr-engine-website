@@ -1,6 +1,7 @@
 ---
-id: api-regionidtype
+id: version-1.7.2-api-regionidtype
 title: RegionIdType
+original_id: api-regionidtype
 ---
 
 
