@@ -7,7 +7,10 @@ const cldr = getCLDR();
 
 const LANGUAGE_CODES = config['language-id']!.sort();
 const LANGUAGE_DESC = LANGUAGE_CODES!
-  .map(l => `  - '${l}'\n    - ${cldr.General.getLanguageDisplayName(l as LanguageIdType)}`);
+  .map(l => {
+    let n = cldr.General.getLanguageDisplayName(l as LanguageIdType);
+    return `  - '${l}'\n    - ${n ? n : '(no value)'}`;
+});
 
 const LANGUAGE_ID_TYPE = `
 

@@ -796,6 +796,12 @@
       },
       "version-1.7.3/version-1.7.3-doc-messageformatting-custom": {
         "title": "Customization"
+      },
+      "version-1.8.0/version-1.8.0-api-languageidtype": {
+        "title": "LanguageIdType"
+      },
+      "version-1.8.0/version-1.8.0-api-unittype": {
+        "title": "UnitType"
       }
     },
     "links": {
