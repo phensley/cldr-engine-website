@@ -1,5 +1,5 @@
 ---
-id: version-1.7.2-api-timezonetype
+id: version-1.7.3-api-timezonetype
 title: TimeZoneType
 original_id: api-timezonetype
 ---

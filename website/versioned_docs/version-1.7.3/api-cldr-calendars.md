@@ -1,5 +1,5 @@
 ---
-id: version-1.7.2-api-cldr-calendars
+id: version-1.7.3-api-cldr-calendars
 title: CLDR.Calendars
 original_id: api-cldr-calendars
 ---
