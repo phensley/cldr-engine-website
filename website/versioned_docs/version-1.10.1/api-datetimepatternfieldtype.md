@@ -1,6 +1,7 @@
 ---
-id: api-datetimepatternfieldtype
+id: version-1.10.1-api-datetimepatternfieldtype
 title: DateTimePatternFieldType
+original_id: api-datetimepatternfieldtype
 ---
 
 A single character representing a field in a date.
