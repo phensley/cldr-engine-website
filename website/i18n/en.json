@@ -677,6 +677,9 @@
       "version-1.10.1/version-1.10.1-api-timezonetype": {
         "title": "TimeZoneType"
       },
+      "version-1.10.2/version-1.10.2-api-calendardate": {
+        "title": "CalendarDate"
+      },
       "version-1.2.10/version-1.2.10-api-cldr-calendars": {
         "title": "CLDR.Calendars"
       },
