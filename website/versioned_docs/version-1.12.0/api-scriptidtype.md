@@ -1,6 +1,7 @@
 ---
-id: api-scriptidtype
+id: version-1.12.0-api-scriptidtype
 title: ScriptIdType
+original_id: api-scriptidtype
 ---
 
 

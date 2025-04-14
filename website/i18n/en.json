@@ -680,6 +680,21 @@
       "version-1.10.2/version-1.10.2-api-calendardate": {
         "title": "CalendarDate"
       },
+      "version-1.12.0/version-1.12.0-api-currencytype": {
+        "title": "CurrencyType"
+      },
+      "version-1.12.0/version-1.12.0-api-languageidtype": {
+        "title": "LanguageIdType"
+      },
+      "version-1.12.0/version-1.12.0-api-scriptidtype": {
+        "title": "ScriptIdType"
+      },
+      "version-1.12.0/version-1.12.0-api-timezonetype": {
+        "title": "TimeZoneType"
+      },
+      "version-1.12.0/version-1.12.0-api-unittype": {
+        "title": "UnitType"
+      },
       "version-1.2.10/version-1.2.10-api-cldr-calendars": {
         "title": "CLDR.Calendars"
       },

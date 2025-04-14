@@ -1,6 +1,7 @@
 ---
-id: api-currencytype
+id: version-1.12.0-api-currencytype
 title: CurrencyType
+original_id: api-currencytype
 ---
 
 

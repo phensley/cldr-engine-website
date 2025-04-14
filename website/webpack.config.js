@@ -16,7 +16,7 @@ const config = {
     path: __dirname + "/static/"
   },
   devServer: {
-    publicPath: '/cldr-engine/',
+    //publicPath: '/cldr-engine/',
     compress: true
   },
   performance: {
@@ -63,8 +63,8 @@ module.exports = (env, argv) => {
   let nodeEnv = 'production';
 
   if (argv.mode === 'development') {
-    config.devServer.publicPath = path.join('/');
-    config.devServer.contentBase = path.join(__dirname);
+    //config.devServer.publicPath = path.join('/');
+    //config.devServer.contentBase = path.join(__dirname);
     publicUrl = '/static/';
     nodeEnv = argv.mode;
   }
