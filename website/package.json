@@ -22,7 +22,7 @@
     "unlink-all": "ls --color=none node_modules/@phensley | xargs -I % yarn unlink @phensley/%"
   },
   "dependencies": {
-    "@phensley/cldr": "1.12.0",
+    "@phensley/cldr": "1.12.1",
     "@types/react-router-dom": "5.3.3",
     "@types/styled-components": "5.1.26",
     "emotion": "11.0.0",
