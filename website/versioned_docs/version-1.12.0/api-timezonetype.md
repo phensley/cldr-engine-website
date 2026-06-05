@@ -1,7 +1,6 @@
 ---
-id: version-1.12.0-api-timezonetype
+id: api-timezonetype
 title: TimeZoneType
-original_id: api-timezonetype
 ---
 
 
@@ -69,7 +68,6 @@ The identifier for a timezone, e.g. '`America/New_York`'.
   - 'America/Chihuahua'
   - 'America/Ciudad_Juarez'
   - 'America/Costa_Rica'
-  - 'America/Coyhaique'
   - 'America/Cuiaba'
   - 'America/Danmarkshavn'
   - 'America/Dawson'

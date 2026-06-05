@@ -1,7 +1,6 @@
 ---
-id: version-1.5.1-api-unittype
+id: api-unittype
 title: UnitType
-original_id: api-unittype
 ---
 
 

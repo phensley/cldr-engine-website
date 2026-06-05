@@ -1,7 +1,6 @@
 ---
-id: version-1.12.0-api-currencytype
+id: api-currencytype
 title: CurrencyType
-original_id: api-currencytype
 ---
 
 
@@ -10,7 +9,7 @@ A 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for a currenc
 ### Syntax
 
 <pre class="syntax">
-'ADP' | 'AED' | 'AFA' | 'AFN' ... 'ZWD' | 'ZWG' | 'ZWL' | 'ZWR'
+'ADP' | 'AED' | 'AFA' | 'AFN' ... 'ZRZ' | 'ZWD' | 'ZWL' | 'ZWR'
 </pre>
 
 
@@ -624,10 +623,8 @@ A 3-letter [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) code for a currenc
     - Zairean Zaire (1971–1993)
   - 'ZWD'
     - Zimbabwean Dollar (1980–2008)
-  - 'ZWG'
-    - Zimbabwean Gold
   - 'ZWL'
-    - Zimbabwean Dollar (2009–2024)
+    - Zimbabwean Dollar (2009)
   - 'ZWR'
     - Zimbabwean Dollar (2008)
 

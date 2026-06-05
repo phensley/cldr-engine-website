@@ -1,7 +1,6 @@
 ---
-id: version-1.0.9-api-dateformatoptions
+id: api-dateformatoptions
 title: DateFormatOptions
-original_id: api-dateformatoptions
 ---
 
 ### Syntax

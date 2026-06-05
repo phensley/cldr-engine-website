@@ -1,7 +1,6 @@
 ---
-id: version-1.12.0-api-languageidtype
+id: api-languageidtype
 title: LanguageIdType
-original_id: api-languageidtype
 ---
 
 
@@ -40,6 +39,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Aghem
   - 'ain'
     - Ainu
+  - 'ajp'
+    - South Levantine Arabic
   - 'ak'
     - Akan
   - 'akk'
@@ -272,6 +273,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Church Slavic
   - 'cv'
     - Chuvash
+  - 'cwd'
+    - Woods Cree
   - 'cy'
     - Welsh
   - 'da'
@@ -440,6 +443,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Guarani
   - 'goh'
     - Old High German
+  - 'gom'
+    - Goan Konkani
   - 'gon'
     - Gondi
   - 'gor'
@@ -474,6 +479,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Hawaiian
   - 'hax'
     - Southern Haida
+  - 'hdn'
+    - Northern Haida
   - 'he'
     - Hebrew
   - 'hi'
@@ -526,6 +533,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Sichuan Yi
   - 'ik'
     - Inupiaq
+  - 'ike'
+    - Eastern Canadian Inuktitut
   - 'ikt'
     - Western Canadian Inuktitut
   - 'ilo'
@@ -694,8 +703,6 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Livonian
   - 'lkt'
     - Lakota
-  - 'lld'
-    - (no value)
   - 'lmo'
     - Lombard
   - 'ln'
@@ -772,8 +779,6 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Metaʼ
   - 'mh'
     - Marshallese
-  - 'mhn'
-    - (no value)
   - 'mi'
     - Māori
   - 'mic'
@@ -900,6 +905,8 @@ An [ISO 639](https://en.wikipedia.org/wiki/ISO_639) identifier for a language.
     - Northwestern Ojibwa
   - 'ojc'
     - Central Ojibwa
+  - 'ojg'
+    - Eastern Ojibwa
   - 'ojs'
     - Oji-Cree
   - 'ojw'

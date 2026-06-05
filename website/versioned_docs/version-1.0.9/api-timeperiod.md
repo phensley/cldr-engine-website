@@ -1,7 +1,6 @@
 ---
-id: version-1.0.9-api-timeperiod
+id: api-timeperiod
 title: TimePeriod
-original_id: api-timeperiod
 ---
 
 Represents a time period composed of several date and time fields. Can be used to add or subtract an amount from a [CalendarDate](api-calendardate.html), or as the result of [CalendarDate.difference](api-calendardate.html#difference).

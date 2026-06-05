@@ -1,7 +1,6 @@
 ---
-id: version-1.7.3-api-languageidtype
+id: api-languageidtype
 title: LanguageIdType
-original_id: api-languageidtype
 ---
 
 

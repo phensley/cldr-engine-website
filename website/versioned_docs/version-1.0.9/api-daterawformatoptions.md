@@ -1,7 +1,6 @@
 ---
-id: version-1.0.9-api-daterawformatoptions
+id: api-daterawformatoptions
 title: DateRawFormatOptions
-original_id: api-daterawformatoptions
 ---
 
 Format a date directly using a raw format.

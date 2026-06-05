@@ -1,7 +1,6 @@
 ---
-id: version-1.0.9-api-currencyformatoptions
+id: api-currencyformatoptions
 title: CurrencyFormatOptions
-original_id: api-currencyformatoptions
 ---
 
 Object expressing options for currency formatting methods.

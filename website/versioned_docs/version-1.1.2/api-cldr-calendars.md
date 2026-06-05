@@ -1,7 +1,6 @@
 ---
-id: version-1.1.2-api-cldr-calendars
+id: api-cldr-calendars
 title: CLDR.Calendars
-original_id: api-cldr-calendars
 ---
 
 The `CLDR.Calendars` namespace allows you to:
@@ -498,9 +497,9 @@ formatDateWrapper(date, time, options?): Part[]
 
 #### Parameters
 
-- <code class="def">date: <span>[Part](api-part)</span></code>
+- <code class="def">date: <span>Part</span></code>
   - A formatted date `Part[]`
-- <code class="def">time: <span>[Part](api-part)</span></code>
+- <code class="def">time: <span>Part</span></code>
   - A formatted time `Part[]`
 - <code class="def">options?: <span>[DateWrapperFormatOptions](api-datewrapperformatoptions)</span></code>
   - Options to control the calendar and width of the format

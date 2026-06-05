@@ -1,7 +1,6 @@
 ---
-id: version-1.0.9-doc-locales-matching
+id: doc-locales-matching
 title: Language matching
-original_id: doc-locales-matching
 ---
 
 The CLDR [enhanced language matching](https://www.unicode.org/reports/tr35/tr35.html#EnhancedLanguageMatching) algorithm matches one or more desired locales against a list of supported locales.
