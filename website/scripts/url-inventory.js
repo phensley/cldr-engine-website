@@ -25,9 +25,11 @@ const add = (pathname, expected, cls, extra = {}) => {
 
 // --- static assets (served at site root in both v1 and v3) ---
 for (const f of ['img/favicon.ico', 'img/cldr-engine-logo-bw.png', 'img/cldr-engine-logo-bw.svg',
-  'img/cldr-engine-logo-w.svg', 'img/factorial.png', 'js/sidenav.js', 'liveapi-css/min.css']) {
+  'img/cldr-engine-logo-w.svg', 'img/factorial.png', 'liveapi-css/min.css']) {
   add('/' + f, 200, 'static');
 }
+// sidenav.js: v1-only (v3 scrolls the sidebar natively) — dropped by design
+add('/js/sidenav.js', 404, 'static-dropped', { note: 'v1-only; v3 handles sidebar scroll' });
 
 // --- pages ---
 add('/', 200, 'page', { id: 'index' });

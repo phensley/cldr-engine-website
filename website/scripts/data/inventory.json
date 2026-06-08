@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-08-30T19:24:32.422Z",
+  "generatedAt": "2026-08-30T19:42:05.362Z",
   "base": "https://phensley.github.io/cldr-engine",
   "summary": {
     "urls": 2675,
     "byExpected": {
-      "200": 2651,
-      "404": 24
+      "200": 2650,
+      "404": 25
     }
   },
   "live": null,
@@ -36,14 +36,15 @@
       "class": "static"
     },
     {
-      "path": "/js/sidenav.js",
+      "path": "/liveapi-css/min.css",
       "expected": 200,
       "class": "static"
     },
     {
-      "path": "/liveapi-css/min.css",
-      "expected": 200,
-      "class": "static"
+      "path": "/js/sidenav.js",
+      "expected": 404,
+      "class": "static-dropped",
+      "note": "v1-only; v3 handles sidebar scroll"
     },
     {
       "path": "/",
