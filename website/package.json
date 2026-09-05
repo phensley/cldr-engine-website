@@ -4,6 +4,7 @@
   "author": "Patrick Hensley <pathensley@gmail.com>",
   "license": "Apache-2.0",
   "version": "1.5.1",
+  "packageManager": "pnpm@11.22.0",
   "scripts": {
     "clean": "node -e \"fs.rmSync('build',{recursive:true,force:true})\"",
     "generate": "ts-node src/docgen/index.ts",
